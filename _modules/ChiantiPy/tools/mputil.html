@@ -1,0 +1,325 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ChiantiPy.tools.mputil &mdash; ChiantiPy v0.7.1a</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/astropy_logo.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="ChiantiPy v0.7.1a" href="../../../index.html"/>
+        <link rel="up" title="ChiantiPy" href="../../ChiantiPy.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> ChiantiPy
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.7.1a
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started.html">Getting started with ChiantiPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../code_ref/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes.html">Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../IDL_intro.html">Intro for CHIANTI IDL Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../resources.html">Resources for ChiantiPy Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bugs.html">Reporting Bugs</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">ChiantiPy</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../ChiantiPy.html">ChiantiPy</a> &raquo;</li>
+        
+      <li>ChiantiPy.tools.mputil</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ChiantiPy.tools.mputil</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Functions needed for standard Python multiprocessing module mspectrum</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">ChiantiPy</span>
+
+<div class="viewcode-block" id="doFfQ"><a class="viewcode-back" href="../../../api/ChiantiPy.tools.mputil.doFfQ.html#ChiantiPy.tools.mputil.doFfQ">[docs]</a><span class="k">def</span> <span class="nf">doFfQ</span><span class="p">(</span><span class="n">inQ</span><span class="p">,</span> <span class="n">outQ</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Multiprocessing helper for `ChiantiPy.core.continuum.freeFree`</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    -----------</span>
+<span class="sd">    inQ : `~multiprocessing.Queue`</span>
+<span class="sd">        Ion free-free emission jobs queued up by multiprocessing module</span>
+<span class="sd">    outQ : `~multiprocessing.Queue`</span>
+<span class="sd">        Finished free-free emission jobs</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">inputs</span> <span class="ow">in</span> <span class="nb">iter</span><span class="p">(</span><span class="n">inQ</span><span class="o">.</span><span class="n">get</span><span class="p">,</span> <span class="s1">&#39;STOP&#39;</span><span class="p">):</span>
+        <span class="n">ionS</span> <span class="o">=</span> <span class="n">inputs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">temperature</span> <span class="o">=</span> <span class="n">inputs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">wavelength</span> <span class="o">=</span> <span class="n">inputs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">abund</span> <span class="o">=</span> <span class="n">inputs</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+        <span class="n">em</span> <span class="o">=</span> <span class="n">inputs</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+        <span class="n">ff</span> <span class="o">=</span> <span class="n">ChiantiPy</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">continuum</span><span class="p">(</span><span class="n">ionS</span><span class="p">,</span> <span class="n">temperature</span><span class="p">,</span> <span class="n">abundance</span><span class="o">=</span><span class="n">abund</span><span class="p">,</span> <span class="n">em</span><span class="o">=</span><span class="n">em</span><span class="p">)</span>
+        <span class="n">ff</span><span class="o">.</span><span class="n">freeFree</span><span class="p">(</span><span class="n">wavelength</span><span class="p">)</span>
+        <span class="n">outQ</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">ff</span><span class="o">.</span><span class="n">FreeFree</span><span class="p">)</span>
+    <span class="k">return</span></div>
+
+
+<div class="viewcode-block" id="doFbQ"><a class="viewcode-back" href="../../../api/ChiantiPy.tools.mputil.doFbQ.html#ChiantiPy.tools.mputil.doFbQ">[docs]</a><span class="k">def</span> <span class="nf">doFbQ</span><span class="p">(</span><span class="n">inQ</span><span class="p">,</span> <span class="n">outQ</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Multiprocessing helper for `ChiantiPy.core.continuum.freeBound`</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    -----------</span>
+<span class="sd">    inQ : `~multiprocessing.Queue`</span>
+<span class="sd">        Ion free-bound emission jobs queued up by multiprocessing module</span>
+<span class="sd">    outQ : `~multiprocessing.Queue`</span>
+<span class="sd">        Finished free-bound emission jobs</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">inputs</span> <span class="ow">in</span> <span class="nb">iter</span><span class="p">(</span><span class="n">inQ</span><span class="o">.</span><span class="n">get</span><span class="p">,</span> <span class="s1">&#39;STOP&#39;</span><span class="p">):</span>
+        <span class="n">ionS</span> <span class="o">=</span> <span class="n">inputs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">temperature</span> <span class="o">=</span> <span class="n">inputs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">wavelength</span> <span class="o">=</span> <span class="n">inputs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">abund</span> <span class="o">=</span> <span class="n">inputs</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+        <span class="n">em</span> <span class="o">=</span> <span class="n">inputs</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+        <span class="n">fb</span> <span class="o">=</span> <span class="n">ChiantiPy</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">continuum</span><span class="p">(</span><span class="n">ionS</span><span class="p">,</span> <span class="n">temperature</span><span class="p">,</span> <span class="n">abundance</span><span class="o">=</span><span class="n">abund</span><span class="p">,</span> <span class="n">em</span><span class="o">=</span><span class="n">em</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">fb</span><span class="o">.</span><span class="n">freeBound</span><span class="p">(</span><span class="n">wavelength</span><span class="p">)</span>
+<span class="c1">#            fb_emiss = fb.FreeBound[&#39;intensity&#39;]</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="n">fb</span><span class="o">.</span><span class="n">FreeBound</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;intensity&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">temperature</span><span class="p">),</span><span class="nb">len</span><span class="p">(</span><span class="n">wavelength</span><span class="p">)))}</span>
+        <span class="n">outQ</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">fb</span><span class="o">.</span><span class="n">FreeBound</span><span class="p">)</span>
+    <span class="k">return</span></div>
+
+
+<div class="viewcode-block" id="doIonQ"><a class="viewcode-back" href="../../../api/ChiantiPy.tools.mputil.doIonQ.html#ChiantiPy.tools.mputil.doIonQ">[docs]</a><span class="k">def</span> <span class="nf">doIonQ</span><span class="p">(</span><span class="n">inQueue</span><span class="p">,</span> <span class="n">outQueue</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Multiprocessing helper for `ChiantiPy.core.ion` and `ChiantiPy.core.ion.twoPhoton`</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    -----------</span>
+<span class="sd">    inQueue : `~multiprocessing.Queue`</span>
+<span class="sd">        Jobs queued up by multiprocessing module</span>
+<span class="sd">    outQueue : `~multiprocessing.Queue`</span>
+<span class="sd">        Finished jobs</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">inpts</span> <span class="ow">in</span> <span class="nb">iter</span><span class="p">(</span><span class="n">inQueue</span><span class="o">.</span><span class="n">get</span><span class="p">,</span> <span class="s1">&#39;STOP&#39;</span><span class="p">):</span>
+        <span class="n">ionS</span> <span class="o">=</span> <span class="n">inpts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">temperature</span> <span class="o">=</span> <span class="n">inpts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">density</span> <span class="o">=</span> <span class="n">inpts</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">wavelength</span> <span class="o">=</span> <span class="n">inpts</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+        <span class="n">wvlRange</span> <span class="o">=</span> <span class="p">[</span><span class="n">wavelength</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">wavelength</span><span class="o">.</span><span class="n">max</span><span class="p">()]</span>
+        <span class="nb">filter</span> <span class="o">=</span> <span class="n">inpts</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+        <span class="n">allLines</span> <span class="o">=</span> <span class="n">inpts</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+        <span class="n">abund</span> <span class="o">=</span> <span class="n">inpts</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span>
+        <span class="n">em</span> <span class="o">=</span> <span class="n">inpts</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span>
+        <span class="n">doContinuum</span> <span class="o">=</span> <span class="n">inpts</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span>
+        <span class="n">thisIon</span> <span class="o">=</span> <span class="n">ChiantiPy</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">Ion</span><span class="o">.</span><span class="n">ion</span><span class="p">(</span><span class="n">ionS</span><span class="p">,</span> <span class="n">temperature</span><span class="p">,</span> <span class="n">density</span><span class="p">,</span> <span class="n">abundance</span><span class="o">=</span><span class="n">abund</span><span class="p">,</span> <span class="n">em</span><span class="o">=</span><span class="n">em</span><span class="p">)</span>
+        <span class="n">thisIon</span><span class="o">.</span><span class="n">intensity</span><span class="p">(</span><span class="n">wvlRange</span> <span class="o">=</span> <span class="n">wvlRange</span><span class="p">,</span> <span class="n">allLines</span> <span class="o">=</span> <span class="n">allLines</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">&#39;errorMessage&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">thisIon</span><span class="o">.</span><span class="n">Intensity</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+            <span class="n">thisIon</span><span class="o">.</span><span class="n">spectrum</span><span class="p">(</span><span class="n">wavelength</span><span class="p">,</span>  <span class="nb">filter</span><span class="o">=</span><span class="nb">filter</span><span class="p">)</span>
+        <span class="n">outList</span> <span class="o">=</span> <span class="p">[</span><span class="n">ionS</span><span class="p">,</span> <span class="n">thisIon</span><span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">thisIon</span><span class="o">.</span><span class="n">Dielectronic</span> <span class="ow">and</span> <span class="n">doContinuum</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">thisIon</span><span class="o">.</span><span class="n">Z</span> <span class="o">-</span> <span class="n">thisIon</span><span class="o">.</span><span class="n">Ion</span><span class="p">)</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]:</span>
+                <span class="n">thisIon</span><span class="o">.</span><span class="n">twoPhoton</span><span class="p">(</span><span class="n">wavelength</span><span class="p">)</span>
+                <span class="n">outList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">thisIon</span><span class="o">.</span><span class="n">TwoPhoton</span><span class="p">)</span>
+        <span class="n">outQueue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">outList</span><span class="p">)</span>
+    <span class="k">return</span></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Ken Dere.
+      Last updated on 03 Oct 2018.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.7.1a',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

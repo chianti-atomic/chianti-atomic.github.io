@@ -1,0 +1,2011 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ChiantiPy.tools package &mdash; ChiantiPy v0.7.1a</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/astropy_logo.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="ChiantiPy v0.7.1a" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ChiantiPy
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.7.1a
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with ChiantiPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code_ref/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes.html">Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../IDL_intro.html">Intro for CHIANTI IDL Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">Resources for ChiantiPy Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bugs.html">Reporting Bugs</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ChiantiPy</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>ChiantiPy.tools package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/ChiantiPy.tools.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="chiantipy-tools-package">
+<h1>ChiantiPy.tools package<a class="headerlink" href="#chiantipy-tools-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-ChiantiPy.tools.archival">
+<span id="chiantipy-tools-archival-module"></span><h2>ChiantiPy.tools.archival module<a class="headerlink" href="#module-ChiantiPy.tools.archival" title="Permalink to this headline">¶</a></h2>
+<p>Functions for reading pre-v8 CHIANTI files</p>
+<dl class="function">
+<dt id="ChiantiPy.tools.archival.elvlcRead">
+<code class="descclassname">ChiantiPy.tools.archival.</code><code class="descname">elvlcRead</code><span class="sig-paren">(</span><em>ions</em>, <em>filename=0</em>, <em>verbose=0</em>, <em>useTh=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/archival.html#elvlcRead"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/archival.py#L14" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.archival.elvlcRead" title="Permalink to this definition">¶</a></dt>
+<dd><p>read a chianti energy level file and returns
+{“lvl”:lvl,”conf”:conf,”term”:term,”spin”:spin,”l”:l,”spd”:spd,”j”:j
+,”mult”:mult,”ecm”:ecm,”eryd”:eryd,”ecmth”:ecmth,”erydth”:erydth,”ref”:ref,”pretty”:pretty, ‘ionS’:ions}
+if a energy value for ecm or eryd is zero(=unknown), the theoretical values
+(ecmth and erydth) are inserted</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.archival.elvlcWrite">
+<code class="descclassname">ChiantiPy.tools.archival.</code><code class="descname">elvlcWrite</code><span class="sig-paren">(</span><em>info</em>, <em>outfile=None</em>, <em>addLvl=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/archival.html#elvlcWrite"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/archival.py#L103" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.archival.elvlcWrite" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write Chianti data to .elvlc file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>info</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">dict</span></code></a></p>
+<blockquote>
+<div><p>Information about the Chianti data to write. Should contain
+the following keys: ionS, the Chianti style name of the ion such as c_4
+conf, an integer denoting the configuration - not too essential
+term, a string showing the configuration
+spin, an integer of the spin of the state in LS coupling
+l, an integer of the angular momentum quantum number
+spd, an string for the alphabetic symbol of the angular momemtum, S, P, D, etc
+j, a floating point number, the total angular momentum
+ecm, the observed energy in inverse cm, if unknown, the value is 0.
+eryd, the observed energy in Rydbergs, if unknown, the value is 0.
+ecmth, the calculated energy from the scattering calculation, in inverse cm
+erydth, the calculated energy from the scattering calculation in Rydbergs
+ref, the references in the literature to the data in the input info</p>
+</div></blockquote>
+<p><strong>outfile</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></p>
+<blockquote>
+<div><p>Output filename. ionS+’.elvlc’ (in current directory) if None</p>
+</div></blockquote>
+<p><strong>addLvl</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></p>
+<blockquote class="last">
+<div><p>Add a constant value to the index of all levels</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><a class="reference internal" href="ChiantiPy.tools.io.elvlcWrite.html#ChiantiPy.tools.io.elvlcWrite" title="ChiantiPy.tools.io.elvlcWrite"><code class="xref py py-obj docutils literal"><span class="pre">ChiantiPy.tools.io.elvlcWrite</span></code></a></dt>
+<dd>Write .elvlc file using the new format.</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p>For use with files created before elvlc format change in November 2012</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.archival.wgfaRead">
+<code class="descclassname">ChiantiPy.tools.archival.</code><code class="descname">wgfaRead</code><span class="sig-paren">(</span><em>ions</em>, <em>filename=None</em>, <em>elvlcname=-1</em>, <em>total=False</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/archival.html#wgfaRead"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/archival.py#L155" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.archival.wgfaRead" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read CHIANTI data from a .wgfa file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>ions</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></p>
+<blockquote>
+<div><p>Ion, e.g. ‘c_5’ for C V</p>
+</div></blockquote>
+<p><strong>filename</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></p>
+<blockquote>
+<div><p>Custom filename, will override that specified by <code class="xref py py-obj docutils literal"><span class="pre">ions</span></code></p>
+</div></blockquote>
+<p><strong>elvlcname</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></p>
+<blockquote>
+<div><p>If specified, the lsj term labels are returned in the <code class="xref py py-obj docutils literal"><span class="pre">pretty1</span></code> and <code class="xref py py-obj docutils literal"><span class="pre">pretty2</span></code> keys of <code class="xref py py-obj docutils literal"><span class="pre">Wgfa</span></code></p>
+</div></blockquote>
+<p><strong>total</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></p>
+<blockquote>
+<div><p>Return the level 2 avalue data in <code class="xref py py-obj docutils literal"><span class="pre">Wgfa</span></code></p>
+</div></blockquote>
+<p><strong>verbose</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>Wgfa</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">dict</span></code></a></p>
+<blockquote class="last">
+<div><p>Information read from the .wgfa file. The dictionary structure is {“lvl1”,”lvl2”,”wvl”,”gf”,”avalue”,”ref”,”ionS”,”filename”}</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><a class="reference internal" href="ChiantiPy.tools.io.wgfaRead.html#ChiantiPy.tools.io.wgfaRead" title="ChiantiPy.tools.io.wgfaRead"><code class="xref py py-obj docutils literal"><span class="pre">ChiantiPy.tools.io.wgfaRead</span></code></a></dt>
+<dd>Read .wgfa file with the new format.</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p>This is text-wise not different than the v8 version except that it uses the
+archival elvlcRead in <a class="reference internal" href="../code_ref/chiantipy_tools.html#module-ChiantiPy.tools.archival" title="ChiantiPy.tools.archival"><code class="xref py py-obj docutils literal"><span class="pre">archival</span></code></a> though this has now been commented out. Can this routine be removed? Should the elvlcRead routine be uncommented?</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-ChiantiPy.tools.constants">
+<span id="chiantipy-tools-constants-module"></span><h2>ChiantiPy.tools.constants module<a class="headerlink" href="#module-ChiantiPy.tools.constants" title="Permalink to this headline">¶</a></h2>
+<p>A set of physical constants, in (mostly) cgs unit system. Most are from <a class="reference internal" href="#r114" id="id1">[R114]</a>.</p>
+<div class="section" id="references">
+<h3>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h3>
+<table class="docutils citation" frame="void" id="r114" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[R114]</a></td><td>NIST Reference on Constants, Units and Uncertainty (<a class="reference external" href="http://physics.nist.gov/cuu">link</a>)</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="notes">
+<h3>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h3>
+<p>Many of these can be replaced by the <a class="reference external" href="http://docs.astropy.org/en/stable/constants/index.html#module-astropy.constants" title="(in Astropy v3.0.4)"><code class="xref py py-obj docutils literal"><span class="pre">constants</span></code></a> module. Elemental symbols can be removed
+in favor of the periodictable module. Spectroscopic roman numerals can be removed in favor of roman
+module. The Gauss-Laguerre weights can be calculated by <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.polynomial.laguerre.laggauss.html#numpy.polynomial.laguerre.laggauss" title="(in NumPy v1.15)"><code class="xref py py-obj docutils literal"><span class="pre">laggauss</span></code></a>.</p>
+</div>
+</div>
+<div class="section" id="module-ChiantiPy.tools.data">
+<span id="chiantipy-tools-data-module"></span><h2>ChiantiPy.tools.data module<a class="headerlink" href="#module-ChiantiPy.tools.data" title="Permalink to this headline">¶</a></h2>
+<p>Module for collecting various top-level Chianti data</p>
+<p>Descriptions for <code class="xref py py-obj docutils literal"><span class="pre">keywordArgs</span></code>:</p>
+<ul class="simple">
+<li><code class="xref py py-obj docutils literal"><span class="pre">temperature</span></code> : temperature (in K)</li>
+<li><code class="xref py py-obj docutils literal"><span class="pre">eDensity</span></code> : electron density (in <span class="math">\(\mathrm{cm}^{-3}\)</span>)</li>
+<li><code class="xref py py-obj docutils literal"><span class="pre">hDensity</span></code> : hydrogen density (in <span class="math">\(\mathrm{cm}^{-3}\)</span>)</li>
+<li><code class="xref py py-obj docutils literal"><span class="pre">pDensity</span></code> : proton density (in <span class="math">\(\mathrm{cm}^{-3}\)</span>)</li>
+<li><code class="xref py py-obj docutils literal"><span class="pre">radTemperature</span></code> : radiation temperature of central source (in K)</li>
+<li><code class="xref py py-obj docutils literal"><span class="pre">rStar</span></code> : distance of the plasma from the source (in units of the source’s radius)</li>
+<li><code class="xref py py-obj docutils literal"><span class="pre">distance</span></code> : distance from the central source</li>
+</ul>
+</div>
+<div class="section" id="module-ChiantiPy.tools.filters">
+<span id="chiantipy-tools-filters-module"></span><h2>ChiantiPy.tools.filters module<a class="headerlink" href="#module-ChiantiPy.tools.filters" title="Permalink to this headline">¶</a></h2>
+<p>Line profile filters for creating synthetic spectra.</p>
+<dl class="function">
+<dt id="ChiantiPy.tools.filters.boxcar">
+<code class="descclassname">ChiantiPy.tools.filters.</code><code class="descname">boxcar</code><span class="sig-paren">(</span><em>wvl</em>, <em>wvl0</em>, <em>factor=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/filters.html#boxcar"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/filters.py#L47" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.filters.boxcar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Box-car filter</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>wvl</strong> : <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-obj docutils literal"><span class="pre">ndarray</span></code></a></p>
+<blockquote>
+<div><p>Wavelength array</p>
+</div></blockquote>
+<p><strong>wvl0</strong> : <code class="xref py py-obj docutils literal"><span class="pre">float64</span></code></p>
+<blockquote>
+<div><p>Wavelength filter should be centered on.</p>
+</div></blockquote>
+<p><strong>factor</strong> : <code class="xref py py-obj docutils literal"><span class="pre">float64</span></code></p>
+<blockquote class="last">
+<div><p>Full width of the box-car filter</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.filters.gaussian">
+<code class="descclassname">ChiantiPy.tools.filters.</code><code class="descname">gaussian</code><span class="sig-paren">(</span><em>wvl</em>, <em>wvl0</em>, <em>factor=1.0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/filters.html#gaussian"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/filters.py#L26" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.filters.gaussian" title="Permalink to this definition">¶</a></dt>
+<dd><p>A gaussian filter</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>wvl</strong> : <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-obj docutils literal"><span class="pre">ndarray</span></code></a></p>
+<blockquote>
+<div><p>Wavelength array</p>
+</div></blockquote>
+<p><strong>wvl0</strong> : <code class="xref py py-obj docutils literal"><span class="pre">float64</span></code></p>
+<blockquote>
+<div><p>Wavelength filter should be centered on.</p>
+</div></blockquote>
+<p><strong>factor</strong> : <code class="xref py py-obj docutils literal"><span class="pre">float64</span></code></p>
+<blockquote>
+<div><p>Gaussian width</p>
+</div></blockquote>
+<p class="last"><strong>integrated value is unity</strong></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.filters.gaussianR">
+<code class="descclassname">ChiantiPy.tools.filters.</code><code class="descname">gaussianR</code><span class="sig-paren">(</span><em>wvl</em>, <em>wvl0</em>, <em>factor=1000.0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/filters.html#gaussianR"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/filters.py#L8" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.filters.gaussianR" title="Permalink to this definition">¶</a></dt>
+<dd><p>A gaussian filter where the gaussian width is given by <code class="xref py py-obj docutils literal"><span class="pre">wvl0</span></code>/<code class="xref py py-obj docutils literal"><span class="pre">factor</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>wvl</strong> : <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-obj docutils literal"><span class="pre">ndarray</span></code></a></p>
+<blockquote>
+<div><p>Wavelength array</p>
+</div></blockquote>
+<p><strong>wvl0</strong> : <code class="xref py py-obj docutils literal"><span class="pre">float64</span></code></p>
+<blockquote>
+<div><p>Wavelength filter should be centered on.</p>
+</div></blockquote>
+<p><strong>factor</strong> : <code class="xref py py-obj docutils literal"><span class="pre">float64</span></code></p>
+<blockquote class="last">
+<div><p>Resolving power</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.filters.lorentz">
+<code class="descclassname">ChiantiPy.tools.filters.</code><code class="descname">lorentz</code><span class="sig-paren">(</span><em>wvl</em>, <em>wvl0</em>, <em>factor=1.0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/filters.html#lorentz"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/filters.py#L76" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.filters.lorentz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lorentz profile filter with the exception that all factors are in wavelength units
+rather than frequency as the lorentz profile is usually defined.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>wvl</strong> : <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-obj docutils literal"><span class="pre">ndarray</span></code></a></p>
+<blockquote>
+<div><p>Wavelength array</p>
+</div></blockquote>
+<p><strong>wvl0</strong> : <code class="xref py py-obj docutils literal"><span class="pre">float64</span></code></p>
+<blockquote>
+<div><p>Wavelength filter should be centered on.</p>
+</div></blockquote>
+<p><strong>factor</strong> : <code class="xref py py-obj docutils literal"><span class="pre">float64</span></code></p>
+<blockquote>
+<div><p>Value of the so-called constant gamma</p>
+</div></blockquote>
+<p><strong>integrated value is unity</strong></p>
+<p><strong>the FWHM is 2*gamma</strong></p>
+<p><strong>.. math::</strong></p>
+<blockquote class="last">
+<div><p>L = frac{1}{pi gamma} frac{ gamma^2}{(lambda - lambda_0)^2 + gamma^2}</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.filters.moffat">
+<code class="descclassname">ChiantiPy.tools.filters.</code><code class="descname">moffat</code><span class="sig-paren">(</span><em>wvl</em>, <em>wvl0</em>, <em>factor=2.5</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/filters.html#moffat"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/filters.py#L103" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.filters.moffat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Moffat profile with parameters suited to Chandra Letg spectra</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>wvl</strong> : <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-obj docutils literal"><span class="pre">ndarray</span></code></a></p>
+<blockquote>
+<div><p>Wavelength array</p>
+</div></blockquote>
+<p><strong>wvl0</strong> : <code class="xref py py-obj docutils literal"><span class="pre">float64</span></code></p>
+<blockquote>
+<div><p>Wavelength the filter is centered on.</p>
+</div></blockquote>
+<p><strong>factor</strong> : <code class="xref py py-obj docutils literal"><span class="pre">float64</span></code></p>
+<blockquote class="last">
+<div><p>Resolving power (TODO: correct description)</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.filters.voigt">
+<code class="descclassname">ChiantiPy.tools.filters.</code><code class="descname">voigt</code><span class="sig-paren">(</span><em>wvl</em>, <em>wvl0</em>, <em>factor=(0.5</em>, <em>1.0)</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/filters.html#voigt"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/filters.py#L121" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.filters.voigt" title="Permalink to this definition">¶</a></dt>
+<dd><p>pseudo-Voigt filter
+the sum of a Gaussian and a Lorentzian</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>wvl</strong> : <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-obj docutils literal"><span class="pre">ndarray</span></code></a></p>
+<blockquote>
+<div><p>Wavelength array</p>
+</div></blockquote>
+<p><strong>wvl0</strong> : <code class="xref py py-obj docutils literal"><span class="pre">float64</span></code></p>
+<blockquote>
+<div><p>Wavelength the filter is centered on.</p>
+</div></blockquote>
+<p><strong>factor: array-type</strong></p>
+<blockquote>
+<div><p>contains the following 2 parameters</p>
+</div></blockquote>
+<p><strong>A</strong> : <code class="xref py py-obj docutils literal"><span class="pre">float64</span></code></p>
+<blockquote>
+<div><p>relative size of gaussian and lorentz components
+must be between 0. and 1. but this is not currently checked</p>
+</div></blockquote>
+<p><strong>sigma:  `~numpy.float64`</strong></p>
+<blockquote class="last">
+<div><p>the gaussian width of the gaussian profile (the standard deviation)
+also creates the lorentz component with the same fwhm</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="chiantipy-tools-io-2017-5-7-module">
+<h2>ChiantiPy.tools.io-2017-5-7 module<a class="headerlink" href="#chiantipy-tools-io-2017-5-7-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-ChiantiPy.tools.io">
+<span id="chiantipy-tools-io-module"></span><h2>ChiantiPy.tools.io module<a class="headerlink" href="#module-ChiantiPy.tools.io" title="Permalink to this headline">¶</a></h2>
+<p>Reading and writing functions</p>
+<dl class="function">
+<dt id="ChiantiPy.tools.io.abundanceRead">
+<code class="descclassname">ChiantiPy.tools.io.</code><code class="descname">abundanceRead</code><span class="sig-paren">(</span><em>abundancename=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/io.html#abundanceRead"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/io.py#L18" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.io.abundanceRead" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read abundance file <code class="xref py py-obj docutils literal"><span class="pre">abundancename</span></code> and return the abundance values relative to hydrogen</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.io.autoRead">
+<code class="descclassname">ChiantiPy.tools.io.</code><code class="descname">autoRead</code><span class="sig-paren">(</span><em>ions</em>, <em>filename=None</em>, <em>total=True</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/io.html#autoRead"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/io.py#L126" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.io.autoRead" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read CHIANTI autoionization rates from a .auto file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>ions</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></p>
+<blockquote>
+<div><p>Ion, e.g. ‘c_5’ for C V</p>
+</div></blockquote>
+<p><strong>filename</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></p>
+<blockquote>
+<div><p>Custom filename, will override that specified by <code class="xref py py-obj docutils literal"><span class="pre">ions</span></code></p>
+</div></blockquote>
+<p><strong>elvlcname</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></p>
+<blockquote>
+<div><p>If specified, the lsj term labels are returned in the ‘pretty1’ and ‘pretty2’
+keys of ‘Wgfa’ dict</p>
+</div></blockquote>
+<p><strong>total</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></p>
+<blockquote>
+<div><p>Return the summed level 2 autoionization rates in ‘Auto’</p>
+</div></blockquote>
+<p><strong>verbose</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>Auto</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">dict</span></code></a></p>
+<blockquote class="last">
+<div><p>Information read from the .wgfa file. The dictionary structure is
+{“lvl1”, “lvl2”, “avalue”, “pretty1”, “pretty2”, “ref”,”ionS”, “filename”}</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.io.autoWrite">
+<code class="descclassname">ChiantiPy.tools.io.</code><code class="descname">autoWrite</code><span class="sig-paren">(</span><em>info</em>, <em>outfile=None</em>, <em>minBranch=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/io.html#autoWrite"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/io.py#L215" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.io.autoWrite" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write data to a CHIANTI .wgfa file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>info</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">dict</span></code></a></p>
+<blockquote>
+<div><p>Should contain the following:
+ionS, the Chianti style name of the ion such as c_4 for C IV,
+lvl1, the lower level, the ground level is 1,
+lvl2, the upper level, wvl, the wavelength (in Angstroms),
+avalue, the autoionization rate,
+pretty1, descriptive text of the lower level (optional),
+pretty2, descriptive text of the upper level (optiona),
+ref, reference text, a list of strings</p>
+</div></blockquote>
+<p><strong>outfile</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></p>
+<p><strong>minBranch</strong> : <code class="xref py py-obj docutils literal"><span class="pre">float64</span></code></p>
+<blockquote class="last">
+<div><p>The transition must have a branching ratio greater than the specified to be written to the file</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.io.cireclvlRead">
+<code class="descclassname">ChiantiPy.tools.io.</code><code class="descname">cireclvlRead</code><span class="sig-paren">(</span><em>ions</em>, <em>filename=None</em>, <em>filetype='cilvl'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/io.html#cireclvlRead"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/io.py#L278" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.io.cireclvlRead" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read Chianti cilvl, reclvl, or rrlvl files and return data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>ions</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></p>
+<blockquote>
+<div><p>Ion, e.g. ‘c_5’ for C V</p>
+</div></blockquote>
+<p><strong>filename</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional</p>
+<blockquote>
+<div><p>Custom filename, will override that specified by <code class="xref py py-obj docutils literal"><span class="pre">ions</span></code></p>
+</div></blockquote>
+<p><strong>filetype</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></p>
+<blockquote class="last">
+<div><p>{‘cilvl’, ‘reclvl’, ‘rrlvl’} Type of the file to read</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.io.convertName">
+<code class="descclassname">ChiantiPy.tools.io.</code><code class="descname">convertName</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/io.html#convertName"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/io.py#L96" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.io.convertName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert ion name string to Z and Ion and other interesting info</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name</strong> :  <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></p>
+<blockquote class="last">
+<div><p>a generic name of an ion in the CHIANTI database,
+such as fe_14 for Fe XIV</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>A duplicate of the routine in <a class="reference internal" href="../code_ref/chiantipy_tools.html#module-ChiantiPy.tools.util" title="ChiantiPy.tools.util"><code class="xref py py-obj docutils literal"><span class="pre">ChiantiPy.tools.util</span></code></a> but needed by masterList Info
+TODO: Put in separate module to avoid multiple copies</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.io.defaultsRead">
+<code class="descclassname">ChiantiPy.tools.io.</code><code class="descname">defaultsRead</code><span class="sig-paren">(</span><em>verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/io.html#defaultsRead"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/io.py#L350" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.io.defaultsRead" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read in configuration from .chiantirc file or set defaults if one is not found.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.io.diRead">
+<code class="descclassname">ChiantiPy.tools.io.</code><code class="descname">diRead</code><span class="sig-paren">(</span><em>ions</em>, <em>filename=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/io.html#diRead"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/io.py#L377" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.io.diRead" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read chianti direct ionization .params files and return data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>ions</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></p>
+<blockquote>
+<div><p>Ion, e.g. ‘c_5’ for C V</p>
+</div></blockquote>
+<p><strong>filename</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional</p>
+<blockquote class="last">
+<div><p>Custom filename, will override that specified by <code class="xref py py-obj docutils literal"><span class="pre">ions</span></code></p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.io.drRead">
+<code class="descclassname">ChiantiPy.tools.io.</code><code class="descname">drRead</code><span class="sig-paren">(</span><em>ions</em>, <em>filename=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/io.html#drRead"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/io.py#L446" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.io.drRead" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read CHIANTI dielectronic recombination .drparams files
+if filename is set, then reads that file</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.io.eaRead">
+<code class="descclassname">ChiantiPy.tools.io.</code><code class="descname">eaRead</code><span class="sig-paren">(</span><em>ions</em>, <em>filename=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/io.html#eaRead"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/io.py#L494" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.io.eaRead" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a CHIANTI excitation-autoionization file and calculate the EA ionization rate data
+derived from splupsRead.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>ions</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></p>
+<blockquote>
+<div><p>Ion, e.g. ‘c_5’ for C V</p>
+</div></blockquote>
+<p><strong>filename</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional</p>
+<blockquote class="last">
+<div><p>Custom filename, will override that specified by <code class="xref py py-obj docutils literal"><span class="pre">ions</span></code></p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.io.elvlcRead">
+<code class="descclassname">ChiantiPy.tools.io.</code><code class="descname">elvlcRead</code><span class="sig-paren">(</span><em>ions</em>, <em>filename=None</em>, <em>getExtended=False</em>, <em>verbose=False</em>, <em>useTh=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/io.html#elvlcRead"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/io.py#L574" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.io.elvlcRead" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the new format elvlc files.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>ions</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></p>
+<blockquote>
+<div><p>Ion, e.g. ‘c_5’ for C V</p>
+</div></blockquote>
+<p><strong>filename</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional</p>
+<blockquote>
+<div><p>Custom filename, will override that specified by <code class="xref py py-obj docutils literal"><span class="pre">ions</span></code></p>
+</div></blockquote>
+<p><strong>getExtended</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></p>
+<p><strong>verbose</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></p>
+<p><strong>useTh</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></p>
+<blockquote class="last">
+<div><p>If True, the theoretical values (ecmth and erydth) are inserted when
+an energy value for ecm or eryd is zero(=unknown)</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.io.elvlcWrite">
+<code class="descclassname">ChiantiPy.tools.io.</code><code class="descname">elvlcWrite</code><span class="sig-paren">(</span><em>info</em>, <em>outfile=None</em>, <em>round=0</em>, <em>addLvl=0</em>, <em>includeRyd=False</em>, <em>includeEv=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/io.html#elvlcWrite"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/io.py#L676" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.io.elvlcWrite" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write Chianti data to .elvlc file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>info</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">dict</span></code></a></p>
+<blockquote>
+<div><p>Information about the Chianti data to write. Should contain
+the following keys: ionS, the Chianti style name of the ion such as c_4
+term, a string showing the configuration
+spin, an integer of the spin of the state in LS coupling
+l, an integer of the angular momentum quantum number
+spd, an string for the alphabetic symbol of the angular momemtum, S, P, D, etc
+j, a floating point number, the total angular momentum
+ecm, the observed energy in inverse cm, if unknown, the value is 0.
+eryd, the observed energy in Rydbergs, if unknown, the value is 0.
+ecmth, the calculated energy from the scattering calculation, in inverse cm
+erydth, the calculated energy from the scattering calculation in Rydbergs
+ref, the references in the literature to the data in the input info</p>
+</div></blockquote>
+<p><strong>outfile</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></p>
+<blockquote>
+<div><p>Output filename. ionS+’.elvlc’ (in current directory) if None</p>
+</div></blockquote>
+<p><strong>round</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></p>
+<blockquote>
+<div><p>input to <a href="#id2"><span class="problematic" id="id3">`</span></a>np.round’ to round input values to maintain the correct number of significant figures</p>
+</div></blockquote>
+<p><strong>addLvl</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></p>
+<blockquote>
+<div><p>Add a constant value to the index of all levels</p>
+</div></blockquote>
+<p><strong>includeRyd</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></p>
+<blockquote>
+<div><p>If True, write the Rydberg energies in the extended area, delimited by a comma</p>
+</div></blockquote>
+<p><strong>includeEv</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></p>
+<blockquote class="last">
+<div><p>If True, write the energies in eV in the extended area, delimited by a comma</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><a class="reference internal" href="ChiantiPy.tools.archival.elvlcWrite.html#ChiantiPy.tools.archival.elvlcWrite" title="ChiantiPy.tools.archival.elvlcWrite"><code class="xref py py-obj docutils literal"><span class="pre">ChiantiPy.tools.archival.elvlcWrite</span></code></a></dt>
+<dd>Write .elvlc file using the old format.</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p>For use with files created after elvlc format change in November 2012</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.io.fblvlRead">
+<code class="descclassname">ChiantiPy.tools.io.</code><code class="descname">fblvlRead</code><span class="sig-paren">(</span><em>ions</em>, <em>filename=None</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/io.html#fblvlRead"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/io.py#L761" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.io.fblvlRead" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a Chianti energy level file for calculating the
+free-bound continuum</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.io.gffRead">
+<code class="descclassname">ChiantiPy.tools.io.</code><code class="descname">gffRead</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/io.html#gffRead"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/io.py#L824" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.io.gffRead" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the free-free gaunt factors of <a class="reference internal" href="#r115121" id="id4">[R115121]</a>.</p>
+<p class="rubric">Notes</p>
+<p>This function reads the file and reverses the values of g2 and u</p>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r115121" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R115121]</td><td><em>(<a class="fn-backref" href="#id4">1</a>, <a class="fn-backref" href="#id6">2</a>)</em> Sutherland, R. S., 1998, MNRAS, <a class="reference external" href="http://adsabs.harvard.edu/abs/1998MNRAS.300..321S">300, 321</a></td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.io.gffintRead">
+<code class="descclassname">ChiantiPy.tools.io.</code><code class="descname">gffintRead</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/io.html#gffintRead"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/io.py#L871" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.io.gffintRead" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the integrated free-free gaunt factors of <a class="reference internal" href="#r116122" id="id7">[R116122]</a>.</p>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r116122" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R116122]</td><td><em>(<a class="fn-backref" href="#id7">1</a>, <a class="fn-backref" href="#id9">2</a>)</em> Sutherland, R. S., 1998, MNRAS, <a class="reference external" href="http://adsabs.harvard.edu/abs/1998MNRAS.300..321S">300, 321</a></td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.io.ioneqRead">
+<code class="descclassname">ChiantiPy.tools.io.</code><code class="descname">ioneqRead</code><span class="sig-paren">(</span><em>ioneqname=''</em>, <em>minIoneq=1e-20</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/io.html#ioneqRead"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/io.py#L962" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.io.ioneqRead" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads an ioneq file
+ionization equilibrium values less then minIoneq are returns as zeros
+Returns
+——-
+{‘ioneqname’,’ioneqAll’,’ioneqTemperature’,’ioneqRef’} : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">dict</span></code></a></p>
+<blockquote>
+<div>Ionization equilibrium values and the reference to the literature</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.io.ipRead">
+<code class="descclassname">ChiantiPy.tools.io.</code><code class="descname">ipRead</code><span class="sig-paren">(</span><em>verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/io.html#ipRead"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/io.py#L1046" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.io.ipRead" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the ionization potential file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>ip</strong> : array-like</p>
+<blockquote class="last">
+<div><p>Ionization potential (in eV)</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.io.itohRead">
+<code class="descclassname">ChiantiPy.tools.io.</code><code class="descname">itohRead</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/io.html#itohRead"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/io.py#L907" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.io.itohRead" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read in the free-free gaunt factors of <a class="reference internal" href="#r117123" id="id10">[R117123]</a>.</p>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r117123" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R117123]</td><td><em>(<a class="fn-backref" href="#id10">1</a>, <a class="fn-backref" href="#id12">2</a>)</em> Itoh, N. et al., 2000, ApJS, <a class="reference external" href="http://adsabs.harvard.edu/abs/2000ApJS..128..125I">128, 125</a></td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.io.klgfbRead">
+<code class="descclassname">ChiantiPy.tools.io.</code><code class="descname">klgfbRead</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/io.html#klgfbRead"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/io.py#L927" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.io.klgfbRead" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read CHIANTI files containing the free-bound gaunt factors for n=1-6 from <a class="reference internal" href="#r118124" id="id13">[R118124]</a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>{‘pe’, ‘klgfb’}</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">dict</span></code></a></p>
+<blockquote class="last">
+<div><p>Photon energy and the free-bound gaunt factors</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r118124" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R118124]</td><td><em>(<a class="fn-backref" href="#id13">1</a>, <a class="fn-backref" href="#id15">2</a>)</em> Karzas and Latter, 1961, ApJSS, <a class="reference external" href="http://adsabs.harvard.edu/abs/1961ApJS....6..167K">6, 167</a></td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.io.masterListInfo">
+<code class="descclassname">ChiantiPy.tools.io.</code><code class="descname">masterListInfo</code><span class="sig-paren">(</span><em>force=False</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/io.html#masterListInfo"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/io.py#L1104" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.io.masterListInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get information about ions in the CHIANTI masterlist.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>masterListInfo</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">dict</span></code></a></p>
+<blockquote class="last">
+<div><p>{‘wmin’, ‘wmax’, ‘tmin’, ‘tmax’} Minimum and maximum wavelengths in
+the wgfa file. Minimum and maximum temperatures for which the
+ionization balance is nonzero.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>This function speeds up multi-ion spectral calculations.
+The information is stored in a pickled file ‘masterlist_ions.pkl’
+If the file is not found, one will be created.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.io.masterListRead">
+<code class="descclassname">ChiantiPy.tools.io.</code><code class="descname">masterListRead</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/io.html#masterListRead"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/io.py#L1082" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.io.masterListRead" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a CHIANTI masterlist file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>masterlist</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">list</span></code></a></p>
+<blockquote class="last">
+<div><p>All ions in Chianti database</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.io.photoxRead">
+<code class="descclassname">ChiantiPy.tools.io.</code><code class="descname">photoxRead</code><span class="sig-paren">(</span><em>ions</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/io.html#photoxRead"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/io.py#L1218" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.io.photoxRead" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read CHIANTI photoionization .photox files</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>{‘lvl1’, ‘lvl2’, ‘energy’, ‘cross’, ‘ref’}</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">dict</span></code></a></p>
+<blockquote class="last">
+<div><p>Energy (in Rydbergs) and cross section (in <span class="math">\(\mathrm{cm}^{-2}\)</span>)</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>The photox files are not in any released version of the CHIANTI database.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.io.rrLossRead">
+<code class="descclassname">ChiantiPy.tools.io.</code><code class="descname">rrLossRead</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/io.html#rrLossRead"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/io.py#L1329" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.io.rrLossRead" title="Permalink to this definition">¶</a></dt>
+<dd><p>to read the Mao 2017 rr loss parameters</p>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r119125" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id16">[R119125]</a></td><td>Mao J., Kaastra J., Badnell N.R., <a class="reference external" href="http://adsabs.harvard.edu/abs/2017A%26A...599A..10M">2017 Astron. Astrophys. 599, A10</a></td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.io.rrRead">
+<code class="descclassname">ChiantiPy.tools.io.</code><code class="descname">rrRead</code><span class="sig-paren">(</span><em>ions</em>, <em>filename=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/io.html#rrRead"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/io.py#L1278" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.io.rrRead" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read CHIANTI radiative recombination .rrparams files</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>{‘rrtype’,’params’,’ref’}</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">dict</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.io.scupsRead">
+<code class="descclassname">ChiantiPy.tools.io.</code><code class="descname">scupsRead</code><span class="sig-paren">(</span><em>ions</em>, <em>filename=None</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/io.html#scupsRead"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/io.py#L1366" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.io.scupsRead" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the new format v8 scups file containing the scaled temperature and upsilons from <a class="reference internal" href="#r120126" id="id17">[R120126]</a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>ions</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></p>
+<blockquote>
+<div><p>Ion, e.g. ‘c_5’ for C V</p>
+</div></blockquote>
+<p><strong>filename</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional</p>
+<blockquote>
+<div><p>Custom filename, will override that specified by <code class="xref py py-obj docutils literal"><span class="pre">ions</span></code></p>
+</div></blockquote>
+<p class="last"><strong>verbose</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r120126" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R120126]</td><td><em>(<a class="fn-backref" href="#id17">1</a>, <a class="fn-backref" href="#id19">2</a>)</em> Burgess, A. and Tully, J. A., 1992, A&amp;A, <a class="reference external" href="http://adsabs.harvard.edu/abs/1992A%26A...254..436B">254, 436</a></td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.io.splomRead">
+<code class="descclassname">ChiantiPy.tools.io.</code><code class="descname">splomRead</code><span class="sig-paren">(</span><em>ions</em>, <em>ea=False</em>, <em>filename=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/io.html#splomRead"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/io.py#L1457" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.io.splomRead" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read chianti .splom files</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>ions</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></p>
+<blockquote>
+<div><p>Ion, e.g. ‘c_5’ for C V</p>
+</div></blockquote>
+<p><strong>ea</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></p>
+<blockquote>
+<div><p>Read .easplom file</p>
+</div></blockquote>
+<p><strong>filename</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional</p>
+<blockquote>
+<div><p>Custom filename, will override that specified by <code class="xref py py-obj docutils literal"><span class="pre">ions</span></code></p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>{‘lvl1’, ‘lvl2’, ‘ttype’, ‘gf’, ‘deryd’, ‘c’, ‘splom’, ‘ref’}</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">dict</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>Still needed for ionization cross sections</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.io.splupsRead">
+<code class="descclassname">ChiantiPy.tools.io.</code><code class="descname">splupsRead</code><span class="sig-paren">(</span><em>ions</em>, <em>filename=None</em>, <em>filetype='splups'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/io.html#splupsRead"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/io.py#L1538" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.io.splupsRead" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a CHIANTI .splups file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>ions</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></p>
+<blockquote>
+<div><p>Ion, e.g. ‘c_5’ for C V</p>
+</div></blockquote>
+<p><strong>filename</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional</p>
+<blockquote>
+<div><p>Custom filename, will override that specified by <code class="xref py py-obj docutils literal"><span class="pre">ions</span></code></p>
+</div></blockquote>
+<p><strong>filetype</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional</p>
+<blockquote>
+<div><p>{<code class="xref py py-obj docutils literal"><span class="pre">psplups</span></code>,`cisplups`,`splups`} Type of file to read</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>{‘lvl1’, ‘lvl2’, ‘ttype’, ‘gf’, ‘de’, ‘cups’, ‘bsplups’, ‘ref’}</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">dict</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.io.trRead">
+<code class="descclassname">ChiantiPy.tools.io.</code><code class="descname">trRead</code><span class="sig-paren">(</span><em>ionS</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/io.html#trRead"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/io.py#L1632" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.io.trRead" title="Permalink to this definition">¶</a></dt>
+<dd><p>read the files containing total recombination rates .trparams</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.io.twophotonHRead">
+<code class="descclassname">ChiantiPy.tools.io.</code><code class="descname">twophotonHRead</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/io.html#twophotonHRead"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/io.py#L1655" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.io.twophotonHRead" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the two-photon Einstein A values and distribution function for the H sequence.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>{‘y0’, ‘z0’, ‘avalue’, ‘asum’, ‘psi0’}</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">dict</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.io.twophotonHeRead">
+<code class="descclassname">ChiantiPy.tools.io.</code><code class="descname">twophotonHeRead</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/io.html#twophotonHeRead"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/io.py#L1684" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.io.twophotonHeRead" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the two-photon Einstein A values and distribution function for the He sequence.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>{‘y0’, ‘avalue’, ‘psi0’}</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">dict</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.io.vernerRead">
+<code class="descclassname">ChiantiPy.tools.io.</code><code class="descname">vernerRead</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/io.html#vernerRead"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/io.py#L1709" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.io.vernerRead" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the photoionization cross-section data from <a class="reference internal" href="#r121127" id="id20">[R121127]</a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>{‘pqn’,’l’,’eth’,’e0’,’sig0’,’ya’,’p’, yw’}</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">dict</span></code></a></p>
+<blockquote class="last">
+<div><p><code class="xref py py-obj docutils literal"><span class="pre">pqn</span></code> is the principal quantum number, <code class="xref py py-obj docutils literal"><span class="pre">l</span></code> is the subshell orbital quantum number, <code class="xref py py-obj docutils literal"><span class="pre">eth</span></code> (in eV) is the subshell ionization threshold energy; <code class="xref py py-obj docutils literal"><span class="pre">sig0</span></code>, <code class="xref py py-obj docutils literal"><span class="pre">ya</span></code>, <code class="xref py py-obj docutils literal"><span class="pre">p</span></code>, and <code class="xref py py-obj docutils literal"><span class="pre">yw</span></code> are all fit parameters used in calculating the total photoionization cross-section.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r121127" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R121127]</td><td><em>(<a class="fn-backref" href="#id20">1</a>, <a class="fn-backref" href="#id22">2</a>)</em> Verner &amp; Yakovlev, 1995, A&amp;AS, <a class="reference external" href="http://adsabs.harvard.edu/abs/1995A%26AS..109..125V">109, 125</a></td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.io.versionRead">
+<code class="descclassname">ChiantiPy.tools.io.</code><code class="descname">versionRead</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/io.html#versionRead"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/io.py#L1765" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.io.versionRead" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the version number of the CHIANTI database</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.io.wgfaRead">
+<code class="descclassname">ChiantiPy.tools.io.</code><code class="descname">wgfaRead</code><span class="sig-paren">(</span><em>ions</em>, <em>filename=None</em>, <em>elvlcname=0</em>, <em>total=False</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/io.html#wgfaRead"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/io.py#L1777" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.io.wgfaRead" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read CHIANTI data from a .wgfa file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>ions</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></p>
+<blockquote>
+<div><p>Ion, e.g. ‘c_5’ for C V</p>
+</div></blockquote>
+<p><strong>filename</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></p>
+<blockquote>
+<div><p>Custom filename, will override that specified by <code class="xref py py-obj docutils literal"><span class="pre">ions</span></code></p>
+</div></blockquote>
+<p><strong>elvlcname</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></p>
+<blockquote>
+<div><p>If specified, the lsj term labels are returned in the ‘pretty1’ and ‘pretty2’
+keys of ‘Wgfa’ dict</p>
+</div></blockquote>
+<p><strong>total</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></p>
+<blockquote>
+<div><p>Return the summed level 2 avalue data in ‘Wgfa’</p>
+</div></blockquote>
+<p><strong>verbose</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>Wgfa</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">dict</span></code></a></p>
+<blockquote class="last">
+<div><p>Information read from the .wgfa file. The dictionary structure is
+{“lvl1”,”lvl2”,”wvl”,”gf”,”avalue”,”ref”,”ionS”,”filename”}</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><a class="reference internal" href="ChiantiPy.tools.archival.wgfaRead.html#ChiantiPy.tools.archival.wgfaRead" title="ChiantiPy.tools.archival.wgfaRead"><code class="xref py py-obj docutils literal"><span class="pre">ChiantiPy.tools.archival.wgfaRead</span></code></a></dt>
+<dd>Read .wgfa file with the old format.</dd>
+</dl>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.io.wgfaWrite">
+<code class="descclassname">ChiantiPy.tools.io.</code><code class="descname">wgfaWrite</code><span class="sig-paren">(</span><em>info</em>, <em>outfile=None</em>, <em>minBranch=1e-05</em>, <em>rightDigits=4</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/io.html#wgfaWrite"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/io.py#L1892" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.io.wgfaWrite" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write data to a CHIANTI .wgfa file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>info</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">dict</span></code></a></p>
+<blockquote>
+<div><p>Should contain the following keys:
+ionS, the Chianti style name of the ion such as c_4 for C IV,
+lvl1, the lower level, the ground level is 1,
+lvl2, the upper level,
+wvl, the wavelength (in Angstroms),
+gf,the weighted oscillator strength,
+avalue, the A value,
+pretty1, descriptive text of the lower level (optional),
+pretty2, descriptive text of the upper level (optiona),
+ref, reference text, a list of strings</p>
+</div></blockquote>
+<p><strong>outfile</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></p>
+<p><strong>minBranch</strong> : <code class="xref py py-obj docutils literal"><span class="pre">float64</span></code></p>
+<blockquote class="last">
+<div><p>The transition must have a branching ratio greater than the specified minBranchto be written to the file</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.io.zion2name">
+<code class="descclassname">ChiantiPy.tools.io.</code><code class="descname">zion2name</code><span class="sig-paren">(</span><em>z</em>, <em>ion</em>, <em>dielectronic=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/io.html#zion2name"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/io.py#L65" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.io.zion2name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert <code class="xref py py-obj docutils literal"><span class="pre">Z</span></code> and <code class="xref py py-obj docutils literal"><span class="pre">ion</span></code> to generic name, e.g. 26, 13 -&gt; fe_13</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>z</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></p>
+<blockquote>
+<div><p>the nuclear charge, for example 26 for Fe XIV</p>
+</div></blockquote>
+<p><strong>ion</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></p>
+<blockquote class="last">
+<div><p>the ion stage, for example, 14 for Fe XIV</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>A duplicate of the routine in <a class="reference internal" href="../code_ref/chiantipy_tools.html#module-ChiantiPy.tools.util" title="ChiantiPy.tools.util"><code class="xref py py-obj docutils literal"><span class="pre">ChiantiPy.tools.util</span></code></a> but needed by masterList Info
+TODO: Put in separate module to avoid multiple copies</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-ChiantiPy.tools.mputil">
+<span id="chiantipy-tools-mputil-module"></span><h2>ChiantiPy.tools.mputil module<a class="headerlink" href="#module-ChiantiPy.tools.mputil" title="Permalink to this headline">¶</a></h2>
+<p>Functions needed for standard Python multiprocessing module mspectrum</p>
+<dl class="function">
+<dt id="ChiantiPy.tools.mputil.doFbQ">
+<code class="descclassname">ChiantiPy.tools.mputil.</code><code class="descname">doFbQ</code><span class="sig-paren">(</span><em>inQ</em>, <em>outQ</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/mputil.html#doFbQ"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/mputil.py#L30" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.mputil.doFbQ" title="Permalink to this definition">¶</a></dt>
+<dd><p>Multiprocessing helper for <a class="reference internal" href="ChiantiPy.core.continuum.html#ChiantiPy.core.continuum.freeBound" title="ChiantiPy.core.continuum.freeBound"><code class="xref py py-obj docutils literal"><span class="pre">ChiantiPy.core.continuum.freeBound</span></code></a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>inQ</strong> : <a class="reference external" href="https://docs.python.org/3/library/multiprocessing.html#multiprocessing.Queue" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">Queue</span></code></a></p>
+<blockquote>
+<div><p>Ion free-bound emission jobs queued up by multiprocessing module</p>
+</div></blockquote>
+<p><strong>outQ</strong> : <a class="reference external" href="https://docs.python.org/3/library/multiprocessing.html#multiprocessing.Queue" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">Queue</span></code></a></p>
+<blockquote class="last">
+<div><p>Finished free-bound emission jobs</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.mputil.doFfQ">
+<code class="descclassname">ChiantiPy.tools.mputil.</code><code class="descname">doFfQ</code><span class="sig-paren">(</span><em>inQ</em>, <em>outQ</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/mputil.html#doFfQ"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/mputil.py#L7" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.mputil.doFfQ" title="Permalink to this definition">¶</a></dt>
+<dd><p>Multiprocessing helper for <a class="reference internal" href="ChiantiPy.core.continuum.html#ChiantiPy.core.continuum.freeFree" title="ChiantiPy.core.continuum.freeFree"><code class="xref py py-obj docutils literal"><span class="pre">ChiantiPy.core.continuum.freeFree</span></code></a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>inQ</strong> : <a class="reference external" href="https://docs.python.org/3/library/multiprocessing.html#multiprocessing.Queue" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">Queue</span></code></a></p>
+<blockquote>
+<div><p>Ion free-free emission jobs queued up by multiprocessing module</p>
+</div></blockquote>
+<p><strong>outQ</strong> : <a class="reference external" href="https://docs.python.org/3/library/multiprocessing.html#multiprocessing.Queue" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">Queue</span></code></a></p>
+<blockquote class="last">
+<div><p>Finished free-free emission jobs</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.mputil.doIonQ">
+<code class="descclassname">ChiantiPy.tools.mputil.</code><code class="descname">doIonQ</code><span class="sig-paren">(</span><em>inQueue</em>, <em>outQueue</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/mputil.html#doIonQ"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/mputil.py#L57" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.mputil.doIonQ" title="Permalink to this definition">¶</a></dt>
+<dd><p>Multiprocessing helper for <a class="reference internal" href="ChiantiPy.core.ion.html#ChiantiPy.core.ion" title="ChiantiPy.core.ion"><code class="xref py py-obj docutils literal"><span class="pre">ChiantiPy.core.ion</span></code></a> and <a class="reference internal" href="ChiantiPy.core.ion.html#ChiantiPy.core.ion.twoPhoton" title="ChiantiPy.core.ion.twoPhoton"><code class="xref py py-obj docutils literal"><span class="pre">ChiantiPy.core.ion.twoPhoton</span></code></a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>inQueue</strong> : <a class="reference external" href="https://docs.python.org/3/library/multiprocessing.html#multiprocessing.Queue" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">Queue</span></code></a></p>
+<blockquote>
+<div><p>Jobs queued up by multiprocessing module</p>
+</div></blockquote>
+<p><strong>outQueue</strong> : <a class="reference external" href="https://docs.python.org/3/library/multiprocessing.html#multiprocessing.Queue" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">Queue</span></code></a></p>
+<blockquote class="last">
+<div><p>Finished jobs</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-ChiantiPy.tools.sources">
+<span id="chiantipy-tools-sources-module"></span><h2>ChiantiPy.tools.sources module<a class="headerlink" href="#module-ChiantiPy.tools.sources" title="Permalink to this headline">¶</a></h2>
+<p>Blackbody temperature calculations</p>
+<dl class="class">
+<dt id="ChiantiPy.tools.sources.blackStar">
+<em class="property">class </em><code class="descclassname">ChiantiPy.tools.sources.</code><code class="descname">blackStar</code><span class="sig-paren">(</span><em>temperature</em>, <em>radius</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/sources.html#blackStar"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/sources.py#L9" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.sources.blackStar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>Calculate blackbody radiation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>temperature</strong> : <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-obj docutils literal"><span class="pre">ndarray</span></code></a></p>
+<blockquote>
+<div><p>Temperature in Kelvin</p>
+</div></blockquote>
+<p><strong>radius</strong> : <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-obj docutils literal"><span class="pre">ndarray</span></code></a></p>
+<blockquote class="last">
+<div><p>Stellar radius in cm</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="76%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>Temperature</strong></td>
+<td>(<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-obj docutils literal"><span class="pre">ndarray</span></code></a>) Temperature in Kelvin</td>
+</tr>
+<tr class="row-even"><td><strong>Radius</strong></td>
+<td>(<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-obj docutils literal"><span class="pre">ndarray</span></code></a>) Stellar radius in cm</td>
+</tr>
+<tr class="row-odd"><td><strong>Incident</strong></td>
+<td>(<a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-obj docutils literal"><span class="pre">ndarray</span></code></a>) Blackbody photon distribution</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ChiantiPy.tools.sources.blackStar.incident">
+<code class="descname">incident</code><span class="sig-paren">(</span><em>distance</em>, <em>energy</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/sources.html#blackStar.incident"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/sources.py#L34" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.sources.blackStar.incident" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate photon distribution times the visible cross-sectional area.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>distance</strong> : <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-obj docutils literal"><span class="pre">ndarray</span></code></a></p>
+<blockquote>
+<div><p>Distance to the stellar object in cm</p>
+</div></blockquote>
+<p><strong>energy</strong> : <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-obj docutils literal"><span class="pre">ndarray</span></code></a></p>
+<blockquote class="last">
+<div><p>Energy range in erg</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>This function returns the photon distribution instead of the distribution times the cross-sectional area. Is this correct? Why is the incident photon distribution calculated at all?</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.sources.blackbody">
+<code class="descclassname">ChiantiPy.tools.sources.</code><code class="descname">blackbody</code><span class="sig-paren">(</span><em>temperature</em>, <em>variable</em>, <em>hnu=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/sources.html#blackbody"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/sources.py#L55" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.sources.blackbody" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the blackbody photon distribution as a function of energy (<code class="xref py py-obj docutils literal"><span class="pre">hnu</span></code> = 1) or as a function of wavelength (<code class="xref py py-obj docutils literal"><span class="pre">hnu</span></code> = 0) in units of  <span class="math">\(\mathrm{photons}\,\mathrm{cm}^{-2}\,\mathrm{s}^{-1}\,\mathrm{str}^{-1}\,\mathrm{erg}^{-1}\)</span></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>temperature</strong> : <code class="xref py py-obj docutils literal"><span class="pre">float64</span></code></p>
+<blockquote>
+<div><p>Temperature at which to calculate the blackbody photon distribution</p>
+</div></blockquote>
+<p><strong>variable</strong> : <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-obj docutils literal"><span class="pre">ndarray</span></code></a></p>
+<blockquote>
+<div><p>Either energy (in erg) or wavelength (in angstrom)</p>
+</div></blockquote>
+<p><strong>hnu</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></p>
+<blockquote>
+<div><p>If 1, calculate distribution as a function of energy. Otherwise, calculate it as a function of wavelength</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>{‘photons’, ‘temperature’, ‘energy’} or {‘photons’, ‘temperature’, ‘wvl’}</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">dict</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-ChiantiPy.tools.util">
+<span id="chiantipy-tools-util-module"></span><h2>ChiantiPy.tools.util module<a class="headerlink" href="#module-ChiantiPy.tools.util" title="Permalink to this headline">¶</a></h2>
+<p>Utility functions</p>
+<div class="section" id="id23">
+<h3>Notes<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h3>
+<p>Some of these functions can be replaced by roman numeral and periodic table lookup libraries.
+some functions using os.walk can be replaced by os.path</p>
+<dl class="function">
+<dt id="ChiantiPy.tools.util.between">
+<code class="descclassname">ChiantiPy.tools.util.</code><code class="descname">between</code><span class="sig-paren">(</span><em>array</em>, <em>limits</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/util.html#between"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/util.py#L17" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.util.between" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the indices of <a class="reference external" href="https://docs.python.org/3/library/array.html#module-array" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">array</span></code></a> corresponding to values in the range given by <code class="xref py py-obj docutils literal"><span class="pre">limits</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>array</strong> : ‘list` or ~numpy.ndarray`</p>
+<p class="last"><strong>limits</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">list</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">tuple</span></code></a> or ~numpy.ndarray` of length 2</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.util.convertName">
+<code class="descclassname">ChiantiPy.tools.util.</code><code class="descname">convertName</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/util.html#convertName"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/util.py#L197" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.util.convertName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert ion name string (e.g. ‘fe_13’) to atomic number and ion number</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>{‘Z’, ‘Ion’, ‘Dielectronic’, ‘Element’, ‘higher’, ‘lower’}</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">dict</span></code></a></p>
+<blockquote class="last">
+<div><p><code class="xref py py-obj docutils literal"><span class="pre">higher</span></code> and <code class="xref py py-obj docutils literal"><span class="pre">lower</span></code> are the Chianti-style names for the higher and lower ionization stages, respectively.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.util.descale_bt">
+<code class="descclassname">ChiantiPy.tools.util.</code><code class="descname">descale_bt</code><span class="sig-paren">(</span><em>bte</em>, <em>btomega</em>, <em>f</em>, <em>ev1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/util.html#descale_bt"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/util.py#L462" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.util.descale_bt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply excitation descaling of <a class="reference internal" href="#r129136" id="id24">[R129136]</a> to energy and collision strength</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>bte</strong> : array-like</p>
+<blockquote>
+<div><p>Scaled energy</p>
+</div></blockquote>
+<p><strong>btomega</strong> : array-like</p>
+<blockquote>
+<div><p>Scaled collision strength</p>
+</div></blockquote>
+<p><strong>f</strong> : array-like</p>
+<p><strong>ev1</strong> : array-like</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>[energy,omega]</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">list</span></code></a></p>
+<blockquote class="last">
+<div><p>Descaled energy and collision strength</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><a class="reference internal" href="ChiantiPy.tools.util.scale_bt.html#ChiantiPy.tools.util.scale_bt" title="ChiantiPy.tools.util.scale_bt"><code class="xref py py-obj docutils literal"><span class="pre">scale_bt</span></code></a></dt>
+<dd>Apply scaling to excitation energy and cross-section</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p>Need more details here. Not clear which equations are being used.</p>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r129136" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R129136]</td><td><em>(<a class="fn-backref" href="#id24">1</a>, <a class="fn-backref" href="#id26">2</a>)</em> Burgess, A. and Tully, J. A., 1992, A&amp;A, <a class="reference external" href="http://adsabs.harvard.edu/abs/1992A%26A...254..436B">254, 436</a></td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.util.descale_bti">
+<code class="descclassname">ChiantiPy.tools.util.</code><code class="descname">descale_bti</code><span class="sig-paren">(</span><em>bte</em>, <em>btx</em>, <em>f</em>, <em>ev1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/util.html#descale_bti"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/util.py#L498" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.util.descale_bti" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply ionization descaling of <a class="reference internal" href="#r130137" id="id27">[R130137]</a> to energy and cross-section.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>bte</strong> : array-like</p>
+<blockquote>
+<div><p>Scaled energy</p>
+</div></blockquote>
+<p><strong>btx</strong> : array-like</p>
+<blockquote>
+<div><p>Scaled cross-section</p>
+</div></blockquote>
+<p><strong>f</strong> : float</p>
+<blockquote>
+<div><p>Scaling parameter</p>
+</div></blockquote>
+<p><strong>ev1</strong> : float</p>
+<blockquote>
+<div><p>ionization potential - units determine the output energy units</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>[energy,cross]</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">list</span></code></a></p>
+<blockquote class="last">
+<div><p>Descaled energy and cross-section</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><a class="reference internal" href="ChiantiPy.tools.util.scale_bti.html#ChiantiPy.tools.util.scale_bti" title="ChiantiPy.tools.util.scale_bti"><code class="xref py py-obj docutils literal"><span class="pre">scale_bti</span></code></a></dt>
+<dd>Descale ionization energy and cross-section</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p>This is the scaling used and discussed in the Dere (2007) calculation [1] of cross sections.  It was derived from similar scalings provided by reference [2]</p>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r130137" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R130137]</td><td><em>(<a class="fn-backref" href="#id27">1</a>, <a class="fn-backref" href="#id30">2</a>)</em> Dere, K. P., 2007, A&amp;A, <a class="reference external" href="http://adsabs.harvard.edu/abs/2007A%26A...466..771D">466, 771,</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="r131137" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id31">[R131137]</a></td><td>Burgess, A. and Tully, J. A., 1992, A&amp;A, <a class="reference external" href="http://adsabs.harvard.edu/abs/1992A%26A...254..436B">254, 436</a></td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.util.dilute">
+<code class="descclassname">ChiantiPy.tools.util.</code><code class="descname">dilute</code><span class="sig-paren">(</span><em>radius</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/util.html#dilute"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/util.py#L379" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.util.dilute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the dilution factor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>radius</strong> : array-like</p>
+<blockquote class="last">
+<div><p>Distance from the center of a star in units of the stellar radius.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>If <code class="xref py py-obj docutils literal"><span class="pre">radius</span></code> is less than 1.0, returns 0.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.util.el2z">
+<code class="descclassname">ChiantiPy.tools.util.</code><code class="descname">el2z</code><span class="sig-paren">(</span><em>els</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/util.html#el2z"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/util.py#L242" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.util.el2z" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert elemental symbol to atomic number</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.util.ion2filename">
+<code class="descclassname">ChiantiPy.tools.util.</code><code class="descname">ion2filename</code><span class="sig-paren">(</span><em>ions</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/util.html#ion2filename"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/util.py#L229" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.util.ion2filename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert ion name string to generic directory-file name.
+convertName has probably made this redundant</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.util.listFiles">
+<code class="descclassname">ChiantiPy.tools.util.</code><code class="descname">listFiles</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/util.html#listFiles"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/util.py#L399" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.util.listFiles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Walks the path and subdirectories to return a list of files.</p>
+<p class="rubric">Notes</p>
+<p>This can be replaced by functions in <a class="reference external" href="https://docs.python.org/3/library/os.path.html#module-os.path" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">os.path</span></code></a>, as if 3.4, pathlib is probably better.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.util.qrp">
+<code class="descclassname">ChiantiPy.tools.util.</code><code class="descname">qrp</code><span class="sig-paren">(</span><em>z</em>, <em>u</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/util.html#qrp"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/util.py#L250" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.util.qrp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate <span class="math">\(Q_R^{\prime}(Z,u)\)</span>, where <span class="math">\(u=\epsilon/I\)</span> is the impact electron energy in threshold units, from Eq. 2.12 of <a class="reference internal" href="#r132139" id="id32">[R132139]</a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>z</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></p>
+<blockquote>
+<div><p>Atomic number</p>
+</div></blockquote>
+<p><strong>u</strong> : array-like</p>
+<blockquote>
+<div><p>Impact electron energy in threshold units.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>q</strong> : array-like</p>
+<blockquote class="last">
+<div><p>1s ionization cross-section, <span class="math">\(Q_R^{\prime}(Z,u)\)</span></p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>Used for calculations of direct ionization cross-sections of the H and He sequences in <a class="reference internal" href="ChiantiPy.tools.io.twophotonHRead.html#ChiantiPy.tools.io.twophotonHRead" title="ChiantiPy.tools.io.twophotonHRead"><code class="xref py py-obj docutils literal"><span class="pre">ChiantiPy.tools.io.twophotonHRead</span></code></a> and <a class="reference internal" href="ChiantiPy.tools.io.twophotonHeRead.html#ChiantiPy.tools.io.twophotonHeRead" title="ChiantiPy.tools.io.twophotonHeRead"><code class="xref py py-obj docutils literal"><span class="pre">ChiantiPy.tools.io.twophotonHeRead</span></code></a>, respectively.</p>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r132139" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R132139]</td><td><em>(<a class="fn-backref" href="#id32">1</a>, <a class="fn-backref" href="#id34">2</a>)</em> Fontes, C. et al., 1999, PhRvA, <a class="reference external" href="http://adsabs.harvard.edu/abs/1999PhRvA..59.1329F">59, 1329</a></td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.util.scale_bt">
+<code class="descclassname">ChiantiPy.tools.util.</code><code class="descname">scale_bt</code><span class="sig-paren">(</span><em>evin</em>, <em>omega</em>, <em>f</em>, <em>ev1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/util.html#scale_bt"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/util.py#L537" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.util.scale_bt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply excitation scaling of <a class="reference internal" href="#r133140" id="id35">[R133140]</a> to energy and collision strength.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>evin</strong> : array-like</p>
+<p><strong>omega</strong> : array-like</p>
+<p><strong>f</strong> : array-like</p>
+<p><strong>ev1</strong> : array-like</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>[bte,btomega]</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">list</span></code></a></p>
+<blockquote class="last">
+<div><p>Scaled energy and collision strength</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><a class="reference internal" href="ChiantiPy.tools.util.descale_bt.html#ChiantiPy.tools.util.descale_bt" title="ChiantiPy.tools.util.descale_bt"><code class="xref py py-obj docutils literal"><span class="pre">descale_bt</span></code></a></dt>
+<dd>Descale excitation energy and cross-section</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p>Need more details here. Not clear which equations are being used.</p>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r133140" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R133140]</td><td><em>(<a class="fn-backref" href="#id35">1</a>, <a class="fn-backref" href="#id37">2</a>)</em> Burgess, A. and Tully, J. A., 1992, A&amp;A, <a class="reference external" href="http://adsabs.harvard.edu/abs/1992A%26A...254..436B">254, 436</a></td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.util.scale_bt_rate">
+<code class="descclassname">ChiantiPy.tools.util.</code><code class="descname">scale_bt_rate</code><span class="sig-paren">(</span><em>inDict</em>, <em>ip</em>, <em>f=1.7</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/util.html#scale_bt_rate"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/util.py#L570" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.util.scale_bt_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply ionization descaling of <a class="reference internal" href="#r134141" id="id38">[R134141]</a>, a Burgess-Tully type scaling to ionization rates and
+temperatures. The result of the scaling is to return a scaled temperature between 0 and 1 and a
+slowly varying scaled rate as a function of scaled temperature. In addition, the scaled rates
+vary slowly along an iso-electronic sequence.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>inDict</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">dict</span></code></a></p>
+<blockquote>
+<div><p>the input dictionary should have the following key pairs: <code class="xref py py-obj docutils literal"><span class="pre">temperature</span></code>, array-like and
+<code class="xref py py-obj docutils literal"><span class="pre">rate</span></code>, array-like</p>
+</div></blockquote>
+<p><strong>ip</strong> :  <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">float</span></code></a></p>
+<blockquote>
+<div><p>the ionization potential in eV.</p>
+</div></blockquote>
+<p><strong>f</strong> :  <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">float</span></code></a> (optional)</p>
+<blockquote class="last">
+<div><p>the scaling parameter, 1.7 generally works well</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p><code class="xref py py-obj docutils literal"><span class="pre">btTemperature</span></code> and <code class="xref py py-obj docutils literal"><span class="pre">btRate</span></code> keys are added to <code class="xref py py-obj docutils literal"><span class="pre">inDict</span></code></p>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r134141" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R134141]</td><td><em>(<a class="fn-backref" href="#id38">1</a>, <a class="fn-backref" href="#id40">2</a>)</em> Dere, K. P., 2007, A&amp;A, <a class="reference external" href="http://adsabs.harvard.edu/abs/2007A%26A...466..771D">466, 771</a></td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.util.scale_bti">
+<code class="descclassname">ChiantiPy.tools.util.</code><code class="descname">scale_bti</code><span class="sig-paren">(</span><em>evin</em>, <em>crossin</em>, <em>f</em>, <em>ev1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/util.html#scale_bti"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/util.py#L424" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.util.scale_bti" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply ionization scaling of <a class="reference internal" href="#r135142" id="id41">[R135142]</a>,[R136142]_ to energy and cross-section.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>evin</strong> : float</p>
+<blockquote>
+<div><p>Energy - same units as ev1</p>
+</div></blockquote>
+<p><strong>crossin</strong> : array-like</p>
+<blockquote>
+<div><p>Cross-section</p>
+</div></blockquote>
+<p><strong>f</strong> : float -  the scale factor</p>
+<p><strong>ev1</strong> : float</p>
+<blockquote>
+<div><p>the ionization potential
+units - the same as evin</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>[bte,btx]</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">list</span></code></a></p>
+<blockquote class="last">
+<div><p>Scaled energy and cross-section</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><a class="reference internal" href="ChiantiPy.tools.util.descale_bti.html#ChiantiPy.tools.util.descale_bti" title="ChiantiPy.tools.util.descale_bti"><code class="xref py py-obj docutils literal"><span class="pre">descale_bti</span></code></a></dt>
+<dd>Descale ionization energy and cross-section</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p>This is the scaling used and discussed in the Dere (2007) calculation [1] of cross sections.  It was derived from similar scalings derived in reference [2]</p>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r135142" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[R135142]</td><td><em>(<a class="fn-backref" href="#id41">1</a>, <a class="fn-backref" href="#id44">2</a>)</em> Dere, K. P., 2007, A&amp;A, <a class="reference external" href="http://adsabs.harvard.edu/abs/2007A%26A...466..771D">466, 771,</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="r136142" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id45">[R136142]</a></td><td>Burgess, A. and Tully, J. A., 1992, A&amp;A, <a class="reference external" href="http://adsabs.harvard.edu/abs/1992A%26A...254..436B">254, 436</a></td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.util.scale_classical">
+<code class="descclassname">ChiantiPy.tools.util.</code><code class="descname">scale_classical</code><span class="sig-paren">(</span><em>inDict</em>, <em>ip</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/util.html#scale_classical"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/util.py#L606" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.util.scale_classical" title="Permalink to this definition">¶</a></dt>
+<dd><p>to apply the ‘classical’ scaling to the input data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>inDict: dictionary</strong></p>
+<blockquote>
+<div><dl class="docutils">
+<dt>the input dictionary should have the following key pairs</dt>
+<dd><p class="first last">energy and cross
+or
+temperature and rate</p>
+</dd>
+</dl>
+</div></blockquote>
+<p><strong>energy:  array-like</strong></p>
+<blockquote>
+<div><p>energy values of the cross-section</p>
+</div></blockquote>
+<p><strong>cross:  array-like</strong></p>
+<blockquote>
+<div><p>a cross-section</p>
+</div></blockquote>
+<p><strong>temperature:  array-like</strong></p>
+<p><strong>rate:  array-like</strong></p>
+<p><strong>ip:  float</strong></p>
+<blockquote>
+<div><p>the ionization potential.  Typically in eV.</p>
+</div></blockquote>
+<p><strong>Returns</strong></p>
+<blockquote>
+<div><p>the following keys are added to inDict</p>
+</div></blockquote>
+<p><strong>——-</strong></p>
+<p class="last"><strong>{‘csEnergy’, ‘csCross’, ‘ip’} or {‘csTemperature’, ‘csRate’, ‘ip’}</strong></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.util.spectroscopic2name">
+<code class="descclassname">ChiantiPy.tools.util.</code><code class="descname">spectroscopic2name</code><span class="sig-paren">(</span><em>el</em>, <em>roman</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/util.html#spectroscopic2name"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/util.py#L49" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.util.spectroscopic2name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert from spectroscopic notation, e.g. Fe XI to ‘fe_11’</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>el</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></p>
+<blockquote>
+<div><p>Elemental symbol, e.g. Fe for iron</p>
+</div></blockquote>
+<p><strong>roman</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></p>
+<blockquote class="last">
+<div><p>Roman numeral spectroscopic symbol</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.util.splomDescale">
+<code class="descclassname">ChiantiPy.tools.util.</code><code class="descname">splomDescale</code><span class="sig-paren">(</span><em>splom</em>, <em>energy</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/util.html#splomDescale"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/util.py#L303" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.util.splomDescale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the collision strength for excitation-autoionization as a function of energy.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>energy</strong> : array-like</p>
+<blockquote>
+<div><p>In eV</p>
+</div></blockquote>
+<p><strong>splom</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">dict</span></code></a></p>
+<blockquote>
+<div><p>Structure returned by <a class="reference internal" href="ChiantiPy.tools.io.splomRead.html#ChiantiPy.tools.io.splomRead" title="ChiantiPy.tools.io.splomRead"><code class="xref py py-obj docutils literal"><span class="pre">ChiantiPy.tools.io.splomRead</span></code></a></p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>omega</strong> : array-like</p>
+<blockquote class="last">
+<div><p>Collision strength</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.util.z2element">
+<code class="descclassname">ChiantiPy.tools.util.</code><code class="descname">z2element</code><span class="sig-paren">(</span><em>z</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/util.html#z2element"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/util.py#L38" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.util.z2element" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert atomic number <code class="xref py py-obj docutils literal"><span class="pre">z</span></code> to its elemental symbol.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.util.zion2dir">
+<code class="descclassname">ChiantiPy.tools.util.</code><code class="descname">zion2dir</code><span class="sig-paren">(</span><em>z</em>, <em>ion</em>, <em>dielectronic=False</em>, <em>xuvtop=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/util.html#zion2dir"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/util.py#L91" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.util.zion2dir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert atomic number and ion number to CHIANTI database directory.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>z</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></p>
+<p><strong>ion</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></p>
+<p><strong>dielectronic</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, optional</p>
+<p><strong>xuvtop</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional</p>
+<blockquote class="last">
+<div><p>Set different CHIANTI database than the default</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.util.zion2filename">
+<code class="descclassname">ChiantiPy.tools.util.</code><code class="descname">zion2filename</code><span class="sig-paren">(</span><em>z</em>, <em>ion</em>, <em>dielectronic=False</em>, <em>xuvtop=''</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/util.html#zion2filename"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/util.py#L122" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.util.zion2filename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert atomic number and ion number to CHIANTI database filename.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>z</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></p>
+<p><strong>ion</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></p>
+<p><strong>dielectronic</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, optional</p>
+<p><strong>xuvtop</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional</p>
+<blockquote class="last">
+<div><p>Set different CHIANTI database than the default</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.util.zion2localFilename">
+<code class="descclassname">ChiantiPy.tools.util.</code><code class="descname">zion2localFilename</code><span class="sig-paren">(</span><em>z</em>, <em>ion</em>, <em>dielectronic=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/util.html#zion2localFilename"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/util.py#L153" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.util.zion2localFilename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert atomic number and ion number to generic file name with current directory at top.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>z</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></p>
+<p><strong>ion</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></p>
+<p class="last"><strong>dielectronic</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, optional</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.util.zion2name">
+<code class="descclassname">ChiantiPy.tools.util.</code><code class="descname">zion2name</code><span class="sig-paren">(</span><em>z</em>, <em>ion</em>, <em>dielectronic=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/util.html#zion2name"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/util.py#L67" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.util.zion2name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert atomic number and ion number to generic name, e.g. (26,13) to ‘fe_13’</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>z</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></p>
+<p><strong>ion</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></p>
+<p class="last"><strong>dielectronic</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, optional</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.util.zion2spectroscopic">
+<code class="descclassname">ChiantiPy.tools.util.</code><code class="descname">zion2spectroscopic</code><span class="sig-paren">(</span><em>z</em>, <em>ion</em>, <em>dielectronic=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/tools/util.html#zion2spectroscopic"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/tools/util.py#L179" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.tools.util.zion2spectroscopic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert atomic number and ion number to spectroscopic notation string</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>z</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></p>
+<p><strong>ion</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a></p>
+<p class="last"><strong>dielectronic</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, optional</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="module-ChiantiPy.tools">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-ChiantiPy.tools" title="Permalink to this headline">¶</a></h2>
+<p>Basic tools and utilities used in ChiantiPy</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Ken Dere.
+      Last updated on 03 Oct 2018.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.7.1a',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

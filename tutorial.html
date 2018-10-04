@@ -1,0 +1,463 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tutorial &mdash; ChiantiPy v0.7.1a</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/astropy_logo.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="ChiantiPy v0.7.1a" href="index.html"/>
+        <link rel="next" title="API Reference" href="code_ref/index.html"/>
+        <link rel="prev" title="Quick Start" href="quick_start.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> ChiantiPy
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.7.1a
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting started with ChiantiPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#the-chiantipy-approach">The ChiantiPy Approach</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#chiantipy-classes">ChiantiPy Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chiantipy-classes-methods-and-attributes">ChiantiPy Classes, Methods and Attributes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#the-ion-class-basic-properties">The ion class, basic properties</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="code_ref/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notes.html">Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IDL_intro.html">Intro for CHIANTI IDL Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources for ChiantiPy Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bugs.html">Reporting Bugs</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ChiantiPy</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Tutorial</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/tutorial.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tutorial">
+<h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-chiantipy-approach">
+<h2>The ChiantiPy Approach<a class="headerlink" href="#the-chiantipy-approach" title="Permalink to this headline">¶</a></h2>
+<p>Python is a modern, object-oriented programming language.  It provides a number of features that are useful to the programmer and the end user, such as, classes with methods (function-like) and attributes (data), and functions, among other things.  ChiantiPy has been constructed so that the primary means to calculate the spectral properties of ions and groups of ions is by way of Python classes.</p>
+<p>More detailed information can be found in the <strong>API</strong> Reference.</p>
+<div class="section" id="chiantipy-classes">
+<h3>ChiantiPy Classes<a class="headerlink" href="#chiantipy-classes" title="Permalink to this headline">¶</a></h3>
+<p>There are 7 basic classes that are provided by ChiantiPy.</p>
+<blockquote>
+<div><p><strong>ion</strong></p>
+<blockquote>
+<div>this class is very useful in itself and is the basic unit employed by all of the other classes</div></blockquote>
+<p><strong>continuum</strong></p>
+<blockquote>
+<div>for calculating the free-free (<em>bremstrahlung</em>), free-bound (radiative recombination) continuum as well as the radiative loss rates due to these processes.</div></blockquote>
+<p><strong>bunch</strong></p>
+<blockquote>
+<div>allows the user to specify a <em>bunch</em> of ions and to calculate the radiative properties of the selected ions in a group.  The ions can be specified by list of individual ions, list of elements, as well as by the minimum elemental abundance.  The properties of each ion are available, as with members of the <strong>ion</strong> class.  Among other things, the ratios of lines of different ions and elements can be calculated and then displayed.</div></blockquote>
+<p><strong>spectrum</strong></p>
+<blockquote>
+<div><p>the <strong>spectrum</strong> class calculates the intensities of the line and continuum and them convolves the complete spectrum with a filter such as a Gaussian of specified width</p>
+<p>there are actually 3 <em>spectrum</em> classes.  Two of these all the use of multiple cpu cores to speed the calculation.  The basic <strong>spectrum</strong> class does not do multi-processes and is therefore compatible with most Python environments</p>
+</div></blockquote>
+<p><strong>mspectrum</strong></p>
+<blockquote>
+<div><strong>mspectrum</strong> duplicates the calculations of the <strong>spectrum</strong> class but it employes the Python multiprocessing package in order to use multiple cpu cores to calculate the spectrum.  This class can be used in a basic Python shell, in a Python script, or in an IPython terminal.  It can not be used in either the Jupyter qtconsole or the Jupyter notebook.</div></blockquote>
+<p><strong>ipymspectrum</strong></p>
+<blockquote>
+<div>this class employes the IPython ipyparallel module to provide access to multiple cpu cores.  It can only be used in the Jupyter qtconsole and the Jupyter notebook.</div></blockquote>
+<p><strong>ioneq</strong></p>
+<blockquote>
+<div><p>this class allows the user to load and plot the ionization equilibria of a specfic element.  It can read the ionization equililbrium files in the CHIANTI $XUVTOP/ioneq directory.  Different ionization equilibria can be plotted against each other</p>
+<p>it is also possible to calculate the ionization equilibria of an individual element using the ionization and recombination rates in the CHIANTI database.  The results of this calculation can also be plotted agains existing calculations in the CHIANTI $XUVTOP/ioneq directory.</p>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="chiantipy-classes-methods-and-attributes">
+<h3>ChiantiPy Classes, Methods and Attributes<a class="headerlink" href="#chiantipy-classes-methods-and-attributes" title="Permalink to this headline">¶</a></h3>
+<p>Each of the ChiantiPy classes listed above has a number of methods for calculating various properties.  The results of these calculations are stored as attributes of the class that has been instantiatied (created).  In Python, all objects, which includes everything in Python, have introspection so that all methods and attributes can be discovered and used.  The IPython terminal and the Jupyter qtconsole both provide their own methods of easily displaying the methods and attributes.</p>
+<p>Some methods in each class are more useful to the user than others.  For example, below the populate() method is demonstrated below.  However, it is generally not necessary for the user to use the populate() method.  Methods that need the ion population will make use that the Population attribute is available and, if not, use the populate() method to create it.</p>
+<p>Below, the methods that are most likely of interest to users are listed below.  All of the available methods are presented and documented in the API section, a part of the ChiantiPy documentation.</p>
+<blockquote>
+<div><p><strong>ion</strong></p>
+<blockquote>
+<div><p><strong>popPlot()</strong> method</p>
+<blockquote>
+<div>plots the level populations of the <em>top</em> (most highly populated) levels as a function of temperature and/or density.</div></blockquote>
+<p><strong>gofnt()</strong> method</p>
+<blockquote>
+<div>an interactive method that plots the most intense lines of an ion in a give wavelength range (<em>wvlRange</em>) and allows the user to select a line or several lines, that will be summed, and then plots the <em>GofT</em> function for the selected lines and saves these values in the <strong>Gofnt</strong> dictionary as an attribute of the ion object.</div></blockquote>
+<p><strong>emiss()</strong> method</p>
+<blockquote>
+<div>calculates the spectral line emissivities of the ion and saves these in the <strong>Emiss</strong> dictionary as an attribute of the ion object.</div></blockquote>
+<p><strong>intensity()</strong> method</p>
+<blockquote>
+<div>calculates the <em>intensity</em> of the specified ion as a function of temperature and density.  These properties are saved in the <strong>Intensity</strong> dictionary, available as an attribute of the ion.</div></blockquote>
+<p><strong>intensityList()</strong> method</p>
+<blockquote>
+<div>lists the spectral line intensities in a given wavelength range (<em>wvlRange</em>) in an interactive terminal or notebook</div></blockquote>
+<p><strong>intensityPlot()</strong> method</p>
+<blockquote>
+<div>plots the spectral line intensites in a given wavelength range (<em>wvlRange</em>) for the <em>top</em> most intensity lines.</div></blockquote>
+<p><strong>intensityRatio()</strong> method</p>
+<blockquote>
+<div>an interactive method that plots the most intense lines of an ion in a give wavelength range (<em>wvlRange</em>) and allows the user to select a pair of lines or a pair of lines to be summed and then plots the intensity ratio as a function of temperature and/or density.  The ratio is saved in the <strong>IntensityRatio</strong> dictionary as an attribute of the ion.</div></blockquote>
+<p><strong>spectrum()</strong> method</p>
+<blockquote>
+<div>calculates the spectrum of the ion as a function of wavelength.  The spectral line intensities are pass through a selectable filter to simulate the spectrometer line profile.  The spectrum is save in the <strong>Spectrum</strong> dictionary as an attribute of the ion.</div></blockquote>
+<p><strong>ionizRate()</strong> method</p>
+<blockquote>
+<div>calculates the ionization rate coefficient as a function of temperature.  The rate coefficient is save in the <strong>IonizRate</strong> dictionary as an attribute.  Uses the methods <strong>diRate()</strong> and <strong>eaRate()</strong> to first calculate the direct and excitation-ionization (ea) rate coefficients and sums them.</div></blockquote>
+<p><strong>recombRate()</strong> method</p>
+<blockquote>
+<div>calculates the recombination rate coefficient as a function of temperature.  The rate coefficient is save in the <strong>RecombRate</strong> dictionary as an attribute.    Uses the methods <strong>rrRate()</strong> and <strong>drRate()</strong> to first calculate the radiative recombination and dielectronic recombination rate coefficients and sums them.</div></blockquote>
+</div></blockquote>
+<p><strong>ioneq</strong></p>
+<blockquote>
+<div><p><strong>load()</strong> method</p>
+<blockquote>
+<div>reads a selected, existing ionization equilibrium calculation for a given element and saves it as a numpy array <strong>Ioneq</strong> as an attribute of the object.</div></blockquote>
+<p><strong>calculate()</strong> method</p>
+<blockquote>
+<div>calculates the ionization equilibrium of a selected element from the CHIANTI ionization and recombination rates for a specified temperature(s) and saves it as a numpy array <strong>Ioneq</strong> as an attribute of the object.</div></blockquote>
+<p><strong>plot()</strong> method</p>
+<blockquote>
+<div>plots the loaded or calculated ionization equilibrium.  Various parameters can be specified to plot only those aspects that are desired.  Can also plot an additional existing ionization equilibrium for comparison</div></blockquote>
+</div></blockquote>
+<p><strong>bunch</strong></p>
+<blockquote>
+<div><p>the init method calculates the spectral line intensities for the selection of ions save the information in the <strong>Intensity</strong> dictionary as an attribute .  It does not calculate the continuum.</p>
+<p>beyond the init method, the <strong>bunch</strong> class inherits all of the following methods that are described under the <strong>ion</strong> class above</p>
+<p><strong>intensityList()</strong></p>
+<p><strong>intensityPlot()</strong></p>
+<p><strong>intensityRatio()</strong></p>
+<p>in addition, it inherits the following methods that are described under the <strong>spectrum</strong> class below</p>
+<p><strong>convolve()</strong></p>
+<p><strong>lineSpectrumPlot()</strong></p>
+<p><strong>spectrumPlot()</strong></p>
+</div></blockquote>
+<p><strong>spectrum</strong></p>
+<blockquote>
+<div><p>the init method calculates the spectral line intensities and the continuum due to the free-free (<em>bremstrahlung</em>), free-bound (radiative recombination), and two-photon processes.  The line intensities are convolved using the <strong>convolve()</strong> method (below).  The sum is saved in the <strong>Spectrum</strong> dictionary as an attribute.</p>
+<p>beyond the init method, the <strong>spectrum</strong> class also inherits the same methods as the <strong>bunch</strong> class including <strong>intensityList()</strong>, <strong>intensityPlot</strong>, and <strong>intensityRatio</strong>.</p>
+<p><strong>convolve()</strong></p>
+<blockquote>
+<div>convolves the line spectrum with specified filter from <strong>ChiantiPy.tools.filters</strong> using a specified width.</div></blockquote>
+<p><strong>lineSpectrumPlot()</strong></p>
+<blockquote>
+<div>plots the convolved line spectrum as a function wavelength</div></blockquote>
+<p><strong>spectrumPlot()</strong></p>
+<blockquote>
+<div>plots the spectrum calculated by the init method.  The summed (integrated) spectrum can be plotted or the spectrum for a specific temperature can be plotted.</div></blockquote>
+</div></blockquote>
+<p><strong>mspectrum</strong></p>
+<blockquote>
+<div>the mspectrum behaves in the same way as the <strong>spectrum</strong> class except that it invokes the Python multiprocessing module so that the calculations are made using a specified number of cpu cores.  <strong>mspectrum</strong> can not be used in the Jupyter qtconsole or notebook.</div></blockquote>
+<p><strong>ipymspectrum</strong></p>
+<blockquote>
+<div>the ipymspectrum behaves in the same way as the <strong>spectrum</strong> class except that it invokes the IPython ipyparallel module so that the calculations are made using a specified number of cpu cores.  <strong>ipymspectrum</strong> can only be used in the IPython terminal or the Jupyter qtconsole or notebook.</div></blockquote>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="the-ion-class-basic-properties">
+<h2>The ion class, basic properties<a class="headerlink" href="#the-ion-class-basic-properties" title="Permalink to this headline">¶</a></h2>
+<p>Bring up a Python session, or better yet, an IPython session</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ChiantiPy.core</span> <span class="k">as</span> <span class="nn">ch</span>
+<span class="n">fe14</span> <span class="o">=</span> <span class="n">ch</span><span class="o">.</span><span class="n">ion</span><span class="p">(</span><span class="s1">&#39;fe_14&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The fe14 object is instantiated with a number of methods and data.  Methods start with lowercase letters and attributes start with uppercase letters.  It is best not to simply import ion as there is a method with the same name in matplotlib.  A few examples:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">fe14</span><span class="o">.</span><span class="n">IonStr</span>
+  <span class="o">&gt;&gt;</span> <span class="s1">&#39;fe_14&#39;</span>
+<span class="n">fe14</span><span class="o">.</span><span class="n">Spectroscopic</span>
+  <span class="o">&gt;&gt;</span> <span class="s1">&#39;Fe XIV&#39;</span>
+</pre></div>
+</div>
+<p>CHIANTI and spectroscopic notation for the ion</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">fe14</span><span class="o">.</span><span class="n">Z</span>
+  <span class="o">&gt;&gt;</span> <span class="mi">26</span>
+<span class="n">fe14</span><span class="o">.</span><span class="n">Ion</span>
+  <span class="o">&gt;&gt;</span> <span class="mi">14</span>
+</pre></div>
+</div>
+<p>nuclear charge Z and the ionization stage (in spectroscopic notation) for the ion</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">fe14</span><span class="o">.</span><span class="n">Ip</span>
+  <span class="o">&gt;&gt;</span> <span class="mf">392.16196</span>
+</pre></div>
+</div>
+<p>this is the ionization potential in electron volts.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">fe14</span><span class="o">.</span><span class="n">FIP</span>
+  <span class="o">&gt;&gt;</span> <span class="mf">7.9023801573028294</span>
+</pre></div>
+</div>
+<p>this is the first ionization potential (FIP) in electron volts - the ionization potential of the neutral (Fe I).</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">fe14</span><span class="o">.</span><span class="n">Abundance</span>
+  <span class="o">&gt;&gt;</span> <span class="mf">0.00012589265</span>
+<span class="n">fe14</span><span class="o">.</span><span class="n">AbundanceName</span>
+  <span class="o">&gt;&gt;</span> <span class="s1">&#39;sun_photospheric_1998_grevesse&#39;</span>
+</pre></div>
+</div>
+<p>this is the abundance of iron relative to hydrogen for the specified elemental abundance set.  For the ion class, the abundance can be specified by the <em>abuncance</em> keyword argument or the <em>abundanceName</em> keyword argument.  In the case the abundance is taken from default abundcance set.  The specified defaults can be examined by</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">fe14</span><span class="o">.</span><span class="n">Defaults</span>
+  <span class="o">&gt;&gt;</span>  <span class="p">{</span><span class="s1">&#39;abundfile&#39;</span><span class="p">:</span> <span class="s1">&#39;sun_photospheric_1998_grevesse&#39;</span><span class="p">,</span> <span class="s1">&#39;flux&#39;</span><span class="p">:</span> <span class="s1">&#39;energy&#39;</span><span class="p">,</span> <span class="s1">&#39;ioneqfile&#39;</span><span class="p">:</span> <span class="s1">&#39;chianti&#39;</span><span class="p">,</span> <span class="s1">&#39;wavelength&#39;</span><span class="p">:</span> <span class="s1">&#39;angstrom&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>the defaults can be specified by the user in the ~/.chiantirc/chiantrc file.  One is included in the distribution but it must be placed in ~/.chiantirc for it to be read.  If it is not found, a set of coded default values are used.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">fe14</span><span class="o">.</span><span class="n">Elvlc</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+<span class="o">&gt;&gt;</span>  <span class="p">[</span><span class="s1">&#39;ecmth&#39;</span><span class="p">,</span> <span class="s1">&#39;term&#39;</span><span class="p">,</span> <span class="s1">&#39;ref&#39;</span><span class="p">,</span> <span class="s1">&#39;pretty&#39;</span><span class="p">,</span> <span class="s1">&#39;spd&#39;</span><span class="p">,</span> <span class="s1">&#39;ecm&#39;</span><span class="p">,</span> <span class="s1">&#39;j&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;erydth&#39;</span><span class="p">,</span> <span class="s1">&#39;conf&#39;</span><span class="p">,</span> <span class="s1">&#39;lvl&#39;</span><span class="p">,</span> <span class="s1">&#39;spin&#39;</span><span class="p">,</span> <span class="s1">&#39;eryd&#39;</span><span class="p">,</span> <span class="s1">&#39;mult&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>fe14.Elvlc is a dictionary that describes the energy levels of the Fe XIV ion.  The key ‘ecm’ provides the energies, relative to the ground level, in inverse cm.  The ‘ref’ key provides the references in the scientific literature where the data were provided.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">fe14</span><span class="o">.</span><span class="n">Elvlc</span><span class="p">[</span><span class="s1">&#39;ref&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;</span> <span class="p">[</span><span class="s1">&#39;</span><span class="si">%f</span><span class="s1">ilename: fe_14.elvlc&#39;</span><span class="p">,</span>
+      <span class="o">%</span><span class="n">observed</span> <span class="n">energy</span> <span class="n">levels</span><span class="p">:</span> <span class="n">Churilov</span> <span class="n">S</span><span class="o">.</span><span class="n">S</span><span class="o">.</span><span class="p">,</span> <span class="n">Levashov</span> <span class="n">V</span><span class="o">.</span><span class="n">E</span><span class="o">.</span><span class="p">,</span> <span class="mi">1993</span><span class="p">,</span> <span class="n">Physica</span> <span class="n">Scripta</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">425</span><span class="p">,</span>
+      <span class="o">%</span><span class="n">observed</span> <span class="n">energy</span> <span class="n">levels</span><span class="p">:</span> <span class="n">Redfors</span> <span class="n">A</span><span class="o">.</span><span class="p">,</span> <span class="n">Litzen</span> <span class="n">U</span><span class="o">.</span><span class="p">,</span> <span class="mi">1989</span><span class="p">,</span> <span class="n">J</span><span class="o">.</span><span class="n">Opt</span><span class="o">.</span><span class="n">Soc</span><span class="o">.</span><span class="n">Am</span><span class="o">.</span><span class="n">B</span> <span class="mi">6</span><span class="p">,</span> <span class="c1">#8, 1447,</span>
+      <span class="o">%</span><span class="n">theoretical</span> <span class="n">energy</span> <span class="n">levels</span><span class="p">:</span> <span class="n">Storey</span> <span class="n">P</span><span class="o">.</span><span class="n">J</span><span class="o">.</span><span class="p">,</span> <span class="n">Mason</span> <span class="n">H</span><span class="o">.</span><span class="n">E</span><span class="o">.</span><span class="p">,</span> <span class="n">Young</span> <span class="n">P</span><span class="o">.</span><span class="n">R</span><span class="o">.</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="n">A</span><span class="o">&amp;</span><span class="n">ASS</span> <span class="mi">141</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span>
+      <span class="o">%</span><span class="n">comment</span><span class="p">,</span>
+      <span class="n">Only</span> <span class="n">level</span> <span class="mi">16</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">have</span> <span class="n">an</span> <span class="n">observed</span> <span class="n">energy</span><span class="o">.</span> <span class="n">I</span> <span class="n">have</span> <span class="n">placed</span> <span class="ow">in</span><span class="p">,</span>
+      <span class="n">the</span> <span class="n">third</span> <span class="n">energy</span> <span class="n">column</span> <span class="n">a</span> <span class="n">recommended</span> <span class="n">value</span> <span class="k">for</span> <span class="n">the</span> <span class="n">energy</span> <span class="n">value</span> <span class="n">of</span><span class="p">,</span>
+      <span class="n">this</span> <span class="n">level</span><span class="p">,</span> <span class="n">based</span> <span class="n">on</span> <span class="n">the</span> <span class="n">theoretical</span> <span class="ow">and</span> <span class="n">observed</span> <span class="n">splittings</span> <span class="n">of</span> <span class="n">the</span><span class="p">,</span>
+      <span class="mi">4</span><span class="n">F</span> <span class="n">levels</span><span class="o">.</span> <span class="n">It</span> <span class="ow">is</span> <span class="n">this</span> <span class="n">energy</span> <span class="n">value</span> <span class="n">which</span> <span class="ow">is</span> <span class="n">used</span> <span class="n">to</span> <span class="n">compute</span> <span class="n">the</span><span class="p">,</span>
+      <span class="n">wavelengths</span> <span class="n">of</span> <span class="n">transitions</span> <span class="n">involving</span> <span class="n">level</span> <span class="mi">16</span> <span class="n">given</span> <span class="ow">in</span> <span class="n">the</span> <span class="o">.</span><span class="n">wgfa</span><span class="p">,</span>
+      <span class="n">file</span><span class="o">.</span><span class="p">,</span>
+      <span class="o">%</span><span class="n">produced</span> <span class="k">as</span> <span class="n">part</span> <span class="n">of</span> <span class="n">the</span> <span class="n">Arcetri</span><span class="o">/</span><span class="n">Cambridge</span><span class="o">/</span><span class="n">GMU</span><span class="o">/</span><span class="n">NRL</span> <span class="s1">&#39;CHIANTI&#39;</span> <span class="n">atomic</span> <span class="n">data</span> <span class="n">base</span> <span class="n">collaboration</span><span class="p">,</span>
+      <span class="o">%</span><span class="p">,</span>
+      <span class="o">%</span>   <span class="n">P</span><span class="o">.</span><span class="n">R</span><span class="o">.</span><span class="n">Young</span> <span class="n">Feb</span> <span class="mi">99</span><span class="s1">&#39;]</span>
+</pre></div>
+</div>
+<p>If the fe14 <strong>ion</strong> object had be instantiated (created) with a temperature and an electron density, then many more attributes can be calculated.  For example, if the populate() method is used, it creates a dictionary attribute <em>Population</em>.  One thing to remember with Python is that capitalization matters.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">t</span> <span class="o">=</span> <span class="mf">10.</span><span class="o">**</span><span class="p">(</span><span class="mf">5.8</span><span class="o">+</span><span class="mf">0.1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">11</span><span class="p">))</span>
+<span class="n">dens</span> <span class="o">=</span> <span class="mf">1.e+9</span>
+<span class="n">fe14</span> <span class="o">=</span> <span class="n">ch</span><span class="o">.</span><span class="n">ion</span><span class="p">(</span><span class="s1">&#39;fe_14&#39;</span><span class="p">)</span>
+<span class="n">fe14</span><span class="o">.</span><span class="n">populate</span><span class="p">()</span>
+<span class="n">fe14</span><span class="o">.</span><span class="n">Population</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+<span class="o">&gt;&gt;</span><span class="p">[</span><span class="s1">&#39;ci&#39;</span><span class="p">,</span> <span class="s1">&#39;protonDensity&#39;</span><span class="p">,</span> <span class="s1">&#39;popmat&#39;</span><span class="p">,</span> <span class="s1">&#39;eDensity&#39;</span><span class="p">,</span> <span class="s1">&#39;rec&#39;</span><span class="p">,</span> <span class="s1">&#39;population&#39;</span><span class="p">,</span> <span class="s1">&#39;temperature&#39;</span><span class="p">]</span>
+
+<span class="n">fe14</span><span class="o">.</span><span class="n">Population</span><span class="p">[</span><span class="s1">&#39;population&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+<span class="o">&gt;&gt;</span><span class="p">(</span><span class="mi">21</span><span class="p">,</span> <span class="mi">739</span><span class="p">)</span>
+
+<span class="s1">&#39;</span><span class="si">%10.2e</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">fe14</span><span class="o">.</span><span class="n">Temperature</span><span class="p">[</span><span class="mi">10</span><span class="p">])</span>
+<span class="o">&gt;&gt;</span> <span class="s1">&#39;  2.00e+06&#39;</span>
+
+<span class="n">fe14</span><span class="o">.</span><span class="n">Population</span><span class="p">[</span><span class="s1">&#39;population&#39;</span><span class="p">][</span><span class="mi">10</span><span class="p">,:</span><span class="mi">5</span><span class="p">]</span>
+<span class="o">&gt;&gt;</span><span class="n">array</span><span class="p">([</span> <span class="mf">8.71775703e-01</span><span class="p">,</span> <span class="mf">1.27867444e-01</span><span class="p">,</span> <span class="mf">4.91230626e-09</span><span class="p">,</span> <span class="mf">4.29120495e-08</span><span class="p">,</span> <span class="mf">1.35517895e-08</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>gives the population of the first 5 of 739 levels of Fe XIV at a temperature of 2.00e+6</p>
+<p>to be continued</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="code_ref/index.html" class="btn btn-neutral float-right" title="API Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="quick_start.html" class="btn btn-neutral" title="Quick Start" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Ken Dere.
+      Last updated on 03 Oct 2018.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.7.1a',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

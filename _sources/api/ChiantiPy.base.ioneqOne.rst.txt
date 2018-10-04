@@ -1,0 +1,17 @@
+ioneqOne
+========
+
+.. currentmodule:: ChiantiPy.base
+
+.. autoclass:: ioneqOne
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~ioneqOne.ioneqOne
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: ioneqOne

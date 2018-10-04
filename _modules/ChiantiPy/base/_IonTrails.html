@@ -1,0 +1,841 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ChiantiPy.base._IonTrails &mdash; ChiantiPy v0.7.1a</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/astropy_logo.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="ChiantiPy v0.7.1a" href="../../../index.html"/>
+        <link rel="up" title="ChiantiPy" href="../../ChiantiPy.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> ChiantiPy
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.7.1a
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started.html">Getting started with ChiantiPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../code_ref/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes.html">Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../IDL_intro.html">Intro for CHIANTI IDL Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../resources.html">Resources for ChiantiPy Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bugs.html">Reporting Bugs</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">ChiantiPy</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../ChiantiPy.html">ChiantiPy</a> &raquo;</li>
+        
+      <li>ChiantiPy.base._IonTrails</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ChiantiPy.base._IonTrails</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Base classes used in the `ChiantiPy.core.ion` and `ChiantiPy.core.spectrum`</span>
+<span class="sd">classes. Mostly printing, plotting and saving routines.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">ChiantiPy.tools.util</span> <span class="k">as</span> <span class="nn">util</span>
+<span class="kn">import</span> <span class="nn">ChiantiPy.Gui</span> <span class="k">as</span> <span class="nn">chGui</span>
+<span class="kn">import</span> <span class="nn">ChiantiPy.tools.data</span> <span class="k">as</span> <span class="nn">chdata</span>
+
+
+<div class="viewcode-block" id="ionTrails"><a class="viewcode-back" href="../../../api/ChiantiPy.base.ionTrails.html#ChiantiPy.base.ionTrails">[docs]</a><span class="k">class</span> <span class="nc">ionTrails</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Base class for `ChiantiPy.core.ion` and `ChiantiPy.core.spectrum`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ionTrails.intensityList"><a class="viewcode-back" href="../../../api/ChiantiPy.base.ionTrails.html#ChiantiPy.base.ionTrails.intensityList">[docs]</a>    <span class="k">def</span> <span class="nf">intensityList</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">wvlRange</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">wvlRanges</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">relative</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">outFile</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">rightDigits</span><span class="o">=</span><span class="mi">4</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        List the line intensities. Checks to see if there is an existing Intensity attribute. If it exists, then those values are used.</span>
+<span class="sd">        Otherwise, the `intensity` method is called.</span>
+
+<span class="sd">        This method prints an ASCII table with the following columns:</span>
+
+<span class="sd">        1. Ion: the CHIANTI style notation for the ion, e.g. &#39;c_4&#39; for C IV</span>
+<span class="sd">        2. lvl1:  the lower level of the transition in the CHIANTI .elvlc file</span>
+<span class="sd">        3. lvl2:  the upper level of the transition in the CHIANTI .elvlc file</span>
+<span class="sd">        4. lower:  the notation, usually in LS coupling, of the lower fine</span>
+<span class="sd">           structure level</span>
+<span class="sd">        5. upper:  the notation, usually in LS coupling, of the upper fine</span>
+<span class="sd">           structure level</span>
+<span class="sd">        6. Wvl(A):  the wavelength of the transition in units as specified in</span>
+<span class="sd">           the chiantirc file.</span>
+<span class="sd">        7. Intensity</span>
+<span class="sd">        8. A value:  the Einstein coefficient for spontaneous emission from</span>
+<span class="sd">           level &#39;j&#39; to level &#39;i&#39;</span>
+<span class="sd">        9. Obs: indicates whether the CHIANTI database considers this an</span>
+<span class="sd">           observed line or one obtained from theoretical energy levels</span>
+
+<span class="sd">        Regarding the intensity column, if &#39;flux&#39; in the chiantirc file is set</span>
+<span class="sd">        to &#39;energy&#39;, the intensity is given by,</span>
+
+<span class="sd">        .. math::</span>
+<span class="sd">           I = \Delta E_{ij}n_jA_{ij}\mathrm{Ab}\\frac{1}{N_e}</span>
+<span class="sd">           \\frac{N(X^{+m})}{N(X)}\mathrm{EM},</span>
+
+<span class="sd">        in units of ergs cm\ :sup:`-2` s\ :sup:`-1` sr\ :sup:`-1`. If &#39;flux&#39; is set to &#39;photon&#39;,</span>
+
+<span class="sd">        .. math::</span>
+<span class="sd">           I = n_jA_{ij}\mathrm{Ab}\\frac{1}{N_e}\\frac{N(X^{+m})}{N(X)}</span>
+<span class="sd">           \mathrm{EM},</span>
+
+<span class="sd">        where,</span>
+
+<span class="sd">        - :math:`\Delta E_{ij}` is the transition energy (ergs)</span>
+<span class="sd">        - :math:`n_j` is  the fractions of ions in level :math:`j`</span>
+<span class="sd">        - :math:`A_{ij}` is the Einstein coefficient for spontaneous emission</span>
+<span class="sd">          from level :math:`j` to level :math:`i` (in s\ :sup:`-1`)</span>
+<span class="sd">        - :math:`\mathrm{Ab}` is the abundance of the specified element</span>
+<span class="sd">          relative to hydrogen</span>
+<span class="sd">        - :math:`N_e` is the electron density (in cm\ :sup:`-3`)</span>
+<span class="sd">        - :math:`N(X^{+m})/N(X)` is the fractional ionization of ion as a</span>
+<span class="sd">          function of temperature</span>
+<span class="sd">        - :math:`\mathrm{EM}` is the emission measure integrated along the</span>
+<span class="sd">          line-of-sight, :math:`\int\mathrm{d}l\,N_eN_H` (cm\ :sup:`-5`) where</span>
+<span class="sd">          :math:`N_H` is the density of hydrogen (neutral + ionized)</span>
+<span class="sd">          (cm\ :sup:`-3`)</span>
+
+<span class="sd">        Note that if `relative` is set, the line intensity is relative to the</span>
+<span class="sd">        strongest line and so the output will be unitless.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        -----------</span>
+<span class="sd">        index :  `int`,optional</span>
+<span class="sd">            Index the temperature or eDensity array to use.</span>
+<span class="sd">            -1 (default) sets the specified value to the middle of the array</span>
+<span class="sd">        wvlRange : `tuple`</span>
+<span class="sd">            Wavelength range</span>
+<span class="sd">        wvlRanges : a tuple, list or array that contains at least 2</span>
+<span class="sd">            2 element tuples, lists or arrays so that multiple</span>
+<span class="sd">            wavelength ranges can be specified</span>
+<span class="sd">        top : `int`</span>
+<span class="sd">            Number of lines to plot, sorted by descending magnitude.</span>
+<span class="sd">        relative : `int`</span>
+<span class="sd">            specifies whether to normalize to strongest line</span>
+<span class="sd">            default (relative = 0) specified that the intensities should be</span>
+<span class="sd">            their calculated values</span>
+<span class="sd">        outFile : `str`</span>
+<span class="sd">            specifies the file that the intensities should be output to</span>
+<span class="sd">            default(outFile = 0) intensities are output to the terminal</span>
+<span class="sd">        rightDigits:  `int`</span>
+<span class="sd">            specifies the format for the wavelengths for the number of digits</span>
+<span class="sd">            to right of the decimal place</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;Intensity&#39;</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">intensity</span><span class="p">()</span>
+            <span class="c1">#TODO: specify what exception to catch! or omit the try, catch</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; intensities not calculated and emiss() is unable to calculate them&#39;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; perhaps the temperature and/or eDensity are not set&#39;</span><span class="p">)</span>
+                <span class="k">return</span>
+
+        <span class="n">temperature</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Temperature</span>
+        <span class="n">eDensity</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">EDensity</span>
+        <span class="n">em</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Em</span>
+
+        <span class="n">ndens</span> <span class="o">=</span> <span class="n">eDensity</span><span class="o">.</span><span class="n">size</span>
+        <span class="n">ntemp</span> <span class="o">=</span> <span class="n">temperature</span><span class="o">.</span><span class="n">size</span>
+
+        <span class="n">intens</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Intensity</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">&#39;errorMessage&#39;</span> <span class="ow">in</span> <span class="n">intens</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; errorMessage:  </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">intens</span><span class="p">[</span><span class="s1">&#39;errorMessage&#39;</span><span class="p">]))</span>
+            <span class="k">return</span>
+        <span class="n">intensity</span> <span class="o">=</span> <span class="n">intens</span><span class="p">[</span><span class="s1">&#39;intensity&#39;</span><span class="p">]</span>
+        <span class="n">ionS</span> <span class="o">=</span> <span class="n">intens</span><span class="p">[</span><span class="s1">&#39;ionS&#39;</span><span class="p">]</span>
+        <span class="n">wvl</span> <span class="o">=</span> <span class="n">intens</span><span class="p">[</span><span class="s1">&#39;wvl&#39;</span><span class="p">]</span>
+        <span class="n">lvl1</span> <span class="o">=</span> <span class="n">intens</span><span class="p">[</span><span class="s1">&#39;lvl1&#39;</span><span class="p">]</span>
+        <span class="n">lvl2</span> <span class="o">=</span> <span class="n">intens</span><span class="p">[</span><span class="s1">&#39;lvl2&#39;</span><span class="p">]</span>
+        <span class="n">pretty1</span> <span class="o">=</span> <span class="n">intens</span><span class="p">[</span><span class="s1">&#39;pretty1&#39;</span><span class="p">]</span>
+        <span class="n">pretty2</span> <span class="o">=</span> <span class="n">intens</span><span class="p">[</span><span class="s1">&#39;pretty2&#39;</span><span class="p">]</span>
+        <span class="n">obs</span> <span class="o">=</span> <span class="n">intens</span><span class="p">[</span><span class="s1">&#39;obs&#39;</span><span class="p">]</span>
+        <span class="n">avalue</span> <span class="o">=</span> <span class="n">intens</span><span class="p">[</span><span class="s1">&#39;avalue&#39;</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">ndens</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">ntemp</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">dstr</span> <span class="o">=</span> <span class="s1">&#39; -  Density = </span><span class="si">%10.2e</span><span class="s1"> (cm$^{-3}$)&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">eDensity</span><span class="p">)</span>
+            <span class="n">tstr</span> <span class="o">=</span> <span class="s1">&#39; -  T = </span><span class="si">%10.2e</span><span class="s1"> (K)&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">temperature</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">ndens</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">ntemp</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">index</span> <span class="o">=</span> <span class="n">ntemp</span><span class="o">//</span><span class="mi">2</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;using index = </span><span class="si">%5i</span><span class="s1"> specifying temperature =  </span><span class="si">%10.2e</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">temperature</span><span class="p">[</span><span class="n">index</span><span class="p">]))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Message</span> <span class="o">=</span> <span class="s1">&#39;using index = </span><span class="si">%5i</span><span class="s1"> specifying temperature =  </span><span class="si">%10.2e</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">temperature</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
+
+            <span class="n">intensity</span><span class="o">=</span><span class="n">intensity</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">ndens</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">ntemp</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">index</span> <span class="o">=</span> <span class="n">ntemp</span><span class="o">//</span><span class="mi">2</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;using index =</span><span class="si">%5i</span><span class="s1"> specifying eDensity = </span><span class="si">%10.2e</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">eDensity</span><span class="p">[</span><span class="n">index</span><span class="p">]))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Message</span> <span class="o">=</span> <span class="s1">&#39;using index =</span><span class="si">%5i</span><span class="s1"> specifying eDensity = </span><span class="si">%10.2e</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">eDensity</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
+            <span class="n">intensity</span><span class="o">=</span><span class="n">intensity</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">ndens</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">ntemp</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">index</span> <span class="o">=</span> <span class="n">ntemp</span><span class="o">//</span><span class="mi">2</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;using index = </span><span class="si">%5i</span><span class="s1"> specifying temperature = </span><span class="si">%10.2e</span><span class="s1">, eDensity =  </span><span class="si">%10.2e</span><span class="s1"> em = </span><span class="si">%10.2e</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">temperature</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="n">eDensity</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="n">em</span><span class="p">[</span><span class="n">index</span><span class="p">]))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Message</span> <span class="o">=</span> <span class="s1">&#39;using index = </span><span class="si">%5i</span><span class="s1"> specifying temperature = </span><span class="si">%10.2e</span><span class="s1">, eDensity =  </span><span class="si">%10.2e</span><span class="s1"> = </span><span class="si">%10.2e</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">temperature</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="n">eDensity</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="n">em</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
+            <span class="n">intensity</span><span class="o">=</span><span class="n">intensity</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">wvlRange</span><span class="p">:</span>
+            <span class="n">wvlIndex</span><span class="o">=</span><span class="n">util</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="n">wvl</span><span class="p">,</span><span class="n">wvlRange</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">wvlRanges</span><span class="p">:</span>
+            <span class="n">wvlIndex</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">awvlRange</span> <span class="ow">in</span> <span class="n">wvlRanges</span><span class="p">:</span>
+                <span class="n">wvlIndex</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">util</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="n">wvl</span><span class="p">,</span><span class="n">awvlRange</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">wvlIndex</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">wvl</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+
+        <span class="c1">#  get lines in the specified wavelength range</span>
+        <span class="n">intensity</span> <span class="o">=</span> <span class="n">intensity</span><span class="p">[</span><span class="n">wvlIndex</span><span class="p">]</span>
+        <span class="n">ionS</span> <span class="o">=</span> <span class="n">ionS</span><span class="p">[</span><span class="n">wvlIndex</span><span class="p">]</span>
+        <span class="n">wvl</span> <span class="o">=</span> <span class="n">wvl</span><span class="p">[</span><span class="n">wvlIndex</span><span class="p">]</span>
+        <span class="n">lvl1</span> <span class="o">=</span> <span class="n">lvl1</span><span class="p">[</span><span class="n">wvlIndex</span><span class="p">]</span>
+        <span class="n">lvl2</span> <span class="o">=</span> <span class="n">lvl2</span><span class="p">[</span><span class="n">wvlIndex</span><span class="p">]</span>
+        <span class="n">avalue</span> <span class="o">=</span> <span class="n">avalue</span><span class="p">[</span><span class="n">wvlIndex</span><span class="p">]</span>
+        <span class="n">pretty1</span> <span class="o">=</span> <span class="n">pretty1</span><span class="p">[</span><span class="n">wvlIndex</span><span class="p">]</span>
+        <span class="n">pretty2</span> <span class="o">=</span> <span class="n">pretty2</span><span class="p">[</span><span class="n">wvlIndex</span><span class="p">]</span>
+        <span class="n">obs</span> <span class="o">=</span> <span class="n">obs</span><span class="p">[</span><span class="n">wvlIndex</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">Error</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">wvl</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No lines in this wavelength interval&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Error</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Message</span> <span class="o">=</span> <span class="s1">&#39;No lines in this wavelength interval&#39;</span>
+            <span class="k">return</span>
+
+        <span class="k">elif</span> <span class="n">top</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">top</span> <span class="o">=</span> <span class="n">wvl</span><span class="o">.</span><span class="n">size</span>
+        <span class="k">elif</span> <span class="n">top</span> <span class="o">&gt;</span> <span class="n">wvl</span><span class="o">.</span><span class="n">size</span><span class="p">:</span>
+            <span class="n">top</span> <span class="o">=</span> <span class="n">wvl</span><span class="o">.</span><span class="n">size</span>
+
+        <span class="c1"># sort by intensity</span>
+        <span class="n">isrt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">intensity</span><span class="p">)</span>
+        <span class="n">ionS</span> <span class="o">=</span> <span class="n">ionS</span><span class="p">[</span><span class="n">isrt</span><span class="p">[</span><span class="o">-</span><span class="n">top</span><span class="p">:]]</span>
+        <span class="n">wvl</span> <span class="o">=</span> <span class="n">wvl</span><span class="p">[</span><span class="n">isrt</span><span class="p">[</span><span class="o">-</span><span class="n">top</span><span class="p">:]]</span>
+        <span class="n">lvl1</span> <span class="o">=</span> <span class="n">lvl1</span><span class="p">[</span><span class="n">isrt</span><span class="p">[</span><span class="o">-</span><span class="n">top</span><span class="p">:]]</span>
+        <span class="n">lvl2</span> <span class="o">=</span> <span class="n">lvl2</span><span class="p">[</span><span class="n">isrt</span><span class="p">[</span><span class="o">-</span><span class="n">top</span><span class="p">:]]</span>
+        <span class="n">obs</span> <span class="o">=</span> <span class="n">obs</span><span class="p">[</span><span class="n">isrt</span><span class="p">[</span><span class="o">-</span><span class="n">top</span><span class="p">:]]</span>
+        <span class="n">intensity</span> <span class="o">=</span> <span class="n">intensity</span><span class="p">[</span><span class="n">isrt</span><span class="p">[</span><span class="o">-</span><span class="n">top</span><span class="p">:]]</span>
+        <span class="n">avalue</span> <span class="o">=</span> <span class="n">avalue</span><span class="p">[</span><span class="n">isrt</span><span class="p">[</span><span class="o">-</span><span class="n">top</span><span class="p">:]]</span>
+        <span class="n">pretty1</span> <span class="o">=</span> <span class="n">pretty1</span><span class="p">[</span><span class="n">isrt</span><span class="p">[</span><span class="o">-</span><span class="n">top</span><span class="p">:]]</span>
+        <span class="n">pretty2</span> <span class="o">=</span> <span class="n">pretty2</span><span class="p">[</span><span class="n">isrt</span><span class="p">[</span><span class="o">-</span><span class="n">top</span><span class="p">:]]</span>
+
+        <span class="c1"># must follow setting top</span>
+        <span class="k">if</span> <span class="n">relative</span><span class="p">:</span>
+            <span class="n">intensity</span> <span class="o">=</span> <span class="n">intensity</span><span class="o">/</span><span class="n">intensity</span><span class="p">[:</span><span class="n">top</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+
+        <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">wvl</span><span class="p">)</span>
+        <span class="n">fmt1</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%5s</span><span class="s1"> </span><span class="si">%5s</span><span class="s1"> </span><span class="si">%5s</span><span class="s1"> </span><span class="si">%25s</span><span class="s1"> - </span><span class="si">%-25s</span><span class="s1"> </span><span class="si">%12s</span><span class="s1"> </span><span class="si">%12s</span><span class="s1"> </span><span class="si">%12s</span><span class="s1"> </span><span class="si">%3s</span><span class="s1">&#39;</span>
+        <span class="n">fmt</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%5s</span><span class="s1"> </span><span class="si">%5i</span><span class="s1"> </span><span class="si">%5i</span><span class="s1"> </span><span class="si">%25s</span><span class="s1"> - </span><span class="si">%-25s</span><span class="s1"> %12.&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">rightDigits</span><span class="p">)</span> <span class="o">+</span> \
+            <span class="s1">&#39;f </span><span class="si">%12.2e</span><span class="s1"> </span><span class="si">%12.2e</span><span class="s1"> </span><span class="si">%1s</span><span class="s1">&#39;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;   &#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; ------------------------------------------&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;   &#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">fmt1</span><span class="o">%</span><span class="p">(</span><span class="s1">&#39;Ion&#39;</span><span class="p">,</span><span class="s1">&#39;lvl1&#39;</span><span class="p">,</span><span class="s1">&#39;lvl2&#39;</span><span class="p">,</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span><span class="s1">&#39;upper&#39;</span><span class="p">,</span><span class="s1">&#39;Wvl(A)&#39;</span><span class="p">,</span><span class="s1">&#39;Intensity&#39;</span><span class="p">,</span><span class="s1">&#39;A value&#39;</span><span class="p">,</span><span class="s1">&#39;Obs&#39;</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">kdx</span> <span class="ow">in</span> <span class="n">idx</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">fmt</span><span class="o">%</span><span class="p">(</span><span class="n">ionS</span><span class="p">[</span><span class="n">kdx</span><span class="p">],</span> <span class="n">lvl1</span><span class="p">[</span><span class="n">kdx</span><span class="p">],</span> <span class="n">lvl2</span><span class="p">[</span><span class="n">kdx</span><span class="p">],</span> <span class="n">pretty1</span><span class="p">[</span><span class="n">kdx</span><span class="p">],</span> <span class="n">pretty2</span><span class="p">[</span><span class="n">kdx</span><span class="p">],</span> <span class="n">wvl</span><span class="p">[</span><span class="n">kdx</span><span class="p">],</span> <span class="n">intensity</span><span class="p">[</span><span class="n">kdx</span><span class="p">],</span> <span class="n">avalue</span><span class="p">[</span><span class="n">kdx</span><span class="p">],</span> <span class="n">obs</span><span class="p">[</span><span class="n">kdx</span><span class="p">]))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;   &#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; ------------------------------------------&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;   &#39;</span><span class="p">)</span>
+        <span class="c1">#</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Intensity</span><span class="p">[</span><span class="s1">&#39;wvlTop&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">wvl</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Intensity</span><span class="p">[</span><span class="s1">&#39;intensityTop&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">intensity</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">outFile</span><span class="p">:</span>
+            <span class="n">fmt1a</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%5s</span><span class="s1"> </span><span class="si">%5s</span><span class="s1"> </span><span class="si">%5s</span><span class="s1"> </span><span class="si">%25s</span><span class="s1"> - </span><span class="si">%-25s</span><span class="s1"> </span><span class="si">%12s</span><span class="s1"> </span><span class="si">%12s</span><span class="s1"> </span><span class="si">%12s</span><span class="s1"> </span><span class="si">%3s</span><span class="s1"> </span><span class="se">\n</span><span class="s1">&#39;</span>
+            <span class="n">fmt</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%5s</span><span class="s1"> </span><span class="si">%5i</span><span class="s1"> </span><span class="si">%5i</span><span class="s1"> </span><span class="si">%25s</span><span class="s1"> - </span><span class="si">%-25s</span><span class="s1"> %12.4&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">rightDigits</span><span class="p">)</span> <span class="o">+</span> \
+            <span class="s1">&#39;f </span><span class="si">%12.2e</span><span class="s1"> </span><span class="si">%12.2e</span><span class="s1"> </span><span class="si">%1s</span><span class="s1"> </span><span class="se">\n</span><span class="s1">&#39;</span>
+            <span class="n">outpt</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">outFile</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+            <span class="n">outpt</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">fmt1a</span><span class="o">%</span><span class="p">(</span><span class="s1">&#39;Ion&#39;</span><span class="p">,</span><span class="s1">&#39;lvl1&#39;</span><span class="p">,</span><span class="s1">&#39;lvl2&#39;</span><span class="p">,</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span><span class="s1">&#39;upper&#39;</span><span class="p">,</span><span class="s1">&#39;Wvl(A)&#39;</span><span class="p">,</span><span class="s1">&#39;Intensity&#39;</span><span class="p">,</span><span class="s1">&#39;A value&#39;</span><span class="p">,</span><span class="s1">&#39;Obs&#39;</span><span class="p">))</span>
+            <span class="k">for</span> <span class="n">kdx</span> <span class="ow">in</span> <span class="n">idx</span><span class="p">:</span>
+                <span class="n">outpt</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">fmt</span><span class="o">%</span><span class="p">(</span><span class="n">ionS</span><span class="p">[</span><span class="n">kdx</span><span class="p">],</span> <span class="n">lvl1</span><span class="p">[</span><span class="n">kdx</span><span class="p">],</span> <span class="n">lvl2</span><span class="p">[</span><span class="n">kdx</span><span class="p">],</span> <span class="n">pretty1</span><span class="p">[</span><span class="n">kdx</span><span class="p">],</span> <span class="n">pretty2</span><span class="p">[</span><span class="n">kdx</span><span class="p">],</span> <span class="n">wvl</span><span class="p">[</span><span class="n">kdx</span><span class="p">],</span> <span class="n">intensity</span><span class="p">[</span><span class="n">kdx</span><span class="p">],</span> <span class="n">avalue</span><span class="p">[</span><span class="n">kdx</span><span class="p">],</span> <span class="n">obs</span><span class="p">[</span><span class="n">kdx</span><span class="p">]))</span>
+            <span class="n">outpt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="ionTrails.intensityPlot"><a class="viewcode-back" href="../../../api/ChiantiPy.base.ionTrails.html#ChiantiPy.base.ionTrails.intensityPlot">[docs]</a>    <span class="k">def</span> <span class="nf">intensityPlot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">wvlRange</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">linLog</span><span class="o">=</span><span class="s1">&#39;lin&#39;</span><span class="p">,</span> <span class="n">relative</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">plotFile</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">em</span><span class="o">=</span><span class="mi">0</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Plot the line intensities. Uses `Intensity` if it already exists. If</span>
+<span class="sd">        not, call the `intensity` method.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        -----------</span>
+<span class="sd">        index:  integer</span>
+<span class="sd">            specified which value of the temperature array or eDensity array to use.</span>
+<span class="sd">            default (index=-1) sets the specified value to the middle of the array</span>
+<span class="sd">        wvlRange:  2 element tuple, list or array determines the wavelength range</span>
+<span class="sd">        top:  integer</span>
+<span class="sd">            specifies to plot only the top strongest lines, default = 10</span>
+<span class="sd">        linLog:  str</span>
+<span class="sd">            default(&#39;lin&#39;) produces a plot where the intensity scale is linear</span>
+<span class="sd">            if set to &#39;log&#39;, produces a plot where the intensity scale is logarithmic</span>
+<span class="sd">        normalize: = 1 specifies whether to normalize to strongest line</span>
+<span class="sd">            default (relative = 0) specified that the intensities should be their calculated</span>
+<span class="sd">            values</span>
+<span class="sd">        plotFile:</span>
+<span class="sd">            default=0, the plot is not saved to a file</span>
+<span class="sd">            othewise, the plot is saved to the &#39;plotFile&#39;</span>
+<span class="sd">        em:  emission measure</span>
+<span class="sd">            if an Intensity attribute needs be created, then the emission measure is applied</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;Spectroscopic&#39;</span><span class="p">):</span>
+            <span class="n">title</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Spectroscopic</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;Intensity&#39;</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">intensity</span><span class="p">()</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; emissivities not calculated and emiss() is unable to calculate them&#39;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; perhaps the temperature and/or eDensity are not set&#39;</span><span class="p">)</span>
+                <span class="k">return</span>
+
+        <span class="n">wvl</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Intensity</span><span class="p">[</span><span class="s1">&#39;wvl&#39;</span><span class="p">]</span>
+        <span class="n">temperature</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Temperature</span>
+        <span class="n">eDensity</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">EDensity</span>
+        <span class="n">ndens</span> <span class="o">=</span> <span class="n">eDensity</span><span class="o">.</span><span class="n">size</span>
+        <span class="n">ntemp</span> <span class="o">=</span> <span class="n">temperature</span><span class="o">.</span><span class="n">size</span>
+
+        <span class="k">if</span> <span class="n">ndens</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">ntemp</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">dstr</span> <span class="o">=</span> <span class="s1">&#39; -  Density = </span><span class="si">%10.2e</span><span class="s1"> (cm$^{-3}$)&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">eDensity</span><span class="p">)</span>
+            <span class="n">tstr</span> <span class="o">=</span> <span class="s1">&#39; -  T = </span><span class="si">%10.2e</span><span class="s1"> (K)&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">temperature</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">ndens</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">ntemp</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">index</span> <span class="o">=</span> <span class="n">ntemp</span><span class="o">//</span><span class="mi">2</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;using index = </span><span class="si">%5i</span><span class="s1"> specifying temperature =  </span><span class="si">%10.2e</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">temperature</span><span class="p">[</span><span class="n">index</span><span class="p">]))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">Message</span> <span class="o">=</span> <span class="s1">&#39;using index = </span><span class="si">%5i</span><span class="s1"> specifying temperature =  </span><span class="si">%10.2e</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">temperature</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
+
+            <span class="n">intensity</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Intensity</span><span class="p">[</span><span class="s1">&#39;intensity&#39;</span><span class="p">][</span><span class="n">index</span><span class="p">]</span>
+            <span class="n">dstr</span><span class="o">=</span><span class="s1">&#39; -  Density = </span><span class="si">%10.2e</span><span class="s1"> (cm$^{-3}$)&#39;</span> <span class="o">%</span> <span class="n">eDensity</span>
+            <span class="n">tstr</span><span class="o">=</span><span class="s1">&#39; -  T = </span><span class="si">%10.2e</span><span class="s1"> (K)&#39;</span> <span class="o">%</span> <span class="n">temperature</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">ndens</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">ntemp</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">index</span> <span class="o">=</span> <span class="n">ntemp</span><span class="o">//</span><span class="mi">2</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;using index =</span><span class="si">%5i</span><span class="s1"> specifying eDensity = </span><span class="si">%10.2e</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">eDensity</span><span class="p">[</span><span class="n">index</span><span class="p">]))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">Message</span> <span class="o">=</span> <span class="s1">&#39;using index =</span><span class="si">%5i</span><span class="s1"> specifying eDensity = </span><span class="si">%10.2e</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">eDensity</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
+
+            <span class="n">intensity</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Intensity</span><span class="p">[</span><span class="s1">&#39;intensity&#39;</span><span class="p">][</span><span class="n">index</span><span class="p">]</span>
+            <span class="n">dstr</span><span class="o">=</span><span class="s1">&#39; -  Density = </span><span class="si">%10.2e</span><span class="s1"> (cm$^{-3}$)&#39;</span> <span class="o">%</span> <span class="n">eDensity</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+            <span class="n">tstr</span><span class="o">=</span><span class="s1">&#39; -  T = </span><span class="si">%10.2e</span><span class="s1"> (K)&#39;</span> <span class="o">%</span> <span class="n">temperature</span>
+        <span class="k">elif</span> <span class="n">ndens</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">ntemp</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">index</span> <span class="o">=</span> <span class="n">ntemp</span><span class="o">//</span><span class="mi">2</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;using index = </span><span class="si">%5i</span><span class="s1"> specifying temperature = </span><span class="si">%10.2e</span><span class="s1">, eDensity =  </span><span class="si">%10.2e</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">temperature</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="n">eDensity</span><span class="p">[</span><span class="n">index</span><span class="p">]))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">Message</span> <span class="o">=</span> <span class="s1">&#39;using index = </span><span class="si">%5i</span><span class="s1"> specifying temperature = </span><span class="si">%10.2e</span><span class="s1">, eDensity =  </span><span class="si">%10.2e</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">temperature</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="n">eDensity</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
+
+            <span class="n">intensity</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Intensity</span><span class="p">[</span><span class="s1">&#39;intensity&#39;</span><span class="p">][</span><span class="n">index</span><span class="p">]</span>
+            <span class="n">dstr</span><span class="o">=</span><span class="s1">&#39; -  Density = </span><span class="si">%10.2e</span><span class="s1"> (cm$^{-3}$)&#39;</span> <span class="o">%</span> <span class="n">eDensity</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+            <span class="n">tstr</span><span class="o">=</span><span class="s1">&#39; -  T = </span><span class="si">%10.2e</span><span class="s1"> (K)&#39;</span> <span class="o">%</span> <span class="n">temperature</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">wvlRange</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">):</span>
+            <span class="n">wvlIndex</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="n">wvl</span><span class="p">,</span> <span class="n">wvlRange</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">wvlIndex</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">wvl</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+        <span class="n">intensity</span> <span class="o">=</span> <span class="n">intensity</span><span class="p">[</span><span class="n">wvlIndex</span><span class="p">]</span>
+        <span class="n">wvl</span> <span class="o">=</span> <span class="n">wvl</span><span class="p">[</span><span class="n">wvlIndex</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">Error</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">wvl</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No lines in this wavelength interval&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Error</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Message</span> <span class="o">=</span> <span class="s1">&#39;No lines in this wavelength interval&#39;</span>
+            <span class="k">return</span>
+        <span class="k">elif</span> <span class="n">top</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">top</span> <span class="o">=</span> <span class="n">wvl</span><span class="o">.</span><span class="n">size</span>
+        <span class="k">elif</span> <span class="n">wvl</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="n">top</span><span class="p">:</span>
+            <span class="n">intsrt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">intensity</span><span class="p">)</span>
+            <span class="n">wvl</span> <span class="o">=</span> <span class="n">wvl</span><span class="p">[</span><span class="n">intsrt</span><span class="p">[</span><span class="o">-</span><span class="n">top</span><span class="p">:]]</span>
+            <span class="n">intensity</span> <span class="o">=</span> <span class="n">intensity</span><span class="p">[</span><span class="n">intsrt</span><span class="p">[</span><span class="o">-</span><span class="n">top</span><span class="p">:]]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">top</span> <span class="o">=</span> <span class="n">wvl</span><span class="o">.</span><span class="n">size</span>
+
+        <span class="c1"># must follow setting top</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+        <span class="n">ylabel</span> <span class="o">=</span> <span class="s1">&#39;intensity&#39;</span>
+        <span class="k">if</span> <span class="n">relative</span><span class="p">:</span>
+            <span class="n">intensity</span> <span class="o">=</span> <span class="n">intensity</span><span class="o">/</span><span class="n">intensity</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">ylabel</span> <span class="o">+=</span> <span class="s1">&#39; (Relative)&#39;</span>
+        <span class="n">xlabel</span> <span class="o">=</span> <span class="s1">&#39;Wavelength (&#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">Defaults</span><span class="p">[</span><span class="s1">&#39;wavelength&#39;</span><span class="p">]</span> <span class="o">+</span><span class="s1">&#39;)&#39;</span>
+        <span class="n">ymin</span> <span class="o">=</span> <span class="mf">10.</span><span class="o">**</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">intensity</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ion</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">top</span><span class="p">):</span>
+            <span class="n">xx</span><span class="o">=</span><span class="p">[</span><span class="n">wvl</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="n">wvl</span><span class="p">[</span><span class="n">idx</span><span class="p">]]</span>
+            <span class="k">if</span> <span class="n">linLog</span> <span class="o">==</span> <span class="s1">&#39;lin&#39;</span><span class="p">:</span>
+                <span class="n">yy</span><span class="o">=</span><span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="n">intensity</span><span class="p">[</span><span class="n">idx</span><span class="p">]]</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">yy</span><span class="o">=</span><span class="p">[</span><span class="n">ymin</span><span class="o">/</span><span class="mf">10.</span><span class="p">,</span> <span class="n">intensity</span><span class="p">[</span><span class="n">idx</span><span class="p">]]</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">xlabel</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">ylabel</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="o">+</span><span class="n">tstr</span><span class="o">+</span><span class="n">dstr</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">wvlRange</span><span class="p">:</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="n">wvlRange</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">wvlRange</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">intensity</span><span class="o">.</span><span class="n">max</span><span class="p">()])</span>
+        <span class="k">if</span> <span class="n">plotFile</span><span class="p">:</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">plotFile</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ionTrails.intensityRatio"><a class="viewcode-back" href="../../../api/ChiantiPy.base.ionTrails.html#ChiantiPy.base.ionTrails.intensityRatio">[docs]</a>    <span class="k">def</span> <span class="nf">intensityRatio</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wvlRange</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">wvlRanges</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Plot the intensity ratio of 2 lines or sums of lines.</span>
+<span class="sd">        Shown as a function of density and/or temperature.</span>
+<span class="sd">        For a single wavelength range, set wvlRange = [wMin, wMax]</span>
+<span class="sd">        For multiple wavelength ranges, set wvlRanges = [[wMin1,wMax1],[wMin2,wMax2], ...]</span>
+<span class="sd">        A plot of relative emissivities is shown and then a dialog appears for the user to</span>
+<span class="sd">        choose a set of lines.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        -----------</span>
+<span class="sd">        wvlRange : array-like</span>
+<span class="sd">            Wavelength range, i.e. min and max</span>
+<span class="sd">        wvlRanges: a tuple, list or array that contains at least 2</span>
+<span class="sd">            2 element tuples, lists or arrays so that multiple</span>
+<span class="sd">            wavelength ranges can be specified</span>
+<span class="sd">        top : `int`</span>
+<span class="sd">            specifies to plot only the top strongest lines, default = 10</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;Intensity&#39;</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">intensity</span><span class="p">()</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; intensities not calculated and emiss() is unable to calculate them&#39;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; perhaps the temperature and/or eDensity are not set&#39;</span><span class="p">)</span>
+                <span class="k">return</span>
+        <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span>
+        <span class="n">eDensity</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">EDensity</span>
+        <span class="n">temperature</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Temperature</span>
+        <span class="n">ntemp</span> <span class="o">=</span> <span class="n">temperature</span><span class="o">.</span><span class="n">size</span>
+        <span class="k">if</span> <span class="n">ntemp</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">temperature</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">temperature</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="n">ntemp</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">ndens</span> <span class="o">=</span> <span class="n">eDensity</span><span class="o">.</span><span class="n">size</span>
+        <span class="k">if</span> <span class="n">ndens</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">eDensity</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">eDensity</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="n">ndens</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; ndens = </span><span class="si">%5i</span><span class="s1"> ntemp = </span><span class="si">%5i</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">ndens</span><span class="p">,</span> <span class="n">ntemp</span><span class="p">))</span>
+
+        <span class="n">ionS</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Intensity</span><span class="p">[</span><span class="s1">&#39;ionS&#39;</span><span class="p">]</span>
+        <span class="c1">#  see if we are dealing with more than a single ion</span>
+        <span class="n">ionSet</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">ionS</span><span class="p">)</span>
+        <span class="n">ionNum</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ionSet</span><span class="p">)</span>
+        <span class="n">wvl</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Intensity</span><span class="p">[</span><span class="s2">&quot;wvl&quot;</span><span class="p">]</span>
+        <span class="c1"># find which lines are in the wavelength range if it is set</span>
+        <span class="k">if</span> <span class="n">wvlRange</span><span class="p">:</span>
+            <span class="n">igvl</span><span class="o">=</span><span class="n">util</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="n">wvl</span><span class="p">,</span><span class="n">wvlRange</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">igvl</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;no lines in wavelength range </span><span class="si">%12.2f</span><span class="s1"> - </span><span class="si">%12.2f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">wvlRange</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">wvlRange</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+                <span class="k">return</span>
+        <span class="k">elif</span> <span class="n">wvlRanges</span><span class="p">:</span>
+            <span class="n">igvl</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">awvlRange</span> <span class="ow">in</span> <span class="n">wvlRanges</span><span class="p">:</span>
+                <span class="n">igvl</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">util</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="n">wvl</span><span class="p">,</span><span class="n">awvlRange</span><span class="p">))</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">igvl</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;no lines in wavelength ranges specified &#39;</span><span class="p">)</span>
+                <span class="k">return</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">igvl</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">wvl</span><span class="p">))</span>
+        <span class="n">nlines</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">igvl</span><span class="p">)</span>
+        <span class="n">igvl</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">igvl</span><span class="p">,</span><span class="n">wvl</span><span class="p">[</span><span class="n">igvl</span><span class="p">]</span><span class="o">.</span><span class="n">argsort</span><span class="p">())</span>
+        <span class="k">if</span> <span class="n">top</span> <span class="o">&gt;</span> <span class="n">nlines</span><span class="p">:</span>
+            <span class="n">top</span><span class="o">=</span><span class="n">nlines</span>
+        <span class="n">intensity</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Intensity</span><span class="p">[</span><span class="s1">&#39;intensity&#39;</span><span class="p">]</span>
+        <span class="n">maxIntens</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nlines</span><span class="p">,</span><span class="s1">&#39;Float64&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">iline</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nlines</span><span class="p">):</span>
+            <span class="n">maxIntens</span><span class="p">[</span><span class="n">iline</span><span class="p">]</span> <span class="o">=</span> <span class="n">intensity</span><span class="p">[:,</span> <span class="n">igvl</span><span class="p">[</span><span class="n">iline</span><span class="p">]]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">iline</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nlines</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">maxIntens</span><span class="p">[</span><span class="n">iline</span><span class="p">]</span><span class="o">==</span><span class="n">maxIntens</span><span class="o">.</span><span class="n">max</span><span class="p">():</span>
+                <span class="n">maxAll</span><span class="o">=</span><span class="n">intensity</span><span class="p">[:,</span> <span class="n">igvl</span><span class="p">[</span><span class="n">iline</span><span class="p">]]</span>
+        <span class="n">igvlsort</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">igvl</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">maxIntens</span><span class="p">))</span>
+        <span class="n">topLines</span><span class="o">=</span><span class="n">igvlsort</span><span class="p">[</span><span class="o">-</span><span class="n">top</span><span class="p">:]</span>
+        <span class="n">maxWvl</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%5.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">wvl</span><span class="p">[</span><span class="n">topLines</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+        <span class="n">topLines</span><span class="o">=</span><span class="n">topLines</span><span class="p">[</span><span class="n">wvl</span><span class="p">[</span><span class="n">topLines</span><span class="p">]</span><span class="o">.</span><span class="n">argsort</span><span class="p">()]</span>
+
+        <span class="c1"># need to make sure there are no negative values before plotting</span>
+        <span class="n">good</span> <span class="o">=</span> <span class="n">intensity</span> <span class="o">&gt;</span> <span class="mf">0.</span>
+        <span class="n">intensMin</span> <span class="o">=</span> <span class="n">intensity</span><span class="p">[</span><span class="n">good</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+        <span class="n">bad</span> <span class="o">=</span> <span class="n">intensity</span> <span class="o">&lt;=</span> <span class="mf">0.</span>
+        <span class="n">intensity</span><span class="p">[</span><span class="n">bad</span><span class="p">]</span> <span class="o">=</span> <span class="n">intensMin</span>
+
+        <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Intensity relative to &#39;</span><span class="o">+</span><span class="n">maxWvl</span>
+        <span class="k">if</span> <span class="n">ionNum</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">title</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Spectroscopic</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+        <span class="k">if</span> <span class="n">ndens</span><span class="o">==</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">ntemp</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; only a single temperature and eDensity&#39;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="k">elif</span> <span class="n">ndens</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Temperature (K)&#39;</span>
+            <span class="n">xvalues</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Temperature</span>
+            <span class="n">outTemperature</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Temperature</span>
+            <span class="n">outDensity</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">EDensity</span>
+            <span class="n">desc_str</span><span class="o">=</span><span class="s1">&#39; Density = </span><span class="si">%10.2e</span><span class="s1"> (cm)$^{-3}$&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">EDensity</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">ntemp</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">xvalues</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">EDensity</span>
+            <span class="n">outTemperature</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Temperature</span>
+            <span class="n">outDensity</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">EDensity</span>
+            <span class="n">xlabel</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$\rm{Electron Density (cm)^{-3}}$&#39;</span>
+            <span class="n">desc_str</span><span class="o">=</span><span class="s1">&#39; Temp = </span><span class="si">%10.2e</span><span class="s1"> (K)&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">Temperature</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">outTemperature</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Temperature</span>
+            <span class="n">outDensity</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">EDensity</span>
+            <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Temperature (K)&#39;</span>
+            <span class="n">xvalues</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">Temperature</span>
+            <span class="n">desc_str</span><span class="o">=</span><span class="s1">&#39; Variable Density&#39;</span>
+
+        <span class="c1"># put all actual plotting here</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ion</span><span class="p">()</span>
+        <span class="c1">#  maxAll is an array</span>
+        <span class="n">ymax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">intensity</span><span class="p">[:,</span> <span class="n">topLines</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">/</span><span class="n">maxAll</span><span class="p">)</span>
+        <span class="n">ymin</span> <span class="o">=</span> <span class="n">ymax</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+        <span class="n">nxvalues</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">xvalues</span><span class="p">)</span>
+        <span class="c1"># reversing is necessary - otherwise, get a ymin=ymax and a matplotlib error</span>
+        <span class="k">for</span> <span class="n">iline</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">top</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">tline</span><span class="o">=</span><span class="n">topLines</span><span class="p">[</span><span class="n">iline</span><span class="p">]</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">xvalues</span><span class="p">,</span><span class="n">intensity</span><span class="p">[:,</span> <span class="n">tline</span><span class="p">]</span><span class="o">/</span><span class="n">maxAll</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">intensity</span><span class="p">[:,</span> <span class="n">tline</span><span class="p">]</span><span class="o">/</span><span class="n">maxAll</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">ymin</span><span class="p">:</span>
+                <span class="n">ymin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">intensity</span><span class="p">[:,</span> <span class="n">tline</span><span class="p">]</span><span class="o">/</span><span class="n">maxAll</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">intensity</span><span class="p">[:,</span> <span class="n">tline</span><span class="p">]</span><span class="o">/</span><span class="n">maxAll</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">ymax</span><span class="p">:</span>
+                <span class="n">ymax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">intensity</span><span class="p">[:,</span> <span class="n">tline</span><span class="p">]</span><span class="o">/</span><span class="n">maxAll</span><span class="p">)</span>
+            <span class="n">skip</span><span class="o">=</span><span class="mi">2</span>
+            <span class="n">start</span><span class="o">=</span><span class="nb">divmod</span><span class="p">(</span><span class="n">iline</span><span class="p">,</span><span class="n">nxvalues</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">ixvalue</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span><span class="n">nxvalues</span><span class="p">,</span><span class="n">nxvalues</span><span class="o">//</span><span class="n">skip</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">ionNum</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%10.4f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">wvl</span><span class="p">[</span><span class="n">tline</span><span class="p">])</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> </span><span class="si">%10.4f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">ionS</span><span class="p">[</span><span class="n">tline</span><span class="p">],</span> <span class="n">wvl</span><span class="p">[</span><span class="n">tline</span><span class="p">])</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">xvalues</span><span class="p">[</span><span class="n">ixvalue</span><span class="p">],</span> <span class="n">intensity</span><span class="p">[</span><span class="n">ixvalue</span><span class="p">,</span> <span class="n">tline</span><span class="p">]</span><span class="o">/</span><span class="n">maxAll</span><span class="p">[</span><span class="n">ixvalue</span><span class="p">],</span> <span class="n">text</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">xvalues</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span><span class="n">xvalues</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">xlabel</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="n">fontsize</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">ylabel</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="n">fontsize</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">ndens</span> <span class="o">==</span> <span class="n">ntemp</span> <span class="ow">and</span> <span class="n">ntemp</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.07</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span><span class="n">title</span><span class="p">,</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">verticalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">fontsize</span><span class="p">,</span>  <span class="n">transform</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">)</span>
+            <span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">twiny</span><span class="p">()</span>
+            <span class="n">xlabelDen</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;Electron Density (cm$^{-3}$)&#39;</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">xlabelDen</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">fontsize</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">eDensity</span><span class="p">,</span><span class="n">intensity</span><span class="p">[:,</span> <span class="n">topLines</span><span class="p">[</span><span class="n">top</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span><span class="o">/</span><span class="n">maxAll</span><span class="p">,</span> <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">ax2</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">tick_top</span><span class="p">()</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="n">ymin</span><span class="o">/</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.2</span><span class="o">*</span><span class="n">ymax</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="n">ymin</span><span class="o">/</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.2</span><span class="o">*</span><span class="n">ymax</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="o">+</span><span class="n">desc_str</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="n">fontsize</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+        <span class="c1">#  need time to let matplotlib finish plotting</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+
+        <span class="c1"># get line selection</span>
+        <span class="n">selectTags</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">itop</span> <span class="ow">in</span> <span class="n">topLines</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">ionNum</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">selectTags</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">wvl</span><span class="p">[</span><span class="n">itop</span><span class="p">]))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">selectTags</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ionS</span><span class="p">[</span><span class="n">itop</span><span class="p">]</span><span class="o">+</span> <span class="s1">&#39; &#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">wvl</span><span class="p">[</span><span class="n">itop</span><span class="p">]))</span>
+        <span class="n">numden</span> <span class="o">=</span> <span class="n">chGui</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">choice2Dialog</span><span class="p">(</span><span class="n">selectTags</span><span class="p">)</span>
+
+        <span class="c1"># num_idx and den_idx are tuples</span>
+        <span class="n">num_idx</span><span class="o">=</span><span class="n">numden</span><span class="o">.</span><span class="n">numIndex</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">num_idx</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; no numerator lines were selected&#39;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="n">den_idx</span><span class="o">=</span><span class="n">numden</span><span class="o">.</span><span class="n">denIndex</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">den_idx</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; no denominator lines were selected&#39;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="n">numIntens</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">xvalues</span><span class="p">),</span><span class="s1">&#39;Float64&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">aline</span> <span class="ow">in</span> <span class="n">num_idx</span><span class="p">:</span>
+            <span class="n">numIntens</span> <span class="o">+=</span> <span class="n">intensity</span><span class="p">[:,</span> <span class="n">topLines</span><span class="p">[</span><span class="n">aline</span><span class="p">]]</span>
+
+        <span class="n">denIntens</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">xvalues</span><span class="p">),</span><span class="s1">&#39;Float64&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">aline</span> <span class="ow">in</span> <span class="n">den_idx</span><span class="p">:</span>
+            <span class="n">denIntens</span> <span class="o">+=</span> <span class="n">intensity</span><span class="p">[:,</span> <span class="n">topLines</span><span class="p">[</span><span class="n">aline</span><span class="p">]]</span>
+
+        <span class="c1"># plot the desired ratio</span>
+        <span class="c1">#  maxAll is an array</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">xvalues</span><span class="p">,</span><span class="n">numIntens</span><span class="o">/</span><span class="n">denIntens</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">xvalues</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span><span class="n">xvalues</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">xlabel</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="n">fontsize</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Ratio (&#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">Defaults</span><span class="p">[</span><span class="s1">&#39;flux&#39;</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;)&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="n">fontsize</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">ionNum</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">desc</span> <span class="o">=</span> <span class="n">ionS</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">desc</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="k">for</span> <span class="n">aline</span> <span class="ow">in</span> <span class="n">num_idx</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">ionNum</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">desc</span> <span class="o">+=</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">wvl</span><span class="p">[</span><span class="n">topLines</span><span class="p">[</span><span class="n">aline</span><span class="p">]])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">desc</span> <span class="o">+=</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">ionS</span><span class="p">[</span><span class="n">topLines</span><span class="p">[</span><span class="n">aline</span><span class="p">]]</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">wvl</span><span class="p">[</span><span class="n">topLines</span><span class="p">[</span><span class="n">aline</span><span class="p">]])</span>
+        <span class="n">desc</span> <span class="o">+=</span> <span class="s1">&#39; / &#39;</span>
+        <span class="k">for</span> <span class="n">aline</span> <span class="ow">in</span> <span class="n">den_idx</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">ionNum</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">desc</span> <span class="o">+=</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">wvl</span><span class="p">[</span><span class="n">topLines</span><span class="p">[</span><span class="n">aline</span><span class="p">]])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">desc</span> <span class="o">+=</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">ionS</span><span class="p">[</span><span class="n">topLines</span><span class="p">[</span><span class="n">aline</span><span class="p">]]</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">wvl</span><span class="p">[</span><span class="n">topLines</span><span class="p">[</span><span class="n">aline</span><span class="p">]])</span>
+        <span class="k">if</span> <span class="n">ndens</span> <span class="o">==</span> <span class="n">ntemp</span> <span class="ow">and</span> <span class="n">ntemp</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.07</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span><span class="n">desc</span><span class="p">,</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">verticalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">fontsize</span><span class="p">,</span>  <span class="n">transform</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">)</span>
+            <span class="c1">#</span>
+            <span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">twiny</span><span class="p">()</span>
+            <span class="n">xlabelDen</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;Electron Density (cm$^{-3}$)&#39;</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">xlabelDen</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">fontsize</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">eDensity</span><span class="p">,</span><span class="n">numIntens</span><span class="o">/</span><span class="n">denIntens</span><span class="p">,</span> <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">ax2</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">tick_top</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">desc</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="n">fontsize</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+        <span class="n">cnt</span> <span class="o">=</span> <span class="n">desc</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+        <span class="n">intensityRatioFileName</span> <span class="o">=</span> <span class="n">desc</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="n">cnt</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.rat&#39;</span>
+        <span class="n">intensityRatioFileName</span> <span class="o">=</span> <span class="n">intensityRatioFileName</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;_/_&#39;</span><span class="p">,</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">IntensityRatio</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;ratio&#39;</span><span class="p">:</span><span class="n">numIntens</span><span class="o">/</span><span class="n">denIntens</span><span class="p">,</span><span class="s1">&#39;desc&#39;</span><span class="p">:</span><span class="n">desc</span><span class="p">,</span>
+                <span class="s1">&#39;temperature&#39;</span><span class="p">:</span><span class="n">outTemperature</span><span class="p">,</span><span class="s1">&#39;eDensity&#39;</span><span class="p">:</span><span class="n">outDensity</span><span class="p">,</span><span class="s1">&#39;filename&#39;</span><span class="p">:</span><span class="n">intensityRatioFileName</span><span class="p">,</span> <span class="s1">&#39;numIdx&#39;</span><span class="p">:</span><span class="n">num_idx</span><span class="p">,</span> <span class="s1">&#39;denIdx&#39;</span><span class="p">:</span><span class="n">den_idx</span><span class="p">}</span></div>
+
+<div class="viewcode-block" id="ionTrails.intensityRatioSave"><a class="viewcode-back" href="../../../api/ChiantiPy.base.ionTrails.html#ChiantiPy.base.ionTrails.intensityRatioSave">[docs]</a>    <span class="k">def</span> <span class="nf">intensityRatioSave</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">outFile</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Save the intensity ratio to a file.</span>
+
+<span class="sd">        The intensity ratio as a function to temperature and eDensity is saved to an asciii file. Descriptive information is included at the top of the file.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">            outFile</span>
+<span class="sd">                default(0):  the plot of the intensity ratio is not saved</span>
+<span class="sd">                str/unicode:  the plot is saved to the file names &#39;outFile&#39;</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">outFile</span><span class="p">:</span>
+            <span class="n">outFile</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">IntensityRatio</span><span class="p">[</span><span class="s1">&#39;filename&#39;</span><span class="p">]</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; saving ratio to filename = </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">outFile</span><span class="p">))</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;IntensityRatio&#39;</span><span class="p">):</span>
+            <span class="n">temperature</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">IntensityRatio</span><span class="p">[</span><span class="s1">&#39;temperature&#39;</span><span class="p">]</span>
+            <span class="n">eDensity</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">IntensityRatio</span><span class="p">[</span><span class="s1">&#39;eDensity&#39;</span><span class="p">]</span>
+            <span class="n">ratio</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">IntensityRatio</span><span class="p">[</span><span class="s1">&#39;ratio&#39;</span><span class="p">]</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">outFile</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+            <span class="n">nvalues</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">ratio</span><span class="p">)</span>
+            <span class="c1">#  need to add 7 lines to maintain IDL like files</span>
+            <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">outFile</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>    <span class="c1">#1</span>
+            <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">IntensityRatio</span><span class="p">[</span><span class="s1">&#39;desc&#39;</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1">#2</span>
+            <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39; created with ChiantiPy using CHIANTI version &#39;</span><span class="o">+</span> <span class="n">chdata</span><span class="o">.</span><span class="n">ChiantiVersion</span> <span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>   <span class="c1">#3</span>
+            <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39; columns are temperature, eDensity, ratio&#39;</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>  <span class="c1">#5</span>
+            <span class="n">tunit</span> <span class="o">=</span> <span class="s1">&#39;K&#39;</span>
+            <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39; temperature in &#39;</span><span class="o">+</span><span class="n">tunit</span><span class="o">+</span><span class="s1">&#39;, electron eDensity in cm^(-3)&#39;</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>  <span class="c1">#6</span>
+            <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39; ratio given in &#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">Defaults</span><span class="p">[</span><span class="s1">&#39;flux&#39;</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>   <span class="c1">#4</span>
+            <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1">#7</span>
+            <span class="k">for</span> <span class="n">ivalue</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nvalues</span><span class="p">):</span>
+                <span class="n">s</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%12.3e</span><span class="s1"> </span><span class="si">%12.3e</span><span class="s1">  </span><span class="si">%12.3e</span><span class="s1"> </span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">temperature</span><span class="p">[</span><span class="n">ivalue</span><span class="p">],</span><span class="n">eDensity</span><span class="p">[</span><span class="n">ivalue</span><span class="p">],</span><span class="n">ratio</span><span class="p">[</span><span class="n">ivalue</span><span class="p">])</span>
+                <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+            <span class="n">out</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; in .intensityRatioSave(), no IntensityRatio is found&#39;</span><span class="p">)</span></div></div>
+
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Ken Dere.
+      Last updated on 03 Oct 2018.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.7.1a',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

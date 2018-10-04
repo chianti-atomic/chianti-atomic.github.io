@@ -1,0 +1,506 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ChiantiPy.tools.archival &mdash; ChiantiPy v0.7.1a</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/astropy_logo.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="ChiantiPy v0.7.1a" href="../../../index.html"/>
+        <link rel="up" title="ChiantiPy" href="../../ChiantiPy.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> ChiantiPy
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.7.1a
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started.html">Getting started with ChiantiPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../code_ref/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes.html">Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../IDL_intro.html">Intro for CHIANTI IDL Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../resources.html">Resources for ChiantiPy Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bugs.html">Reporting Bugs</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">ChiantiPy</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../ChiantiPy.html">ChiantiPy</a> &raquo;</li>
+        
+      <li>ChiantiPy.tools.archival</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ChiantiPy.tools.archival</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Functions for reading pre-v8 CHIANTI files </span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="c1">#from .FortranFormat import *</span>
+<span class="kn">from</span>  <span class="nn">ChiantiPy.fortranformat</span> <span class="k">import</span> <span class="n">FortranRecordReader</span>
+<span class="kn">import</span> <span class="nn">ChiantiPy.tools.constants</span> <span class="k">as</span> <span class="nn">const</span>
+<span class="kn">import</span> <span class="nn">ChiantiPy.tools.util</span> <span class="k">as</span> <span class="nn">util</span>
+    <span class="c1">#</span>
+    <span class="c1"># -------------------------------------------------------------------------------------</span>
+    <span class="c1">#</span>
+<div class="viewcode-block" id="elvlcRead"><a class="viewcode-back" href="../../../api/ChiantiPy.tools.archival.elvlcRead.html#ChiantiPy.tools.archival.elvlcRead">[docs]</a><span class="k">def</span> <span class="nf">elvlcRead</span><span class="p">(</span><span class="n">ions</span><span class="p">,</span> <span class="n">filename</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>  <span class="n">useTh</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    read a chianti energy level file and returns</span>
+<span class="sd">    {&quot;lvl&quot;:lvl,&quot;conf&quot;:conf,&quot;term&quot;:term,&quot;spin&quot;:spin,&quot;l&quot;:l,&quot;spd&quot;:spd,&quot;j&quot;:j</span>
+<span class="sd">    ,&quot;mult&quot;:mult,&quot;ecm&quot;:ecm,&quot;eryd&quot;:eryd,&quot;ecmth&quot;:ecmth,&quot;erydth&quot;:erydth,&quot;ref&quot;:ref,&quot;pretty&quot;:pretty, &#39;ionS&#39;:ions}</span>
+<span class="sd">    if a energy value for ecm or eryd is zero(=unknown), the theoretical values</span>
+<span class="sd">    (ecmth and erydth) are inserted</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">#</span>
+<span class="c1">#    (i3,i6,a15,2i3,a3,f4.1,i3,f15.3,f15.6,f15.3,f15.6,f15.3,f15.6)</span>
+<span class="c1">#    fstring=&#39;i3,i6,a15,i3,i3,a3,f4.1,i3,4f15.2&#39;</span>
+<span class="c1">#    elvlcFormat=FortranFormat(fstring)</span>
+<span class="c1">#    header_line = FortranRecordReader(&#39;i3,i6,a15,i3,i3,a3,i3,f4.1,f15.3,f15.6,f15.3,f15.6&#39;)</span>
+    <span class="n">header_line</span> <span class="o">=</span> <span class="n">FortranRecordReader</span><span class="p">(</span><span class="s1">&#39;i3,i6,a15,i3,i3,a3,f4.1,i3,f15.3,f15.6,f15.3,f15.6&#39;</span><span class="p">)</span> <span class="c1">#&#39;,f4.1&#39;)</span>
+
+    <span class="c1">#</span>
+    <span class="k">if</span> <span class="n">filename</span><span class="p">:</span>
+        <span class="n">elvlname</span> <span class="o">=</span> <span class="n">filename</span>
+        <span class="n">bname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+        <span class="n">ions</span> <span class="o">=</span> <span class="n">bname</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">fname</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">ion2filename</span><span class="p">(</span><span class="n">ions</span><span class="p">)</span>
+        <span class="n">elvlname</span> <span class="o">=</span> <span class="n">fname</span><span class="o">+</span><span class="s1">&#39;.elvlc&#39;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">elvlname</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">((</span><span class="s1">&#39; elvlc file does not exist:  </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">elvlname</span><span class="p">)))</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;status&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">}</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="nb">input</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">elvlname</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="n">s1</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="nb">input</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">nlvls</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">ndata</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="k">while</span> <span class="n">ndata</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">s1a</span> <span class="o">=</span> <span class="n">s1</span><span class="p">[</span><span class="n">nlvls</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">s2</span> <span class="o">=</span> <span class="n">s1a</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="n">ndata</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
+        <span class="n">nlvls</span> <span class="o">=</span> <span class="n">nlvls</span><span class="o">+</span><span class="mi">1</span>
+    <span class="n">nlvls</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">((</span><span class="s1">&#39; nlvls = </span><span class="si">%i</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">nlvls</span><span class="p">)))</span>
+    <span class="n">lvl</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">nlvls</span>
+    <span class="n">conf</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">nlvls</span>
+    <span class="n">term</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">nlvls</span>
+    <span class="n">spin</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">nlvls</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">nlvls</span>
+    <span class="n">spd</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">nlvls</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">nlvls</span>
+    <span class="n">mult</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">nlvls</span>
+    <span class="n">ecm</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">nlvls</span>
+    <span class="n">eryd</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">nlvls</span>
+    <span class="n">ecmth</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">nlvls</span>
+    <span class="n">erydth</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">nlvls</span>
+    <span class="n">pretty</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">nlvls</span>
+    <span class="n">label</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">nlvls</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">((</span><span class="n">s1</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">115</span><span class="p">]))</span>
+<span class="c1">#        inpt = FortranLine(s1[i][0:115],elvlcFormat)</span>
+        <span class="n">inpt</span>  <span class="o">=</span>  <span class="n">header_line</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">s1</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">lvl</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">inpt</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">conf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">inpt</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">label</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">inpt</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="n">term</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">inpt</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="n">spin</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">inpt</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+        <span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">inpt</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+        <span class="n">spd</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">inpt</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="n">j</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">inpt</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span>
+        <span class="n">mult</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">inpt</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span>
+        <span class="n">ecm</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">inpt</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span>
+        <span class="n">eryd</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">inpt</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span>
+        <span class="n">ecmth</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">inpt</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span>
+        <span class="n">erydth</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">inpt</span><span class="p">[</span><span class="mi">11</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">ecm</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mf">0.</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">useTh</span><span class="p">:</span>
+                <span class="n">ecm</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">ecmth</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="n">eryd</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">erydth</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">stuff</span>  <span class="o">=</span>  <span class="n">term</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39; </span><span class="si">%1i%1s%3.1f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span> <span class="n">spin</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">spd</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">j</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">pretty</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">stuff</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">ref</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nlvls</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">s1a</span> <span class="o">=</span> <span class="n">s1</span><span class="p">[</span><span class="n">i</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">ref</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s1a</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+<span class="c1">#    self.const.Elvlc = {&quot;lvl&quot;:lvl,&quot;conf&quot;:conf,&quot;term&quot;:term,&quot;spin&quot;:spin,&quot;l&quot;:l,&quot;spd&quot;:spd,&quot;j&quot;:j</span>
+<span class="c1">#            ,&quot;mult&quot;:mult,&quot;ecm&quot;:ecm,&quot;eryd&quot;:eryd,&quot;ecmth&quot;:ecmth,&quot;erydth&quot;:erydth,&quot;ref&quot;:ref}</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;lvl&quot;</span><span class="p">:</span><span class="n">lvl</span><span class="p">,</span><span class="s2">&quot;conf&quot;</span><span class="p">:</span><span class="n">conf</span><span class="p">,</span><span class="s2">&quot;label&quot;</span><span class="p">:</span><span class="n">label</span><span class="p">,</span><span class="s2">&quot;term&quot;</span><span class="p">:</span><span class="n">term</span><span class="p">,</span><span class="s2">&quot;spin&quot;</span><span class="p">:</span><span class="n">spin</span><span class="p">,</span><span class="s2">&quot;l&quot;</span><span class="p">:</span><span class="n">l</span><span class="p">,</span><span class="s2">&quot;spd&quot;</span><span class="p">:</span><span class="n">spd</span><span class="p">,</span><span class="s2">&quot;j&quot;</span><span class="p">:</span><span class="n">j</span>
+            <span class="p">,</span><span class="s2">&quot;mult&quot;</span><span class="p">:</span><span class="n">mult</span><span class="p">,</span><span class="s2">&quot;ecm&quot;</span><span class="p">:</span><span class="n">ecm</span><span class="p">,</span><span class="s2">&quot;eryd&quot;</span><span class="p">:</span><span class="n">eryd</span><span class="p">,</span><span class="s2">&quot;ecmth&quot;</span><span class="p">:</span><span class="n">ecmth</span><span class="p">,</span><span class="s2">&quot;erydth&quot;</span><span class="p">:</span><span class="n">erydth</span><span class="p">,</span><span class="s2">&quot;ref&quot;</span><span class="p">:</span><span class="n">ref</span><span class="p">,</span><span class="s2">&quot;pretty&quot;</span><span class="p">:</span><span class="n">pretty</span><span class="p">,</span> <span class="s1">&#39;ionS&#39;</span><span class="p">:</span><span class="n">ions</span><span class="p">,</span> <span class="s1">&#39;status&#39;</span><span class="p">:</span><span class="n">status</span><span class="p">}</span></div>
+    <span class="c1">#</span>
+    <span class="c1"># -------------------------------------------------------------------------------------</span>
+    <span class="c1">#</span>
+<div class="viewcode-block" id="elvlcWrite"><a class="viewcode-back" href="../../../api/ChiantiPy.tools.archival.elvlcWrite.html#ChiantiPy.tools.archival.elvlcWrite">[docs]</a><span class="k">def</span> <span class="nf">elvlcWrite</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">outfile</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">addLvl</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Write Chianti data to .elvlc file.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    info : `dict`</span>
+<span class="sd">        Information about the Chianti data to write. Should contain</span>
+<span class="sd">        the following keys: ionS, the Chianti style name of the ion such as c_4</span>
+<span class="sd">        conf, an integer denoting the configuration - not too essential</span>
+<span class="sd">        term, a string showing the configuration</span>
+<span class="sd">        spin, an integer of the spin of the state in LS coupling</span>
+<span class="sd">        l, an integer of the angular momentum quantum number</span>
+<span class="sd">        spd, an string for the alphabetic symbol of the angular momemtum, S, P, D, etc</span>
+<span class="sd">        j, a floating point number, the total angular momentum</span>
+<span class="sd">        ecm, the observed energy in inverse cm, if unknown, the value is 0.</span>
+<span class="sd">        eryd, the observed energy in Rydbergs, if unknown, the value is 0.</span>
+<span class="sd">        ecmth, the calculated energy from the scattering calculation, in inverse cm</span>
+<span class="sd">        erydth, the calculated energy from the scattering calculation in Rydbergs</span>
+<span class="sd">        ref, the references in the literature to the data in the input info</span>
+<span class="sd">    outfile : `str`</span>
+<span class="sd">        Output filename. ionS+&#39;.elvlc&#39; (in current directory) if None</span>
+<span class="sd">    addLvl : `int`</span>
+<span class="sd">        Add a constant value to the index of all levels</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    For use with files created before elvlc format change in November 2012</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    ChiantiPy.tools.io.elvlcWrite : Write .elvlc file using the new format.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">outfile</span><span class="p">:</span>
+        <span class="n">elvlcName</span> <span class="o">=</span> <span class="n">outfile</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">elvlcName</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;ionS&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;.elvlc&#39;</span>
+    <span class="nb">print</span><span class="p">((</span><span class="s1">&#39; elvlc file name = </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">elvlcName</span><span class="p">)))</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">elvlcName</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span>  <span class="n">conf</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;conf&#39;</span><span class="p">]):</span>
+        <span class="n">mult</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">2.</span><span class="o">*</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;j&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="mf">1.</span><span class="p">)</span>
+        <span class="n">thisTerm</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;term&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span>
+        <span class="n">pstring</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%3i%6s%15s%3i%3i%2s%5.1f%3i%15.3f%15.6f%15.3f%15.6f</span><span class="s1"> </span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">+</span><span class="n">addLvl</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">thisTerm</span><span class="p">,</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;spin&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;l&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;spd&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;j&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">mult</span><span class="p">,</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;ecm&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;eryd&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;ecmth&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;erydth&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span>
+    <span class="c1">#i3,a6,a15,2i3,a2,f5.1,i3,f15.3,f15.6,f15.3,f15.6</span>
+        <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">pstring</span><span class="p">)</span>
+    <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39; -1</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%f</span><span class="s1">ilename:  &#39;</span> <span class="o">+</span> <span class="n">elvlcName</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">one</span> <span class="ow">in</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;ref&#39;</span><span class="p">]:</span>
+        <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">one</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39; -1</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">out</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="wgfaRead"><a class="viewcode-back" href="../../../api/ChiantiPy.tools.archival.wgfaRead.html#ChiantiPy.tools.archival.wgfaRead">[docs]</a><span class="k">def</span> <span class="nf">wgfaRead</span><span class="p">(</span><span class="n">ions</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">elvlcname</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Read CHIANTI data from a .wgfa file.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ions : `str`</span>
+<span class="sd">        Ion, e.g. &#39;c_5&#39; for C V</span>
+<span class="sd">    filename : `str`</span>
+<span class="sd">        Custom filename, will override that specified by `ions`</span>
+<span class="sd">    elvlcname : `str`</span>
+<span class="sd">        If specified, the lsj term labels are returned in the `pretty1` and `pretty2` keys of `Wgfa`</span>
+<span class="sd">    total : `bool`</span>
+<span class="sd">        Return the level 2 avalue data in `Wgfa`</span>
+<span class="sd">    verbose : `bool`</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Wgfa : `dict`</span>
+<span class="sd">        Information read from the .wgfa file. The dictionary structure is {&quot;lvl1&quot;,&quot;lvl2&quot;,&quot;wvl&quot;,&quot;gf&quot;,&quot;avalue&quot;,&quot;ref&quot;,&quot;ionS&quot;,&quot;filename&quot;}</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    This is text-wise not different than the v8 version except that it uses the</span>
+<span class="sd">    archival elvlcRead in `~ChiantiPy.tools.archival` though this has now been commented out. Can this routine be removed? Should the elvlcRead routine be uncommented?</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    ChiantiPy.tools.io.wgfaRead : Read .wgfa file with the new format.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">#</span>
+    <span class="k">if</span> <span class="n">filename</span><span class="p">:</span>
+        <span class="n">wgfaname</span> <span class="o">=</span> <span class="n">filename</span>
+        <span class="k">if</span> <span class="n">elvlcname</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">elvlcnamee</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">elvlc</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="n">elvlcname</span><span class="p">:</span>
+            <span class="n">elvlcname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">wgfaname</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;.elvlc&#39;</span>
+            <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">elvlcname</span><span class="p">):</span>
+                <span class="n">elvlc</span> <span class="o">=</span> <span class="n">elvlcRead</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">elvlcname</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">elvlc</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">elvlc</span> <span class="o">=</span> <span class="n">elvlcRead</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="n">elvlcname</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">fname</span><span class="o">=</span><span class="n">util</span><span class="o">.</span><span class="n">ion2filename</span><span class="p">(</span><span class="n">ions</span><span class="p">)</span>
+        <span class="n">wgfaname</span><span class="o">=</span><span class="n">fname</span><span class="o">+</span><span class="s1">&#39;.wgfa&#39;</span>
+        <span class="n">elvlcname</span> <span class="o">=</span> <span class="n">fname</span> <span class="o">+</span> <span class="s1">&#39;.elvlc&#39;</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">elvlcname</span><span class="p">):</span>
+            <span class="n">elvlc</span> <span class="o">=</span> <span class="n">elvlcRead</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">elvlcname</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">elvlc</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">elvlc</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; have elvlc data&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; do not have elvlc data&#39;</span><span class="p">)</span>
+    <span class="c1">#</span>
+    <span class="nb">input</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="n">wgfaname</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="n">s1</span><span class="o">=</span><span class="nb">input</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="nb">input</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">nwvl</span><span class="o">=</span><span class="mi">0</span>
+    <span class="n">ndata</span><span class="o">=</span><span class="mi">2</span>
+    <span class="k">while</span> <span class="n">ndata</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">s1a</span><span class="o">=</span><span class="n">s1</span><span class="p">[</span><span class="n">nwvl</span><span class="p">]</span>
+        <span class="n">s2</span><span class="o">=</span><span class="n">s1a</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="n">ndata</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
+        <span class="n">nwvl</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">nwvl</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; nwvl = </span><span class="si">%10i</span><span class="s1"> ndata = </span><span class="si">%4i</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">nwvl</span><span class="p">,</span> <span class="n">ndata</span><span class="p">))</span>
+    <span class="n">lvl1</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">nwvl</span>
+    <span class="n">lvl2</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">nwvl</span>
+    <span class="n">wvl</span><span class="o">=</span><span class="p">[</span><span class="mf">0.</span><span class="p">]</span><span class="o">*</span><span class="n">nwvl</span>
+    <span class="n">gf</span><span class="o">=</span><span class="p">[</span><span class="mf">0.</span><span class="p">]</span><span class="o">*</span><span class="n">nwvl</span>
+    <span class="n">avalue</span><span class="o">=</span><span class="p">[</span><span class="mf">0.</span><span class="p">]</span><span class="o">*</span><span class="n">nwvl</span>
+    <span class="k">if</span> <span class="n">elvlc</span><span class="p">:</span>
+        <span class="n">pretty1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">nwvl</span>
+        <span class="n">pretty2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">nwvl</span>
+    <span class="c1">#</span>
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; nwvl = </span><span class="si">%10i</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">nwvl</span><span class="p">))</span>
+    <span class="c1">#</span>
+    <span class="n">wgfaFormat</span><span class="o">=</span><span class="s1">&#39;(2i5,f15.3,2e15.3)&#39;</span>
+    <span class="k">for</span> <span class="n">ivl</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nwvl</span><span class="p">):</span>
+        <span class="n">inpt</span><span class="o">=</span><span class="n">FortranLine</span><span class="p">(</span><span class="n">s1</span><span class="p">[</span><span class="n">ivl</span><span class="p">],</span><span class="n">wgfaFormat</span><span class="p">)</span>
+        <span class="n">lvl1</span><span class="p">[</span><span class="n">ivl</span><span class="p">]</span><span class="o">=</span><span class="n">inpt</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">lvl2</span><span class="p">[</span><span class="n">ivl</span><span class="p">]</span><span class="o">=</span><span class="n">inpt</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">wvl</span><span class="p">[</span><span class="n">ivl</span><span class="p">]</span><span class="o">=</span><span class="n">inpt</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">gf</span><span class="p">[</span><span class="n">ivl</span><span class="p">]</span><span class="o">=</span><span class="n">inpt</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+        <span class="n">avalue</span><span class="p">[</span><span class="n">ivl</span><span class="p">]</span><span class="o">=</span><span class="n">inpt</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">elvlc</span><span class="p">:</span>
+            <span class="n">pretty1</span><span class="p">[</span><span class="n">ivl</span><span class="p">]</span> <span class="o">=</span> <span class="n">elvlc</span><span class="p">[</span><span class="s1">&#39;pretty&#39;</span><span class="p">][</span><span class="n">inpt</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="n">pretty2</span><span class="p">[</span><span class="n">ivl</span><span class="p">]</span> <span class="o">=</span> <span class="n">elvlc</span><span class="p">[</span><span class="s1">&#39;pretty&#39;</span><span class="p">][</span><span class="n">inpt</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+
+    <span class="n">ref</span><span class="o">=</span><span class="p">[]</span>
+    <span class="c1"># should skip the last &#39;-1&#39; in the file</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nwvl</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">s1a</span><span class="o">=</span><span class="n">s1</span><span class="p">[</span><span class="n">i</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">ref</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s1a</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+    <span class="n">Wgfa</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;lvl1&quot;</span><span class="p">:</span><span class="n">lvl1</span><span class="p">,</span><span class="s2">&quot;lvl2&quot;</span><span class="p">:</span><span class="n">lvl2</span><span class="p">,</span><span class="s2">&quot;wvl&quot;</span><span class="p">:</span><span class="n">wvl</span><span class="p">,</span><span class="s2">&quot;gf&quot;</span><span class="p">:</span><span class="n">gf</span><span class="p">,</span><span class="s2">&quot;avalue&quot;</span><span class="p">:</span><span class="n">avalue</span><span class="p">,</span><span class="s2">&quot;ref&quot;</span><span class="p">:</span><span class="n">ref</span><span class="p">,</span> <span class="s1">&#39;ionS&#39;</span><span class="p">:</span><span class="n">ions</span><span class="p">,</span> <span class="s1">&#39;filename&#39;</span><span class="p">:</span><span class="n">wgfaname</span><span class="p">}</span>
+    <span class="k">if</span> <span class="n">total</span><span class="p">:</span>
+        <span class="n">avalueLvl</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.</span><span class="p">]</span><span class="o">*</span><span class="nb">max</span><span class="p">(</span><span class="n">lvl2</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">iwvl</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nwvl</span><span class="p">):</span>
+            <span class="n">avalueLvl</span><span class="p">[</span><span class="n">lvl2</span><span class="p">[</span><span class="n">iwvl</span><span class="p">]</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">avalue</span><span class="p">[</span><span class="n">iwvl</span><span class="p">]</span>
+        <span class="n">Wgfa</span><span class="p">[</span><span class="s1">&#39;avalueLvl&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">avalueLvl</span>
+
+    <span class="k">if</span> <span class="n">elvlc</span><span class="p">:</span>
+        <span class="n">Wgfa</span><span class="p">[</span><span class="s1">&#39;pretty1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pretty1</span>
+        <span class="n">Wgfa</span><span class="p">[</span><span class="s1">&#39;pretty2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pretty2</span>
+    <span class="c1">#</span>
+    <span class="k">return</span> <span class="n">Wgfa</span></div>
+    <span class="c1">#</span>
+    <span class="c1"># --------------------------------------</span>
+    <span class="c1">#</span>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Ken Dere.
+      Last updated on 03 Oct 2018.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.7.1a',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

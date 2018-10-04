@@ -1,0 +1,19 @@
+selectorDialog
+==============
+
+.. currentmodule:: ChiantiPy.Gui.gui_qt5
+
+.. autoclass:: selectorDialog
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~selectorDialog.accept
+      ~selectorDialog.reject
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: accept
+   .. automethod:: reject

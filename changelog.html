@@ -1,0 +1,295 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Changelog &mdash; ChiantiPy v0.7.1a</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/astropy_logo.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="ChiantiPy v0.7.1a" href="index.html"/>
+        <link rel="next" title="Reporting Bugs" href="bugs.html"/>
+        <link rel="prev" title="Resources for ChiantiPy Users" href="resources.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> ChiantiPy
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.7.1a
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting started with ChiantiPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code_ref/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notes.html">Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IDL_intro.html">Intro for CHIANTI IDL Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources for ChiantiPy Users</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#changes-from-0-7-0-to-0-7-1">changes from 0.7.0 to 0.7.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#changes-from-0-6-5-to-0-7-0">changes from 0.6.5 to 0.7.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#changes-from-0-6-0-to-0-6-5">changes from 0.6.0 to 0.6.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#changes-from-0-5-3-to-0-6-0">changes from 0.5.3 to 0.6.0</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bugs.html">Reporting Bugs</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ChiantiPy</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Changelog</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/changelog.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="changelog">
+<h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="changes-from-0-7-0-to-0-7-1">
+<h2>changes from 0.7.0 to 0.7.1<a class="headerlink" href="#changes-from-0-7-0-to-0-7-1" title="Permalink to this headline">¶</a></h2>
+<p>version 0.7.0 included some changes in the ChiantiPy naming conventions, largely in the continuum class.  These are being reverted to the original ChiantiPy naming conventions.</p>
+<p>the ion.freeBoundxxx methods have been fixed and this also fixes the problem with the RadLoss class.</p>
+<p>a pseudo-voigt filter has been added to tools.filters</p>
+<p>the keyword argument wvlRange has been removed from the ion.emiss and ion.intensity methods</p>
+<p>the keyword argument for the Emission Measure, em, has been removed from the ion.intensity and similar methods.  It is now necessary to specify
+the emission when the object is instantiated.</p>
+<p>a set of PyQt5 dialogs have been developed by <strong>ktritz</strong> and are now included</p>
+<p>this is the last release that will use the PyQt4 widgets as an option.</p>
+<p>the method <strong>ioneqOne</strong> is used by both the Ion and Continuum class.  It has been moved to a single _IoneqOne.py file in the <strong>base</strong> directory</p>
+</div>
+<div class="section" id="changes-from-0-6-5-to-0-7-0">
+<h2>changes from 0.6.5 to 0.7.0<a class="headerlink" href="#changes-from-0-6-5-to-0-7-0" title="Permalink to this headline">¶</a></h2>
+<p>The primary change is that code developement has been moved to <a class="reference external" href="https://github.com/chianti-atomic/ChiantiPy">Github</a>.</p>
+<p>Also, in order to be more compliant with other astrophysical packages on Github (<a class="reference external" href="http://astropy.org">Astropy</a> and <a class="reference external" href="https://github.com/sunpy/sunpy">SunPy</a>) the directory layout has been changed and renamed.</p>
+<p>The core routines are now imported as</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ChiantiPy.core</span> <span class="k">as</span> <span class="nn">ch</span>
+</pre></div>
+</div>
+<p>this give access to ch.ion, ch.spectrum, etc.</p>
+<p>In terms of bug-fixes, the calculation of excitation-autoionization cross-sections and rates have been corrected in the eaCross() and eaRate() methods</p>
+<p>Current development is with Python 3.4</p>
+</div>
+<div class="section" id="changes-from-0-6-0-to-0-6-5">
+<h2>changes from 0.6.0 to 0.6.5<a class="headerlink" href="#changes-from-0-6-0-to-0-6-5" title="Permalink to this headline">¶</a></h2>
+<p>matplotlib.pyplot is now imported for plotting</p>
+<p>IPython version 4 / Jupyter is now listed as a prerequisite.  However, v0.6.4 can be made compatible with IPython 2 or 3 with a simple edit.</p>
+<p>An error in calculating the proton excitation rates was fixed.</p>
+<p>The code has been edited to make it compatible with Python 3 and has been tested against Python 3.3</p>
+</div>
+<div class="section" id="changes-from-0-5-3-to-0-6-0">
+<h2>changes from 0.5.3 to 0.6.0<a class="headerlink" href="#changes-from-0-5-3-to-0-6-0" title="Permalink to this headline">¶</a></h2>
+<p>This is a major release.</p>
+<p>First, ChiantiPy 0.6.0 is compatible with the most recently released CHIANTI database version 8.0.  It also fixes some major bugs in the previous version.  Documentation has been improved and a IPython notebook <strong>QuickStart.ipynb</strong>, that largely follows the ‘Quick Start’ documentation pages, has also been included.</p>
+<p>There are two new multi-ion classes:  <strong>bunch</strong> and <strong>ipymspectrum</strong>.  <strong>bunch</strong> allows the user to calculate line intensities for a specified set of elements or individual ions as a function of temperature or density.  One advantage of <strong>bunch</strong> is the ability to calculate the intensity ratio of lines of two different ions as a function of temperature or density.</p>
+<p><strong>ipymspectrum</strong> is much like the existing <strong>spectrum</strong> and <strong>mspectrum</strong> classes.  <strong>mspectrum</strong> allows the use of the Python <strong>multiprocessing</strong> module to speed up spectral calculations.  The <strong>ipymspectrum</strong> class uses the IPython <strong>parallel</strong> module so that multiprocessing spectral calculations can be performed in the IPython QtConsole and Notebook.</p>
+<p>A new method <strong>intensityList</strong> has been developed to allow the user to list the most intense lines within a given wavelength range.  This new methods, together with previously existing <strong>intensityRatio</strong> and <strong>intensityRatioSave</strong> are all now inherited by the <strong>ion</strong> classs and the  multi-ion classes.</p>
+<p>The <strong>ion</strong> and multi-ion classes now accept the keyword argument <strong>abundanceName</strong> that allow the user to specify the set of elemental abundances rather than just the default abundance file.</p>
+<p>Additional we have replaced the FortranFormat module of Scientific Python by Konrad Hinsen with the <strong>fortranformat</strong> module of Brendan Arnold at <a class="reference external" href="http://bitbucket.org/brendanarnold/py-fortranformat">http://bitbucket.org/brendanarnold/py-fortranformat</a>.  I have slightly modified fortranformat to make it Python 3 compliant.</p>
+<p>For the future, I plan to make ChiantiPy compliant with both Python 2.7 and the current version of Python 3 (now 3.4), improve the documentation and move the projec to github, in no particular order.</p>
+<p>ChiantiPy is now released under a new license, the OSI approved ISCL license.  From <a class="reference external" href="https://en.wikipedia.org/w/index.php?title=ISC_license&amp;oldid=664696993">Wikipedia</a> <em>The ISCL license is a permissive free software license written by the Internet Software Consortium (ISC). It is functionally equivalent to the simplified BSD and MIT/Expat licenses, …</em></p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="bugs.html" class="btn btn-neutral float-right" title="Reporting Bugs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="resources.html" class="btn btn-neutral" title="Resources for ChiantiPy Users" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Ken Dere.
+      Last updated on 03 Oct 2018.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.7.1a',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

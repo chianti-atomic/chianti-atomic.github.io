@@ -1,0 +1,882 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ChiantiPy.tools.util &mdash; ChiantiPy v0.7.1a</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/astropy_logo.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="ChiantiPy v0.7.1a" href="../../../index.html"/>
+        <link rel="up" title="ChiantiPy" href="../../ChiantiPy.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> ChiantiPy
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.7.1a
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started.html">Getting started with ChiantiPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../code_ref/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes.html">Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../IDL_intro.html">Intro for CHIANTI IDL Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../resources.html">Resources for ChiantiPy Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bugs.html">Reporting Bugs</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">ChiantiPy</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../ChiantiPy.html">ChiantiPy</a> &raquo;</li>
+        
+      <li>ChiantiPy.tools.util</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ChiantiPy.tools.util</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Utility functions</span>
+
+<span class="sd">Notes</span>
+<span class="sd">-----</span>
+<span class="sd">Some of these functions can be replaced by roman numeral and periodic table lookup libraries.</span>
+<span class="sd">some functions using os.walk can be replaced by os.path</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">interpolate</span>
+<span class="kn">from</span> <span class="nn">scipy.special</span> <span class="k">import</span> <span class="n">expn</span>
+
+<span class="kn">import</span> <span class="nn">ChiantiPy.tools.constants</span> <span class="k">as</span> <span class="nn">const</span>
+
+
+<div class="viewcode-block" id="between"><a class="viewcode-back" href="../../../api/ChiantiPy.tools.util.between.html#ChiantiPy.tools.util.between">[docs]</a><span class="k">def</span> <span class="nf">between</span><span class="p">(</span><span class="n">array</span><span class="p">,</span><span class="n">limits</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Find the indices of `array` corresponding to values in the range given by `limits`</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    array : &#39;list` or ~numpy.ndarray`</span>
+<span class="sd">    limits : `list`, `tuple` or ~numpy.ndarray` of length 2</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+    <span class="n">nlines</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+<span class="c1">#    hi = np.where(array &gt;= limits[0],range(1,nlines+1),0)</span>
+<span class="c1">#    lo = np.where(array &lt;= limits[1],range(1,nlines+1),0)</span>
+    <span class="n">hi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">array</span> <span class="o">&gt;=</span> <span class="n">limits</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">nlines</span><span class="o">+</span><span class="mi">1</span><span class="p">)),</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">lo</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">array</span> <span class="o">&lt;=</span> <span class="n">limits</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">nlines</span><span class="o">+</span><span class="mi">1</span><span class="p">)),</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="n">hilo</span> <span class="o">=</span> <span class="n">hi</span><span class="o">&amp;</span><span class="n">lo</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span> <span class="o">-</span><span class="mi">1</span>  <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">hilo</span> <span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">out</span></div>
+
+
+<div class="viewcode-block" id="z2element"><a class="viewcode-back" href="../../../api/ChiantiPy.tools.util.z2element.html#ChiantiPy.tools.util.z2element">[docs]</a><span class="k">def</span> <span class="nf">z2element</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert atomic number `z` to its elemental symbol.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">z</span><span class="o">-</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">const</span><span class="o">.</span><span class="n">El</span><span class="p">):</span>
+        <span class="n">thisel</span> <span class="o">=</span> <span class="n">const</span><span class="o">.</span><span class="n">El</span><span class="p">[</span><span class="n">z</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">thisel</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">thisel</span></div>
+
+
+<div class="viewcode-block" id="spectroscopic2name"><a class="viewcode-back" href="../../../api/ChiantiPy.tools.util.spectroscopic2name.html#ChiantiPy.tools.util.spectroscopic2name">[docs]</a><span class="k">def</span> <span class="nf">spectroscopic2name</span><span class="p">(</span><span class="n">el</span><span class="p">,</span><span class="n">roman</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert from spectroscopic notation, e.g. Fe XI to &#39;fe_11&#39;</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    el : `str`</span>
+<span class="sd">        Elemental symbol, e.g. Fe for iron</span>
+<span class="sd">    roman : `str`</span>
+<span class="sd">        Roman numeral spectroscopic symbol</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">elu</span> <span class="o">=</span> <span class="n">el</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="n">romanu</span> <span class="o">=</span> <span class="n">roman</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="n">const</span><span class="o">.</span><span class="n">Ionstage</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">romanu</span><span class="p">)</span>
+    <span class="n">gname</span> <span class="o">=</span> <span class="n">elu</span><span class="o">+</span><span class="s1">&#39;_&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">gname</span></div>
+
+
+<div class="viewcode-block" id="zion2name"><a class="viewcode-back" href="../../../api/ChiantiPy.tools.util.zion2name.html#ChiantiPy.tools.util.zion2name">[docs]</a><span class="k">def</span> <span class="nf">zion2name</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">ion</span><span class="p">,</span> <span class="n">dielectronic</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert atomic number and ion number to generic name, e.g. (26,13) to &#39;fe_13&#39;</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    z : `int`</span>
+<span class="sd">    ion : `int`</span>
+<span class="sd">    dielectronic : `bool`, optional</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">ion</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">thisone</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">elif</span> <span class="n">ion</span> <span class="o">==</span> <span class="n">z</span><span class="o">+</span><span class="mi">2</span><span class="p">:</span>
+        <span class="n">thisone</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">z</span><span class="o">-</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">const</span><span class="o">.</span><span class="n">El</span><span class="p">))</span> <span class="ow">and</span> <span class="p">(</span><span class="n">ion</span> <span class="o">&lt;=</span> <span class="n">z</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">thisone</span> <span class="o">=</span> <span class="n">const</span><span class="o">.</span><span class="n">El</span><span class="p">[</span><span class="n">z</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;_&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">ion</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">dielectronic</span><span class="p">:</span>
+            <span class="n">thisone</span> <span class="o">+=</span> <span class="s1">&#39;d&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># this should not actually happen</span>
+        <span class="n">thisone</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="n">thisone</span></div>
+
+
+<div class="viewcode-block" id="zion2dir"><a class="viewcode-back" href="../../../api/ChiantiPy.tools.util.zion2dir.html#ChiantiPy.tools.util.zion2dir">[docs]</a><span class="k">def</span> <span class="nf">zion2dir</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">ion</span><span class="p">,</span> <span class="n">dielectronic</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">xuvtop</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert atomic number and ion number to CHIANTI database directory.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    z : `int`</span>
+<span class="sd">    ion : `int`</span>
+<span class="sd">    dielectronic : `bool`, optional</span>
+<span class="sd">    xuvtop : `str`, optional</span>
+<span class="sd">        Set different CHIANTI database than the default</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">xuvtop</span><span class="p">:</span>
+        <span class="nb">dir</span> <span class="o">=</span> <span class="n">xuvtop</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;XUVTOP&quot;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">z</span><span class="o">-</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">const</span><span class="o">.</span><span class="n">El</span><span class="p">))</span> <span class="ow">and</span> <span class="p">(</span><span class="n">ion</span> <span class="o">&lt;=</span> <span class="n">z</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">thisel</span> <span class="o">=</span> <span class="n">const</span><span class="o">.</span><span class="n">El</span><span class="p">[</span><span class="n">z</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">thisel</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">z</span><span class="o">-</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">const</span><span class="o">.</span><span class="n">El</span><span class="p">):</span>
+        <span class="n">thisone</span> <span class="o">=</span> <span class="n">const</span><span class="o">.</span><span class="n">El</span><span class="p">[</span><span class="n">z</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;_&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">ion</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">dielectronic</span><span class="p">:</span>
+            <span class="n">thisone</span> <span class="o">+=</span> <span class="s1">&#39;d&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">thisone</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">thisel</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="p">:</span>
+        <span class="n">fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">dir</span><span class="p">,</span><span class="n">thisel</span><span class="p">,</span><span class="n">thisone</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">fname</span></div>
+
+
+<div class="viewcode-block" id="zion2filename"><a class="viewcode-back" href="../../../api/ChiantiPy.tools.util.zion2filename.html#ChiantiPy.tools.util.zion2filename">[docs]</a><span class="k">def</span> <span class="nf">zion2filename</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">ion</span><span class="p">,</span> <span class="n">dielectronic</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">xuvtop</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert atomic number and ion number to CHIANTI database filename.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    z : `int`</span>
+<span class="sd">    ion : `int`</span>
+<span class="sd">    dielectronic : `bool`, optional</span>
+<span class="sd">    xuvtop : `str`, optional</span>
+<span class="sd">        Set different CHIANTI database than the default</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">xuvtop</span><span class="p">:</span>
+        <span class="nb">dir</span> <span class="o">=</span> <span class="n">xuvtop</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;XUVTOP&quot;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">z</span><span class="o">-</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">const</span><span class="o">.</span><span class="n">El</span><span class="p">))</span> <span class="ow">and</span> <span class="p">(</span><span class="n">ion</span> <span class="o">&lt;=</span> <span class="n">z</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">thisel</span> <span class="o">=</span> <span class="n">const</span><span class="o">.</span><span class="n">El</span><span class="p">[</span><span class="n">z</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">thisel</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">z</span><span class="o">-</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">const</span><span class="o">.</span><span class="n">El</span><span class="p">):</span>
+        <span class="n">thisone</span> <span class="o">=</span> <span class="n">const</span><span class="o">.</span><span class="n">El</span><span class="p">[</span><span class="n">z</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;_&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">ion</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">dielectronic</span><span class="p">:</span>
+            <span class="n">thisone</span> <span class="o">+=</span> <span class="s1">&#39;d&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">thisone</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">thisel</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="p">:</span>
+        <span class="n">fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">dir</span><span class="p">,</span><span class="n">thisel</span><span class="p">,</span><span class="n">thisone</span><span class="p">,</span><span class="n">thisone</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">fname</span></div>
+
+
+<div class="viewcode-block" id="zion2localFilename"><a class="viewcode-back" href="../../../api/ChiantiPy.tools.util.zion2localFilename.html#ChiantiPy.tools.util.zion2localFilename">[docs]</a><span class="k">def</span> <span class="nf">zion2localFilename</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">ion</span><span class="p">,</span> <span class="n">dielectronic</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert atomic number and ion number to generic file name with current directory at top.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    z : `int`</span>
+<span class="sd">    ion : `int`</span>
+<span class="sd">    dielectronic : `bool`, optional</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">dir</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">z</span><span class="o">-</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">const</span><span class="o">.</span><span class="n">El</span><span class="p">))</span> <span class="ow">and</span> <span class="p">(</span><span class="n">ion</span> <span class="o">&lt;=</span> <span class="n">z</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">thisel</span> <span class="o">=</span> <span class="n">const</span><span class="o">.</span><span class="n">El</span><span class="p">[</span><span class="n">z</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">thisel</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">z</span><span class="o">-</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">const</span><span class="o">.</span><span class="n">El</span><span class="p">):</span>
+        <span class="n">thisone</span> <span class="o">=</span> <span class="n">const</span><span class="o">.</span><span class="n">El</span><span class="p">[</span><span class="n">z</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;_&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">ion</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">dielectronic</span><span class="p">:</span>
+            <span class="n">thisone</span> <span class="o">+=</span> <span class="s1">&#39;d&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">thisone</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">thisel</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="p">:</span>
+        <span class="n">fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">dir</span><span class="p">,</span><span class="n">thisel</span><span class="p">,</span><span class="n">thisone</span><span class="p">,</span><span class="n">thisone</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">fname</span></div>
+
+
+<div class="viewcode-block" id="zion2spectroscopic"><a class="viewcode-back" href="../../../api/ChiantiPy.tools.util.zion2spectroscopic.html#ChiantiPy.tools.util.zion2spectroscopic">[docs]</a><span class="k">def</span> <span class="nf">zion2spectroscopic</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">ion</span><span class="p">,</span> <span class="n">dielectronic</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert atomic number and ion number to spectroscopic notation string</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    z : `int`</span>
+<span class="sd">    ion : `int`</span>
+<span class="sd">    dielectronic : `bool`, optional</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">z</span><span class="o">-</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">const</span><span class="o">.</span><span class="n">El</span><span class="p">))</span> <span class="ow">and</span> <span class="p">(</span><span class="n">ion</span> <span class="o">&lt;=</span> <span class="n">z</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">spect</span> <span class="o">=</span> <span class="n">const</span><span class="o">.</span><span class="n">El</span><span class="p">[</span><span class="n">z</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span><span class="o">+</span><span class="s1">&#39; &#39;</span><span class="o">+</span><span class="n">const</span><span class="o">.</span><span class="n">Ionstage</span><span class="p">[</span><span class="n">ion</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">dielectronic</span><span class="p">:</span>
+            <span class="n">spect</span> <span class="o">+=</span> <span class="s1">&#39; d&#39;</span>
+    <span class="k">else</span><span class="p">:</span>  <span class="n">spect</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">spect</span></div>
+
+
+<div class="viewcode-block" id="convertName"><a class="viewcode-back" href="../../../api/ChiantiPy.tools.util.convertName.html#ChiantiPy.tools.util.convertName">[docs]</a><span class="k">def</span> <span class="nf">convertName</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert ion name string (e.g. &#39;fe_13&#39;) to atomic number and ion number</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    name : `str`</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    {&#39;Z&#39;, &#39;Ion&#39;, &#39;Dielectronic&#39;, &#39;Element&#39;, &#39;higher&#39;, &#39;lower&#39;} : `dict`</span>
+<span class="sd">        `higher` and `lower` are the Chianti-style names for the higher and lower ionization stages, respectively.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">s2</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)</span>
+    <span class="n">els</span> <span class="o">=</span> <span class="n">s2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">Z</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">const</span><span class="o">.</span><span class="n">El</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">els</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">ions</span> <span class="o">=</span> <span class="n">s2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">ions</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">d</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">:</span>
+        <span class="n">dielectronic</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">ions</span> <span class="o">=</span> <span class="n">ions</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">dielectronic</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">stage</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">ions</span><span class="p">)</span>
+    <span class="n">higher</span> <span class="o">=</span> <span class="n">zion2name</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">stage</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">lower</span> <span class="o">=</span> <span class="n">zion2name</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">stage</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">zion2filename</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">stage</span><span class="p">,</span> <span class="n">dielectronic</span> <span class="o">=</span> <span class="n">dielectronic</span><span class="p">)</span>
+    <span class="n">iso</span> <span class="o">=</span> <span class="n">Z</span> <span class="o">-</span> <span class="n">stage</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">isoEl</span> <span class="o">=</span> <span class="n">const</span><span class="o">.</span><span class="n">El</span><span class="p">[</span><span class="n">iso</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;Z&#39;</span><span class="p">:</span><span class="n">Z</span><span class="p">,</span><span class="s1">&#39;Ion&#39;</span><span class="p">:</span><span class="n">stage</span><span class="p">,</span><span class="s1">&#39;Dielectronic&#39;</span><span class="p">:</span><span class="n">dielectronic</span><span class="p">,</span> <span class="s1">&#39;Element&#39;</span><span class="p">:</span><span class="n">els</span><span class="o">.</span><span class="n">capitalize</span><span class="p">(),</span> <span class="s1">&#39;higher&#39;</span><span class="p">:</span><span class="n">higher</span><span class="p">,</span> <span class="s1">&#39;lower&#39;</span><span class="p">:</span><span class="n">lower</span><span class="p">,</span> <span class="s1">&#39;filename&#39;</span><span class="p">:</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;iso&#39;</span><span class="p">:</span><span class="n">iso</span><span class="p">,</span> <span class="s1">&#39;isoEl&#39;</span><span class="p">:</span><span class="n">isoEl</span><span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="ion2filename"><a class="viewcode-back" href="../../../api/ChiantiPy.tools.util.ion2filename.html#ChiantiPy.tools.util.ion2filename">[docs]</a><span class="k">def</span> <span class="nf">ion2filename</span><span class="p">(</span><span class="n">ions</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert ion name string to generic directory-file name.</span>
+<span class="sd">    convertName has probably made this redundant</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;XUVTOP&quot;</span><span class="p">]</span>
+    <span class="n">nameDict</span> <span class="o">=</span> <span class="n">convertName</span><span class="p">(</span><span class="n">ions</span><span class="p">)</span>
+    <span class="n">zion</span> <span class="o">=</span> <span class="n">nameDict</span><span class="p">[</span><span class="s1">&#39;Z&#39;</span><span class="p">]</span>
+    <span class="n">el</span> <span class="o">=</span> <span class="n">z2element</span><span class="p">(</span><span class="n">zion</span><span class="p">)</span>
+    <span class="n">fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">dir</span><span class="p">,</span><span class="n">el</span><span class="p">,</span><span class="n">ions</span><span class="p">,</span><span class="n">ions</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">fname</span></div>
+
+
+<div class="viewcode-block" id="el2z"><a class="viewcode-back" href="../../../api/ChiantiPy.tools.util.el2z.html#ChiantiPy.tools.util.el2z">[docs]</a><span class="k">def</span> <span class="nf">el2z</span><span class="p">(</span><span class="n">els</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert elemental symbol to atomic number</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">const</span><span class="o">.</span><span class="n">El</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">els</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span><span class="o">+</span><span class="mi">1</span>
+    <span class="k">return</span> <span class="n">z</span></div>
+
+
+<div class="viewcode-block" id="qrp"><a class="viewcode-back" href="../../../api/ChiantiPy.tools.util.qrp.html#ChiantiPy.tools.util.qrp">[docs]</a><span class="k">def</span> <span class="nf">qrp</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">u</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate :math:`Q_R^{\prime}(Z,u)`, where :math:`u=\epsilon/I` is the impact electron energy in threshold units, from Eq. 2.12 of [1]_.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    z : `int`</span>
+<span class="sd">        Atomic number</span>
+<span class="sd">    u : array-like</span>
+<span class="sd">        Impact electron energy in threshold units.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    q : array-like</span>
+<span class="sd">        1s ionization cross-section, :math:`Q_R^{\prime}(Z,u)`</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Used for calculations of direct ionization cross-sections of the H and He sequences in `ChiantiPy.tools.io.twophotonHRead` and `ChiantiPy.tools.io.twophotonHeRead`, respectively.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    .. [1] Fontes, C. et al., 1999, PhRvA, `59, 1329 &lt;http://adsabs.harvard.edu/abs/1999PhRvA..59.1329F&gt;`_</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">#</span>
+    <span class="n">aa</span> <span class="o">=</span> <span class="mf">1.13</span>  <span class="c1"># aa stands for A in equ 2.12</span>
+    <span class="c1">#</span>
+    <span class="k">if</span> <span class="n">z</span> <span class="o">&gt;=</span> <span class="mi">16</span> <span class="p">:</span>
+        <span class="c1"># use Fontes Z=20, N=1 parameters</span>
+        <span class="n">dd</span> <span class="o">=</span> <span class="mf">3.70590</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.28394</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="mf">1.95270</span>
+        <span class="n">cc</span> <span class="o">=</span> <span class="mf">0.20594</span>
+    <span class="k">else</span><span class="p">:</span>
+    <span class="c1"># use Fontes Z=10, N=2 parameters</span>
+        <span class="n">dd</span> <span class="o">=</span> <span class="mf">3.82652</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.80414</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="mf">2.32431</span>
+        <span class="n">cc</span> <span class="o">=</span> <span class="mf">0.14424</span>
+    <span class="c1">#</span>
+    <span class="k">if</span> <span class="n">z</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">:</span>
+        <span class="n">cc</span> <span class="o">+=</span> <span class="p">((</span><span class="n">z</span><span class="o">-</span><span class="mf">20.</span><span class="p">)</span><span class="o">/</span><span class="mf">50.5</span><span class="p">)</span><span class="o">**</span><span class="mf">1.11</span>
+    <span class="c1">#</span>
+    <span class="n">bu</span> <span class="o">=</span> <span class="n">u</span> <span class="o">&lt;=</span> <span class="mf">1.</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="s1">&#39;Float64&#39;</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">bu</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="mf">0.</span><span class="p">)</span>
+    <span class="c1">#</span>
+    <span class="c1">#</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="p">(</span><span class="n">aa</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="o">+</span> <span class="n">dd</span><span class="o">*</span><span class="p">(</span><span class="mf">1.</span><span class="o">-</span><span class="mf">1.</span><span class="o">/</span><span class="n">u</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">cc</span><span class="o">*</span><span class="n">u</span><span class="o">*</span><span class="p">(</span><span class="mf">1.</span><span class="o">-</span><span class="mf">1.</span><span class="o">/</span><span class="n">u</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span> <span class="o">+</span> <span class="p">(</span><span class="n">c</span><span class="o">/</span><span class="n">u</span><span class="o">+</span><span class="n">d</span><span class="o">/</span><span class="n">u</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">1.</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="n">u</span><span class="p">))</span><span class="o">/</span><span class="n">u</span>
+    <span class="c1">#</span>
+    <span class="n">q</span><span class="o">.</span><span class="n">set_fill_value</span><span class="p">(</span><span class="mf">0.</span><span class="p">)</span>  <span class="c1"># I don&#39;t know why this is necessary</span>
+    <span class="k">return</span> <span class="n">q</span>  <span class="c1">#  .set_fill_value(0.)</span></div>
+
+
+<div class="viewcode-block" id="splomDescale"><a class="viewcode-back" href="../../../api/ChiantiPy.tools.util.splomDescale.html#ChiantiPy.tools.util.splomDescale">[docs]</a><span class="k">def</span> <span class="nf">splomDescale</span><span class="p">(</span><span class="n">splom</span><span class="p">,</span> <span class="n">energy</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the collision strength for excitation-autoionization as a function of energy.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    energy : array-like</span>
+<span class="sd">        In eV</span>
+<span class="sd">    splom : `dict`</span>
+<span class="sd">        Structure returned by `ChiantiPy.tools.io.splomRead`</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    omega : array-like</span>
+<span class="sd">        Collision strength</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">#</span>
+    <span class="c1">#</span>
+    <span class="n">nenergy</span> <span class="o">=</span> <span class="n">energy</span><span class="o">.</span><span class="n">size</span>
+    <span class="n">nsplom</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">splom</span><span class="p">[</span><span class="s1">&#39;deryd&#39;</span><span class="p">])</span>
+    <span class="c1"># for these files, there are 5 spline points</span>
+    <span class="n">nspl</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="k">if</span> <span class="n">nenergy</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">omega</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nsplom</span><span class="p">,</span><span class="n">nenergy</span><span class="p">),</span><span class="s2">&quot;float64&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">omega</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nsplom</span><span class="p">,</span><span class="s2">&quot;float64&quot;</span><span class="p">)</span>
+    <span class="c1">#</span>
+    <span class="n">dx</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">nspl</span><span class="p">)</span><span class="o">-</span><span class="mf">1.</span><span class="p">)</span>
+    <span class="n">sxint</span> <span class="o">=</span> <span class="n">dx</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nspl</span><span class="p">)</span>  <span class="c1"># IDL sx</span>
+    <span class="k">for</span> <span class="n">isplom</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">nsplom</span><span class="p">):</span>
+        <span class="c1">#</span>
+        <span class="n">sx1</span> <span class="o">=</span> <span class="n">energy</span><span class="o">/</span><span class="p">(</span><span class="n">splom</span><span class="p">[</span><span class="s1">&#39;deryd&#39;</span><span class="p">][</span><span class="n">isplom</span><span class="p">]</span><span class="o">*</span><span class="n">const</span><span class="o">.</span><span class="n">ryd2Ev</span><span class="p">)</span>  <span class="c1"># IDL x_int</span>
+        <span class="n">good</span> <span class="o">=</span> <span class="n">sx1</span> <span class="o">&gt;=</span> <span class="mf">1.</span>
+        <span class="c1"># make sure there are some valid energies above the threshold</span>
+        <span class="k">if</span> <span class="n">good</span><span class="o">.</span><span class="n">sum</span><span class="p">():</span>
+            <span class="n">nbad</span> <span class="o">=</span> <span class="n">nenergy</span> <span class="o">-</span> <span class="n">good</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+            <span class="n">c_curr</span> <span class="o">=</span> <span class="n">splom</span><span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">][</span><span class="n">isplom</span><span class="p">]</span>
+            <span class="c1">#</span>
+            <span class="k">if</span> <span class="n">splom</span><span class="p">[</span><span class="s1">&#39;ttype&#39;</span><span class="p">][</span><span class="n">isplom</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">sx</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">c_curr</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">sx1</span><span class="p">[</span><span class="n">good</span><span class="p">]</span> <span class="o">-</span> <span class="mf">1.</span> <span class="o">+</span> <span class="n">c_curr</span><span class="p">)</span>  <span class="c1"># IDL sx_int</span>
+                <span class="n">y2</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">splrep</span><span class="p">(</span><span class="n">sxint</span><span class="p">,</span><span class="n">splom</span><span class="p">[</span><span class="s1">&#39;splom&#39;</span><span class="p">][:,</span> <span class="n">isplom</span><span class="p">],</span><span class="n">s</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1">#allow smoothing,s=0)</span>
+                <span class="n">som</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">splev</span><span class="p">(</span><span class="n">sx</span><span class="p">,</span><span class="n">y2</span><span class="p">,</span><span class="n">der</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">omega</span><span class="p">[</span><span class="n">isplom</span><span class="p">,</span> <span class="n">nbad</span><span class="p">:]</span> <span class="o">=</span> <span class="n">som</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">sx1</span><span class="p">[</span><span class="n">good</span><span class="p">]</span> <span class="o">-</span><span class="mf">1.</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mf">1.</span><span class="p">))</span>
+            <span class="c1">#</span>
+            <span class="k">elif</span> <span class="n">splom</span><span class="p">[</span><span class="s1">&#39;ttype&#39;</span><span class="p">][</span><span class="n">isplom</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">sx</span> <span class="o">=</span><span class="p">(</span><span class="n">sx1</span><span class="p">[</span><span class="n">good</span><span class="p">]</span> <span class="o">-</span> <span class="mf">1.</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">sx1</span><span class="p">[</span><span class="n">good</span><span class="p">]</span> <span class="o">-</span><span class="mf">1.</span> <span class="o">+</span> <span class="n">c_curr</span><span class="p">)</span>
+                <span class="n">y2</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">splrep</span><span class="p">(</span><span class="n">sxint</span><span class="p">,</span><span class="n">splom</span><span class="p">[</span><span class="s1">&#39;splom&#39;</span><span class="p">][:,</span> <span class="n">isplom</span><span class="p">],</span><span class="n">s</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1">#allow smoothing,s=0)</span>
+                <span class="n">som</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">splev</span><span class="p">(</span><span class="n">sx</span><span class="p">,</span><span class="n">y2</span><span class="p">,</span><span class="n">der</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">omega</span><span class="p">[</span><span class="n">isplom</span><span class="p">,</span> <span class="n">nbad</span><span class="p">:]</span> <span class="o">=</span> <span class="n">som</span>
+            <span class="c1">#</span>
+            <span class="k">elif</span> <span class="n">splom</span><span class="p">[</span><span class="s1">&#39;ttype&#39;</span><span class="p">][</span><span class="n">isplom</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="n">sx</span> <span class="o">=</span> <span class="p">(</span><span class="n">sx1</span><span class="p">[</span><span class="n">good</span><span class="p">]</span> <span class="o">-</span> <span class="mf">1.</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">sx1</span><span class="p">[</span><span class="n">good</span><span class="p">]</span> <span class="o">-</span><span class="mf">1.</span> <span class="o">+</span> <span class="n">c_curr</span><span class="p">)</span>
+                <span class="n">y2</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">splrep</span><span class="p">(</span><span class="n">sxint</span><span class="p">,</span><span class="n">splom</span><span class="p">[</span><span class="s1">&#39;splom&#39;</span><span class="p">][:,</span> <span class="n">isplom</span><span class="p">],</span><span class="n">s</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1">#allow smoothing,s=0)</span>
+                <span class="n">som</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">splev</span><span class="p">(</span><span class="n">sx</span><span class="p">,</span><span class="n">y2</span><span class="p">,</span><span class="n">der</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">omega</span><span class="p">[</span><span class="n">isplom</span><span class="p">,</span> <span class="n">nbad</span><span class="p">:]</span> <span class="o">=</span> <span class="n">som</span><span class="o">/</span><span class="n">sx1</span><span class="p">[</span><span class="n">good</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span>
+            <span class="c1">#</span>
+            <span class="k">elif</span> <span class="n">splom</span><span class="p">[</span><span class="s1">&#39;ttype&#39;</span><span class="p">][</span><span class="n">isplom</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+                <span class="n">sx</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">c_curr</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">sx1</span><span class="p">[</span><span class="n">good</span><span class="p">]</span> <span class="o">-</span><span class="mf">1.</span> <span class="o">+</span> <span class="n">c_curr</span><span class="p">)</span>
+                <span class="n">y2</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">splrep</span><span class="p">(</span><span class="n">sxint</span><span class="p">,</span><span class="n">splom</span><span class="p">[</span><span class="s1">&#39;splom&#39;</span><span class="p">][:,</span> <span class="n">isplom</span><span class="p">],</span><span class="n">s</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1">#allow smoothing,s=0)</span>
+                <span class="n">som</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">splev</span><span class="p">(</span><span class="n">sx</span><span class="p">,</span><span class="n">y2</span><span class="p">,</span><span class="n">der</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">omega</span><span class="p">[</span><span class="n">isplom</span><span class="p">,</span> <span class="n">nbad</span><span class="p">:]</span> <span class="o">=</span> <span class="n">som</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">sx1</span><span class="p">[</span><span class="n">good</span><span class="p">]</span> <span class="o">-</span><span class="mf">1.</span> <span class="o">+</span> <span class="n">c_curr</span><span class="p">)</span>
+            <span class="c1">#</span>
+            <span class="c1">#</span>
+            <span class="c1">#</span>
+            <span class="k">elif</span> <span class="n">splom</span><span class="p">[</span><span class="s1">&#39;ttype&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">((</span><span class="s1">&#39; splom t_type ne 1,2,3,4 = </span><span class="si">%4i</span><span class="s1"> </span><span class="si">%4i</span><span class="s1"> </span><span class="si">%4i</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">splom</span><span class="p">[</span><span class="s1">&#39;ttype&#39;</span><span class="p">],</span><span class="n">splom</span><span class="p">[</span><span class="s1">&#39;l1&#39;</span><span class="p">],</span><span class="n">splom</span><span class="p">[</span><span class="s1">&#39;l2&#39;</span><span class="p">])))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># there are no energies above the threshold</span>
+            <span class="k">pass</span>
+    <span class="c1">#</span>
+    <span class="c1">#</span>
+    <span class="n">omega</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">omega</span> <span class="o">&gt;</span> <span class="mf">0.</span><span class="p">,</span><span class="n">omega</span><span class="p">,</span><span class="mf">0.</span><span class="p">)</span>
+    <span class="c1">#</span>
+    <span class="k">return</span> <span class="n">omega</span></div>
+
+
+<div class="viewcode-block" id="dilute"><a class="viewcode-back" href="../../../api/ChiantiPy.tools.util.dilute.html#ChiantiPy.tools.util.dilute">[docs]</a><span class="k">def</span> <span class="nf">dilute</span><span class="p">(</span><span class="n">radius</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the dilution factor.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    radius : array-like</span>
+<span class="sd">        Distance from the center of a star in units of the stellar radius.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    If `radius` is less than 1.0, returns 0.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">radius</span> <span class="o">&gt;=</span> <span class="mf">1.</span><span class="p">:</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="mf">1.</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">1.</span> <span class="o">-</span> <span class="mf">1.</span><span class="o">/</span><span class="n">radius</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="mf">0.</span>
+    <span class="k">return</span> <span class="n">d</span></div>
+
+
+<div class="viewcode-block" id="listFiles"><a class="viewcode-back" href="../../../api/ChiantiPy.tools.util.listFiles.html#ChiantiPy.tools.util.listFiles">[docs]</a><span class="k">def</span> <span class="nf">listFiles</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Walks the path and subdirectories to return a list of files.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    This can be replaced by functions in `os.path`, as if 3.4, pathlib is probably better.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">alist</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="c1">#    print(&#39; getting file list&#39;)</span>
+    <span class="n">listname</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">dirpath</span><span class="p">,</span><span class="n">dirnames</span><span class="p">,</span><span class="n">filenames</span><span class="p">)</span> <span class="ow">in</span> <span class="n">alist</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dirnames</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">filenames</span><span class="p">:</span>
+                <span class="n">file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dirpath</span><span class="p">,</span><span class="n">f</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
+                    <span class="n">listname</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">filenames</span><span class="p">:</span>
+                <span class="n">file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dirpath</span><span class="p">,</span><span class="n">f</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
+                    <span class="n">listname</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">listname</span></div>
+
+
+<div class="viewcode-block" id="scale_bti"><a class="viewcode-back" href="../../../api/ChiantiPy.tools.util.scale_bti.html#ChiantiPy.tools.util.scale_bti">[docs]</a><span class="k">def</span> <span class="nf">scale_bti</span><span class="p">(</span><span class="n">evin</span><span class="p">,</span><span class="n">crossin</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">ev1</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Apply ionization scaling of [1]_,[2]_ to energy and cross-section.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    evin : float</span>
+<span class="sd">        Energy - same units as ev1</span>
+<span class="sd">    crossin : array-like</span>
+<span class="sd">        Cross-section</span>
+<span class="sd">    f : float -  the scale factor</span>
+<span class="sd">    ev1 : float</span>
+<span class="sd">        the ionization potential</span>
+<span class="sd">        units - the same as evin</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    [bte,btx] : `list`</span>
+<span class="sd">        Scaled energy and cross-section</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    This is the scaling used and discussed in the Dere (2007) calculation [1] of cross sections.  It was derived from similar scalings derived in reference [2]</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    descale_bti : Descale ionization energy and cross-section</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    .. [1] Dere, K. P., 2007, A&amp;A, `466, 771, &lt;http://adsabs.harvard.edu/abs/2007A%26A...466..771D&gt;`_</span>
+<span class="sd">    .. [2] Burgess, A. and Tully, J. A., 1992, A&amp;A, `254, 436 &lt;http://adsabs.harvard.edu/abs/1992A%26A...254..436B&gt;`_</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="n">evin</span><span class="o">/</span><span class="n">ev1</span>
+    <span class="n">bte</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">u</span><span class="o">-</span><span class="mf">1.</span><span class="o">+</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">btx</span> <span class="o">=</span> <span class="n">u</span><span class="o">*</span><span class="n">crossin</span><span class="o">*</span><span class="p">(</span><span class="n">ev1</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">+</span><span class="mf">1.</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">bte</span><span class="p">,</span><span class="n">btx</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="descale_bt"><a class="viewcode-back" href="../../../api/ChiantiPy.tools.util.descale_bt.html#ChiantiPy.tools.util.descale_bt">[docs]</a><span class="k">def</span> <span class="nf">descale_bt</span><span class="p">(</span><span class="n">bte</span><span class="p">,</span><span class="n">btomega</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">ev1</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Apply excitation descaling of [1]_ to energy and collision strength</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    bte : array-like</span>
+<span class="sd">        Scaled energy</span>
+<span class="sd">    btomega : array-like</span>
+<span class="sd">        Scaled collision strength</span>
+<span class="sd">    f : array-like</span>
+<span class="sd">    ev1 : array-like</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    [energy,omega] : `list`</span>
+<span class="sd">        Descaled energy and collision strength</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Need more details here. Not clear which equations are being used.</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    scale_bt : Apply scaling to excitation energy and cross-section</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    .. [1] Burgess, A. and Tully, J. A., 1992, A&amp;A, `254, 436 &lt;http://adsabs.harvard.edu/abs/1992A%26A...254..436B&gt;`_</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">-</span><span class="n">f</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">1.</span><span class="o">-</span><span class="n">bte</span><span class="p">))</span>
+    <span class="n">energy</span> <span class="o">=</span> <span class="n">u</span><span class="o">*</span><span class="n">ev1</span>
+    <span class="n">omega</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">-</span><span class="mf">1.</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mf">1.</span><span class="p">))</span><span class="o">*</span><span class="n">btomega</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">energy</span><span class="p">,</span><span class="n">omega</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="descale_bti"><a class="viewcode-back" href="../../../api/ChiantiPy.tools.util.descale_bti.html#ChiantiPy.tools.util.descale_bti">[docs]</a><span class="k">def</span> <span class="nf">descale_bti</span><span class="p">(</span><span class="n">bte</span><span class="p">,</span><span class="n">btx</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">ev1</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Apply ionization descaling of [1]_ to energy and cross-section.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    bte : array-like</span>
+<span class="sd">        Scaled energy</span>
+<span class="sd">    btx : array-like</span>
+<span class="sd">        Scaled cross-section</span>
+<span class="sd">    f : float</span>
+<span class="sd">        Scaling parameter</span>
+<span class="sd">    ev1 : float</span>
+<span class="sd">        ionization potential - units determine the output energy units</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    [energy,cross] : `list`</span>
+<span class="sd">        Descaled energy and cross-section</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    This is the scaling used and discussed in the Dere (2007) calculation [1] of cross sections.  It was derived from similar scalings provided by reference [2]</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    scale_bti : Descale ionization energy and cross-section</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    .. [1] Dere, K. P., 2007, A&amp;A, `466, 771, &lt;http://adsabs.harvard.edu/abs/2007A%26A...466..771D&gt;`_</span>
+<span class="sd">    .. [2] Burgess, A. and Tully, J. A., 1992, A&amp;A, `254, 436 &lt;http://adsabs.harvard.edu/abs/1992A%26A...254..436B&gt;`_</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">-</span><span class="n">f</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">1.</span> <span class="o">-</span> <span class="n">bte</span><span class="p">))</span>
+    <span class="n">energy</span> <span class="o">=</span> <span class="n">u</span><span class="o">*</span><span class="n">ev1</span>
+    <span class="n">cross</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">+</span><span class="mf">1.</span><span class="p">)</span><span class="o">*</span><span class="n">btx</span><span class="o">/</span><span class="p">(</span><span class="n">u</span><span class="o">*</span><span class="n">ev1</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">energy</span><span class="p">,</span><span class="n">cross</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="scale_bt"><a class="viewcode-back" href="../../../api/ChiantiPy.tools.util.scale_bt.html#ChiantiPy.tools.util.scale_bt">[docs]</a><span class="k">def</span> <span class="nf">scale_bt</span><span class="p">(</span><span class="n">evin</span><span class="p">,</span><span class="n">omega</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">ev1</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Apply excitation scaling of [1]_ to energy and collision strength.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    evin : array-like</span>
+<span class="sd">    omega : array-like</span>
+<span class="sd">    f : array-like</span>
+<span class="sd">    ev1 : array-like</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    [bte,btomega] : `list`</span>
+<span class="sd">        Scaled energy and collision strength</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Need more details here. Not clear which equations are being used.</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    descale_bt : Descale excitation energy and cross-section</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    .. [1] Burgess, A. and Tully, J. A., 1992, A&amp;A, `254, 436 &lt;http://adsabs.harvard.edu/abs/1992A%26A...254..436B&gt;`_</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="n">evin</span><span class="o">/</span><span class="n">ev1</span>
+    <span class="n">bte</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">u</span><span class="o">-</span><span class="mf">1.</span><span class="o">+</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">btomega</span> <span class="o">=</span> <span class="n">omega</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">-</span><span class="mf">1.</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mf">1.</span><span class="p">))</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">bte</span><span class="p">,</span><span class="n">btomega</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="scale_bt_rate"><a class="viewcode-back" href="../../../api/ChiantiPy.tools.util.scale_bt_rate.html#ChiantiPy.tools.util.scale_bt_rate">[docs]</a><span class="k">def</span> <span class="nf">scale_bt_rate</span><span class="p">(</span><span class="n">inDict</span><span class="p">,</span> <span class="n">ip</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="mf">1.7</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Apply ionization descaling of [1]_, a Burgess-Tully type scaling to ionization rates and</span>
+<span class="sd">    temperatures. The result of the scaling is to return a scaled temperature between 0 and 1 and a</span>
+<span class="sd">    slowly varying scaled rate as a function of scaled temperature. In addition, the scaled rates</span>
+<span class="sd">    vary slowly along an iso-electronic sequence.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    inDict : `dict`</span>
+<span class="sd">        the input dictionary should have the following key pairs: `temperature`, array-like and</span>
+<span class="sd">        `rate`, array-like</span>
+<span class="sd">    ip :  `float`</span>
+<span class="sd">        the ionization potential in eV.</span>
+<span class="sd">    f :  `float` (optional)</span>
+<span class="sd">        the scaling parameter, 1.7 generally works well</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    `btTemperature` and `btRate` keys are added to `inDict`</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    .. [1] Dere, K. P., 2007, A&amp;A, `466, 771 &lt;http://adsabs.harvard.edu/abs/2007A%26A...466..771D&gt;`_</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;temperature&#39;</span> <span class="ow">and</span> <span class="s1">&#39;rate&#39;</span><span class="p">)</span> <span class="ow">in</span> <span class="n">inDict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">rT</span> <span class="o">=</span> <span class="n">inDict</span><span class="p">[</span><span class="s1">&#39;temperature&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">const</span><span class="o">.</span><span class="n">boltzmannEv</span><span class="o">/</span><span class="n">ip</span>
+        <span class="n">btTemperature</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">rT</span> <span class="o">+</span> <span class="n">f</span><span class="p">)</span>
+        <span class="n">btRate</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">rT</span><span class="p">)</span><span class="o">*</span><span class="n">inDict</span><span class="p">[</span><span class="s1">&#39;rate&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">ip</span><span class="o">**</span><span class="mf">1.5</span><span class="o">/</span><span class="p">(</span><span class="n">expn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.</span><span class="o">/</span><span class="n">rT</span><span class="p">))</span>
+        <span class="n">inDict</span><span class="p">[</span><span class="s1">&#39;btTemperature&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">btTemperature</span>
+        <span class="n">inDict</span><span class="p">[</span><span class="s1">&#39;btRate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">btRate</span>
+        <span class="n">inDict</span><span class="p">[</span><span class="s1">&#39;ip&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ip</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; input dict does not have the correct keys&#39;</span><span class="p">)</span>
+    <span class="k">return</span></div>
+
+<div class="viewcode-block" id="scale_classical"><a class="viewcode-back" href="../../../api/ChiantiPy.tools.util.scale_classical.html#ChiantiPy.tools.util.scale_classical">[docs]</a><span class="k">def</span> <span class="nf">scale_classical</span><span class="p">(</span><span class="n">inDict</span><span class="p">,</span> <span class="n">ip</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    to apply the &#39;classical&#39; scaling to the input data</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+
+<span class="sd">    inDict: dictionary</span>
+<span class="sd">        the input dictionary should have the following key pairs</span>
+<span class="sd">            energy and cross</span>
+<span class="sd">            or</span>
+<span class="sd">            temperature and rate</span>
+<span class="sd">    energy:  array-like</span>
+<span class="sd">        energy values of the cross-section</span>
+<span class="sd">    cross:  array-like</span>
+<span class="sd">        a cross-section</span>
+<span class="sd">    temperature:  array-like</span>
+<span class="sd">    rate:  array-like</span>
+<span class="sd">    ip:  float</span>
+<span class="sd">        the ionization potential.  Typically in eV.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">        the following keys are added to inDict</span>
+<span class="sd">    -------</span>
+<span class="sd">    {&#39;csEnergy&#39;, &#39;csCross&#39;, &#39;ip&#39;} or {&#39;csTemperature&#39;, &#39;csRate&#39;, &#39;ip&#39;}</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;energy&#39;</span> <span class="ow">and</span> <span class="s1">&#39;cross&#39;</span><span class="p">)</span> <span class="ow">in</span> <span class="n">inDict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">csEnergy</span> <span class="o">=</span> <span class="n">inDict</span><span class="p">[</span><span class="s1">&#39;energy&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">ip</span>
+        <span class="n">csCross</span> <span class="o">=</span> <span class="n">inDict</span><span class="p">[</span><span class="s1">&#39;cross&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">ip</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">inDict</span><span class="p">[</span><span class="s1">&#39;csEnergy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">csEnergy</span>
+        <span class="n">inDict</span><span class="p">[</span><span class="s1">&#39;csCross&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">csCross</span>
+        <span class="n">inDict</span><span class="p">[</span><span class="s1">&#39;ip&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ip</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="s1">&#39;temperature&#39;</span> <span class="ow">and</span> <span class="s1">&#39;rate&#39;</span><span class="p">)</span> <span class="ow">in</span> <span class="n">inDict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">csTemperature</span> <span class="o">=</span> <span class="n">inDict</span><span class="p">[</span><span class="s1">&#39;temperature&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">ip</span>
+        <span class="n">csRate</span> <span class="o">=</span> <span class="n">inDict</span><span class="p">[</span><span class="s1">&#39;rate&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">ip</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">inDict</span><span class="p">[</span><span class="s1">&#39;csTemperature&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">csTemperature</span>
+        <span class="n">inDict</span><span class="p">[</span><span class="s1">&#39;csRate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">csRate</span>
+        <span class="n">inDict</span><span class="p">[</span><span class="s1">&#39;ip&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ip</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; input dict does not have the correct keys&#39;</span><span class="p">)</span>
+    <span class="k">return</span></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Ken Dere.
+      Last updated on 03 Oct 2018.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.7.1a',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

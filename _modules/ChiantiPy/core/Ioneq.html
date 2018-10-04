@@ -1,0 +1,467 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ChiantiPy.core.Ioneq &mdash; ChiantiPy v0.7.1a</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/astropy_logo.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="ChiantiPy v0.7.1a" href="../../../index.html"/>
+        <link rel="up" title="ChiantiPy" href="../../ChiantiPy.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> ChiantiPy
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.7.1a
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started.html">Getting started with ChiantiPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../code_ref/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes.html">Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../IDL_intro.html">Intro for CHIANTI IDL Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../resources.html">Resources for ChiantiPy Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bugs.html">Reporting Bugs</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">ChiantiPy</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../ChiantiPy.html">ChiantiPy</a> &raquo;</li>
+        
+      <li>ChiantiPy.core.Ioneq</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ChiantiPy.core.Ioneq</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Ionization equilibrium class</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">interpolate</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">import</span> <span class="nn">ChiantiPy.tools.util</span> <span class="k">as</span> <span class="nn">util</span>
+<span class="kn">import</span> <span class="nn">ChiantiPy.tools.io</span> <span class="k">as</span> <span class="nn">io</span>
+<span class="kn">import</span> <span class="nn">ChiantiPy.tools.constants</span> <span class="k">as</span> <span class="nn">const</span>
+<span class="kn">import</span> <span class="nn">ChiantiPy.tools.data</span> <span class="k">as</span> <span class="nn">chdata</span>
+
+<span class="kn">from</span> <span class="nn">.Ion</span> <span class="k">import</span> <span class="n">ion</span>
+
+
+<div class="viewcode-block" id="ioneq"><a class="viewcode-back" href="../../../api/ChiantiPy.core.ioneq.html#ChiantiPy.core.Ioneq.ioneq">[docs]</a><span class="k">class</span> <span class="nc">ioneq</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculation ion fractions as a function of temperature assuming</span>
+<span class="sd">    ionization equilibrium.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    el_or_z : `int` or `str`</span>
+<span class="sd">        Atomic number or symbol</span>
+
+<span class="sd">    Note</span>
+<span class="sd">    ----</span>
+<span class="sd">    When either loading or calculating a set of ion fractions, the temperature and</span>
+<span class="sd">    ion fractions are returned to the `Temperature` and `Ioneq` attributes, respectively.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">el_or_z</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">el_or_z</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">str</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Z</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">el2z</span><span class="p">(</span><span class="n">el_or_z</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Z</span> <span class="o">=</span> <span class="n">el_or_z</span>
+
+<div class="viewcode-block" id="ioneq.load"><a class="viewcode-back" href="../../../api/ChiantiPy.core.ioneq.html#ChiantiPy.core.Ioneq.ioneq.load">[docs]</a>    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ioneqName</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Read temperature and ion fractions from a CHIANTI &quot;.ioneq&quot; file.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">ioneqName</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">ioneqName</span> <span class="o">=</span> <span class="n">chdata</span><span class="o">.</span><span class="n">Defaults</span><span class="p">[</span><span class="s1">&#39;ioneqfile&#39;</span><span class="p">]</span>
+        <span class="n">ioneqAll</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">ioneqRead</span><span class="p">(</span><span class="n">ioneqName</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Temperature</span> <span class="o">=</span> <span class="n">ioneqAll</span><span class="p">[</span><span class="s1">&#39;ioneqTemperature&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Ioneq</span> <span class="o">=</span> <span class="n">ioneqAll</span><span class="p">[</span><span class="s1">&#39;ioneqAll&#39;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">Z</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="ioneq.calculate"><a class="viewcode-back" href="../../../api/ChiantiPy.core.ioneq.html#ChiantiPy.core.Ioneq.ioneq.calculate">[docs]</a>    <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">temperature</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calculate ion fractions for given temperature array using the total</span>
+<span class="sd">        ionization and recombination rates.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Temperature</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">temperature</span><span class="p">,</span> <span class="s1">&#39;float64&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">Temperature</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; temperature must be an array&#39;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="n">ionList</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">chIons</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Z</span>
+        <span class="k">for</span> <span class="n">stage</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">z</span><span class="o">+</span><span class="mi">2</span><span class="p">):</span>
+            <span class="n">ionStr</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">zion2name</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">stage</span><span class="p">)</span>
+            <span class="n">ionList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ionStr</span><span class="p">)</span>
+            <span class="n">atom</span> <span class="o">=</span> <span class="n">ion</span><span class="p">(</span><span class="n">ionStr</span><span class="p">,</span> <span class="n">temperature</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Temperature</span><span class="p">)</span>
+            <span class="n">atom</span><span class="o">.</span><span class="n">ionizRate</span><span class="p">()</span>
+            <span class="n">atom</span><span class="o">.</span><span class="n">recombRate</span><span class="p">()</span>
+            <span class="n">chIons</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">atom</span><span class="p">)</span>
+
+        <span class="n">ntemp</span> <span class="o">=</span> <span class="n">chIons</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">IonizRate</span><span class="p">[</span><span class="s1">&#39;temperature&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">size</span>
+        <span class="k">if</span> <span class="n">ntemp</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">ioneq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">z</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="s1">&#39;Float64&#39;</span><span class="p">)</span>
+            <span class="n">factor</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">anIon</span> <span class="ow">in</span> <span class="n">chIons</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">anIon</span><span class="p">,</span> <span class="s1">&#39;RecombRate&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">anIon</span><span class="p">,</span> <span class="s1">&#39;IonizRate&#39;</span><span class="p">):</span>
+                    <span class="n">rat</span> <span class="o">=</span> <span class="n">anIon</span><span class="o">.</span><span class="n">IonizRate</span><span class="p">[</span><span class="s1">&#39;rate&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">anIon</span><span class="o">.</span><span class="n">RecombRate</span><span class="p">[</span><span class="s1">&#39;rate&#39;</span><span class="p">]</span>
+                    <span class="n">factor</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rat</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">rat</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">))</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">factor</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">0.</span><span class="p">)</span>
+            <span class="n">factor</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">factor</span><span class="p">)</span>
+            <span class="n">factor</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">factor</span><span class="p">)</span>
+            <span class="n">ionmax</span> <span class="o">=</span> <span class="n">factor</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">factor</span><span class="p">))</span>
+            <span class="n">ioneq</span><span class="p">[</span><span class="n">ionmax</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.</span>
+
+            <span class="k">for</span> <span class="n">iz</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ionmax</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">z</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+                <span class="n">ionrate</span> <span class="o">=</span> <span class="n">chIons</span><span class="p">[</span><span class="n">iz</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">IonizRate</span><span class="p">[</span><span class="s1">&#39;rate&#39;</span><span class="p">]</span>
+                <span class="n">recrate</span> <span class="o">=</span> <span class="n">chIons</span><span class="p">[</span><span class="n">iz</span><span class="p">]</span><span class="o">.</span><span class="n">RecombRate</span><span class="p">[</span><span class="s1">&#39;rate&#39;</span><span class="p">]</span>
+                <span class="n">ioneq</span><span class="p">[</span><span class="n">iz</span><span class="p">]</span> <span class="o">=</span> <span class="n">ionrate</span><span class="o">*</span><span class="n">ioneq</span><span class="p">[</span><span class="n">iz</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">recrate</span>
+
+            <span class="k">for</span> <span class="n">iz</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ionmax</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+                <span class="n">ionrate</span> <span class="o">=</span> <span class="n">chIons</span><span class="p">[</span><span class="n">iz</span><span class="p">]</span><span class="o">.</span><span class="n">IonizRate</span><span class="p">[</span><span class="s1">&#39;rate&#39;</span><span class="p">]</span>
+                <span class="n">recrate</span> <span class="o">=</span> <span class="n">chIons</span><span class="p">[</span><span class="n">iz</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">RecombRate</span><span class="p">[</span><span class="s1">&#39;rate&#39;</span><span class="p">]</span>
+                <span class="n">ioneq</span><span class="p">[</span><span class="n">iz</span><span class="p">]</span> <span class="o">=</span> <span class="n">recrate</span><span class="o">*</span><span class="n">ioneq</span><span class="p">[</span><span class="n">iz</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">ionrate</span>
+            <span class="n">ionsum</span> <span class="o">=</span> <span class="n">ioneq</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+            <span class="n">ioneq</span> <span class="o">=</span> <span class="n">ioneq</span><span class="o">/</span><span class="n">ionsum</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Ioneq</span> <span class="o">=</span> <span class="n">ioneq</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ioneq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">z</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">ntemp</span> <span class="p">),</span> <span class="s1">&#39;Float64&#39;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ntemp</span><span class="p">):</span>
+                <span class="n">factor</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="n">anIon</span> <span class="ow">in</span> <span class="n">chIons</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">anIon</span><span class="o">.</span><span class="n">IonizRate</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">type</span><span class="p">(</span><span class="n">anIon</span><span class="o">.</span><span class="n">RecombRate</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">):</span>
+                        <span class="n">ioniz</span> <span class="o">=</span> <span class="n">anIon</span><span class="o">.</span><span class="n">IonizRate</span><span class="p">[</span><span class="s1">&#39;rate&#39;</span><span class="p">][</span><span class="n">it</span><span class="p">]</span>
+                        <span class="n">recomb</span> <span class="o">=</span> <span class="n">anIon</span><span class="o">.</span><span class="n">RecombRate</span><span class="p">[</span><span class="s1">&#39;rate&#39;</span><span class="p">][</span><span class="n">it</span><span class="p">]</span>
+                        <span class="k">if</span> <span class="n">ioniz</span> <span class="o">==</span> <span class="mf">0.</span> <span class="ow">or</span> <span class="n">recomb</span> <span class="o">==</span> <span class="mf">0.</span><span class="p">:</span>
+                            <span class="n">rat</span> <span class="o">=</span> <span class="mf">1.e-100</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">rat</span> <span class="o">=</span> <span class="n">anIon</span><span class="o">.</span><span class="n">IonizRate</span><span class="p">[</span><span class="s1">&#39;rate&#39;</span><span class="p">][</span><span class="n">it</span><span class="p">]</span><span class="o">/</span><span class="n">anIon</span><span class="o">.</span><span class="n">RecombRate</span><span class="p">[</span><span class="s1">&#39;rate&#39;</span><span class="p">][</span><span class="n">it</span><span class="p">]</span>
+                        <span class="k">try</span><span class="p">:</span>
+                            <span class="n">factor</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rat</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">rat</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">))</span>
+                        <span class="k">except</span><span class="p">:</span>
+                            <span class="n">factor</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">0.</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">factor</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">0.</span><span class="p">)</span>
+                <span class="n">factor</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">factor</span><span class="p">)</span>
+                <span class="n">factor</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">factor</span><span class="p">)</span>
+                <span class="n">ionmax</span> <span class="o">=</span> <span class="n">factor</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">factor</span><span class="p">))</span>
+                <span class="n">ioneq</span><span class="p">[</span><span class="n">ionmax</span><span class="p">,</span> <span class="n">it</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.</span>
+
+                <span class="k">for</span> <span class="n">iz</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ionmax</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">z</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+                    <span class="n">ionrate</span> <span class="o">=</span> <span class="n">chIons</span><span class="p">[</span><span class="n">iz</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">IonizRate</span><span class="p">[</span><span class="s1">&#39;rate&#39;</span><span class="p">][</span><span class="n">it</span><span class="p">]</span>
+                    <span class="n">recrate</span> <span class="o">=</span> <span class="n">chIons</span><span class="p">[</span><span class="n">iz</span><span class="p">]</span><span class="o">.</span><span class="n">RecombRate</span><span class="p">[</span><span class="s1">&#39;rate&#39;</span><span class="p">][</span><span class="n">it</span><span class="p">]</span>
+                    <span class="k">if</span> <span class="n">recrate</span> <span class="o">!=</span> <span class="mf">0.</span><span class="p">:</span>
+                        <span class="n">ioneq</span><span class="p">[</span><span class="n">iz</span><span class="p">,</span> <span class="n">it</span><span class="p">]</span> <span class="o">=</span> <span class="n">ionrate</span><span class="o">*</span><span class="n">ioneq</span><span class="p">[</span><span class="n">iz</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">it</span><span class="p">]</span><span class="o">/</span><span class="n">recrate</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">ioneq</span><span class="p">[</span><span class="n">iz</span><span class="p">,</span> <span class="n">it</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.</span>
+
+                <span class="k">for</span> <span class="n">iz</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ionmax</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+                    <span class="n">ionrate</span> <span class="o">=</span> <span class="n">chIons</span><span class="p">[</span><span class="n">iz</span><span class="p">]</span><span class="o">.</span><span class="n">IonizRate</span><span class="p">[</span><span class="s1">&#39;rate&#39;</span><span class="p">][</span><span class="n">it</span><span class="p">]</span>
+                    <span class="n">recrate</span> <span class="o">=</span> <span class="n">chIons</span><span class="p">[</span><span class="n">iz</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">RecombRate</span><span class="p">[</span><span class="s1">&#39;rate&#39;</span><span class="p">][</span><span class="n">it</span><span class="p">]</span>
+                    <span class="k">if</span> <span class="n">ionrate</span> <span class="o">!=</span> <span class="mf">0.</span><span class="p">:</span>
+                        <span class="n">ioneq</span><span class="p">[</span><span class="n">iz</span><span class="p">,</span> <span class="n">it</span><span class="p">]</span> <span class="o">=</span> <span class="n">recrate</span><span class="o">*</span><span class="n">ioneq</span><span class="p">[</span><span class="n">iz</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">it</span><span class="p">]</span><span class="o">/</span><span class="n">ionrate</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">ioneq</span><span class="p">[</span><span class="n">iz</span><span class="p">,</span> <span class="n">it</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.</span>
+                <span class="n">ionsum</span> <span class="o">=</span> <span class="n">ioneq</span><span class="p">[:,</span> <span class="n">it</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+                <span class="n">ioneq</span><span class="p">[:,</span> <span class="n">it</span><span class="p">]</span> <span class="o">=</span> <span class="n">ioneq</span><span class="p">[:,</span> <span class="n">it</span><span class="p">]</span><span class="o">/</span><span class="n">ionsum</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Ioneq</span> <span class="o">=</span> <span class="n">ioneq</span></div>
+
+<div class="viewcode-block" id="ioneq.plot"><a class="viewcode-back" href="../../../api/ChiantiPy.core.ioneq.html#ChiantiPy.core.Ioneq.ioneq.plot">[docs]</a>    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stages</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xr</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">yr</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">oplot</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>  <span class="n">bw</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">semilogx</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Plots the ionization equilibria.</span>
+
+<span class="sd">        self.plot(xr=None, yr=None, oplot=False)</span>
+<span class="sd">        stages = sequence of ions to be plotted, neutral == 1, fully stripped == Z+1</span>
+<span class="sd">        xr = temperature range, yr = ion fraction range</span>
+
+<span class="sd">        for overplotting:</span>
+<span class="sd">        oplot=&quot;ioneqfilename&quot; such as &#39;mazzotta&#39;</span>
+<span class="sd">        or if oplot=True or oplot=1 and a widget will come up so that a file can be selected.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;Ioneq&#39;</span><span class="p">):</span>
+            <span class="n">ioneq</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;Ioneq&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; must first load or calculate and ionization equilibrium&#39;</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="k">if</span> <span class="n">bw</span><span class="p">:</span>
+            <span class="n">linestyle</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;k-&#39;</span><span class="p">,</span><span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="s1">&#39;k-.&#39;</span><span class="p">,</span> <span class="s1">&#39;k:&#39;</span><span class="p">]</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">16.</span>
+            <span class="n">lw</span> <span class="o">=</span> <span class="mi">2</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">linestyle</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;b-&#39;</span><span class="p">,</span><span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="s1">&#39;g-.&#39;</span><span class="p">,</span> <span class="s1">&#39;m:&#39;</span><span class="p">]</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">14.</span>
+            <span class="n">lw</span> <span class="o">=</span> <span class="mi">2</span>
+        <span class="c1">#</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">stages</span><span class="p">:</span>
+            <span class="n">stages</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Z</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">min</span><span class="p">(</span><span class="n">stages</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="nb">max</span><span class="p">(</span><span class="n">stages</span><span class="p">)</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">Z</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span>
+            <span class="n">stages</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Z</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span>  <span class="c1">#  spectroscopic notation</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">xr</span><span class="p">:</span>
+            <span class="n">xr</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">Temperature</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">Temperature</span><span class="o">.</span><span class="n">max</span><span class="p">()]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">yr</span><span class="p">:</span>
+            <span class="n">yr</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">]</span>
+        <span class="n">xyr</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">xr</span><span class="p">)</span>
+        <span class="n">xyr</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">yr</span><span class="p">))</span>
+        <span class="c1">#</span>
+        <span class="n">iz</span> <span class="o">=</span> <span class="n">stages</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">semilogx</span><span class="p">:</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Temperature</span><span class="p">,</span> <span class="n">ioneq</span><span class="p">[</span><span class="n">iz</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">linestyle</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Temperature</span><span class="p">,</span> <span class="n">ioneq</span><span class="p">[</span><span class="n">iz</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">linestyle</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">label</span><span class="p">:</span>
+            <span class="n">idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Ioneq</span><span class="p">[</span><span class="n">iz</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">Ioneq</span><span class="p">[</span><span class="n">iz</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">idx</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">jdx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">idx</span><span class="p">))</span>
+                <span class="n">idx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">jdx</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+            <span class="n">ann</span> <span class="o">=</span> <span class="n">const</span><span class="o">.</span><span class="n">Ionstage</span><span class="p">[</span><span class="n">iz</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">ann</span><span class="p">,</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">Temperature</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="mf">0.7</span><span class="o">*</span><span class="n">ioneq</span><span class="p">[</span><span class="n">iz</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">idx</span><span class="p">]],</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">iz</span> <span class="ow">in</span> <span class="n">stages</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+            <span class="k">if</span> <span class="n">semilogx</span><span class="p">:</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Temperature</span><span class="p">,</span> <span class="n">ioneq</span><span class="p">[</span><span class="n">iz</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">linestyle</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Temperature</span><span class="p">,</span> <span class="n">ioneq</span><span class="p">[</span><span class="n">iz</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">linestyle</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">label</span><span class="p">:</span>
+                <span class="n">idx</span> <span class="o">=</span> <span class="n">ioneq</span><span class="p">[</span><span class="n">iz</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">ioneq</span><span class="p">[</span><span class="n">iz</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">idx</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">jdx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">idx</span><span class="p">))</span>
+                    <span class="n">idx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">jdx</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+                <span class="n">ann</span> <span class="o">=</span> <span class="n">const</span><span class="o">.</span><span class="n">Ionstage</span><span class="p">[</span><span class="n">iz</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">ann</span><span class="p">,</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">Temperature</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="mf">0.7</span><span class="o">*</span><span class="n">ioneq</span><span class="p">[</span><span class="n">iz</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">idx</span><span class="p">]],</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Temperature (K)&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Ion Fraction&#39;</span><span class="p">)</span>
+        <span class="n">atitle</span> <span class="o">=</span> <span class="s1">&#39;Chianti Ionization Equilibrium for &#39;</span><span class="o">+</span><span class="n">const</span><span class="o">.</span><span class="n">El</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">Z</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+        <span class="c1">#</span>
+        <span class="k">if</span> <span class="n">oplot</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">oplot</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">ioneqRead</span><span class="p">(</span><span class="n">ioneqname</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="c1">#                print &#39;keys = &#39;, result.keys()</span>
+                <span class="k">if</span> <span class="n">result</span> <span class="o">!=</span> <span class="kc">False</span><span class="p">:</span>
+                    <span class="n">atitle</span> <span class="o">+=</span> <span class="s1">&#39;  &amp; &#39;</span><span class="o">+</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;ioneqname&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.ioneq&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+                    <span class="n">atitle</span> <span class="o">+=</span> <span class="s1">&#39; &#39;</span><span class="o">+</span><span class="n">linestyle</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="k">for</span> <span class="n">iz</span> <span class="ow">in</span> <span class="n">stages</span><span class="p">:</span>
+                        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;ioneqTemperature&#39;</span><span class="p">],</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;ioneqAll&#39;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">Z</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">iz</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">linestyle</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">oplot</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">):</span>
+                <span class="n">atitle</span> <span class="o">+=</span> <span class="s1">&#39;  &amp; &#39;</span> <span class="o">+</span> <span class="n">oplot</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">ioneqRead</span><span class="p">(</span><span class="n">ioneqname</span><span class="o">=</span><span class="n">oplot</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">result</span> <span class="o">!=</span> <span class="kc">False</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">iz</span> <span class="ow">in</span> <span class="n">stages</span><span class="p">:</span>
+                        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;ioneqTemperature&#39;</span><span class="p">],</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;ioneqAll&#39;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">Z</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">iz</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">linestyle</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">oplot</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">([]):</span>
+                <span class="k">for</span> <span class="n">iplot</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">oplot</span><span class="p">)):</span>
+                    <span class="n">result</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">ioneqRead</span><span class="p">(</span><span class="n">ioneqname</span><span class="o">=</span><span class="n">oplot</span><span class="p">[</span><span class="n">iplot</span><span class="p">])</span>
+<span class="c1">#                    print &#39;keys = &#39;, result.keys()</span>
+                    <span class="k">if</span> <span class="n">result</span> <span class="o">!=</span> <span class="kc">False</span><span class="p">:</span>
+                        <span class="n">atitle</span> <span class="o">+=</span> <span class="s1">&#39;  &amp; &#39;</span><span class="o">+</span><span class="n">oplot</span><span class="p">[</span><span class="n">iplot</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39; &#39;</span><span class="o">+</span><span class="n">linestyle</span><span class="p">[</span><span class="n">iplot</span><span class="o">%</span><span class="mi">3</span><span class="p">]</span>
+                        <span class="k">for</span> <span class="n">iz</span> <span class="ow">in</span> <span class="n">stages</span><span class="p">:</span>
+                            <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;ioneqTemperature&#39;</span><span class="p">],</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;ioneqAll&#39;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">Z</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">iz</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">linestyle</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; oplot file not understood </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">oplot</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">title</span><span class="p">:</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">atitle</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="n">xyr</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Ken Dere.
+      Last updated on 03 Oct 2018.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.7.1a',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

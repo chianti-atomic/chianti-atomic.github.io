@@ -1,0 +1,19 @@
+Ui_selectorDialogForm
+=====================
+
+.. currentmodule:: ChiantiPy.Gui.gui_qt5
+
+.. autoclass:: Ui_selectorDialogForm
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~Ui_selectorDialogForm.retranslateUi
+      ~Ui_selectorDialogForm.setupUi
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: retranslateUi
+   .. automethod:: setupUi

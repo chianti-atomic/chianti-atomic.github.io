@@ -1,0 +1,6 @@
+chpicker
+========
+
+.. currentmodule:: ChiantiPy.Gui.gui_qt5
+
+.. autofunction:: chpicker

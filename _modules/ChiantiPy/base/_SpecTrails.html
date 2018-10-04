@@ -1,0 +1,588 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ChiantiPy.base._SpecTrails &mdash; ChiantiPy v0.7.1a</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/astropy_logo.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="ChiantiPy v0.7.1a" href="../../../index.html"/>
+        <link rel="up" title="ChiantiPy" href="../../ChiantiPy.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> ChiantiPy
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.7.1a
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started.html">Getting started with ChiantiPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../code_ref/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes.html">Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../IDL_intro.html">Intro for CHIANTI IDL Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../resources.html">Resources for ChiantiPy Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bugs.html">Reporting Bugs</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">ChiantiPy</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../ChiantiPy.html">ChiantiPy</a> &raquo;</li>
+        
+      <li>ChiantiPy.base._SpecTrails</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ChiantiPy.base._SpecTrails</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Base class used in several ChiantiPy objects</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="k">import</span> <span class="n">datetime</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">import</span> <span class="nn">ChiantiPy.tools.filters</span> <span class="k">as</span> <span class="nn">chfilters</span>
+<span class="kn">import</span> <span class="nn">ChiantiPy.tools.util</span> <span class="k">as</span> <span class="nn">util</span>
+<span class="kn">import</span> <span class="nn">ChiantiPy.tools.io</span> <span class="k">as</span> <span class="nn">chio</span>
+<span class="kn">import</span> <span class="nn">ChiantiPy.tools.data</span> <span class="k">as</span> <span class="nn">chdata</span>
+<span class="kn">import</span> <span class="nn">ChiantiPy.tools.constants</span> <span class="k">as</span> <span class="nn">const</span>
+
+
+<div class="viewcode-block" id="specTrails"><a class="viewcode-back" href="../../../api/ChiantiPy.base.specTrails.html#ChiantiPy.base.specTrails">[docs]</a><span class="k">class</span> <span class="nc">specTrails</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    a collection of methods for use in spectrum calculations</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">temperature</span><span class="p">,</span> <span class="n">density</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Temperature</span> <span class="o">=</span> <span class="n">temperature</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">EDensity</span> <span class="o">=</span> <span class="n">density</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">AbundanceName</span> <span class="o">=</span> <span class="n">chdata</span><span class="o">.</span><span class="n">Defaults</span><span class="p">[</span><span class="s1">&#39;abundfile&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">AbundAll</span> <span class="o">=</span> <span class="n">chdata</span><span class="o">.</span><span class="n">Abundance</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">AbundanceName</span><span class="p">][</span><span class="s1">&#39;abundance&#39;</span><span class="p">]</span>
+        <span class="c1">#</span>
+        <span class="c1"># ---------------------------------------------------------------------------</span>
+        <span class="c1">#</span>
+<div class="viewcode-block" id="specTrails.convolve"><a class="viewcode-back" href="../../../api/ChiantiPy.base.specTrails.html#ChiantiPy.base.specTrails.convolve">[docs]</a>    <span class="k">def</span> <span class="nf">convolve</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wavelength</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="p">(</span><span class="n">chfilters</span><span class="o">.</span><span class="n">gaussianR</span><span class="p">,</span> <span class="mf">1000.</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        the first application of spectrum calculates the line intensities within the specified wavelength range and for set of ions specified</span>
+
+<span class="sd">        wavelength will not be used if applied to &#39;spectrum&#39; objects</span>
+
+<span class="sd">        wavelength IS need for &#39;bunch&#39; objects - in this case, the wavelength should not extend beyond the limits of the</span>
+<span class="sd">        wvlRange used for the &#39;bunch&#39; calculation</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;IonInstances&#39;</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; must set keepIons=1 in order to keep self.IonInstances&#39;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="c1">#</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">label</span><span class="p">)</span><span class="o">!=</span> <span class="nb">type</span><span class="p">(</span><span class="mi">0</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">label</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">str</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; label must either be zero or a string&#39;</span><span class="p">)</span>
+                <span class="k">return</span>
+        <span class="c1">#</span>
+        <span class="n">t1</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="c1">#:</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;Wavelength&#39;</span><span class="p">):</span>
+                <span class="n">nWvl</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Wavelength</span><span class="p">)</span>
+                <span class="n">wavelength</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Wavelength</span>
+        <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">wavelength</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; a wavelength array must be given&#39;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Wavelength</span> <span class="o">=</span> <span class="n">wavelength</span>
+            <span class="n">nWvl</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">wavelength</span><span class="p">)</span>
+        <span class="n">lineSpectrum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">NTempDen</span><span class="p">,</span> <span class="n">nWvl</span><span class="p">),</span> <span class="s1">&#39;float64&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">akey</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">IonInstances</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+            <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span> <span class="s1">&#39; trying ion = </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">akey</span><span class="p">))</span>
+<span class="c1">#            thisIon = self.IonInstances[akey]</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="s1">&#39;errorMessage&#39;</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">IonInstances</span><span class="p">[</span><span class="n">akey</span><span class="p">]</span><span class="o">.</span><span class="n">Intensity</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+                <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; doing convolve on ion </span><span class="si">%s</span><span class="s1"> &#39;</span><span class="o">%</span><span class="p">(</span><span class="n">akey</span><span class="p">))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">IonInstances</span><span class="p">[</span><span class="n">akey</span><span class="p">]</span><span class="o">.</span><span class="n">spectrum</span><span class="p">(</span><span class="n">wavelength</span><span class="p">,</span> <span class="nb">filter</span><span class="p">)</span>
+<span class="c1">#                lineSpectrum = np.add(lineSpectrum, self.IonInstances[akey].Spectrum[&#39;intensity&#39;])</span>
+                <span class="k">if</span> <span class="s1">&#39;errorMessage&#39;</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">IonInstances</span><span class="p">[</span><span class="n">akey</span><span class="p">]</span><span class="o">.</span><span class="n">Spectrum</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">IonInstances</span><span class="p">[</span><span class="n">akey</span><span class="p">]</span><span class="o">.</span><span class="n">Spectrum</span><span class="p">[</span><span class="s1">&#39;errorMessage&#39;</span><span class="p">])</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">lineSpectrum</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">IonInstances</span><span class="p">[</span><span class="n">akey</span><span class="p">]</span><span class="o">.</span><span class="n">Spectrum</span><span class="p">[</span><span class="s1">&#39;intensity&#39;</span><span class="p">]</span>
+<span class="c1">#                if self.NTempDen == 1:</span>
+<span class="c1">#                    lineSpectrum += thisIon.Spectrum[&#39;intensity&#39;]</span>
+<span class="c1">#                else:</span>
+<span class="c1">#                    for iTempDen in range(self.NTempDen):</span>
+<span class="c1">#                        lineSpectrum[iTempDen] += thisIon.Spectrum[&#39;intensity&#39;][iTempDen]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="s1">&#39;errorMessage&#39;</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">IonInstances</span><span class="p">[</span><span class="n">akey</span><span class="p">]</span><span class="o">.</span><span class="n">Intensity</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">IonInstances</span><span class="p">[</span><span class="n">akey</span><span class="p">]</span><span class="o">.</span><span class="n">Intensity</span><span class="p">[</span><span class="s1">&#39;errorMessage&#39;</span><span class="p">])</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">LineSpectrum</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;wavelength&#39;</span><span class="p">:</span><span class="n">wavelength</span><span class="p">,</span> <span class="s1">&#39;intensity&#39;</span><span class="p">:</span><span class="n">lineSpectrum</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()}</span>
+        <span class="c1">#</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">LineSpectrum</span><span class="p">[</span><span class="s1">&#39;intensity&#39;</span><span class="p">]</span>
+        <span class="c1">#</span>
+        <span class="c1"># the following is required in order to be applied to both a &#39;spectrum&#39; and a &#39;bunch&#39; object</span>
+        <span class="c1">#</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;FreeFree&#39;</span><span class="p">):</span>
+            <span class="n">total</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">FreeFree</span><span class="p">[</span><span class="s1">&#39;intensity&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;FreeBound&#39;</span><span class="p">):</span>
+            <span class="n">total</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">FreeBound</span><span class="p">[</span><span class="s1">&#39;intensity&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;TwoPhoton&#39;</span><span class="p">):</span>
+            <span class="n">total</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">TwoPhoton</span><span class="p">[</span><span class="s1">&#39;intensity&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Total</span> <span class="o">=</span> <span class="n">total</span>
+        <span class="c1">#</span>
+        <span class="c1">#</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">NTempDen</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">integrated</span> <span class="o">=</span> <span class="n">total</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">integrated</span> <span class="o">=</span> <span class="n">total</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="c1">#</span>
+        <span class="n">t2</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="n">dt</span> <span class="o">=</span> <span class="n">t2</span> <span class="o">-</span> <span class="n">t1</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; elapsed seconds = </span><span class="si">%12.3e</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">dt</span><span class="o">.</span><span class="n">seconds</span><span class="p">))</span>
+        <span class="c1">#</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">label</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;Spectrum&#39;</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">Spectrum</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;wavelength&#39;</span><span class="p">:</span><span class="n">wavelength</span><span class="p">,</span> <span class="s1">&#39;intensity&#39;</span><span class="p">:</span><span class="n">total</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(),</span> <span class="s1">&#39;filter&#39;</span><span class="p">:</span><span class="nb">filter</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>   <span class="s1">&#39;width&#39;</span><span class="p">:</span><span class="nb">filter</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;integrated&#39;</span><span class="p">:</span><span class="n">integrated</span><span class="p">,</span> <span class="s1">&#39;em&#39;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">Em</span><span class="p">,</span>  <span class="s1">&#39;Abundance&#39;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">AbundanceName</span><span class="p">}</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">Spectrum</span> <span class="o">=</span> <span class="p">{</span><span class="n">label</span><span class="p">:{</span><span class="s1">&#39;wavelength&#39;</span><span class="p">:</span><span class="n">wavelength</span><span class="p">,</span> <span class="s1">&#39;intensity&#39;</span><span class="p">:</span><span class="n">total</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(),</span> <span class="s1">&#39;filter&#39;</span><span class="p">:</span><span class="nb">filter</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>   <span class="s1">&#39;width&#39;</span><span class="p">:</span><span class="nb">filter</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;integrated&#39;</span><span class="p">:</span><span class="n">integrated</span><span class="p">,</span> <span class="s1">&#39;em&#39;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">Em</span><span class="p">,</span>  <span class="s1">&#39;Abundance&#39;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">AbundanceName</span><span class="p">}}</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Spectrum</span> <span class="o">=</span><span class="p">{</span><span class="s1">&#39;wavelength&#39;</span><span class="p">:</span><span class="n">wavelength</span><span class="p">,</span> <span class="s1">&#39;intensity&#39;</span><span class="p">:</span><span class="n">total</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(),</span> <span class="s1">&#39;filter&#39;</span><span class="p">:</span><span class="nb">filter</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>   <span class="s1">&#39;width&#39;</span><span class="p">:</span><span class="nb">filter</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;Abundance&#39;</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">AbundanceName</span><span class="p">}</span>
+        <span class="k">return</span></div>
+        <span class="c1">#</span>
+        <span class="c1"># ---------------------------------------------------------------------------</span>
+        <span class="c1">#</span>
+<div class="viewcode-block" id="specTrails.ionGate"><a class="viewcode-back" href="../../../api/ChiantiPy.base.specTrails.html#ChiantiPy.base.specTrails.ionGate">[docs]</a>    <span class="k">def</span> <span class="nf">ionGate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">elementList</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">ionList</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">minAbund</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">doLines</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">doContinuum</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">doWvlTest</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        creates a list of ions for free-free, free-bound, and line intensity calculations</span>
+<span class="sd">        if doing the radiative losses, accept all wavelength -&gt; doWvlTest=0</span>
+<span class="sd">        the list is a dictionary self.Todo</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="c1">#</span>
+        <span class="n">masterlist</span> <span class="o">=</span> <span class="n">chdata</span><span class="o">.</span><span class="n">MasterList</span>
+        <span class="n">abundAll</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">AbundAll</span>
+        <span class="c1">#</span>
+        <span class="n">nonzed</span> <span class="o">=</span> <span class="n">abundAll</span> <span class="o">&gt;</span> <span class="mf">0.</span>
+        <span class="n">minAbundAll</span> <span class="o">=</span> <span class="n">abundAll</span><span class="p">[</span><span class="n">nonzed</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">minAbund</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">minAbund</span> <span class="o">&lt;</span> <span class="n">minAbundAll</span><span class="p">:</span>
+                <span class="n">minAbund</span> <span class="o">=</span> <span class="n">minAbundAll</span>
+        <span class="n">ionInfo</span> <span class="o">=</span> <span class="n">chio</span><span class="o">.</span><span class="n">masterListInfo</span><span class="p">()</span>
+        <span class="c1">#</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;Wavelength&#39;</span><span class="p">):</span>
+            <span class="n">wvlRange</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">Wavelength</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">Wavelength</span><span class="o">.</span><span class="n">max</span><span class="p">()]</span>
+        <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;WvlRange&#39;</span><span class="p">):</span>
+            <span class="n">wvlRange</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">WvlRange</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; need a wavelength range in ionGate &#39;</span><span class="p">)</span>
+        <span class="c1">#</span>
+        <span class="n">temperature</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Temperature</span>
+        <span class="c1">#</span>
+        <span class="c1"># use the ionList but make sure the ions are in the database</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Todo</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="c1">#</span>
+        <span class="c1">#</span>
+        <span class="k">if</span> <span class="n">elementList</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span>  <span class="n">element</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">elementList</span><span class="p">):</span>
+                <span class="n">elementList</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">element</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;el = </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">element</span><span class="p">))</span>
+                <span class="n">z</span> <span class="o">=</span> <span class="n">const</span><span class="o">.</span><span class="n">El</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span> <span class="o">+</span> <span class="mi">1</span>
+                <span class="k">for</span> <span class="n">one</span> <span class="ow">in</span> <span class="n">masterlist</span><span class="p">:</span>
+                    <span class="n">nameDict</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">convertName</span><span class="p">(</span><span class="n">one</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">nameDict</span><span class="p">[</span><span class="s1">&#39;Element&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">elementList</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; ion = </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">one</span><span class="p">))</span>
+                        <span class="k">if</span> <span class="n">doLines</span><span class="p">:</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">Todo</span><span class="p">[</span><span class="n">one</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;line&#39;</span>
+                <span class="k">for</span> <span class="n">stage</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">z</span><span class="o">+</span><span class="mi">2</span><span class="p">):</span>
+                    <span class="n">name</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">zion2name</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">stage</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">doContinuum</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">nameDict</span><span class="p">[</span><span class="s1">&#39;Dielectronic&#39;</span><span class="p">]:</span>
+                        <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">Todo</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">Todo</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;ff&#39;</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">Todo</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">+=</span> <span class="s1">&#39;_ff&#39;</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">Todo</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">+=</span> <span class="s1">&#39;_fb&#39;</span>
+        <span class="k">if</span> <span class="n">ionList</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">one</span> <span class="ow">in</span> <span class="n">ionList</span><span class="p">:</span>
+                <span class="n">nameDict</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">convertName</span><span class="p">(</span><span class="n">one</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">masterlist</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">one</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">doLines</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">Todo</span><span class="p">[</span><span class="n">one</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;line&#39;</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                        <span class="n">pstring</span> <span class="o">=</span> <span class="s1">&#39; </span><span class="si">%s</span><span class="s1"> not in CHIANTI database&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">one</span><span class="p">)</span>
+                        <span class="nb">print</span><span class="p">(</span><span class="n">pstring</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">doContinuum</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">nameDict</span><span class="p">[</span><span class="s1">&#39;Dielectronic&#39;</span><span class="p">]:</span>
+                    <span class="k">if</span> <span class="n">one</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">Todo</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">Todo</span><span class="p">[</span><span class="n">one</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;ff&#39;</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">Todo</span><span class="p">[</span><span class="n">one</span><span class="p">]</span> <span class="o">+=</span> <span class="s1">&#39;_ff&#39;</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">Todo</span><span class="p">[</span><span class="n">one</span><span class="p">]</span> <span class="o">+=</span> <span class="s1">&#39;_fb&#39;</span>
+        <span class="c1">#</span>
+        <span class="c1">#</span>
+        <span class="c1">#</span>
+        <span class="k">if</span> <span class="n">minAbund</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">iz</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">31</span><span class="p">):</span>
+                <span class="n">abundance</span> <span class="o">=</span> <span class="n">chdata</span><span class="o">.</span><span class="n">Abundance</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">AbundanceName</span><span class="p">][</span><span class="s1">&#39;abundance&#39;</span><span class="p">][</span><span class="n">iz</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">abundance</span> <span class="o">&gt;=</span> <span class="n">minAbund</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; </span><span class="si">%5i</span><span class="s1"> </span><span class="si">%5s</span><span class="s1"> abundance = </span><span class="si">%10.2e</span><span class="s1"> &#39;</span><span class="o">%</span><span class="p">(</span><span class="n">iz</span><span class="p">,</span> <span class="n">const</span><span class="o">.</span><span class="n">El</span><span class="p">[</span><span class="n">iz</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>  <span class="n">abundance</span><span class="p">))</span>
+                    <span class="c1">#</span>
+                    <span class="k">for</span> <span class="n">ionstage</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">iz</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+                        <span class="n">ionS</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">zion2name</span><span class="p">(</span><span class="n">iz</span><span class="p">,</span> <span class="n">ionstage</span><span class="p">)</span>
+                        <span class="n">masterListTest</span> <span class="o">=</span> <span class="n">ionS</span> <span class="ow">in</span> <span class="n">masterlist</span>
+                        <span class="n">masterListInfoTest</span> <span class="o">=</span> <span class="n">ionS</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">ionInfo</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+                        <span class="k">if</span> <span class="n">masterListTest</span> <span class="ow">or</span> <span class="n">masterListInfoTest</span><span class="p">:</span>
+                            <span class="k">if</span> <span class="n">masterListTest</span> <span class="ow">or</span> <span class="n">masterListInfoTest</span><span class="p">:</span>
+                                <span class="k">if</span> <span class="n">doWvlTest</span><span class="p">:</span>
+                                    <span class="n">wvlTestMin</span> <span class="o">=</span> <span class="n">wvlRange</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">ionInfo</span><span class="p">[</span><span class="n">ionS</span><span class="p">][</span><span class="s1">&#39;wmax&#39;</span><span class="p">]</span>
+                                    <span class="n">wvlTestMax</span> <span class="o">=</span> <span class="n">wvlRange</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">ionInfo</span><span class="p">[</span><span class="n">ionS</span><span class="p">][</span><span class="s1">&#39;wmin&#39;</span><span class="p">]</span>
+                                <span class="k">else</span><span class="p">:</span>
+                                    <span class="n">wvlTestMin</span> <span class="o">=</span> <span class="mi">1</span>
+                                    <span class="n">wvlTestMax</span> <span class="o">=</span> <span class="mi">1</span>
+                            <span class="n">ioneqTest</span> <span class="o">=</span> <span class="p">(</span><span class="n">temperature</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="n">ionInfo</span><span class="p">[</span><span class="n">ionS</span><span class="p">][</span><span class="s1">&#39;tmin&#39;</span><span class="p">])</span> <span class="ow">and</span> <span class="p">(</span><span class="n">temperature</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="n">ionInfo</span><span class="p">[</span><span class="n">ionS</span><span class="p">][</span><span class="s1">&#39;tmax&#39;</span><span class="p">])</span>
+                        <span class="c1"># construct similar test for the dielectronic files</span>
+                        <span class="n">ionSd</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">zion2name</span><span class="p">(</span><span class="n">iz</span><span class="p">,</span> <span class="n">ionstage</span><span class="p">,</span> <span class="n">dielectronic</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+                        <span class="n">masterListTestD</span> <span class="o">=</span> <span class="n">ionSd</span> <span class="ow">in</span> <span class="n">masterlist</span>
+                        <span class="n">masterListInfoTestD</span> <span class="o">=</span> <span class="n">ionSd</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">ionInfo</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+                        <span class="k">if</span> <span class="n">masterListTestD</span> <span class="ow">or</span> <span class="n">masterListInfoTestD</span><span class="p">:</span>
+                            <span class="k">if</span> <span class="n">doWvlTest</span><span class="p">:</span>
+                                <span class="n">wvlTestMinD</span> <span class="o">=</span> <span class="n">wvlRange</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">ionInfo</span><span class="p">[</span><span class="n">ionSd</span><span class="p">][</span><span class="s1">&#39;wmax&#39;</span><span class="p">]</span>
+                                <span class="n">wvlTestMaxD</span> <span class="o">=</span> <span class="n">wvlRange</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">ionInfo</span><span class="p">[</span><span class="n">ionSd</span><span class="p">][</span><span class="s1">&#39;wmin&#39;</span><span class="p">]</span>
+                            <span class="k">else</span><span class="p">:</span>
+                                <span class="n">wvlTestMinD</span> <span class="o">=</span> <span class="mi">1</span>
+                                <span class="n">wvlTestMaxD</span> <span class="o">=</span> <span class="mi">1</span>
+                            <span class="n">ioneqTestD</span> <span class="o">=</span> <span class="p">(</span><span class="n">temperature</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="n">ionInfo</span><span class="p">[</span><span class="n">ionSd</span><span class="p">][</span><span class="s1">&#39;tmin&#39;</span><span class="p">])</span> <span class="ow">and</span> <span class="p">(</span><span class="n">temperature</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">&lt;=</span><span class="n">ionInfo</span><span class="p">[</span><span class="n">ionSd</span><span class="p">][</span><span class="s1">&#39;tmax&#39;</span><span class="p">])</span>
+                            <span class="c1">#</span>
+                        <span class="k">if</span> <span class="n">masterListTest</span> <span class="ow">and</span> <span class="n">wvlTestMin</span> <span class="ow">and</span> <span class="n">wvlTestMax</span> <span class="ow">and</span> <span class="n">ioneqTest</span> <span class="ow">and</span> <span class="n">doLines</span><span class="p">:</span>
+                            <span class="k">if</span> <span class="n">ionS</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Todo</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">Todo</span><span class="p">[</span><span class="n">ionS</span><span class="p">]</span> <span class="o">+=</span> <span class="s1">&#39;_line&#39;</span>
+                            <span class="k">else</span><span class="p">:</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">Todo</span><span class="p">[</span><span class="n">ionS</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;line&#39;</span>
+                        <span class="c1"># get dielectronic lines</span>
+                            <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; for ion </span><span class="si">%s</span><span class="s1"> do : </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">ionS</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Todo</span><span class="p">[</span><span class="n">ionS</span><span class="p">]))</span>
+                        <span class="k">if</span> <span class="n">masterListTestD</span> <span class="ow">and</span> <span class="n">wvlTestMinD</span> <span class="ow">and</span> <span class="n">wvlTestMaxD</span> <span class="ow">and</span> <span class="n">ioneqTestD</span> <span class="ow">and</span> <span class="n">doLines</span><span class="p">:</span>
+                            <span class="k">if</span> <span class="n">ionSd</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Todo</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">Todo</span><span class="p">[</span><span class="n">ionSd</span><span class="p">]</span> <span class="o">+=</span> <span class="s1">&#39;_line&#39;</span>
+                            <span class="k">else</span><span class="p">:</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">Todo</span><span class="p">[</span><span class="n">ionSd</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;line&#39;</span>
+                            <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; for ion </span><span class="si">%s</span><span class="s1"> do : </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">ionSd</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Todo</span><span class="p">[</span><span class="n">ionSd</span><span class="p">]))</span>
+        <span class="c1">#</span>
+                    <span class="c1">#</span>
+                    <span class="k">for</span> <span class="n">ionstage</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">iz</span><span class="o">+</span><span class="mi">2</span><span class="p">):</span>
+                        <span class="n">ionS</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">zion2name</span><span class="p">(</span><span class="n">iz</span><span class="p">,</span> <span class="n">ionstage</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="n">ionS</span> <span class="ow">in</span> <span class="n">ionInfo</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                            <span class="n">ioneqTest</span> <span class="o">=</span> <span class="p">(</span><span class="n">temperature</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="n">ionInfo</span><span class="p">[</span><span class="n">ionS</span><span class="p">][</span><span class="s1">&#39;tmin&#39;</span><span class="p">])</span> <span class="ow">and</span> <span class="p">(</span><span class="n">temperature</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="n">ionInfo</span><span class="p">[</span><span class="n">ionS</span><span class="p">][</span><span class="s1">&#39;tmax&#39;</span><span class="p">])</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">ioneqTest</span> <span class="o">=</span> <span class="mi">1</span>
+                        <span class="c1"># construct similar test for the dielectronic files</span>
+                        <span class="k">if</span> <span class="n">ioneqTest</span> <span class="ow">and</span> <span class="n">doContinuum</span><span class="p">:</span>
+                            <span class="c1"># ionS is the target ion, cannot be the neutral for the continuum</span>
+<span class="c1">#                            if verbose:</span>
+<span class="c1">#                                print(&#39; setting up continuum calculation for %s  &#39;%(ionS))</span>
+                            <span class="k">if</span> <span class="n">ionS</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Todo</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">Todo</span><span class="p">[</span><span class="n">ionS</span><span class="p">]</span> <span class="o">+=</span> <span class="s1">&#39;_ff_fb&#39;</span>
+                            <span class="k">else</span><span class="p">:</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">Todo</span><span class="p">[</span><span class="n">ionS</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;ff_fb&#39;</span>
+                            <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; for ion </span><span class="si">%s</span><span class="s1"> do : </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">ionS</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Todo</span><span class="p">[</span><span class="n">ionS</span><span class="p">]))</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Todo</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; no elements have been selected&#39;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; it is necessary to provide an elementList, an ionList, or set minAbund &gt; 0.&#39;</span><span class="p">)</span>
+        <span class="k">return</span></div>
+    <span class="c1">#</span>
+    <span class="c1"># -------------------------------------------------------------------------</span>
+    <span class="c1">#</span>
+<div class="viewcode-block" id="specTrails.spectrumPlot"><a class="viewcode-back" href="../../../api/ChiantiPy.base.specTrails.html#ChiantiPy.base.specTrails.spectrumPlot">[docs]</a>    <span class="k">def</span> <span class="nf">spectrumPlot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">integrated</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">saveFile</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">linLog</span> <span class="o">=</span> <span class="s1">&#39;lin&#39;</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        to plot the spectrum as a function of wavelength</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Em</span> <span class="o">&gt;</span> <span class="mf">1.</span>
+        <span class="k">if</span> <span class="n">mask</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">ylabel</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;erg cm$^{-2}$ s$^{-1}$ sr$^{-1} \AA^{-1}$ ($\int\,$ N$_e\,$N$_H\,$d${\it l}$)$^{-1}$&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ylabel</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;erg cm$^{-2}$ s$^{-1}$ sr$^{-1} \AA^{-1}$&#39;</span>
+        <span class="c1">#</span>
+        <span class="n">xlabel</span> <span class="o">=</span> <span class="s1">&#39;Wavelength (&#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">Defaults</span><span class="p">[</span><span class="s1">&#39;wavelength&#39;</span><span class="p">]</span> <span class="o">+</span><span class="s1">&#39;)&#39;</span>
+        <span class="c1">#</span>
+<span class="c1">#        ymin = 10.**(np.log10(emiss.min()).round(0))</span>
+        <span class="c1">#</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ion</span><span class="p">()</span>
+        <span class="c1">#</span>
+        <span class="k">if</span> <span class="n">integrated</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s1">&#39;wavelength&#39;</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Spectrum</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Spectrum</span><span class="p">[</span><span class="s1">&#39;wavelength&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">Spectrum</span><span class="p">[</span><span class="s1">&#39;integrated&#39;</span><span class="p">])</span>
+            <span class="k">elif</span> <span class="s1">&#39;wvl&#39;</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Spectrum</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Spectrum</span><span class="p">[</span><span class="s1">&#39;wvl&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">Spectrum</span><span class="p">[</span><span class="s1">&#39;integrated&#39;</span><span class="p">])</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">xlabel</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">ylabel</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;integrated spectrum&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">nTempDen</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">NTempDen</span>
+            <span class="k">if</span> <span class="n">nTempDen</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="c1">#</span>
+                <span class="k">if</span> <span class="s1">&#39;wavelength&#39;</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Spectrum</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+                    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Spectrum</span><span class="p">[</span><span class="s1">&#39;wavelength&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">Spectrum</span><span class="p">[</span><span class="s1">&#39;intensity&#39;</span><span class="p">])</span>
+                <span class="k">elif</span> <span class="s1">&#39;wvl&#39;</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Spectrum</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+                    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Spectrum</span><span class="p">[</span><span class="s1">&#39;wvl&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">Spectrum</span><span class="p">[</span><span class="s1">&#39;intensity&#39;</span><span class="p">])</span>
+                    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39; Temperature = </span><span class="si">%10.2e</span><span class="s1"> K&#39;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Temperature</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">index</span> <span class="o">=</span> <span class="n">nTempDen</span><span class="o">/</span><span class="mi">2</span>
+                <span class="k">if</span> <span class="s1">&#39;wavelength&#39;</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Spectrum</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+                    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Spectrum</span><span class="p">[</span><span class="s1">&#39;wavelength&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">Spectrum</span><span class="p">[</span><span class="s1">&#39;intensity&#39;</span><span class="p">][</span><span class="n">index</span><span class="p">])</span>
+                <span class="k">elif</span> <span class="s1">&#39;wvl&#39;</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Spectrum</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+                    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Spectrum</span><span class="p">[</span><span class="s1">&#39;wvl&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">Spectrum</span><span class="p">[</span><span class="s1">&#39;intensity&#39;</span><span class="p">][</span><span class="n">index</span><span class="p">])</span>
+                    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39; Temperature = </span><span class="si">%10.2e</span><span class="s1"> K for index = </span><span class="si">%3i</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Temperature</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="n">index</span><span class="p">))</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">xlabel</span><span class="p">)</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">ylabel</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">saveFile</span><span class="p">:</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">saveFile</span><span class="p">)</span></div>
+    <span class="c1">#</span>
+    <span class="c1"># -------------------------------------------------------------------------</span>
+    <span class="c1">#</span>
+<div class="viewcode-block" id="specTrails.lineSpectrumPlot"><a class="viewcode-back" href="../../../api/ChiantiPy.base.specTrails.html#ChiantiPy.base.specTrails.lineSpectrumPlot">[docs]</a>    <span class="k">def</span> <span class="nf">lineSpectrumPlot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">integrated</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">saveFile</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">linLog</span> <span class="o">=</span> <span class="s1">&#39;lin&#39;</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        to plot the line spectrum as a function of wavelength</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="c1">#</span>
+        <span class="c1">#</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Em</span> <span class="o">&gt;</span> <span class="mf">1.</span>
+        <span class="k">if</span> <span class="n">mask</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">ylabel</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;erg cm$^{-2}$ s$^{-1}$ sr$^{-1} \AA^{-1}$ ($\int\,$ N$_e\,$N$_H\,$d${\it l}$)$^{-1}$&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ylabel</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;erg cm$^{-2}$ s$^{-1}$ sr$^{-1} \AA^{-1}$&#39;</span>
+
+        <span class="c1">#</span>
+        <span class="n">xlabel</span> <span class="o">=</span> <span class="s1">&#39;Wavelength (&#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">Defaults</span><span class="p">[</span><span class="s1">&#39;wavelength&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span> <span class="o">+</span><span class="s1">&#39;)&#39;</span>
+        <span class="c1">#</span>
+<span class="c1">#        ymin = 10.**(np.log10(emiss.min()).round(0))</span>
+        <span class="c1">#</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ion</span><span class="p">()</span>
+        <span class="c1">#</span>
+        <span class="k">if</span> <span class="n">integrated</span><span class="p">:</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Spectrum</span><span class="p">[</span><span class="s1">&#39;wavelength&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">Spectrum</span><span class="p">[</span><span class="s1">&#39;intensity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">xlabel</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">ylabel</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;integrated spectrum&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">nTempDen</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">NTempDen</span>
+            <span class="k">if</span> <span class="n">nTempDen</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="c1">#</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">LineSpectrum</span><span class="p">[</span><span class="s1">&#39;wavelength&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">LineSpectrum</span><span class="p">[</span><span class="s1">&#39;intensity&#39;</span><span class="p">])</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39; Temperature = </span><span class="si">%10.2e</span><span class="s1"> K &#39;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Temperature</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">LineSpectrum</span><span class="p">[</span><span class="s1">&#39;wavelength&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">LineSpectrum</span><span class="p">[</span><span class="s1">&#39;intensity&#39;</span><span class="p">][</span><span class="n">index</span><span class="p">])</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39; Temperature = </span><span class="si">%10.2e</span><span class="s1"> K for index = </span><span class="si">%3i</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Temperature</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="n">index</span><span class="p">))</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">xlabel</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">ylabel</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">saveFile</span><span class="p">:</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">saveFile</span><span class="p">)</span></div></div>
+    <span class="c1">#</span>
+    <span class="c1"># -------------------------------------------------------------------------</span>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Ken Dere.
+      Last updated on 03 Oct 2018.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.7.1a',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

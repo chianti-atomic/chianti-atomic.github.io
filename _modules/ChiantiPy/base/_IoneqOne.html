@@ -1,0 +1,285 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ChiantiPy.base._IoneqOne &mdash; ChiantiPy v0.7.1a</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/astropy_logo.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="ChiantiPy v0.7.1a" href="../../../index.html"/>
+        <link rel="up" title="ChiantiPy" href="../../ChiantiPy.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> ChiantiPy
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.7.1a
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started.html">Getting started with ChiantiPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../code_ref/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notes.html">Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../IDL_intro.html">Intro for CHIANTI IDL Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../resources.html">Resources for ChiantiPy Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bugs.html">Reporting Bugs</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">ChiantiPy</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../ChiantiPy.html">ChiantiPy</a> &raquo;</li>
+        
+      <li>ChiantiPy.base._IoneqOne</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ChiantiPy.base._IoneqOne</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">ChiantiPy.tools.io</span> <span class="k">as</span> <span class="nn">io</span>
+<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="k">import</span> <span class="n">splev</span><span class="p">,</span> <span class="n">splrep</span>
+
+<div class="viewcode-block" id="ioneqOne"><a class="viewcode-back" href="../../../api/ChiantiPy.base.ioneqOne.html#ChiantiPy.base.ioneqOne">[docs]</a><span class="k">class</span> <span class="nc">ioneqOne</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Base class for `ChiantiPy.core.ion` and `ChiantiPy.core.continuum`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="ioneqOne.ioneqOne"><a class="viewcode-back" href="../../../api/ChiantiPy.base.ioneqOne.html#ChiantiPy.base.ioneqOne.ioneqOne">[docs]</a>    <span class="k">def</span> <span class="nf">ioneqOne</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Provide the ionization equilibrium for the selected ion as a function of temperature.</span>
+
+<span class="sd">        returned in self.IoneqOne</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="c1">#</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;Temperature&#39;</span><span class="p">):</span>
+            <span class="n">temperature</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Temperature</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="c1">#</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;IoneqAll&#39;</span><span class="p">):</span>
+            <span class="n">ioneqAll</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">IoneqAll</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ioneqAll</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">ioneqRead</span><span class="p">(</span><span class="n">ioneqname</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Defaults</span><span class="p">[</span><span class="s1">&#39;ioneqfile&#39;</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ioneqAll</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">IoneqAll</span>
+        <span class="c1">#</span>
+        <span class="n">ioneqTemperature</span> <span class="o">=</span> <span class="n">ioneqAll</span><span class="p">[</span><span class="s1">&#39;ioneqTemperature&#39;</span><span class="p">]</span>
+        <span class="n">Z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Z</span>
+        <span class="n">stage</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Ion</span>
+        <span class="n">Dielectronic</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Dielectronic</span>
+        <span class="n">ioneqOne</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">temperature</span><span class="p">)</span>
+        <span class="c1">#</span>
+        <span class="n">thisIoneq</span> <span class="o">=</span> <span class="n">ioneqAll</span><span class="p">[</span><span class="s1">&#39;ioneqAll&#39;</span><span class="p">][</span><span class="n">Z</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">stage</span><span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="n">Dielectronic</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+        <span class="n">gioneq</span> <span class="o">=</span> <span class="n">thisIoneq</span> <span class="o">&gt;</span> <span class="mf">0.</span>
+        <span class="n">goodt1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Temperature</span> <span class="o">&gt;=</span> <span class="n">ioneqTemperature</span><span class="p">[</span><span class="n">gioneq</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+        <span class="n">goodt2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Temperature</span> <span class="o">&lt;=</span> <span class="n">ioneqTemperature</span><span class="p">[</span><span class="n">gioneq</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+        <span class="n">goodt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">goodt1</span><span class="p">,</span><span class="n">goodt2</span><span class="p">)</span>
+        <span class="n">y2</span> <span class="o">=</span> <span class="n">splrep</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">ioneqTemperature</span><span class="p">[</span><span class="n">gioneq</span><span class="p">]),</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">thisIoneq</span><span class="p">[</span><span class="n">gioneq</span><span class="p">]),</span><span class="n">s</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="c1">#</span>
+        <span class="k">if</span> <span class="n">goodt</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">Temperature</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">gIoneq</span> <span class="o">=</span> <span class="n">splev</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Temperature</span><span class="p">[</span><span class="n">goodt</span><span class="p">]),</span><span class="n">y2</span><span class="p">)</span>   <span class="c1">#,der=0)</span>
+                <span class="n">ioneqOne</span><span class="p">[</span><span class="n">goodt</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">gIoneq</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">gIoneq</span> <span class="o">=</span> <span class="n">splev</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Temperature</span><span class="p">),</span><span class="n">y2</span><span class="p">)</span>
+                <span class="n">ioneqOne</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">gIoneq</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">NTempDen</span><span class="p">,</span> <span class="s1">&#39;float64&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">IoneqOne</span> <span class="o">=</span> <span class="n">ioneqOne</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">IoneqOne</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Temperature</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Ken Dere.
+      Last updated on 03 Oct 2018.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.7.1a',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
