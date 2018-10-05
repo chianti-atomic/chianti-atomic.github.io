@@ -1,228 +1,90 @@
 
 
-<!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>continuum &mdash; ChiantiPy v0.7.1a</title>
-  
 
-  
-  
-    <link rel="shortcut icon" href="../_static/astropy_logo.ico"/>
-  
-  
-  
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-  
-
-  
-  
-    
-
-  
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="ChiantiPy v0.7.1a" href="../index.html"/>
-        <link rel="up" title="ChiantiPy Core Classes" href="../code_ref/chiantipy_core.html"/>
-        <link rel="next" title="ion" href="ChiantiPy.core.ion.html"/>
-        <link rel="prev" title="bunch" href="ChiantiPy.core.bunch.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
-</head>
-
-<body class="wy-body-for-nav" role="document">
-
-   
-  <div class="wy-grid-for-nav">
-
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
-
-          
-            <a href="../index.html" class="icon icon-home"> ChiantiPy
-          
-
-          
-          </a>
-
-          
-            
-            
-              <div class="version">
-                0.7.1a
-              </div>
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>continuum &#8212; ChiantiPy 0.8.0 (alpha) documentation</title>
+    <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.8.0 (alpha)',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../_static/cloud.base.js"></script>
+    <script type="text/javascript" src="../_static/cloud.js"></script>
+    <link rel="shortcut icon" href="../_static/chianti2.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+<div style="padding: 20px 10px 10px 40px; background-color: #fff8d3; text-align: left;">
+<a href="">
+<img border="0" alt="chiantipy" src="_static/chiantipy_logo.png"/>
+</a>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with ChiantiPy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../code_ref/index.html">API Reference</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../code_ref/chiantipy_tools.html">ChiantiPy Tools</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../code_ref/chiantipy_base.html">ChiantiPy Base Classes</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../code_ref/chiantipy_core.html">ChiantiPy Core Classes</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="../code_ref/chiantipy_core.html#module-ChiantiPy.core">ChiantiPy.core Package</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="../code_ref/chiantipy_core.html#classes">Classes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../code_ref/chiantipy_core.html#class-inheritance-diagram">Class Inheritance Diagram</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../code_ref/chiantipy_gui.html">ChiantiPy GUI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../code_ref/chiantipy_fortran.html">FortranFormat Reader Classes</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../notes.html">Notes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../IDL_intro.html">Intro for CHIANTI IDL Users</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../resources.html">Resources for ChiantiPy Users</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../bugs.html">Reporting Bugs</a></li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">ChiantiPy</a>
-        
-      </nav>
-
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="../code_ref/index.html">API Reference</a> &raquo;</li>
-        
-          <li><a href="../code_ref/chiantipy_core.html">ChiantiPy Core Classes</a> &raquo;</li>
-        
-      <li>continuum</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            <a href="../_sources/api/ChiantiPy.core.continuum.rst.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
 
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">ChiantiPy 0.8.0 (alpha) documentation</a> &#187;</li>
+ 
+      </ul>
+    </div>
+    </div>
   
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
             
   <div class="section" id="continuum">
 <h1>continuum<a class="headerlink" href="#continuum" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="ChiantiPy.core.continuum">
-<em class="property">class </em><code class="descclassname">ChiantiPy.core.</code><code class="descname">continuum</code><span class="sig-paren">(</span><em>ionStr</em>, <em>temperature</em>, <em>abundance=None</em>, <em>em=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/core/Continuum.html#continuum"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/core/Continuum.py#L19" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.continuum" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="ChiantiPy.base.ionTrails.html#ChiantiPy.base.ionTrails" title="ChiantiPy.base._IonTrails.ionTrails"><code class="docutils literal"><span class="pre">ChiantiPy.base.ionTrails</span></code></a></p>
+<em class="property">class </em><code class="descclassname">ChiantiPy.core.</code><code class="descname">continuum</code><span class="sig-paren">(</span><em>ionStr</em>, <em>temperature</em>, <em>abundance=None</em>, <em>em=None</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.continuum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ChiantiPy.base._IonTrails.ionTrails</span></code></p>
 <p>The top level class for continuum calculations. Includes methods for the calculation of the
 free-free and free-bound continua.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>ionStr</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></p>
-<blockquote>
-<div><p>CHIANTI notation for the given ion, e.g. ‘fe_12’ that corresponds to the Fe XII ion.</p>
-</div></blockquote>
-<p><strong>temperature</strong> : array-like</p>
-<blockquote>
-<div><p>In units of Kelvin</p>
-</div></blockquote>
-<p><strong>abundance</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">float</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional</p>
-<blockquote>
-<div><p>Elemental abundance relative to Hydrogen or name of CHIANTI abundance file,
-without the ‘.abund’ suffix, e.g. ‘sun_photospheric_1998_grevesse’.</p>
-</div></blockquote>
-<p><strong>em</strong> : array-like, optional</p>
-<blockquote class="last">
-<div><p>Line-of-sight emission measure (<span class="math">\(\int\mathrm{d}l\,n_en_H\)</span>), in units of
+<dl class="docutils">
+<dt>ionStr <span class="classifier-delimiter">:</span> <span class="classifier"><cite>str</cite></span></dt>
+<dd>CHIANTI notation for the given ion, e.g. ‘fe_12’ that corresponds to the Fe XII ion.</dd>
+<dt>temperature <span class="classifier-delimiter">:</span> <span class="classifier">array-like</span></dt>
+<dd>In units of Kelvin</dd>
+<dt>abundance <span class="classifier-delimiter">:</span> <span class="classifier"><cite>float</cite> or <cite>str</cite>, optional</span></dt>
+<dd>Elemental abundance relative to Hydrogen or name of CHIANTI abundance file,
+without the ‘.abund’ suffix, e.g. ‘sun_photospheric_1998_grevesse’.</dd>
+<dt>em <span class="classifier-delimiter">:</span> <span class="classifier">array-like, optional</span></dt>
+<dd>Line-of-sight emission measure (<span class="math">\(\int\mathrm{d}l\,n_en_H\)</span>), in units of
 <span class="math">\(\mathrm{cm}^{-5}\)</span>, or the volumetric emission measure (<span class="math">\(\int\mathrm{d}V\,n_en_H\)</span>)
-in units of <span class="math">\(\mathrm{cm}^{-3}\)</span>.</p>
-</div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Notes</p>
-<p>The methods for calculating the free-free and free-bound emission and losses return
-their result to an attribute. See the respective docstrings for more information.</p>
-<p class="rubric">Examples</p>
+in units of <span class="math">\(\mathrm{cm}^{-3}\)</span>.</dd>
+</dl>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ChiantiPy.core</span> <span class="k">as</span> <span class="nn">ch</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">temperature</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
@@ -234,91 +96,42 @@ their result to an attribute. See the respective docstrings for more information
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cont</span><span class="o">.</span><span class="n">calculate_free_bound_loss</span><span class="p">()</span>
 </pre></div>
 </div>
+<p>The methods for calculating the free-free and free-bound emission and losses return
+their result to an attribute. See the respective docstrings for more information.</p>
 <p class="rubric">Methods Summary</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#ChiantiPy.core.continuum.calculate_free_bound_loss" title="ChiantiPy.core.continuum.calculate_free_bound_loss"><code class="xref py py-obj docutils literal"><span class="pre">calculate_free_bound_loss</span></code></a>(**kwargs)</td>
-<td>Calculate the free-bound energy loss rate of an ion.</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">continuum.calculate_free_free_loss</span></code></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#ChiantiPy.core.continuum.freeBound" title="ChiantiPy.core.continuum.freeBound"><code class="xref py py-obj docutils literal"><span class="pre">freeBound</span></code></a>(wvl[,&nbsp;verner])</td>
-<td>to calculate the free-bound (radiative recombination) continuum rate coefficient of an ion, where</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#ChiantiPy.core.continuum.freeBoundLoss" title="ChiantiPy.core.continuum.freeBoundLoss"><code class="xref py py-obj docutils literal"><span class="pre">freeBoundLoss</span></code></a>()</td>
-<td>to calculate the free-bound (radiative recombination) energy loss rate coefficient of an ion,</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#ChiantiPy.core.continuum.freeFree" title="ChiantiPy.core.continuum.freeFree"><code class="xref py py-obj docutils literal"><span class="pre">freeFree</span></code></a>(wavelength[,&nbsp;include_abundance,&nbsp;…])</td>
-<td>Calculates the free-free emission for a single ion.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#ChiantiPy.core.continuum.freeFreeLoss" title="ChiantiPy.core.continuum.freeFreeLoss"><code class="xref py py-obj docutils literal"><span class="pre">freeFreeLoss</span></code></a>(**kwargs)</td>
-<td>Calculate the free-free energy loss rate of an ion.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#ChiantiPy.core.continuum.ioneqOne" title="ChiantiPy.core.continuum.ioneqOne"><code class="xref py py-obj docutils literal"><span class="pre">ioneqOne</span></code></a>()</td>
-<td>Provide the ionization equilibrium for the selected ion as a function of temperature.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#ChiantiPy.core.continuum.ioneq_one" title="ChiantiPy.core.continuum.ioneq_one"><code class="xref py py-obj docutils literal"><span class="pre">ioneq_one</span></code></a>(stage,&nbsp;**kwargs)</td>
-<td>Calculate the equilibrium fractional ionization of the ion as a function of temperature.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#ChiantiPy.core.continuum.itoh_gaunt_factor" title="ChiantiPy.core.continuum.itoh_gaunt_factor"><code class="xref py py-obj docutils literal"><span class="pre">itoh_gaunt_factor</span></code></a>(wavelength)</td>
-<td>Calculates the free-free gaunt factors of [R8484].</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">continuum.karzas_cross_section</span></code></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#ChiantiPy.core.continuum.klgfbInterp" title="ChiantiPy.core.continuum.klgfbInterp"><code class="xref py py-obj docutils literal"><span class="pre">klgfbInterp</span></code></a>(wvl,&nbsp;n,&nbsp;l)</td>
-<td>A Python version of the CHIANTI IDL procedure karzas_xs.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#ChiantiPy.core.continuum.mewe_gaunt_factor" title="ChiantiPy.core.continuum.mewe_gaunt_factor"><code class="xref py py-obj docutils literal"><span class="pre">mewe_gaunt_factor</span></code></a>(**kwargs)</td>
-<td>Calculate the Gaunt factor according to [R8686] for a single ion <span class="math">\(Z_z\)</span>.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#ChiantiPy.core.continuum.sutherland_gaunt_factor" title="ChiantiPy.core.continuum.sutherland_gaunt_factor"><code class="xref py py-obj docutils literal"><span class="pre">sutherland_gaunt_factor</span></code></a>(wavelength)</td>
-<td>Calculates the free-free gaunt factor calculations of [R8888].</td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">continuum.verner_cross_section</span></code></td>
-<td></td>
-</tr>
-</tbody>
-</table>
 <p class="rubric">Methods Documentation</p>
 <dl class="method">
 <dt id="ChiantiPy.core.continuum.calculate_free_bound_loss">
-<code class="descname">calculate_free_bound_loss</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/core/Continuum.html#continuum.calculate_free_bound_loss"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/core/Continuum.py#L318" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.continuum.calculate_free_bound_loss" title="Permalink to this definition">¶</a></dt>
+<code class="descname">calculate_free_bound_loss</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.continuum.calculate_free_bound_loss" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the free-bound energy loss rate of an ion. The result is returned to the
-<code class="xref py py-obj docutils literal"><span class="pre">free_bound_loss</span></code> attribute.</p>
+<cite>free_bound_loss</cite> attribute.</p>
 <p>The free-bound loss rate can be calculated by integrating the free-bound emission over the wavelength.
-This is difficult using the expression in <code class="xref py py-obj docutils literal"><span class="pre">calculate_free_bound_emission</span></code> so we instead use the
-approach of <a class="reference internal" href="#r9091" id="id4">[R9091]</a> and <a class="reference internal" href="#r9191" id="id5">[R9191]</a>. Eq. 1a of <a class="reference internal" href="#r9191" id="id6">[R9191]</a> can be integrated over wavelength to get the free-bound loss rate,</p>
+This is difficult using the expression in <cite>calculate_free_bound_emission</cite> so we instead use the
+approach of <a href="#id41"><span class="problematic" id="id1">[1]_</span></a> and <a href="#id42"><span class="problematic" id="id2">[2]_</span></a>. Eq. 1a of <a href="#id43"><span class="problematic" id="id3">[2]_</span></a> can be integrated over wavelength to get the free-bound loss rate,</p>
 <div class="math">
 \[\frac{dW}{dtdV} = C_{ff}\frac{k}{hc}T^{1/2}G_{fb},\]</div>
 <p>in units of erg <span class="math">\(\mathrm{cm}^3\,\mathrm{s}^{-1}\)</span> where <span class="math">\(G_{fb}\)</span> is the free-bound Gaunt factor as
-given by Eq. 15 of <a class="reference internal" href="#r9191" id="id7">[R9191]</a> (see <a class="reference internal" href="#ChiantiPy.core.continuum.mewe_gaunt_factor" title="ChiantiPy.core.continuum.mewe_gaunt_factor"><code class="xref py py-obj docutils literal"><span class="pre">mewe_gaunt_factor</span></code></a> for more details) and <span class="math">\(C_{ff}\)</span> is the numerical constant
-as given in Eq. 4 of <a class="reference internal" href="#r9091" id="id8">[R9091]</a> and can be written in terms of the fine structure constant <span class="math">\(\alpha\)</span>,</p>
+given by Eq. 15 of <a href="#id44"><span class="problematic" id="id4">[2]_</span></a> (see <cite>mewe_gaunt_factor</cite> for more details) and <span class="math">\(C_{ff}\)</span> is the numerical constant
+as given in Eq. 4 of <a href="#id45"><span class="problematic" id="id5">[1]_</span></a> and can be written in terms of the fine structure constant <span class="math">\(\alpha\)</span>,</p>
 <div class="math">
 \[C_{ff}\frac{k}{hc} = \frac{8}{3}\left(\frac{\pi}{6}\right)^{1/2}\frac{h^2\alpha^3}{\pi^2}\frac{k_B}{m_e^{3/2}} \approx 1.43\times10^{-27}\]</div>
-<p class="rubric">References</p>
-<table class="docutils citation" frame="void" id="r9091" rules="none">
+<table class="docutils footnote" frame="void" id="id6" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[R9091]</td><td><em>(<a class="fn-backref" href="#id4">1</a>, <a class="fn-backref" href="#id8">2</a>, <a class="fn-backref" href="#id11">3</a>)</em> Gronenschild, E.H.B.M. and Mewe, R., 1978, A&amp;AS, <a class="reference external" href="http://adsabs.harvard.edu/abs/1978A%26AS...32..283G">32, 283</a></td></tr>
+<tr><td class="label">[1]</td><td>Gronenschild, E.H.B.M. and Mewe, R., 1978, A&amp;AS, <a class="reference external" href="http://adsabs.harvard.edu/abs/1978A%26AS...32..283G">32, 283</a></td></tr>
 </tbody>
 </table>
-<table class="docutils citation" frame="void" id="r9191" rules="none">
+<table class="docutils footnote" frame="void" id="id8" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[R9191]</td><td><em>(<a class="fn-backref" href="#id5">1</a>, <a class="fn-backref" href="#id6">2</a>, <a class="fn-backref" href="#id7">3</a>, <a class="fn-backref" href="#id12">4</a>)</em> Mewe, R. et al., 1986, A&amp;AS, <a class="reference external" href="http://adsabs.harvard.edu/abs/1986A%26AS...65..511M">65, 511</a></td></tr>
+<tr><td class="label">[2]</td><td>Mewe, R. et al., 1986, A&amp;AS, <a class="reference external" href="http://adsabs.harvard.edu/abs/1986A%26AS...65..511M">65, 511</a></td></tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="method">
 <dt id="ChiantiPy.core.continuum.freeBound">
-<code class="descname">freeBound</code><span class="sig-paren">(</span><em>wvl</em>, <em>verner=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/core/Continuum.html#continuum.freeBound"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/core/Continuum.py#L687" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.continuum.freeBound" title="Permalink to this definition">¶</a></dt>
+<code class="descname">freeBound</code><span class="sig-paren">(</span><em>wvl</em>, <em>verner=1</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.continuum.freeBound" title="Permalink to this definition">¶</a></dt>
 <dd><p>to calculate the free-bound (radiative recombination) continuum rate coefficient of an ion, where
 the ion is taken to be the target ion,
 including the elemental abundance and the ionization equilibrium population
@@ -332,7 +145,7 @@ provides emissivity = ergs cm^-2 s^-1 str^-1 Angstrom ^-1</p>
 
 <dl class="method">
 <dt id="ChiantiPy.core.continuum.freeBoundLoss">
-<code class="descname">freeBoundLoss</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/core/Continuum.html#continuum.freeBoundLoss"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/core/Continuum.py#L450" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.continuum.freeBoundLoss" title="Permalink to this definition">¶</a></dt>
+<code class="descname">freeBoundLoss</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.continuum.freeBoundLoss" title="Permalink to this definition">¶</a></dt>
 <dd><p>to calculate the free-bound (radiative recombination) energy loss rate coefficient of an ion,
 the ion is taken to be the target ion,
 including the elemental abundance and the ionization equilibrium population
@@ -342,98 +155,84 @@ provides rate = ergs cm^-2 s^-1</p>
 
 <dl class="method">
 <dt id="ChiantiPy.core.continuum.freeFree">
-<code class="descname">freeFree</code><span class="sig-paren">(</span><em>wavelength</em>, <em>include_abundance=True</em>, <em>include_ioneq=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/core/Continuum.html#continuum.freeFree"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/core/Continuum.py#L136" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.continuum.freeFree" title="Permalink to this definition">¶</a></dt>
+<code class="descname">freeFree</code><span class="sig-paren">(</span><em>wavelength</em>, <em>include_abundance=True</em>, <em>include_ioneq=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.continuum.freeFree" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the free-free emission for a single ion. The result is returned as a dict to
-the <code class="xref py py-obj docutils literal"><span class="pre">FreeFree</span></code> attribute.  The dict has the keywords <code class="xref py py-obj docutils literal"><span class="pre">intensity</span></code>, <code class="xref py py-obj docutils literal"><span class="pre">wvl</span></code>, <code class="xref py py-obj docutils literal"><span class="pre">temperature</span></code>, <code class="xref py py-obj docutils literal"><span class="pre">em</span></code>.</p>
-<p>The free-free emission for the given ion is calculated according Eq. 5.14a of <a class="reference internal" href="#r9496" id="id13">[R9496]</a>,
+the <cite>FreeFree</cite> attribute.  The dict has the keywords <cite>intensity</cite>, <cite>wvl</cite>, <cite>temperature</cite>, <cite>em</cite>.</p>
+<p>The free-free emission for the given ion is calculated according Eq. 5.14a of <a href="#id46"><span class="problematic" id="id10">[1]_</span></a>,
 substituting <span class="math">\(\nu=c/\lambda\)</span>, dividing by the solid angle, and writing the numerical
 constant in terms of the fine structure constant <span class="math">\(\alpha\)</span>,</p>
 <div class="math">
 \[\frac{dW}{dtdVd\lambda} = \frac{c}{3m_e}\left(\frac{\alpha h}{\pi}\right)^3\left(\frac{2\pi}{3m_ek_B}\right)^{1/2}\frac{Z^2}{\lambda^2T^{1/2}}\exp{\left(-\frac{hc}{\lambda k_BT}\right)}\bar{g}_{ff},\]</div>
 <p>where <span class="math">\(Z\)</span> is the nuclear charge, <span class="math">\(T\)</span> is the electron temperature in K, and
 <span class="math">\(\bar{g}_{ff}\)</span> is the velocity-averaged Gaunt factor. The Gaunt factor is estimated
-using the methods of <a class="reference internal" href="#r9596" id="id14">[R9596]</a> and <a class="reference internal" href="#r9696" id="id15">[R9696]</a>, depending on the temperature and energy regime. See
-<a class="reference internal" href="#ChiantiPy.core.continuum.itoh_gaunt_factor" title="ChiantiPy.core.continuum.itoh_gaunt_factor"><code class="xref py py-obj docutils literal"><span class="pre">itoh_gaunt_factor</span></code></a> and <a class="reference internal" href="#ChiantiPy.core.continuum.sutherland_gaunt_factor" title="ChiantiPy.core.continuum.sutherland_gaunt_factor"><code class="xref py py-obj docutils literal"><span class="pre">sutherland_gaunt_factor</span></code></a> for more details.</p>
+using the methods of <a href="#id47"><span class="problematic" id="id11">[2]_</span></a> and <a class="footnote-reference" href="#id16" id="id12">[3]</a>, depending on the temperature and energy regime. See
+<cite>itoh_gaunt_factor</cite> and <cite>sutherland_gaunt_factor</cite> for more details.</p>
 <p>The free-free emission is in units of erg
 <span class="math">\(\mathrm{cm}^3\mathrm{s}^{-1}\mathrm{\mathring{A}}^{-1}\mathrm{str}^{-1}\)</span>. If the emission
 measure has been set, the units will be multiplied by <span class="math">\(\mathrm{cm}^{-5}\)</span> or
 <span class="math">\(\mathrm{cm}^{-3}\)</span>, depending on whether it is the line-of-sight or volumetric
 emission measure, respectively.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>wavelength</strong> : array-like</p>
-<blockquote>
-<div><p>In units of angstroms</p>
-</div></blockquote>
-<p><strong>include_abundance</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, optional</p>
-<blockquote>
-<div><p>If True, include the ion abundance in the final output.</p>
-</div></blockquote>
-<p><strong>include_ioneq</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, optional</p>
-<blockquote class="last">
-<div><p>If True, include the ionization equilibrium in the final output</p>
-</div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">References</p>
-<table class="docutils citation" frame="void" id="r9496" rules="none">
+<dl class="docutils">
+<dt>wavelength <span class="classifier-delimiter">:</span> <span class="classifier">array-like</span></dt>
+<dd>In units of angstroms</dd>
+<dt>include_abundance <span class="classifier-delimiter">:</span> <span class="classifier"><cite>bool</cite>, optional</span></dt>
+<dd>If True, include the ion abundance in the final output.</dd>
+<dt>include_ioneq <span class="classifier-delimiter">:</span> <span class="classifier"><cite>bool</cite>, optional</span></dt>
+<dd>If True, include the ionization equilibrium in the final output</dd>
+</dl>
+<table class="docutils footnote" frame="void" id="id13" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[R9496]</td><td><em>(<a class="fn-backref" href="#id13">1</a>, <a class="fn-backref" href="#id18">2</a>)</em> Rybicki and Lightman, 1979, Radiative Processes in Astrophysics,
+<tr><td class="label">[1]</td><td>Rybicki and Lightman, 1979, Radiative Processes in Astrophysics,
 <a class="reference external" href="http://adsabs.harvard.edu/abs/1986rpa..book.....R">(Wiley-VCH)</a></td></tr>
 </tbody>
 </table>
-<table class="docutils citation" frame="void" id="r9596" rules="none">
+<table class="docutils footnote" frame="void" id="id14" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[R9596]</td><td><em>(<a class="fn-backref" href="#id14">1</a>, <a class="fn-backref" href="#id19">2</a>)</em> Itoh, N. et al., 2000, ApJS, <a class="reference external" href="http://adsabs.harvard.edu/abs/2000ApJS..128..125I">128, 125</a></td></tr>
+<tr><td class="label">[2]</td><td>Itoh, N. et al., 2000, ApJS, <a class="reference external" href="http://adsabs.harvard.edu/abs/2000ApJS..128..125I">128, 125</a></td></tr>
 </tbody>
 </table>
-<table class="docutils citation" frame="void" id="r9696" rules="none">
+<table class="docutils footnote" frame="void" id="id16" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[R9696]</td><td><em>(<a class="fn-backref" href="#id15">1</a>, <a class="fn-backref" href="#id20">2</a>)</em> Sutherland, R. S., 1998, MNRAS, <a class="reference external" href="http://adsabs.harvard.edu/abs/1998MNRAS.300..321S">300, 321</a></td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id12">[3]</a></td><td>Sutherland, R. S., 1998, MNRAS, <a class="reference external" href="http://adsabs.harvard.edu/abs/1998MNRAS.300..321S">300, 321</a></td></tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="method">
 <dt id="ChiantiPy.core.continuum.freeFreeLoss">
-<code class="descname">freeFreeLoss</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/core/Continuum.html#continuum.freeFreeLoss"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/core/Continuum.py#L205" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.continuum.freeFreeLoss" title="Permalink to this definition">¶</a></dt>
+<code class="descname">freeFreeLoss</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.continuum.freeFreeLoss" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the free-free energy loss rate of an ion. The result is returned to the
-<code class="xref py py-obj docutils literal"><span class="pre">FreeFreeLoss</span></code> attribute.</p>
-<p>The free-free radiative loss rate is given by Eq. 5.15a of <a class="reference internal" href="#r100101" id="id21">[R100101]</a>. Writing the numerical
+<cite>FreeFreeLoss</cite> attribute.</p>
+<p>The free-free radiative loss rate is given by Eq. 5.15a of <a href="#id48"><span class="problematic" id="id18">[1]_</span></a>. Writing the numerical
 constant in terms of the fine structure constant <span class="math">\(\alpha\)</span>,</p>
 <div class="math">
 \[\frac{dW}{dtdV} = \frac{4\alpha^3h^2}{3\pi^2m_e}\left(\frac{2\pi k_B}{3m_e}\right)^{1/2}Z^2T^{1/2}\bar{g}_B\]</div>
 <p>where where <span class="math">\(Z\)</span> is the nuclear charge, <span class="math">\(T\)</span> is the electron temperature, and
 <span class="math">\(\bar{g}_{B}\)</span> is the wavelength-averaged and velocity-averaged Gaunt factor. The
-Gaunt factor is calculated using the methods of <a class="reference internal" href="#r101101" id="id22">[R101101]</a>. Note that this expression for the
-loss rate is just the integral over wavelength of Eq. 5.14a of <a class="reference internal" href="#r100101" id="id23">[R100101]</a>, the free-free emission, and
+Gaunt factor is calculated using the methods of <a href="#id49"><span class="problematic" id="id19">[2]_</span></a>. Note that this expression for the
+loss rate is just the integral over wavelength of Eq. 5.14a of <a href="#id50"><span class="problematic" id="id20">[1]_</span></a>, the free-free emission, and
 is expressed in units of erg <span class="math">\(\mathrm{cm}^3\,\mathrm{s}^{-1}\)</span>.</p>
-<p class="rubric">References</p>
-<table class="docutils citation" frame="void" id="r100101" rules="none">
+<table class="docutils footnote" frame="void" id="id21" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[R100101]</td><td><em>(<a class="fn-backref" href="#id21">1</a>, <a class="fn-backref" href="#id23">2</a>, <a class="fn-backref" href="#id26">3</a>)</em> Rybicki and Lightman, 1979, Radiative Processes in Astrophysics,
+<tr><td class="label">[1]</td><td>Rybicki and Lightman, 1979, Radiative Processes in Astrophysics,
 <a class="reference external" href="http://adsabs.harvard.edu/abs/1986rpa..book.....R">(Wiley-VCH)</a></td></tr>
 </tbody>
 </table>
-<table class="docutils citation" frame="void" id="r101101" rules="none">
+<table class="docutils footnote" frame="void" id="id23" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[R101101]</td><td><em>(<a class="fn-backref" href="#id22">1</a>, <a class="fn-backref" href="#id27">2</a>)</em> Karzas and Latter, 1961, ApJSS, <a class="reference external" href="http://adsabs.harvard.edu/abs/1961ApJS....6..167K">6, 167</a></td></tr>
+<tr><td class="label">[2]</td><td>Karzas and Latter, 1961, ApJSS, <a class="reference external" href="http://adsabs.harvard.edu/abs/1961ApJS....6..167K">6, 167</a></td></tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="method">
 <dt id="ChiantiPy.core.continuum.ioneqOne">
-<code class="descname">ioneqOne</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/core/Continuum.html#continuum.ioneqOne"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/core/Continuum.py#L1167" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.continuum.ioneqOne" title="Permalink to this definition">¶</a></dt>
+<code class="descname">ioneqOne</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.continuum.ioneqOne" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provide the ionization equilibrium for the selected ion as a function of temperature.
 Similar to but not identical to ion.ioneqOne() - the ion class needs to be able to handle
 the ‘dielectronic’ ions
@@ -442,31 +241,23 @@ returned in self.IoneqOne</p>
 
 <dl class="method">
 <dt id="ChiantiPy.core.continuum.ioneq_one">
-<code class="descname">ioneq_one</code><span class="sig-paren">(</span><em>stage</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/core/Continuum.html#continuum.ioneq_one"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/core/Continuum.py#L1211" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.continuum.ioneq_one" title="Permalink to this definition">¶</a></dt>
+<code class="descname">ioneq_one</code><span class="sig-paren">(</span><em>stage</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.continuum.ioneq_one" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the equilibrium fractional ionization of the ion as a function of temperature.</p>
-<p>Uses the <a class="reference internal" href="ChiantiPy.core.ioneq.html#ChiantiPy.core.ioneq" title="ChiantiPy.core.ioneq"><code class="xref py py-obj docutils literal"><span class="pre">ChiantiPy.core.ioneq</span></code></a> module and does a first-order spline interpolation to the data. An
-ionization equilibrium file can be passed as a keyword argument, <code class="xref py py-obj docutils literal"><span class="pre">ioneqfile</span></code>. This can
+<p>Uses the <cite>ChiantiPy.core.ioneq</cite> module and does a first-order spline interpolation to the data. An
+ionization equilibrium file can be passed as a keyword argument, <cite>ioneqfile</cite>. This can
 be passed through as a keyword argument to any of the functions that uses the
 ionization equilibrium.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>stage</strong> : int</p>
-<blockquote class="last">
-<div><p>Ionization stage, e.g. 25 for Fe XXV</p>
-</div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
+<dl class="docutils">
+<dt>stage <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd>Ionization stage, e.g. 25 for Fe XXV</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="ChiantiPy.core.continuum.itoh_gaunt_factor">
-<code class="descname">itoh_gaunt_factor</code><span class="sig-paren">(</span><em>wavelength</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/core/Continuum.html#continuum.itoh_gaunt_factor"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/core/Continuum.py#L245" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.continuum.itoh_gaunt_factor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculates the free-free gaunt factors of <a class="reference internal" href="#r104104" id="id28">[R104104]</a>.</p>
-<p>An analytic fitting formulae for the relativistic Gaunt factor is given by Eq. 4 of <a class="reference internal" href="#r104104" id="id29">[R104104]</a>,</p>
+<code class="descname">itoh_gaunt_factor</code><span class="sig-paren">(</span><em>wavelength</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.continuum.itoh_gaunt_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the free-free gaunt factors of <a href="#id51"><span class="problematic" id="id25">[1]_</span></a>.</p>
+<p>An analytic fitting formulae for the relativistic Gaunt factor is given by Eq. 4 of <a href="#id52"><span class="problematic" id="id26">[1]_</span></a>,</p>
 <div class="math">
 \[g_{Z} = \sum^{10}_{i,j=0}a_{ij}t^iU^j\]</div>
 <p>where,</p>
@@ -474,27 +265,20 @@ ionization equilibrium.</p>
 \[t = \frac{1}{1.25}(\log_{10}{T} - 7.25),\
 U = \frac{1}{2.5}(\log_{10}{u} + 1.5),\]</div>
 <p><span class="math">\(u=hc/\lambda k_BT\)</span>, and <span class="math">\(a_{ij}\)</span> are the fitting coefficients and are read
-in using <a class="reference internal" href="ChiantiPy.tools.io.itohRead.html#ChiantiPy.tools.io.itohRead" title="ChiantiPy.tools.io.itohRead"><code class="xref py py-obj docutils literal"><span class="pre">ChiantiPy.tools.io.itohRead</span></code></a> and are given in Table 4 of <a class="reference internal" href="#r104104" id="id30">[R104104]</a>. These values
+in using <cite>ChiantiPy.tools.io.itohRead</cite> and are given in Table 4 of <a href="#id53"><span class="problematic" id="id27">[1]_</span></a>. These values
 are valid for <span class="math">\(6&lt;\log_{10}(T)&lt; 8.5\)</span> and <span class="math">\(-4&lt;\log_{10}(u)&lt;1\)</span>.</p>
-<div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<dl class="last docutils">
-<dt><a class="reference internal" href="ChiantiPy.tools.io.itohRead.html#ChiantiPy.tools.io.itohRead" title="ChiantiPy.tools.io.itohRead"><code class="xref py py-obj docutils literal"><span class="pre">ChiantiPy.tools.io.itohRead</span></code></a></dt>
-<dd>Read in Gaunt factor coefficients from <a class="reference internal" href="#r104104" id="id31">[R104104]</a></dd>
-</dl>
-</div>
-<p class="rubric">References</p>
-<table class="docutils citation" frame="void" id="r104104" rules="none">
+<p>ChiantiPy.tools.io.itohRead : Read in Gaunt factor coefficients from <a href="#id54"><span class="problematic" id="id28">[1]_</span></a></p>
+<table class="docutils footnote" frame="void" id="id29" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[R104104]</td><td><em>(<a class="fn-backref" href="#id28">1</a>, <a class="fn-backref" href="#id29">2</a>, <a class="fn-backref" href="#id30">3</a>, <a class="fn-backref" href="#id31">4</a>, <a class="fn-backref" href="#id33">5</a>)</em> Itoh, N. et al., 2000, ApJS, <a class="reference external" href="http://adsabs.harvard.edu/abs/2000ApJS..128..125I">128, 125</a></td></tr>
+<tr><td class="label">[1]</td><td>Itoh, N. et al., 2000, ApJS, <a class="reference external" href="http://adsabs.harvard.edu/abs/2000ApJS..128..125I">128, 125</a></td></tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="method">
 <dt id="ChiantiPy.core.continuum.klgfbInterp">
-<code class="descname">klgfbInterp</code><span class="sig-paren">(</span><em>wvl</em>, <em>n</em>, <em>l</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/core/Continuum.html#continuum.klgfbInterp"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/core/Continuum.py#L1150" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.continuum.klgfbInterp" title="Permalink to this definition">¶</a></dt>
+<code class="descname">klgfbInterp</code><span class="sig-paren">(</span><em>wvl</em>, <em>n</em>, <em>l</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.continuum.klgfbInterp" title="Permalink to this definition">¶</a></dt>
 <dd><p>A Python version of the CHIANTI IDL procedure karzas_xs.</p>
 <p>Interpolates free-bound gaunt factor of Karzas and Latter, (1961, Astrophysical Journal
 Supplement Series, 6, 167) as a function of wavelength (wvl).</p>
@@ -502,9 +286,9 @@ Supplement Series, 6, 167) as a function of wavelength (wvl).</p>
 
 <dl class="method">
 <dt id="ChiantiPy.core.continuum.mewe_gaunt_factor">
-<code class="descname">mewe_gaunt_factor</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/core/Continuum.html#continuum.mewe_gaunt_factor"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/core/Continuum.py#L390" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.continuum.mewe_gaunt_factor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate the Gaunt factor according to <a class="reference internal" href="#r106106" id="id34">[R106106]</a> for a single ion <span class="math">\(Z_z\)</span>.</p>
-<p>Using Eq. 9 of <a class="reference internal" href="#r106106" id="id35">[R106106]</a>, the free-bound Gaunt factor for a single ion can be written as,</p>
+<code class="descname">mewe_gaunt_factor</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.continuum.mewe_gaunt_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the Gaunt factor according to <a href="#id55"><span class="problematic" id="id31">[1]_</span></a> for a single ion <span class="math">\(Z_z\)</span>.</p>
+<p>Using Eq. 9 of <a href="#id56"><span class="problematic" id="id32">[1]_</span></a>, the free-bound Gaunt factor for a single ion can be written as,</p>
 <div class="math">
 \[G_{fb}^{Z,z} = \frac{E_H}{k_BT}\mathrm{Ab}(Z)\frac{N(Z,z)}{N(Z)}f(Z,z,n)\]</div>
 <p>where <span class="math">\(E_H\)</span> is the ground-state potential of H, <span class="math">\(\mathrm{Ab}(Z)\)</span> is the
@@ -512,45 +296,35 @@ elemental abundance, <span class="math">\(\frac{N(Z,z)}{N(Z)}\)</span> is the fr
 <span class="math">\(f(Z,z,n)\)</span> is given by Eq. 10 and is approximated by Eq 16 as,</p>
 <div class="math">
 \[f(Z,z,n) \approx f_2(Z,z,n_0) = 0.9\frac{\zeta_0z_0^4}{n_0^5}\exp{\left(\frac{E_Hz_0^2}{n_0^2k_BT}\right)} + 0.42\frac{z^4}{n_0^{3/2}}\exp{\left(\frac{E_Hz^2}{(n_0 + 1)^2k_BT}\right)}\]</div>
-<p>where <span class="math">\(n_0\)</span> is the principal quantum number, <span class="math">\(z_0\)</span> is the effective charge (see Eq. 7 of <a class="reference internal" href="#r106106" id="id36">[R106106]</a>),
-and <span class="math">\(\zeta_0\)</span> is the number of vacancies in the 0th shell and is given in Table 1 of <a class="reference internal" href="#r106106" id="id37">[R106106]</a>.
+<p>where <span class="math">\(n_0\)</span> is the principal quantum number, <span class="math">\(z_0\)</span> is the effective charge (see Eq. 7 of <a href="#id57"><span class="problematic" id="id33">[1]_</span></a>),
+and <span class="math">\(\zeta_0\)</span> is the number of vacancies in the 0th shell and is given in Table 1 of <a href="#id58"><span class="problematic" id="id34">[1]_</span></a>.
 Here it is calculated in the same manner as in <a class="reference external" href="http://www.chiantidatabase.org/idl/continuum/fb_rad_loss.pro">fb_rad_loss.pro</a>
 of the CHIANTI IDL library. Note that in the expression for <span class="math">\(G_{fb}\)</span>, we have not included
 the <span class="math">\(N_H/n_e\)</span> factor.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><strong>ValueError</strong></p>
-<blockquote class="last">
-<div><p>If no .fblvl file is available for this ion</p>
-</div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">References</p>
-<table class="docutils citation" frame="void" id="r106106" rules="none">
+<dl class="docutils">
+<dt>ValueError</dt>
+<dd>If no .fblvl file is available for this ion</dd>
+</dl>
+<table class="docutils footnote" frame="void" id="id35" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[R106106]</td><td><em>(<a class="fn-backref" href="#id34">1</a>, <a class="fn-backref" href="#id35">2</a>, <a class="fn-backref" href="#id36">3</a>, <a class="fn-backref" href="#id37">4</a>, <a class="fn-backref" href="#id39">5</a>)</em> Mewe, R. et al., 1986, A&amp;AS, <a class="reference external" href="http://adsabs.harvard.edu/abs/1986A%26AS...65..511M">65, 511</a></td></tr>
+<tr><td class="label">[1]</td><td>Mewe, R. et al., 1986, A&amp;AS, <a class="reference external" href="http://adsabs.harvard.edu/abs/1986A%26AS...65..511M">65, 511</a></td></tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="method">
 <dt id="ChiantiPy.core.continuum.sutherland_gaunt_factor">
-<code class="descname">sutherland_gaunt_factor</code><span class="sig-paren">(</span><em>wavelength</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/core/Continuum.html#continuum.sutherland_gaunt_factor"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/core/Continuum.py#L291" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.continuum.sutherland_gaunt_factor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculates the free-free gaunt factor calculations of <a class="reference internal" href="#r108108" id="id40">[R108108]</a>.</p>
-<p>The Gaunt factors of <a class="reference internal" href="#r108108" id="id41">[R108108]</a> are read in using <a class="reference internal" href="ChiantiPy.tools.io.gffRead.html#ChiantiPy.tools.io.gffRead" title="ChiantiPy.tools.io.gffRead"><code class="xref py py-obj docutils literal"><span class="pre">ChiantiPy.tools.io.gffRead</span></code></a>
+<code class="descname">sutherland_gaunt_factor</code><span class="sig-paren">(</span><em>wavelength</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.continuum.sutherland_gaunt_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the free-free gaunt factor calculations of <a href="#id59"><span class="problematic" id="id37">[1]_</span></a>.</p>
+<p>The Gaunt factors of <a href="#id60"><span class="problematic" id="id38">[1]_</span></a> are read in using <cite>ChiantiPy.tools.io.gffRead</cite>
 as a function of <span class="math">\(u\)</span> and <span class="math">\(\gamma^2\)</span>. The data are interpolated
 to the appropriate wavelength and temperature values using
-<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.map_coordinates.html#scipy.ndimage.map_coordinates" title="(in SciPy v1.1.0)"><code class="xref py py-obj docutils literal"><span class="pre">map_coordinates</span></code></a>.</p>
-<p class="rubric">References</p>
-<table class="docutils citation" frame="void" id="r108108" rules="none">
+<cite>~scipy.ndimage.map_coordinates</cite>.</p>
+<table class="docutils footnote" frame="void" id="id39" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[R108108]</td><td><em>(<a class="fn-backref" href="#id40">1</a>, <a class="fn-backref" href="#id41">2</a>, <a class="fn-backref" href="#id43">3</a>)</em> Sutherland, R. S., 1998, MNRAS, <a class="reference external" href="http://adsabs.harvard.edu/abs/1998MNRAS.300..321S">300, 321</a></td></tr>
+<tr><td class="label">[1]</td><td>Sutherland, R. S., 1998, MNRAS, <a class="reference external" href="http://adsabs.harvard.edu/abs/1998MNRAS.300..321S">300, 321</a></td></tr>
 </tbody>
 </table>
 </dd></dl>
@@ -560,77 +334,77 @@ to the appropriate wavelength and temperature values using
 </div>
 
 
-           </div>
-           <div class="articleComments">
-            
-           </div>
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="ChiantiPy.core.ion.html" class="btn btn-neutral float-right" title="ion" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="ChiantiPy.core.bunch.html" class="btn btn-neutral" title="bunch" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>
-        &copy; Copyright 2018, Ken Dere.
-      Last updated on 03 Oct 2018.
-
-    </p>
-  </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
-</footer>
-
         </div>
       </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/ChiantiPy.core.continuum.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">ChiantiPy 0.8.0 (alpha) documentation</a> &#187;</li>
+ 
+      </ul>
+    </div>
+    </div>
 
-    </section>
+<div style="padding: 20px 10px 10px 40px; background-color: #fff8d3; text-align: left;">
+<a href="http://sourceforge.net/projects/chiantipy"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=250481&amp;type=16" width="150" height="40" alt="Get ChiantiPy at SourceForge.net. Fast, secure and Free Open Source software downloads" /></a>
 
-  </div>
-  
+</div>
+    
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Ken Dere.
+      Last updated on Oct 05, 2018.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
 
-
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'0.7.1a',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
-      });
-  </script>
-   
-
-</body>
+  </body>
 </html>

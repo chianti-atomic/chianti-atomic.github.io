@@ -1,249 +1,127 @@
 
 
-<!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>ion &mdash; ChiantiPy v0.7.1a</title>
-  
 
-  
-  
-    <link rel="shortcut icon" href="../_static/astropy_logo.ico"/>
-  
-  
-  
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-  
-
-  
-  
-    
-
-  
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="ChiantiPy v0.7.1a" href="../index.html"/>
-        <link rel="up" title="ChiantiPy Core Classes" href="../code_ref/chiantipy_core.html"/>
-        <link rel="next" title="ioneq" href="ChiantiPy.core.ioneq.html"/>
-        <link rel="prev" title="continuum" href="ChiantiPy.core.continuum.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
-</head>
-
-<body class="wy-body-for-nav" role="document">
-
-   
-  <div class="wy-grid-for-nav">
-
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
-
-          
-            <a href="../index.html" class="icon icon-home"> ChiantiPy
-          
-
-          
-          </a>
-
-          
-            
-            
-              <div class="version">
-                0.7.1a
-              </div>
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>ion &#8212; ChiantiPy 0.8.0 (alpha) documentation</title>
+    <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.8.0 (alpha)',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../_static/cloud.base.js"></script>
+    <script type="text/javascript" src="../_static/cloud.js"></script>
+    <link rel="shortcut icon" href="../_static/chianti2.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+<div style="padding: 20px 10px 10px 40px; background-color: #fff8d3; text-align: left;">
+<a href="">
+<img border="0" alt="chiantipy" src="_static/chiantipy_logo.png"/>
+</a>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with ChiantiPy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../code_ref/index.html">API Reference</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../code_ref/chiantipy_tools.html">ChiantiPy Tools</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../code_ref/chiantipy_base.html">ChiantiPy Base Classes</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../code_ref/chiantipy_core.html">ChiantiPy Core Classes</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="../code_ref/chiantipy_core.html#module-ChiantiPy.core">ChiantiPy.core Package</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="../code_ref/chiantipy_core.html#classes">Classes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../code_ref/chiantipy_core.html#class-inheritance-diagram">Class Inheritance Diagram</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../code_ref/chiantipy_gui.html">ChiantiPy GUI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../code_ref/chiantipy_fortran.html">FortranFormat Reader Classes</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../notes.html">Notes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../IDL_intro.html">Intro for CHIANTI IDL Users</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../resources.html">Resources for ChiantiPy Users</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../bugs.html">Reporting Bugs</a></li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">ChiantiPy</a>
-        
-      </nav>
-
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="../code_ref/index.html">API Reference</a> &raquo;</li>
-        
-          <li><a href="../code_ref/chiantipy_core.html">ChiantiPy Core Classes</a> &raquo;</li>
-        
-      <li>ion</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            <a href="../_sources/api/ChiantiPy.core.ion.rst.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
 
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">ChiantiPy 0.8.0 (alpha) documentation</a> &#187;</li>
+ 
+      </ul>
+    </div>
+    </div>
   
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
             
   <div class="section" id="ion">
 <h1>ion<a class="headerlink" href="#ion" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="ChiantiPy.core.ion">
-<em class="property">class </em><code class="descclassname">ChiantiPy.core.</code><code class="descname">ion</code><span class="sig-paren">(</span><em>ionStr</em>, <em>temperature=None</em>, <em>eDensity=None</em>, <em>pDensity='default'</em>, <em>radTemperature=None</em>, <em>rStar=None</em>, <em>abundance=None</em>, <em>setup=True</em>, <em>em=None</em>, <em>verbose=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/core/Ion.html#ion"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/core/Ion.py#L25" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.ion" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="ChiantiPy.base.ioneqOne.html#ChiantiPy.base.ioneqOne" title="ChiantiPy.base._IoneqOne.ioneqOne"><code class="docutils literal"><span class="pre">ChiantiPy.base.ioneqOne</span></code></a>, <a class="reference internal" href="ChiantiPy.base.ionTrails.html#ChiantiPy.base.ionTrails" title="ChiantiPy.base._IonTrails.ionTrails"><code class="docutils literal"><span class="pre">ChiantiPy.base.ionTrails</span></code></a>, <a class="reference internal" href="ChiantiPy.base.specTrails.html#ChiantiPy.base.specTrails" title="ChiantiPy.base._SpecTrails.specTrails"><code class="docutils literal"><span class="pre">ChiantiPy.base.specTrails</span></code></a></p>
+<em class="property">class </em><code class="descclassname">ChiantiPy.core.</code><code class="descname">ion</code><span class="sig-paren">(</span><em>ionStr</em>, <em>temperature=None</em>, <em>eDensity=None</em>, <em>pDensity='default'</em>, <em>radTemperature=None</em>, <em>rStar=None</em>, <em>abundance=None</em>, <em>setup=True</em>, <em>em=None</em>, <em>verbose=0</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.ion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ChiantiPy.base._IoneqOne.ioneqOne</span></code>, <code class="xref py py-class docutils literal"><span class="pre">ChiantiPy.base._IonTrails.ionTrails</span></code>, <code class="xref py py-class docutils literal"><span class="pre">ChiantiPy.base._SpecTrails.specTrails</span></code></p>
 <p>The top level class for performing spectral calculations for an ion in the
 CHIANTI database.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>ionStr</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></p>
-<blockquote>
-<div><p>CHIANTI notation for the given ion, e.g. ‘fe_12’ that corresponds to the <code class="xref py py-obj docutils literal"><span class="pre">Fe</span> <span class="pre">XII</span></code> ion.</p>
-</div></blockquote>
-<p><strong>temperature</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">float</span></code></a> or <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-obj docutils literal"><span class="pre">ndarray</span></code></a>, optional</p>
-<blockquote>
-<div><p>Temperature array (Kelvin)</p>
-</div></blockquote>
-<p><strong>eDensity</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">float</span></code></a> or <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-obj docutils literal"><span class="pre">ndarray</span></code></a>, optional</p>
-<blockquote>
-<div><p>Electron density array (<span class="math">\(\mathrm{cm^{-3}}\)</span> )</p>
-</div></blockquote>
-<p><strong>pDensity</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">float</span></code></a> or <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-obj docutils literal"><span class="pre">ndarray</span></code></a>, optional</p>
-<blockquote>
-<div><p>Proton density (<span class="math">\(\mathrm{cm}^{-3}\)</span> )</p>
-</div></blockquote>
-<p><strong>radTemperature</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">float</span></code></a> or <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-obj docutils literal"><span class="pre">ndarray</span></code></a>, optional</p>
-<blockquote>
-<div><p>Radiation black-body temperature (in Kelvin)</p>
-</div></blockquote>
-<p><strong>rStar</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">float</span></code></a> or <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-obj docutils literal"><span class="pre">ndarray</span></code></a>, optional</p>
-<blockquote>
-<div><p>Distance from the center of the star (in stellar radii)</p>
-</div></blockquote>
-<p><strong>abundance</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">float</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional</p>
-<blockquote>
-<div><p>Elemental abundance relative to Hydrogen or name of CHIANTI abundance file
-to use, without the ‘.abund’ suffix, e.g. ‘sun_photospheric_1998_grevesse’.</p>
-</div></blockquote>
-<p><strong>setup</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a> or <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional</p>
-<blockquote>
-<div><p>If True, run ion setup function. Otherwise, provide a limited number of
-attributes of the selected ion</p>
-</div></blockquote>
-<p><strong>em</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">float</span></code></a> or <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-obj docutils literal"><span class="pre">ndarray</span></code></a>, optional</p>
-<blockquote class="last">
-<div><p>Emission Measure, for the line-of-sight emission measure
+<dl class="docutils">
+<dt>ionStr <span class="classifier-delimiter">:</span> <span class="classifier"><cite>str</cite></span></dt>
+<dd>CHIANTI notation for the given ion, e.g. ‘fe_12’ that corresponds to the <cite>Fe XII</cite> ion.</dd>
+<dt>temperature <span class="classifier-delimiter">:</span> <span class="classifier"><cite>float</cite> or <cite>~numpy.ndarray</cite>, optional</span></dt>
+<dd>Temperature array (Kelvin)</dd>
+<dt>eDensity <span class="classifier-delimiter">:</span> <span class="classifier"><cite>float</cite> or <cite>~numpy.ndarray</cite>, optional</span></dt>
+<dd>Electron density array (<span class="math">\(\mathrm{cm^{-3}}\)</span> )</dd>
+<dt>pDensity <span class="classifier-delimiter">:</span> <span class="classifier"><cite>float</cite> or <cite>~numpy.ndarray</cite>, optional</span></dt>
+<dd>Proton density (<span class="math">\(\mathrm{cm}^{-3}\)</span> )</dd>
+<dt>radTemperature <span class="classifier-delimiter">:</span> <span class="classifier"><cite>float</cite> or <cite>~numpy.ndarray</cite>, optional</span></dt>
+<dd>Radiation black-body temperature (in Kelvin)</dd>
+<dt>rStar <span class="classifier-delimiter">:</span> <span class="classifier"><cite>float</cite> or <cite>~numpy.ndarray</cite>, optional</span></dt>
+<dd>Distance from the center of the star (in stellar radii)</dd>
+<dt>abundance <span class="classifier-delimiter">:</span> <span class="classifier"><cite>float</cite> or <cite>str</cite>, optional</span></dt>
+<dd>Elemental abundance relative to Hydrogen or name of CHIANTI abundance file
+to use, without the ‘.abund’ suffix, e.g. ‘sun_photospheric_1998_grevesse’.</dd>
+<dt>setup <span class="classifier-delimiter">:</span> <span class="classifier"><cite>bool</cite> or <cite>str</cite>, optional</span></dt>
+<dd>If True, run ion setup function. Otherwise, provide a limited number of
+attributes of the selected ion</dd>
+<dt>em <span class="classifier-delimiter">:</span> <span class="classifier"><cite>float</cite> or <cite>~numpy.ndarray</cite>, optional</span></dt>
+<dd>Emission Measure, for the line-of-sight emission measure
 (<span class="math">\(\mathrm{\int \, n_e \, n_H \, dl}\)</span>)
 (<span class="math">\(\mathrm{cm}^{-5}\)</span>.), for the volumetric emission measure
-<span class="math">\(\mathrm{\int \, n_e \, n_H \, dV}\)</span> (<span class="math">\(\mathrm{cm^{-3}}\)</span>).</p>
-</div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Notes</p>
+<span class="math">\(\mathrm{\int \, n_e \, n_H \, dV}\)</span> (<span class="math">\(\mathrm{cm^{-3}}\)</span>).</dd>
+</dl>
+<dl class="docutils">
+<dt>IonStr <span class="classifier-delimiter">:</span> <span class="classifier"><cite>str</cite></span></dt>
+<dd>Name of element plus ion, e.g. <cite>fe_12</cite> for Fe XII</dd>
+<dt>Z <span class="classifier-delimiter">:</span> <span class="classifier"><cite>int</cite></span></dt>
+<dd>the nuclear charge, 26 for <cite>fe_12</cite>.</dd>
+<dt>Ion <span class="classifier-delimiter">:</span> <span class="classifier"><cite>int</cite></span></dt>
+<dd>the ionization stage, 12 for <cite>fe_12</cite>.</dd>
+<dt>Dielectronic <span class="classifier-delimiter">:</span> <span class="classifier"><cite>bool</cite></span></dt>
+<dd>true if the ion is a ‘dielectronic’ ion where the levels are populated
+by dielectronic recombination.</dd>
+<dt>Spectroscopic <span class="classifier-delimiter">:</span> <span class="classifier"><cite>str</cite></span></dt>
+<dd>the spectroscopic notation for the ion, such as <cite>Fe XII</cite> for <cite>fe_12</cite>.</dd>
+<dt>Filename <span class="classifier-delimiter">:</span> <span class="classifier"><cite>str</cite></span></dt>
+<dd>the complete name of the file <cite>generic</cite> filename in the CHIANTI
+database, such as <cite>$XUVTOP/fe/fe_12/fe_12</cite>.</dd>
+<dt>Ip <span class="classifier-delimiter">:</span> <span class="classifier"><cite>float</cite></span></dt>
+<dd>the ionization potential of the ion</dd>
+<dt>FIP <span class="classifier-delimiter">:</span> <span class="classifier"><cite>float</cite></span></dt>
+<dd>the first ionization potential of the element</dd>
+<dt>Defaults <span class="classifier-delimiter">:</span> <span class="classifier"><cite>dict</cite></span></dt>
+<dd>these are specified by the software unless a <em>chiantirc</em> file is found
+in ‘$HOME/.chianti’:</dd>
+</dl>
 <p>The keyword arguments temperature, eDensity, radTemperature, rStar, em must all be either a float or have the same dimension as the rest if specified as lists, tuples or arrays.</p>
-<p>The <code class="xref py py-obj docutils literal"><span class="pre">Defaults</span></code> dict should have the following keys:</p>
+<p>The <cite>Defaults</cite> dict should have the following keys:</p>
 <ul class="simple">
 <li><em>abundfile</em>, the elemental abundance file, unless specified in
 <em>chiantirc</em> this defaults to <em>sun_photospheric_1998_grevesse</em>.</li>
@@ -259,180 +137,30 @@ photon fluxes, unless specified in the ‘chiantirc’ this is defaults to
 make selections on the command line (False).  Unless specified in the
 ‘chiantirc’ this is defaults to <em>False</em>.</li>
 </ul>
-<p class="rubric">Attributes</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="13%" />
-<col width="87%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><strong>IonStr</strong></td>
-<td>(<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) Name of element plus ion, e.g. <code class="xref py py-obj docutils literal"><span class="pre">fe_12</span></code> for Fe XII</td>
-</tr>
-<tr class="row-even"><td><strong>Z</strong></td>
-<td>(<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) the nuclear charge, 26 for <code class="xref py py-obj docutils literal"><span class="pre">fe_12</span></code>.</td>
-</tr>
-<tr class="row-odd"><td><strong>Ion</strong></td>
-<td>(<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>) the ionization stage, 12 for <code class="xref py py-obj docutils literal"><span class="pre">fe_12</span></code>.</td>
-</tr>
-<tr class="row-even"><td><strong>Dielectronic</strong></td>
-<td>(<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>) true if the ion is a ‘dielectronic’ ion where the levels are populated by dielectronic recombination.</td>
-</tr>
-<tr class="row-odd"><td><strong>Spectroscopic</strong></td>
-<td>(<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) the spectroscopic notation for the ion, such as <code class="xref py py-obj docutils literal"><span class="pre">Fe</span> <span class="pre">XII</span></code> for <code class="xref py py-obj docutils literal"><span class="pre">fe_12</span></code>.</td>
-</tr>
-<tr class="row-even"><td><strong>Filename</strong></td>
-<td>(<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>) the complete name of the file <code class="xref py py-obj docutils literal"><span class="pre">generic</span></code> filename in the CHIANTI database, such as <code class="xref py py-obj docutils literal"><span class="pre">$XUVTOP/fe/fe_12/fe_12</span></code>.</td>
-</tr>
-<tr class="row-odd"><td><strong>Ip</strong></td>
-<td>(<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">float</span></code></a>) the ionization potential of the ion</td>
-</tr>
-<tr class="row-even"><td><strong>FIP</strong></td>
-<td>(<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">float</span></code></a>) the first ionization potential of the element</td>
-</tr>
-<tr class="row-odd"><td><strong>Defaults</strong></td>
-<td>(<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">dict</span></code></a>) these are specified by the software unless a <em>chiantirc</em> file is found in ‘$HOME/.chianti’:</td>
-</tr>
-</tbody>
-</table>
 <p class="rubric">Methods Summary</p>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#ChiantiPy.core.ion.boundBoundLoss" title="ChiantiPy.core.ion.boundBoundLoss"><code class="xref py py-obj docutils literal"><span class="pre">boundBoundLoss</span></code></a>([allLines])</td>
-<td>Calculate  the summed radiative loss rate for all spectral lines of the specified ion.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#ChiantiPy.core.ion.cireclvlDescale" title="ChiantiPy.core.ion.cireclvlDescale"><code class="xref py py-obj docutils literal"><span class="pre">cireclvlDescale</span></code></a>(lvlType)</td>
-<td>Interpolate and extrapolate cilvl and reclvl rates.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#ChiantiPy.core.ion.diCross" title="ChiantiPy.core.ion.diCross"><code class="xref py py-obj docutils literal"><span class="pre">diCross</span></code></a>([energy,&nbsp;verbose])</td>
-<td>Calculate the direct ionization cross section as a function of the</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#ChiantiPy.core.ion.diRate" title="ChiantiPy.core.ion.diRate"><code class="xref py py-obj docutils literal"><span class="pre">diRate</span></code></a>()</td>
-<td>Calculate the direct ionization rate coefficient as a function of temperature (K)</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#ChiantiPy.core.ion.drRate" title="ChiantiPy.core.ion.drRate"><code class="xref py py-obj docutils literal"><span class="pre">drRate</span></code></a>()</td>
-<td>Provide the dielectronic recombination rate coefficient as a function of temperature (K).</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#ChiantiPy.core.ion.drRateLvl" title="ChiantiPy.core.ion.drRateLvl"><code class="xref py py-obj docutils literal"><span class="pre">drRateLvl</span></code></a>([verbose])</td>
-<td>to calculate the level resolved dielectronic rate from the higher ionization stage to</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#ChiantiPy.core.ion.eaCross" title="ChiantiPy.core.ion.eaCross"><code class="xref py py-obj docutils literal"><span class="pre">eaCross</span></code></a>([energy,&nbsp;verbose])</td>
-<td>Provide the excitation-autoionization cross section.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#ChiantiPy.core.ion.eaDescale" title="ChiantiPy.core.ion.eaDescale"><code class="xref py py-obj docutils literal"><span class="pre">eaDescale</span></code></a>()</td>
-<td>Calculates the effective collision strengths (upsilon) for excitation-autoionization as a function of temperature.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#ChiantiPy.core.ion.eaRate" title="ChiantiPy.core.ion.eaRate"><code class="xref py py-obj docutils literal"><span class="pre">eaRate</span></code></a>()</td>
-<td>Calculate the excitation-autoionization rate coefficient.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#ChiantiPy.core.ion.emiss" title="ChiantiPy.core.ion.emiss"><code class="xref py py-obj docutils literal"><span class="pre">emiss</span></code></a>([allLines])</td>
-<td>Calculate the emissivities for lines of the specified ion.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#ChiantiPy.core.ion.emissList" title="ChiantiPy.core.ion.emissList"><code class="xref py py-obj docutils literal"><span class="pre">emissList</span></code></a>([index,&nbsp;wvlRange,&nbsp;wvlRanges,&nbsp;top,&nbsp;…])</td>
-<td>List the emissivities.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#ChiantiPy.core.ion.emissPlot" title="ChiantiPy.core.ion.emissPlot"><code class="xref py py-obj docutils literal"><span class="pre">emissPlot</span></code></a>([index,&nbsp;wvlRange,&nbsp;top,&nbsp;linLog,&nbsp;…])</td>
-<td>Plot the emissivities.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#ChiantiPy.core.ion.emissRatio" title="ChiantiPy.core.ion.emissRatio"><code class="xref py py-obj docutils literal"><span class="pre">emissRatio</span></code></a>([wvlRange,&nbsp;wvlRanges,&nbsp;top])</td>
-<td>Plot the ratio of 2 lines or sums of lines.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#ChiantiPy.core.ion.gofnt" title="ChiantiPy.core.ion.gofnt"><code class="xref py py-obj docutils literal"><span class="pre">gofnt</span></code></a>([wvlRange,&nbsp;top,&nbsp;verbose,&nbsp;plot])</td>
-<td>Calculate the ‘so-called’ G(T) function.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#ChiantiPy.core.ion.intensity" title="ChiantiPy.core.ion.intensity"><code class="xref py py-obj docutils literal"><span class="pre">intensity</span></code></a>([allLines])</td>
-<td>Calculate  the intensities for lines of the specified ion.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#ChiantiPy.core.ion.intensityRatioInterpolate" title="ChiantiPy.core.ion.intensityRatioInterpolate"><code class="xref py py-obj docutils literal"><span class="pre">intensityRatioInterpolate</span></code></a>(data[,&nbsp;scale,&nbsp;…])</td>
-<td>to take a set of date and interpolate against the IntensityRatio</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#ChiantiPy.core.ion.ioneqOne" title="ChiantiPy.core.ion.ioneqOne"><code class="xref py py-obj docutils literal"><span class="pre">ioneqOne</span></code></a>()</td>
-<td>Provide the ionization equilibrium for the selected ion as a function of temperature.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#ChiantiPy.core.ion.ionizCross" title="ChiantiPy.core.ion.ionizCross"><code class="xref py py-obj docutils literal"><span class="pre">ionizCross</span></code></a>([energy])</td>
-<td>Provides the total ionization cross section.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#ChiantiPy.core.ion.ionizRate" title="ChiantiPy.core.ion.ionizRate"><code class="xref py py-obj docutils literal"><span class="pre">ionizRate</span></code></a>()</td>
-<td>Provides the total ionization rate.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#ChiantiPy.core.ion.p2eRatio" title="ChiantiPy.core.ion.p2eRatio"><code class="xref py py-obj docutils literal"><span class="pre">p2eRatio</span></code></a>()</td>
-<td>Calculates the proton density to electron density ratio using Eq.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#ChiantiPy.core.ion.popPlot" title="ChiantiPy.core.ion.popPlot"><code class="xref py py-obj docutils literal"><span class="pre">popPlot</span></code></a>([top,&nbsp;plotFile,&nbsp;outFile,&nbsp;pub])</td>
-<td>Plots populations vs temperature or eDensity.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#ChiantiPy.core.ion.populate" title="ChiantiPy.core.ion.populate"><code class="xref py py-obj docutils literal"><span class="pre">populate</span></code></a>([popCorrect,&nbsp;verbose])</td>
-<td>Calculate level populations for specified ion.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#ChiantiPy.core.ion.recombRate" title="ChiantiPy.core.ion.recombRate"><code class="xref py py-obj docutils literal"><span class="pre">recombRate</span></code></a>()</td>
-<td>Provides the total recombination rate coefficient.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#ChiantiPy.core.ion.rrRate" title="ChiantiPy.core.ion.rrRate"><code class="xref py py-obj docutils literal"><span class="pre">rrRate</span></code></a>()</td>
-<td>Provide the radiative recombination rate coefficient as a function of temperature (K).</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#ChiantiPy.core.ion.setup" title="ChiantiPy.core.ion.setup"><code class="xref py py-obj docutils literal"><span class="pre">setup</span></code></a>([alternate_dir,&nbsp;verbose])</td>
-<td>Setup various CHIANTI files for the ion including .wgfa, .elvlc, .scups, .psplups, .reclvl, .cilvl, and others.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#ChiantiPy.core.ion.setupIonrec" title="ChiantiPy.core.ion.setupIonrec"><code class="xref py py-obj docutils literal"><span class="pre">setupIonrec</span></code></a>([alternate_dir,&nbsp;verbose])</td>
-<td>Setup method for ion recombination and ionization rates.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#ChiantiPy.core.ion.spectrum" title="ChiantiPy.core.ion.spectrum"><code class="xref py py-obj docutils literal"><span class="pre">spectrum</span></code></a>(wavelength[,&nbsp;filter,&nbsp;label,&nbsp;allLines])</td>
-<td>Calculates the line emission spectrum for the specified ion.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#ChiantiPy.core.ion.twoPhoton" title="ChiantiPy.core.ion.twoPhoton"><code class="xref py py-obj docutils literal"><span class="pre">twoPhoton</span></code></a>(wvl[,&nbsp;verbose])</td>
-<td>to calculate the two-photon continuum - only for hydrogen- and helium-like ions</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#ChiantiPy.core.ion.twoPhotonEmiss" title="ChiantiPy.core.ion.twoPhotonEmiss"><code class="xref py py-obj docutils literal"><span class="pre">twoPhotonEmiss</span></code></a>(wvl)</td>
-<td>To calculate the two-photon continuum rate coefficient - only for hydrogen- and helium-like ions</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#ChiantiPy.core.ion.twoPhotonLoss" title="ChiantiPy.core.ion.twoPhotonLoss"><code class="xref py py-obj docutils literal"><span class="pre">twoPhotonLoss</span></code></a>()</td>
-<td>to calculate the two-photon energy loss rate - only for hydrogen- and helium-like ions</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#ChiantiPy.core.ion.upsilonDescale" title="ChiantiPy.core.ion.upsilonDescale"><code class="xref py py-obj docutils literal"><span class="pre">upsilonDescale</span></code></a>([prot])</td>
-<td>Provides the temperatures and effective collision strengths (upsilons)</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#ChiantiPy.core.ion.upsilonDescaleSplups" title="ChiantiPy.core.ion.upsilonDescaleSplups"><code class="xref py py-obj docutils literal"><span class="pre">upsilonDescaleSplups</span></code></a>([prot,&nbsp;diel])</td>
-<td>Provides the temperatures and effective collision strengths (upsilons)</td>
-</tr>
-</tbody>
-</table>
 <p class="rubric">Methods Documentation</p>
 <dl class="method">
 <dt id="ChiantiPy.core.ion.boundBoundLoss">
-<code class="descname">boundBoundLoss</code><span class="sig-paren">(</span><em>allLines=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/core/Ion.html#ion.boundBoundLoss"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/core/Ion.py#L2588" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.ion.boundBoundLoss" title="Permalink to this definition">¶</a></dt>
+<code class="descname">boundBoundLoss</code><span class="sig-paren">(</span><em>allLines=1</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.ion.boundBoundLoss" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate  the summed radiative loss rate for all spectral lines of the specified ion.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>allLines</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></p>
+<dl class="docutils">
+<dt>allLines <span class="classifier-delimiter">:</span> <span class="classifier"><cite>bool</cite></span></dt>
+<dd>If True, include losses from both observed and unobserved lines.
+If False, only include losses from observed lines.</dd>
+</dl>
+<p>includes elemental abundance and ionization fraction.</p>
+<p>creates the attribute:</p>
+<p>BoundBoundLoss : <cite>dict</cite> with the keys below.</p>
 <blockquote>
-<div><p>If True, include losses from both observed and unobserved lines.
-If False, only include losses from observed lines.</p>
-</div></blockquote>
-<p><strong>includes elemental abundance and ionization fraction.</strong></p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">creates the attribute:</p>
-<p><strong>BoundBoundLoss</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">dict</span></code></a> with the keys below.</p>
-<blockquote class="last">
 <div><p><em>rate</em> : the radiative loss rate (<span class="math">\(\mathrm{erg \, cm^{-3}} \, \mathrm{s}^{-1}\)</span>) per unit emission measure.</p>
 <p><em>temperature</em> : (K).</p>
 <p><em>eDensity</em> : electron density (<span class="math">\(\mathrm{cm^{-3}}\)</span>)</p>
 </div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="ChiantiPy.core.ion.cireclvlDescale">
-<code class="descname">cireclvlDescale</code><span class="sig-paren">(</span><em>lvlType</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/core/Ion.html#ion.cireclvlDescale"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/core/Ion.py#L760" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.ion.cireclvlDescale" title="Permalink to this definition">¶</a></dt>
+<code class="descname">cireclvlDescale</code><span class="sig-paren">(</span><em>lvlType</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.ion.cireclvlDescale" title="Permalink to this definition">¶</a></dt>
 <dd><p>Interpolate and extrapolate cilvl and reclvl rates.
 lvltype must be either ‘reclvl’, ‘cilvl’ or ‘rrlvl’
 Used in level population calculations.</p>
@@ -440,26 +168,26 @@ Used in level population calculations.</p>
 
 <dl class="method">
 <dt id="ChiantiPy.core.ion.diCross">
-<code class="descname">diCross</code><span class="sig-paren">(</span><em>energy=None</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/core/Ion.html#ion.diCross"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/core/Ion.py#L324" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.ion.diCross" title="Permalink to this definition">¶</a></dt>
+<code class="descname">diCross</code><span class="sig-paren">(</span><em>energy=None</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.ion.diCross" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the direct ionization cross section as a function of the
 incident electron energy in eV, puts values into DiCross</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="ChiantiPy.core.ion.diRate">
-<code class="descname">diRate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/core/Ion.html#ion.diRate"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/core/Ion.py#L404" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.ion.diRate" title="Permalink to this definition">¶</a></dt>
+<code class="descname">diRate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.ion.diRate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the direct ionization rate coefficient as a function of temperature (K)</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="ChiantiPy.core.ion.drRate">
-<code class="descname">drRate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/core/Ion.html#ion.drRate"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/core/Ion.py#L719" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.ion.drRate" title="Permalink to this definition">¶</a></dt>
+<code class="descname">drRate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.ion.drRate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provide the dielectronic recombination rate coefficient as a function of temperature (K).</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="ChiantiPy.core.ion.drRateLvl">
-<code class="descname">drRateLvl</code><span class="sig-paren">(</span><em>verbose=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/core/Ion.html#ion.drRateLvl"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/core/Ion.py#L871" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.ion.drRateLvl" title="Permalink to this definition">¶</a></dt>
+<code class="descname">drRateLvl</code><span class="sig-paren">(</span><em>verbose=0</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.ion.drRateLvl" title="Permalink to this definition">¶</a></dt>
 <dd><p>to calculate the level resolved dielectronic rate from the higher ionization stage to
 the ion of interest
 rates are determined from autoionizing A-values
@@ -472,27 +200,27 @@ totalRate = the sum of all the effRates</p>
 
 <dl class="method">
 <dt id="ChiantiPy.core.ion.eaCross">
-<code class="descname">eaCross</code><span class="sig-paren">(</span><em>energy=None</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/core/Ion.html#ion.eaCross"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/core/Ion.py#L524" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.ion.eaCross" title="Permalink to this definition">¶</a></dt>
+<code class="descname">eaCross</code><span class="sig-paren">(</span><em>energy=None</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.ion.eaCross" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provide the excitation-autoionization cross section.</p>
 <p>Energy is given in eV.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="ChiantiPy.core.ion.eaDescale">
-<code class="descname">eaDescale</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/core/Ion.html#ion.eaDescale"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/core/Ion.py#L453" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.ion.eaDescale" title="Permalink to this definition">¶</a></dt>
+<code class="descname">eaDescale</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.ion.eaDescale" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the effective collision strengths (upsilon)
 for excitation-autoionization as a function of temperature.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="ChiantiPy.core.ion.eaRate">
-<code class="descname">eaRate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/core/Ion.html#ion.eaRate"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/core/Ion.py#L585" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.ion.eaRate" title="Permalink to this definition">¶</a></dt>
+<code class="descname">eaRate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.ion.eaRate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the excitation-autoionization rate coefficient.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="ChiantiPy.core.ion.emiss">
-<code class="descname">emiss</code><span class="sig-paren">(</span><em>allLines=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/core/Ion.html#ion.emiss"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/core/Ion.py#L1978" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.ion.emiss" title="Permalink to this definition">¶</a></dt>
+<code class="descname">emiss</code><span class="sig-paren">(</span><em>allLines=True</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.ion.emiss" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the emissivities for lines of the specified ion.</p>
 <p>units:  ergs s^-1 str^-1</p>
 <p>Does not include elemental abundance or ionization fraction</p>
@@ -502,7 +230,7 @@ for excitation-autoionization as a function of temperature.</p>
 
 <dl class="method">
 <dt id="ChiantiPy.core.ion.emissList">
-<code class="descname">emissList</code><span class="sig-paren">(</span><em>index=-1</em>, <em>wvlRange=None</em>, <em>wvlRanges=None</em>, <em>top=10</em>, <em>relative=0</em>, <em>outFile=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/core/Ion.html#ion.emissList"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/core/Ion.py#L2066" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.ion.emissList" title="Permalink to this definition">¶</a></dt>
+<code class="descname">emissList</code><span class="sig-paren">(</span><em>index=-1</em>, <em>wvlRange=None</em>, <em>wvlRanges=None</em>, <em>top=10</em>, <em>relative=0</em>, <em>outFile=0</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.ion.emissList" title="Permalink to this definition">¶</a></dt>
 <dd><p>List the emissivities.</p>
 <p>wvlRange, a 2 element tuple, list or array determines the wavelength range</p>
 <p>Top specifies to plot only the top strongest lines, default = 10</p>
@@ -511,7 +239,7 @@ for excitation-autoionization as a function of temperature.</p>
 
 <dl class="method">
 <dt id="ChiantiPy.core.ion.emissPlot">
-<code class="descname">emissPlot</code><span class="sig-paren">(</span><em>index=-1</em>, <em>wvlRange=None</em>, <em>top=10</em>, <em>linLog='lin'</em>, <em>relative=0</em>, <em>verbose=0</em>, <em>plotFile=0</em>, <em>saveFile=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/core/Ion.html#ion.emissPlot"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/core/Ion.py#L2211" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.ion.emissPlot" title="Permalink to this definition">¶</a></dt>
+<code class="descname">emissPlot</code><span class="sig-paren">(</span><em>index=-1</em>, <em>wvlRange=None</em>, <em>top=10</em>, <em>linLog='lin'</em>, <em>relative=0</em>, <em>verbose=0</em>, <em>plotFile=0</em>, <em>saveFile=0</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.ion.emissPlot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the emissivities.</p>
 <p>wvlRange, a 2 element tuple, list or array determines the wavelength range</p>
 <p>Top specifies to plot only the top strongest lines, default = 10</p>
@@ -521,7 +249,7 @@ for excitation-autoionization as a function of temperature.</p>
 
 <dl class="method">
 <dt id="ChiantiPy.core.ion.emissRatio">
-<code class="descname">emissRatio</code><span class="sig-paren">(</span><em>wvlRange=None</em>, <em>wvlRanges=None</em>, <em>top=10</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/core/Ion.html#ion.emissRatio"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/core/Ion.py#L2325" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.ion.emissRatio" title="Permalink to this definition">¶</a></dt>
+<code class="descname">emissRatio</code><span class="sig-paren">(</span><em>wvlRange=None</em>, <em>wvlRanges=None</em>, <em>top=10</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.ion.emissRatio" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the ratio of 2 lines or sums of lines.
 Shown as a function of density and/or temperature.
 For a single wavelength range, set wvlRange = [wMin, wMax]
@@ -532,7 +260,7 @@ choose a set of lines.</p>
 
 <dl class="method">
 <dt id="ChiantiPy.core.ion.gofnt">
-<code class="descname">gofnt</code><span class="sig-paren">(</span><em>wvlRange=0</em>, <em>top=10</em>, <em>verbose=0</em>, <em>plot=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/core/Ion.html#ion.gofnt"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/core/Ion.py#L2713" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.ion.gofnt" title="Permalink to this definition">¶</a></dt>
+<code class="descname">gofnt</code><span class="sig-paren">(</span><em>wvlRange=0</em>, <em>top=10</em>, <em>verbose=0</em>, <em>plot=True</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.ion.gofnt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the ‘so-called’ G(T) function.</p>
 <p>Given as a function of both temperature and eDensity.</p>
 <p>Only the top( set by ‘top’) brightest lines are plotted.
@@ -541,7 +269,7 @@ the G(T) function is returned in a dictionary self.Gofnt</p>
 
 <dl class="method">
 <dt id="ChiantiPy.core.ion.intensity">
-<code class="descname">intensity</code><span class="sig-paren">(</span><em>allLines=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/core/Ion.html#ion.intensity"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/core/Ion.py#L2522" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.ion.intensity" title="Permalink to this definition">¶</a></dt>
+<code class="descname">intensity</code><span class="sig-paren">(</span><em>allLines=1</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.ion.intensity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate  the intensities for lines of the specified ion.</p>
 <p>units:  ergs cm^-3 s^-1 str^-1</p>
 <p>includes elemental abundance and ionization fraction.</p>
@@ -550,51 +278,48 @@ the G(T) function is returned in a dictionary self.Gofnt</p>
 
 <dl class="method">
 <dt id="ChiantiPy.core.ion.intensityRatioInterpolate">
-<code class="descname">intensityRatioInterpolate</code><span class="sig-paren">(</span><em>data</em>, <em>scale='lin'</em>, <em>plot=0</em>, <em>verbose=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/core/Ion.html#ion.intensityRatioInterpolate"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/core/Ion.py#L2658" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.ion.intensityRatioInterpolate" title="Permalink to this definition">¶</a></dt>
+<code class="descname">intensityRatioInterpolate</code><span class="sig-paren">(</span><em>data</em>, <em>scale='lin'</em>, <em>plot=0</em>, <em>verbose=0</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.ion.intensityRatioInterpolate" title="Permalink to this definition">¶</a></dt>
 <dd><p>to take a set of date and interpolate against the IntensityRatio
 the scale can be one of ‘lin’/’linear’ [default], ‘loglog’, ‘logx’, ‘logy’,</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="ChiantiPy.core.ion.ioneqOne">
-<code class="descname">ioneqOne</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/base/_IoneqOne.py#L9" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.ion.ioneqOne" title="Permalink to this definition">¶</a></dt>
+<code class="descname">ioneqOne</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.ion.ioneqOne" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provide the ionization equilibrium for the selected ion as a function of temperature.</p>
 <p>returned in self.IoneqOne</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="ChiantiPy.core.ion.ionizCross">
-<code class="descname">ionizCross</code><span class="sig-paren">(</span><em>energy=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/core/Ion.html#ion.ionizCross"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/core/Ion.py#L631" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.ion.ionizCross" title="Permalink to this definition">¶</a></dt>
+<code class="descname">ionizCross</code><span class="sig-paren">(</span><em>energy=None</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.ion.ionizCross" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provides the total ionization cross section.</p>
-<p class="rubric">Notes</p>
-<p>uses <a class="reference internal" href="#ChiantiPy.core.ion.diCross" title="ChiantiPy.core.ion.diCross"><code class="xref py py-obj docutils literal"><span class="pre">diCross</span></code></a>  and <a class="reference internal" href="#ChiantiPy.core.ion.eaCross" title="ChiantiPy.core.ion.eaCross"><code class="xref py py-obj docutils literal"><span class="pre">eaCross</span></code></a>.</p>
+<p>uses <cite>diCross</cite>  and <cite>eaCross</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="ChiantiPy.core.ion.ionizRate">
-<code class="descname">ionizRate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/core/Ion.html#ion.ionizRate"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/core/Ion.py#L657" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.ion.ionizRate" title="Permalink to this definition">¶</a></dt>
+<code class="descname">ionizRate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.ion.ionizRate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provides the total ionization rate.</p>
 <p>Calls diRate and eaRate.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="ChiantiPy.core.ion.p2eRatio">
-<code class="descname">p2eRatio</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/core/Ion.html#ion.p2eRatio"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/core/Ion.py#L949" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.ion.p2eRatio" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculates the proton density to electron density ratio using Eq. 7 of <a class="reference internal" href="#r112112" id="id1">[R112112]</a>.</p>
-<p class="rubric">Notes</p>
+<code class="descname">p2eRatio</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.ion.p2eRatio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the proton density to electron density ratio using Eq. 7 of <a class="footnote-reference" href="#id2" id="id1">[1]</a>.</p>
 <p>Uses the abundance and ionization equilibrium.</p>
-<p class="rubric">References</p>
-<table class="docutils citation" frame="void" id="r112112" rules="none">
+<table class="docutils footnote" frame="void" id="id2" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[R112112]</td><td><em>(<a class="fn-backref" href="#id1">1</a>, <a class="fn-backref" href="#id3">2</a>)</em> Young, P. R. et al., 2003, ApJS, <a class="reference external" href="http://adsabs.harvard.edu/abs/2003ApJS..144..135Y">144, 135</a></td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Young, P. R. et al., 2003, ApJS, <a class="reference external" href="http://adsabs.harvard.edu/abs/2003ApJS..144..135Y">144, 135</a></td></tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="method">
 <dt id="ChiantiPy.core.ion.popPlot">
-<code class="descname">popPlot</code><span class="sig-paren">(</span><em>top=10</em>, <em>plotFile=0</em>, <em>outFile=0</em>, <em>pub=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/core/Ion.html#ion.popPlot"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/core/Ion.py#L1806" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.ion.popPlot" title="Permalink to this definition">¶</a></dt>
+<code class="descname">popPlot</code><span class="sig-paren">(</span><em>top=10</em>, <em>plotFile=0</em>, <em>outFile=0</em>, <em>pub=0</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.ion.popPlot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plots populations vs temperature or eDensity.</p>
 <p>top specifies the number of the most highly populated levels to plot
 if pub is set, the want publication plots (bw, lw=2).</p>
@@ -602,60 +327,50 @@ if pub is set, the want publication plots (bw, lw=2).</p>
 
 <dl class="method">
 <dt id="ChiantiPy.core.ion.populate">
-<code class="descname">populate</code><span class="sig-paren">(</span><em>popCorrect=1</em>, <em>verbose=0</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/core/Ion.html#ion.populate"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/core/Ion.py#L1411" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.ion.populate" title="Permalink to this definition">¶</a></dt>
+<code class="descname">populate</code><span class="sig-paren">(</span><em>popCorrect=1</em>, <em>verbose=0</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.ion.populate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate level populations for specified ion.
 possible keyword arguments include temperature, eDensity, pDensity, radTemperature and rStar</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="ChiantiPy.core.ion.recombRate">
-<code class="descname">recombRate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/core/Ion.html#ion.recombRate"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/core/Ion.py#L926" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.ion.recombRate" title="Permalink to this definition">¶</a></dt>
+<code class="descname">recombRate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.ion.recombRate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provides the total recombination rate coefficient.</p>
-<p>Calls <a class="reference internal" href="#ChiantiPy.core.ion.drRate" title="ChiantiPy.core.ion.drRate"><code class="xref py py-obj docutils literal"><span class="pre">drRate</span></code></a> and <a class="reference internal" href="#ChiantiPy.core.ion.rrRate" title="ChiantiPy.core.ion.rrRate"><code class="xref py py-obj docutils literal"><span class="pre">rrRate</span></code></a></p>
+<p>Calls <cite>drRate</cite> and <cite>rrRate</cite></p>
 </dd></dl>
 
 <dl class="method">
 <dt id="ChiantiPy.core.ion.rrRate">
-<code class="descname">rrRate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/core/Ion.html#ion.rrRate"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/core/Ion.py#L675" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.ion.rrRate" title="Permalink to this definition">¶</a></dt>
+<code class="descname">rrRate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.ion.rrRate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provide the radiative recombination rate coefficient as a function of temperature (K).</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="ChiantiPy.core.ion.setup">
-<code class="descname">setup</code><span class="sig-paren">(</span><em>alternate_dir=None</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/core/Ion.html#ion.setup"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/core/Ion.py#L186" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.ion.setup" title="Permalink to this definition">¶</a></dt>
+<code class="descname">setup</code><span class="sig-paren">(</span><em>alternate_dir=None</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.ion.setup" title="Permalink to this definition">¶</a></dt>
 <dd><p>Setup various CHIANTI files for the ion including .wgfa, .elvlc, .scups,
 .psplups, .reclvl, .cilvl, and others.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>alternate_dir</strong> : <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a></p>
-<blockquote>
-<div><p>directory cotaining the necessary files for a ChiantiPy ion; use to
-setup an ion with files not in the current CHIANTI directory</p>
-</div></blockquote>
-<p class="last"><strong>verbose</strong> : <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a></p>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Notes</p>
-<p>If ion is initiated with <code class="xref py py-obj docutils literal"><span class="pre">setup=False</span></code>, call this method to do the
+<dl class="docutils">
+<dt>alternate_dir <span class="classifier-delimiter">:</span> <span class="classifier"><cite>str</cite></span></dt>
+<dd>directory cotaining the necessary files for a ChiantiPy ion; use to
+setup an ion with files not in the current CHIANTI directory</dd>
+</dl>
+<p>verbose : <cite>bool</cite></p>
+<p>If ion is initiated with <cite>setup=False</cite>, call this method to do the
 setup at a later point.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="ChiantiPy.core.ion.setupIonrec">
-<code class="descname">setupIonrec</code><span class="sig-paren">(</span><em>alternate_dir=None</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/core/Ion.html#ion.setupIonrec"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/core/Ion.py#L277" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.ion.setupIonrec" title="Permalink to this definition">¶</a></dt>
+<code class="descname">setupIonrec</code><span class="sig-paren">(</span><em>alternate_dir=None</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.ion.setupIonrec" title="Permalink to this definition">¶</a></dt>
 <dd><p>Setup method for ion recombination and ionization rates.</p>
-<p class="rubric">Notes</p>
 <p>Allows a bare-bones ion object to be setup up with just the ionization and recombination
 rates. For ions without a complete set of files - one that is not in the MasterList.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="ChiantiPy.core.ion.spectrum">
-<code class="descname">spectrum</code><span class="sig-paren">(</span><em>wavelength</em>, <em>filter=(&lt;function gaussianR&gt;</em>, <em>1000.0)</em>, <em>label=0</em>, <em>allLines=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/core/Ion.html#ion.spectrum"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/core/Ion.py#L1303" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.ion.spectrum" title="Permalink to this definition">¶</a></dt>
+<code class="descname">spectrum</code><span class="sig-paren">(</span><em>wavelength</em>, <em>filter=(&lt;function gaussianR&gt;</em>, <em>1000.0)</em>, <em>label=0</em>, <em>allLines=1</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.ion.spectrum" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the line emission spectrum for the specified ion.</p>
 <p>Convolves the results of intensity to make them look like an observed spectrum
 the default filter is the gaussianR filter with a resolving power of 1000.  Other choices
@@ -669,13 +384,12 @@ for example, do .spectrum( …. labe=’test1’)
 and do          .spectrum( ….  label = ‘test2’)
 then will get self.Spectrum.keys() = test1, test2 and
 self.Spectrum[‘test1’] = {‘intensity’:aspectrum,  ‘wvl’:wavelength, ‘filter’:useFilter.__name__, ‘filterWidth’:useFactor}</p>
-<p class="rubric">Notes</p>
 <p>scipy.ndimage.filters also includes a range of filters.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="ChiantiPy.core.ion.twoPhoton">
-<code class="descname">twoPhoton</code><span class="sig-paren">(</span><em>wvl</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/core/Ion.html#ion.twoPhoton"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/core/Ion.py#L2981" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.ion.twoPhoton" title="Permalink to this definition">¶</a></dt>
+<code class="descname">twoPhoton</code><span class="sig-paren">(</span><em>wvl</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.ion.twoPhoton" title="Permalink to this definition">¶</a></dt>
 <dd><p>to calculate the two-photon continuum - only for hydrogen- and helium-like ions
 includes the elemental abundance and the ionization equilibrium
 includes the emission measure if specified</p>
@@ -683,13 +397,13 @@ includes the emission measure if specified</p>
 
 <dl class="method">
 <dt id="ChiantiPy.core.ion.twoPhotonEmiss">
-<code class="descname">twoPhotonEmiss</code><span class="sig-paren">(</span><em>wvl</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/core/Ion.html#ion.twoPhotonEmiss"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/core/Ion.py#L2910" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.ion.twoPhotonEmiss" title="Permalink to this definition">¶</a></dt>
+<code class="descname">twoPhotonEmiss</code><span class="sig-paren">(</span><em>wvl</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.ion.twoPhotonEmiss" title="Permalink to this definition">¶</a></dt>
 <dd><p>To calculate the two-photon continuum rate coefficient - only for hydrogen- and helium-like ions</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="ChiantiPy.core.ion.twoPhotonLoss">
-<code class="descname">twoPhotonLoss</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/core/Ion.html#ion.twoPhotonLoss"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/core/Ion.py#L3077" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.ion.twoPhotonLoss" title="Permalink to this definition">¶</a></dt>
+<code class="descname">twoPhotonLoss</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.ion.twoPhotonLoss" title="Permalink to this definition">¶</a></dt>
 <dd><p>to calculate the two-photon energy loss rate - only for hydrogen- and helium-like ions
 includes the elemental abundance and the ionization equilibrium
 does not include the emission measure</p>
@@ -697,7 +411,7 @@ does not include the emission measure</p>
 
 <dl class="method">
 <dt id="ChiantiPy.core.ion.upsilonDescale">
-<code class="descname">upsilonDescale</code><span class="sig-paren">(</span><em>prot=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/core/Ion.html#ion.upsilonDescale"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/core/Ion.py#L981" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.ion.upsilonDescale" title="Permalink to this definition">¶</a></dt>
+<code class="descname">upsilonDescale</code><span class="sig-paren">(</span><em>prot=0</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.ion.upsilonDescale" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provides the temperatures and effective collision strengths (upsilons)
 set prot for proton rates
 otherwise, ce will be set for electron collision rates
@@ -706,7 +420,7 @@ uses the new format “scups” files</p>
 
 <dl class="method">
 <dt id="ChiantiPy.core.ion.upsilonDescaleSplups">
-<code class="descname">upsilonDescaleSplups</code><span class="sig-paren">(</span><em>prot=0</em>, <em>diel=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ChiantiPy/core/Ion.html#ion.upsilonDescaleSplups"><span class="viewcode-link">[source]</span></a><a class="reference external" href="http://github.com/chianti-atomic/ChiantiPy/tree/master/ChiantiPy/core/Ion.py#L1126" title="Push the Edit button on the next page"><span class="edit-on-github viewcode-link">&nbsp;[edit on github]</span></a><a class="headerlink" href="#ChiantiPy.core.ion.upsilonDescaleSplups" title="Permalink to this definition">¶</a></dt>
+<code class="descname">upsilonDescaleSplups</code><span class="sig-paren">(</span><em>prot=0</em>, <em>diel=0</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.ion.upsilonDescaleSplups" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provides the temperatures and effective collision strengths (upsilons)
 set prot for proton rates
 otherwise, ce will be set for electron collision rates</p>
@@ -717,77 +431,77 @@ otherwise, ce will be set for electron collision rates</p>
 </div>
 
 
-           </div>
-           <div class="articleComments">
-            
-           </div>
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="ChiantiPy.core.ioneq.html" class="btn btn-neutral float-right" title="ioneq" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="ChiantiPy.core.continuum.html" class="btn btn-neutral" title="continuum" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>
-        &copy; Copyright 2018, Ken Dere.
-      Last updated on 03 Oct 2018.
-
-    </p>
-  </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
-</footer>
-
         </div>
       </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/ChiantiPy.core.ion.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">ChiantiPy 0.8.0 (alpha) documentation</a> &#187;</li>
+ 
+      </ul>
+    </div>
+    </div>
 
-    </section>
+<div style="padding: 20px 10px 10px 40px; background-color: #fff8d3; text-align: left;">
+<a href="http://sourceforge.net/projects/chiantipy"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=250481&amp;type=16" width="150" height="40" alt="Get ChiantiPy at SourceForge.net. Fast, secure and Free Open Source software downloads" /></a>
 
-  </div>
-  
+</div>
+    
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Ken Dere.
+      Last updated on Oct 05, 2018.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
 
-
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'0.7.1a',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
-      });
-  </script>
-   
-
-</body>
+  </body>
 </html>

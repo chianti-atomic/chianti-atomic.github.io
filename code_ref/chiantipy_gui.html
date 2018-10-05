@@ -1,349 +1,171 @@
 
 
-<!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>ChiantiPy GUI &mdash; ChiantiPy v0.7.1a</title>
-  
 
-  
-  
-    <link rel="shortcut icon" href="../_static/astropy_logo.ico"/>
-  
-  
-  
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-  
-
-  
-  
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>ChiantiPy GUI &#8212; ChiantiPy 0.8.0 (alpha) documentation</title>
+    <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.8.0 (alpha)',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../_static/cloud.base.js"></script>
+    <script type="text/javascript" src="../_static/cloud.js"></script>
+    <link rel="shortcut icon" href="../_static/chianti2.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="FortranFormat Reader Classes" href="chiantipy_fortran.html" />
+    <link rel="prev" title="ChiantiPy Core Classes" href="chiantipy_core.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+<div style="padding: 20px 10px 10px 40px; background-color: #fff8d3; text-align: left;">
+<a href="">
+<img border="0" alt="chiantipy" src="_static/chiantipy_logo.png"/>
+</a>
+</div>
     
 
-  
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="ChiantiPy v0.7.1a" href="../index.html"/>
-        <link rel="up" title="API Reference" href="index.html"/>
-        <link rel="next" title="chpicker" href="../api/ChiantiPy.Gui.gui_cl.chpicker.html"/>
-        <link rel="prev" title="spectrum" href="../api/ChiantiPy.core.spectrum.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
-</head>
-
-<body class="wy-body-for-nav" role="document">
-
-   
-  <div class="wy-grid-for-nav">
-
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
-
-          
-            <a href="../index.html" class="icon icon-home"> ChiantiPy
-          
-
-          
-          </a>
-
-          
-            
-            
-              <div class="version">
-                0.7.1a
-              </div>
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with ChiantiPy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">API Reference</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="chiantipy_tools.html">ChiantiPy Tools</a></li>
-<li class="toctree-l2"><a class="reference internal" href="chiantipy_base.html">ChiantiPy Base Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="chiantipy_core.html">ChiantiPy Core Classes</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">ChiantiPy GUI</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#module-ChiantiPy.Gui">ChiantiPy.Gui Package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-ChiantiPy.Gui.gui_cl">ChiantiPy.Gui.gui_cl Package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#functions">Functions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#classes">Classes</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#module-ChiantiPy.Gui.gui_qt5">ChiantiPy.Gui.gui_qt5 Package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id1">Functions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id2">Classes</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="chiantipy_fortran.html">FortranFormat Reader Classes</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../notes.html">Notes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../IDL_intro.html">Intro for CHIANTI IDL Users</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../resources.html">Resources for ChiantiPy Users</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../bugs.html">Reporting Bugs</a></li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+    <div class="relbar-top">
         
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">ChiantiPy</a>
-        
-      </nav>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="chiantipy_fortran.html" title="FortranFormat Reader Classes"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="chiantipy_core.html" title="ChiantiPy Core Classes"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">ChiantiPy 0.8.0 (alpha) documentation</a> &#187;</li>
 
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="index.html">API Reference</a> &raquo;</li>
-        
-      <li>ChiantiPy GUI</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            <a href="../_sources/code_ref/chiantipy_gui.rst.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
-  <div class="section" id="chiantipy-gui">
-<h1>ChiantiPy GUI<a class="headerlink" href="#chiantipy-gui" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="module-ChiantiPy.Gui">
-<span id="chiantipy-gui-package"></span><h2>ChiantiPy.Gui Package<a class="headerlink" href="#module-ChiantiPy.Gui" title="Permalink to this headline">¶</a></h2>
-<p>Select GUI package</p>
-</div>
-<div class="section" id="module-ChiantiPy.Gui.gui_cl">
-<span id="chiantipy-gui-gui-cl-package"></span><h2>ChiantiPy.Gui.gui_cl Package<a class="headerlink" href="#module-ChiantiPy.Gui.gui_cl" title="Permalink to this headline">¶</a></h2>
-<p>command-line selection dialogs</p>
-<div class="section" id="functions">
-<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="../api/ChiantiPy.Gui.gui_cl.chpicker.html#ChiantiPy.Gui.gui_cl.chpicker" title="ChiantiPy.Gui.gui_cl.chpicker"><code class="xref py py-obj docutils literal"><span class="pre">chpicker</span></code></a>(path[,&nbsp;filter,&nbsp;label])</td>
-<td>Select a filename from using a command line dialog.</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="classes">
-<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="../api/ChiantiPy.Gui.gui_cl.choice2Dialog.html#ChiantiPy.Gui.gui_cl.choice2Dialog" title="ChiantiPy.Gui.gui_cl.choice2Dialog"><code class="xref py py-obj docutils literal"><span class="pre">choice2Dialog</span></code></a>(items[,&nbsp;label,&nbsp;parent])</td>
-<td>Make a single or multiplee selection from a list of items and another single or multiple selection from the same list.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="../api/ChiantiPy.Gui.gui_cl.selectorDialog.html#ChiantiPy.Gui.gui_cl.selectorDialog" title="ChiantiPy.Gui.gui_cl.selectorDialog"><code class="xref py py-obj docutils literal"><span class="pre">selectorDialog</span></code></a>(items[,&nbsp;label,&nbsp;parent])</td>
-<td>Make a single or multiple selection from a list of items.</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="section" id="module-ChiantiPy.Gui.gui_qt5">
-<span id="chiantipy-gui-gui-qt5-package"></span><h2>ChiantiPy.Gui.gui_qt5 Package<a class="headerlink" href="#module-ChiantiPy.Gui.gui_qt5" title="Permalink to this headline">¶</a></h2>
-<p>PyQt5 selection dialog widgets</p>
-<div class="section" id="id1">
-<h3>Functions<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="../api/ChiantiPy.Gui.gui_qt5.chpicker.html#ChiantiPy.Gui.gui_qt5.chpicker" title="ChiantiPy.Gui.gui_qt5.chpicker"><code class="xref py py-obj docutils literal"><span class="pre">chpicker</span></code></a>(dir[,&nbsp;filter,&nbsp;label])</td>
-<td>Select a filename using a Qt gui dialog.</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="id2">
-<h3>Classes<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="../api/ChiantiPy.Gui.gui_qt5.Ui_choice2DialogForm.html#ChiantiPy.Gui.gui_qt5.Ui_choice2DialogForm" title="ChiantiPy.Gui.gui_qt5.Ui_choice2DialogForm"><code class="xref py py-obj docutils literal"><span class="pre">Ui_choice2DialogForm</span></code></a></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="../api/ChiantiPy.Gui.gui_qt5.Ui_selectorDialogForm.html#ChiantiPy.Gui.gui_qt5.Ui_selectorDialogForm" title="ChiantiPy.Gui.gui_qt5.Ui_selectorDialogForm"><code class="xref py py-obj docutils literal"><span class="pre">Ui_selectorDialogForm</span></code></a></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="../api/ChiantiPy.Gui.gui_qt5.choice2Dialog.html#ChiantiPy.Gui.gui_qt5.choice2Dialog" title="ChiantiPy.Gui.gui_qt5.choice2Dialog"><code class="xref py py-obj docutils literal"><span class="pre">choice2Dialog</span></code></a>(items[,&nbsp;label,&nbsp;parent,&nbsp;multi])</td>
-<td>Make a single or multiple selection from a list of items and another single or multiple selection from the same list.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="../api/ChiantiPy.Gui.gui_qt5.selectorDialog.html#ChiantiPy.Gui.gui_qt5.selectorDialog" title="ChiantiPy.Gui.gui_qt5.selectorDialog"><code class="xref py py-obj docutils literal"><span class="pre">selectorDialog</span></code></a>(items[,&nbsp;label,&nbsp;parent,&nbsp;…])</td>
-<td>Make a single or multiple selection from a list of items.</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-
-
-           </div>
-           <div class="articleComments">
-            
-           </div>
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../api/ChiantiPy.Gui.gui_cl.chpicker.html" class="btn btn-neutral float-right" title="chpicker" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../api/ChiantiPy.core.spectrum.html" class="btn btn-neutral" title="spectrum" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">API Reference</a> &#187;</li> 
+      </ul>
+    </div>
     </div>
   
 
-  <hr/>
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="chiantipy-gui">
+<h1>ChiantiPy GUI<a class="headerlink" href="#chiantipy-gui" title="Permalink to this headline">¶</a></h1>
+</div>
 
-  <div role="contentinfo">
-    <p>
-        &copy; Copyright 2018, Ken Dere.
-      Last updated on 03 Oct 2018.
 
-    </p>
-  </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
-</footer>
-
+          </div>
         </div>
       </div>
-
-    </section>
-
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="chiantipy_core.html"
+                          title="Previous page">&larr; ChiantiPy Core Classes</a></p>
   </div>
-  
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="chiantipy_fortran.html"
+                          title="Next page">&rarr; FortranFormat Reader Classes</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/code_ref/chiantipy_gui.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="chiantipy_fortran.html" title="FortranFormat Reader Classes"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="chiantipy_core.html" title="ChiantiPy Core Classes"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">ChiantiPy 0.8.0 (alpha) documentation</a> &#187;</li>
 
+          <li class="nav-item nav-item-1"><a href="index.html" >API Reference</a> &#187;</li> 
+      </ul>
+    </div>
+    </div>
 
-  
+<div style="padding: 20px 10px 10px 40px; background-color: #fff8d3; text-align: left;">
+<a href="http://sourceforge.net/projects/chiantipy"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=250481&amp;type=16" width="150" height="40" alt="Get ChiantiPy at SourceForge.net. Fast, secure and Free Open Source software downloads" /></a>
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'0.7.1a',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</div>
+    
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Ken Dere.
+      Last updated on Oct 05, 2018.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
 
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
-      });
-  </script>
-   
-
-</body>
+  </body>
 </html>

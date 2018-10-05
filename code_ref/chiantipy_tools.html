@@ -1,597 +1,171 @@
 
 
-<!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>ChiantiPy Tools &mdash; ChiantiPy v0.7.1a</title>
-  
 
-  
-  
-    <link rel="shortcut icon" href="../_static/astropy_logo.ico"/>
-  
-  
-  
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-  
-
-  
-  
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>ChiantiPy Tools &#8212; ChiantiPy 0.8.0 (alpha) documentation</title>
+    <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.8.0 (alpha)',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../_static/cloud.base.js"></script>
+    <script type="text/javascript" src="../_static/cloud.js"></script>
+    <link rel="shortcut icon" href="../_static/chianti2.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ChiantiPy Base Classes" href="chiantipy_base.html" />
+    <link rel="prev" title="API Reference" href="index.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+<div style="padding: 20px 10px 10px 40px; background-color: #fff8d3; text-align: left;">
+<a href="">
+<img border="0" alt="chiantipy" src="_static/chiantipy_logo.png"/>
+</a>
+</div>
     
 
-  
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="ChiantiPy v0.7.1a" href="../index.html"/>
-        <link rel="up" title="API Reference" href="index.html"/>
-        <link rel="next" title="elvlcRead" href="../api/ChiantiPy.tools.archival.elvlcRead.html"/>
-        <link rel="prev" title="API Reference" href="index.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
-</head>
-
-<body class="wy-body-for-nav" role="document">
-
-   
-  <div class="wy-grid-for-nav">
-
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
-
-          
-            <a href="../index.html" class="icon icon-home"> ChiantiPy
-          
-
-          
-          </a>
-
-          
-            
-            
-              <div class="version">
-                0.7.1a
-              </div>
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting started with ChiantiPy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">API Reference</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">ChiantiPy Tools</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#module-ChiantiPy.tools.archival">ChiantiPy.tools.archival Module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#functions">Functions</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#module-ChiantiPy.tools.filters">ChiantiPy.tools.filters Module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id1">Functions</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#module-ChiantiPy.tools.io">ChiantiPy.tools.io Module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id2">Functions</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#module-ChiantiPy.tools.mputil">ChiantiPy.tools.mputil Module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id9">Functions</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#module-ChiantiPy.tools.sources">ChiantiPy.tools.sources Module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id10">Functions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#classes">Classes</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#module-ChiantiPy.tools.util">ChiantiPy.tools.util Module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#notes">Notes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id11">Functions</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="chiantipy_base.html">ChiantiPy Base Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="chiantipy_core.html">ChiantiPy Core Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="chiantipy_gui.html">ChiantiPy GUI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="chiantipy_fortran.html">FortranFormat Reader Classes</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../notes.html">Notes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../IDL_intro.html">Intro for CHIANTI IDL Users</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../resources.html">Resources for ChiantiPy Users</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../bugs.html">Reporting Bugs</a></li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+    <div class="relbar-top">
         
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">ChiantiPy</a>
-        
-      </nav>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="chiantipy_base.html" title="ChiantiPy Base Classes"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="index.html" title="API Reference"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">ChiantiPy 0.8.0 (alpha) documentation</a> &#187;</li>
 
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="index.html">API Reference</a> &raquo;</li>
-        
-      <li>ChiantiPy Tools</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            <a href="../_sources/code_ref/chiantipy_tools.rst.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
-  <div class="section" id="chiantipy-tools">
-<h1>ChiantiPy Tools<a class="headerlink" href="#chiantipy-tools" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="module-ChiantiPy.tools.archival">
-<span id="chiantipy-tools-archival-module"></span><h2>ChiantiPy.tools.archival Module<a class="headerlink" href="#module-ChiantiPy.tools.archival" title="Permalink to this headline">¶</a></h2>
-<p>Functions for reading pre-v8 CHIANTI files</p>
-<div class="section" id="functions">
-<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="../api/ChiantiPy.tools.archival.elvlcRead.html#ChiantiPy.tools.archival.elvlcRead" title="ChiantiPy.tools.archival.elvlcRead"><code class="xref py py-obj docutils literal"><span class="pre">elvlcRead</span></code></a>(ions[,&nbsp;filename,&nbsp;verbose,&nbsp;useTh])</td>
-<td>read a chianti energy level file and returns</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="../api/ChiantiPy.tools.archival.elvlcWrite.html#ChiantiPy.tools.archival.elvlcWrite" title="ChiantiPy.tools.archival.elvlcWrite"><code class="xref py py-obj docutils literal"><span class="pre">elvlcWrite</span></code></a>(info[,&nbsp;outfile,&nbsp;addLvl])</td>
-<td>Write Chianti data to .elvlc file.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="../api/ChiantiPy.tools.archival.wgfaRead.html#ChiantiPy.tools.archival.wgfaRead" title="ChiantiPy.tools.archival.wgfaRead"><code class="xref py py-obj docutils literal"><span class="pre">wgfaRead</span></code></a>(ions[,&nbsp;filename,&nbsp;elvlcname,&nbsp;total,&nbsp;…])</td>
-<td>Read CHIANTI data from a .wgfa file.</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="section" id="module-ChiantiPy.tools.filters">
-<span id="chiantipy-tools-filters-module"></span><h2>ChiantiPy.tools.filters Module<a class="headerlink" href="#module-ChiantiPy.tools.filters" title="Permalink to this headline">¶</a></h2>
-<p>Line profile filters for creating synthetic spectra.</p>
-<div class="section" id="id1">
-<h3>Functions<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="../api/ChiantiPy.tools.filters.boxcar.html#ChiantiPy.tools.filters.boxcar" title="ChiantiPy.tools.filters.boxcar"><code class="xref py py-obj docutils literal"><span class="pre">boxcar</span></code></a>(wvl,&nbsp;wvl0[,&nbsp;factor])</td>
-<td>Box-car filter</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="../api/ChiantiPy.tools.filters.gaussian.html#ChiantiPy.tools.filters.gaussian" title="ChiantiPy.tools.filters.gaussian"><code class="xref py py-obj docutils literal"><span class="pre">gaussian</span></code></a>(wvl,&nbsp;wvl0[,&nbsp;factor])</td>
-<td>A gaussian filter</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="../api/ChiantiPy.tools.filters.gaussianR.html#ChiantiPy.tools.filters.gaussianR" title="ChiantiPy.tools.filters.gaussianR"><code class="xref py py-obj docutils literal"><span class="pre">gaussianR</span></code></a>(wvl,&nbsp;wvl0[,&nbsp;factor])</td>
-<td>A gaussian filter where the gaussian width is given by <code class="xref py py-obj docutils literal"><span class="pre">wvl0</span></code>/<code class="xref py py-obj docutils literal"><span class="pre">factor</span></code>.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="../api/ChiantiPy.tools.filters.lorentz.html#ChiantiPy.tools.filters.lorentz" title="ChiantiPy.tools.filters.lorentz"><code class="xref py py-obj docutils literal"><span class="pre">lorentz</span></code></a>(wvl,&nbsp;wvl0[,&nbsp;factor])</td>
-<td>Lorentz profile filter with the exception that all factors are in wavelength units rather than frequency as the lorentz profile is usually defined.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="../api/ChiantiPy.tools.filters.moffat.html#ChiantiPy.tools.filters.moffat" title="ChiantiPy.tools.filters.moffat"><code class="xref py py-obj docutils literal"><span class="pre">moffat</span></code></a>(wvl,&nbsp;wvl0[,&nbsp;factor])</td>
-<td>Moffat profile with parameters suited to Chandra Letg spectra</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="../api/ChiantiPy.tools.filters.voigt.html#ChiantiPy.tools.filters.voigt" title="ChiantiPy.tools.filters.voigt"><code class="xref py py-obj docutils literal"><span class="pre">voigt</span></code></a>(wvl,&nbsp;wvl0[,&nbsp;factor])</td>
-<td>pseudo-Voigt filter</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="section" id="module-ChiantiPy.tools.io">
-<span id="chiantipy-tools-io-module"></span><h2>ChiantiPy.tools.io Module<a class="headerlink" href="#module-ChiantiPy.tools.io" title="Permalink to this headline">¶</a></h2>
-<p>Reading and writing functions</p>
-<div class="section" id="id2">
-<h3>Functions<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="../api/ChiantiPy.tools.io.abundanceRead.html#ChiantiPy.tools.io.abundanceRead" title="ChiantiPy.tools.io.abundanceRead"><code class="xref py py-obj docutils literal"><span class="pre">abundanceRead</span></code></a>([abundancename])</td>
-<td>Read abundance file <code class="xref py py-obj docutils literal"><span class="pre">abundancename</span></code> and return the abundance values relative to hydrogen</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="../api/ChiantiPy.tools.io.autoRead.html#ChiantiPy.tools.io.autoRead" title="ChiantiPy.tools.io.autoRead"><code class="xref py py-obj docutils literal"><span class="pre">autoRead</span></code></a>(ions[,&nbsp;filename,&nbsp;total,&nbsp;verbose])</td>
-<td>Read CHIANTI autoionization rates from a .auto file.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="../api/ChiantiPy.tools.io.autoWrite.html#ChiantiPy.tools.io.autoWrite" title="ChiantiPy.tools.io.autoWrite"><code class="xref py py-obj docutils literal"><span class="pre">autoWrite</span></code></a>(info[,&nbsp;outfile,&nbsp;minBranch])</td>
-<td>Write data to a CHIANTI .wgfa file</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="../api/ChiantiPy.tools.io.cireclvlRead.html#ChiantiPy.tools.io.cireclvlRead" title="ChiantiPy.tools.io.cireclvlRead"><code class="xref py py-obj docutils literal"><span class="pre">cireclvlRead</span></code></a>(ions[,&nbsp;filename,&nbsp;filetype])</td>
-<td>Read Chianti cilvl, reclvl, or rrlvl files and return data</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="../api/ChiantiPy.tools.io.convertName.html#ChiantiPy.tools.io.convertName" title="ChiantiPy.tools.io.convertName"><code class="xref py py-obj docutils literal"><span class="pre">convertName</span></code></a>(name)</td>
-<td>Convert ion name string to Z and Ion and other interesting info</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="../api/ChiantiPy.tools.io.defaultsRead.html#ChiantiPy.tools.io.defaultsRead" title="ChiantiPy.tools.io.defaultsRead"><code class="xref py py-obj docutils literal"><span class="pre">defaultsRead</span></code></a>([verbose])</td>
-<td>Read in configuration from .chiantirc file or set defaults if one is not found.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="../api/ChiantiPy.tools.io.diRead.html#ChiantiPy.tools.io.diRead" title="ChiantiPy.tools.io.diRead"><code class="xref py py-obj docutils literal"><span class="pre">diRead</span></code></a>(ions[,&nbsp;filename])</td>
-<td>Read chianti direct ionization .params files and return data.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="../api/ChiantiPy.tools.io.drRead.html#ChiantiPy.tools.io.drRead" title="ChiantiPy.tools.io.drRead"><code class="xref py py-obj docutils literal"><span class="pre">drRead</span></code></a>(ions[,&nbsp;filename])</td>
-<td>Read CHIANTI dielectronic recombination .drparams files</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="../api/ChiantiPy.tools.io.eaRead.html#ChiantiPy.tools.io.eaRead" title="ChiantiPy.tools.io.eaRead"><code class="xref py py-obj docutils literal"><span class="pre">eaRead</span></code></a>(ions[,&nbsp;filename])</td>
-<td>Read a CHIANTI excitation-autoionization file and calculate the EA ionization rate data derived from splupsRead.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="../api/ChiantiPy.tools.io.elvlcRead.html#ChiantiPy.tools.io.elvlcRead" title="ChiantiPy.tools.io.elvlcRead"><code class="xref py py-obj docutils literal"><span class="pre">elvlcRead</span></code></a>(ions[,&nbsp;filename,&nbsp;getExtended,&nbsp;…])</td>
-<td>Reads the new format elvlc files.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="../api/ChiantiPy.tools.io.elvlcWrite.html#ChiantiPy.tools.io.elvlcWrite" title="ChiantiPy.tools.io.elvlcWrite"><code class="xref py py-obj docutils literal"><span class="pre">elvlcWrite</span></code></a>(info[,&nbsp;outfile,&nbsp;round,&nbsp;addLvl,&nbsp;…])</td>
-<td>Write Chianti data to .elvlc file.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="../api/ChiantiPy.tools.io.fblvlRead.html#ChiantiPy.tools.io.fblvlRead" title="ChiantiPy.tools.io.fblvlRead"><code class="xref py py-obj docutils literal"><span class="pre">fblvlRead</span></code></a>(ions[,&nbsp;filename,&nbsp;verbose])</td>
-<td>Read a Chianti energy level file for calculating the</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="../api/ChiantiPy.tools.io.gffRead.html#ChiantiPy.tools.io.gffRead" title="ChiantiPy.tools.io.gffRead"><code class="xref py py-obj docutils literal"><span class="pre">gffRead</span></code></a>()</td>
-<td>Read the free-free gaunt factors of [R175175].</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="../api/ChiantiPy.tools.io.gffintRead.html#ChiantiPy.tools.io.gffintRead" title="ChiantiPy.tools.io.gffintRead"><code class="xref py py-obj docutils literal"><span class="pre">gffintRead</span></code></a>()</td>
-<td>Read the integrated free-free gaunt factors of [R177177].</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="../api/ChiantiPy.tools.io.ioneqRead.html#ChiantiPy.tools.io.ioneqRead" title="ChiantiPy.tools.io.ioneqRead"><code class="xref py py-obj docutils literal"><span class="pre">ioneqRead</span></code></a>([ioneqname,&nbsp;minIoneq,&nbsp;verbose])</td>
-<td>Reads an ioneq file</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="../api/ChiantiPy.tools.io.ipRead.html#ChiantiPy.tools.io.ipRead" title="ChiantiPy.tools.io.ipRead"><code class="xref py py-obj docutils literal"><span class="pre">ipRead</span></code></a>([verbose])</td>
-<td>Reads the ionization potential file</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="../api/ChiantiPy.tools.io.itohRead.html#ChiantiPy.tools.io.itohRead" title="ChiantiPy.tools.io.itohRead"><code class="xref py py-obj docutils literal"><span class="pre">itohRead</span></code></a>()</td>
-<td>Read in the free-free gaunt factors of [R179179].</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="../api/ChiantiPy.tools.io.klgfbRead.html#ChiantiPy.tools.io.klgfbRead" title="ChiantiPy.tools.io.klgfbRead"><code class="xref py py-obj docutils literal"><span class="pre">klgfbRead</span></code></a>()</td>
-<td>Read CHIANTI files containing the free-bound gaunt factors for n=1-6 from [R181181].</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="../api/ChiantiPy.tools.io.masterListInfo.html#ChiantiPy.tools.io.masterListInfo" title="ChiantiPy.tools.io.masterListInfo"><code class="xref py py-obj docutils literal"><span class="pre">masterListInfo</span></code></a>([force,&nbsp;verbose])</td>
-<td>Get information about ions in the CHIANTI masterlist.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="../api/ChiantiPy.tools.io.masterListRead.html#ChiantiPy.tools.io.masterListRead" title="ChiantiPy.tools.io.masterListRead"><code class="xref py py-obj docutils literal"><span class="pre">masterListRead</span></code></a>()</td>
-<td>Read a CHIANTI masterlist file.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="../api/ChiantiPy.tools.io.photoxRead.html#ChiantiPy.tools.io.photoxRead" title="ChiantiPy.tools.io.photoxRead"><code class="xref py py-obj docutils literal"><span class="pre">photoxRead</span></code></a>(ions)</td>
-<td>Read CHIANTI photoionization .photox files</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="../api/ChiantiPy.tools.io.rrLossRead.html#ChiantiPy.tools.io.rrLossRead" title="ChiantiPy.tools.io.rrLossRead"><code class="xref py py-obj docutils literal"><span class="pre">rrLossRead</span></code></a>()</td>
-<td>to read the Mao 2017 rr loss parameters</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="../api/ChiantiPy.tools.io.rrRead.html#ChiantiPy.tools.io.rrRead" title="ChiantiPy.tools.io.rrRead"><code class="xref py py-obj docutils literal"><span class="pre">rrRead</span></code></a>(ions[,&nbsp;filename])</td>
-<td>Read CHIANTI radiative recombination .rrparams files</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="../api/ChiantiPy.tools.io.scupsRead.html#ChiantiPy.tools.io.scupsRead" title="ChiantiPy.tools.io.scupsRead"><code class="xref py py-obj docutils literal"><span class="pre">scupsRead</span></code></a>(ions[,&nbsp;filename,&nbsp;verbose])</td>
-<td>Read the new format v8 scups file containing the scaled temperature and upsilons from [R185185].</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="../api/ChiantiPy.tools.io.splomRead.html#ChiantiPy.tools.io.splomRead" title="ChiantiPy.tools.io.splomRead"><code class="xref py py-obj docutils literal"><span class="pre">splomRead</span></code></a>(ions[,&nbsp;ea,&nbsp;filename])</td>
-<td>Read chianti .splom files</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="../api/ChiantiPy.tools.io.splupsRead.html#ChiantiPy.tools.io.splupsRead" title="ChiantiPy.tools.io.splupsRead"><code class="xref py py-obj docutils literal"><span class="pre">splupsRead</span></code></a>(ions[,&nbsp;filename,&nbsp;filetype])</td>
-<td>Read a CHIANTI .splups file</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="../api/ChiantiPy.tools.io.trRead.html#ChiantiPy.tools.io.trRead" title="ChiantiPy.tools.io.trRead"><code class="xref py py-obj docutils literal"><span class="pre">trRead</span></code></a>(ionS)</td>
-<td>read the files containing total recombination rates .trparams</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="../api/ChiantiPy.tools.io.twophotonHRead.html#ChiantiPy.tools.io.twophotonHRead" title="ChiantiPy.tools.io.twophotonHRead"><code class="xref py py-obj docutils literal"><span class="pre">twophotonHRead</span></code></a>()</td>
-<td>Read the two-photon Einstein A values and distribution function for the H sequence.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="../api/ChiantiPy.tools.io.twophotonHeRead.html#ChiantiPy.tools.io.twophotonHeRead" title="ChiantiPy.tools.io.twophotonHeRead"><code class="xref py py-obj docutils literal"><span class="pre">twophotonHeRead</span></code></a>()</td>
-<td>Read the two-photon Einstein A values and distribution function for the He sequence.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="../api/ChiantiPy.tools.io.vernerRead.html#ChiantiPy.tools.io.vernerRead" title="ChiantiPy.tools.io.vernerRead"><code class="xref py py-obj docutils literal"><span class="pre">vernerRead</span></code></a>()</td>
-<td>Reads the photoionization cross-section data from [R187187].</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="../api/ChiantiPy.tools.io.versionRead.html#ChiantiPy.tools.io.versionRead" title="ChiantiPy.tools.io.versionRead"><code class="xref py py-obj docutils literal"><span class="pre">versionRead</span></code></a>()</td>
-<td>Read the version number of the CHIANTI database</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="../api/ChiantiPy.tools.io.wgfaRead.html#ChiantiPy.tools.io.wgfaRead" title="ChiantiPy.tools.io.wgfaRead"><code class="xref py py-obj docutils literal"><span class="pre">wgfaRead</span></code></a>(ions[,&nbsp;filename,&nbsp;elvlcname,&nbsp;total,&nbsp;…])</td>
-<td>Read CHIANTI data from a .wgfa file.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="../api/ChiantiPy.tools.io.wgfaWrite.html#ChiantiPy.tools.io.wgfaWrite" title="ChiantiPy.tools.io.wgfaWrite"><code class="xref py py-obj docutils literal"><span class="pre">wgfaWrite</span></code></a>(info[,&nbsp;outfile,&nbsp;minBranch,&nbsp;…])</td>
-<td>Write data to a CHIANTI .wgfa file</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="../api/ChiantiPy.tools.io.zion2name.html#ChiantiPy.tools.io.zion2name" title="ChiantiPy.tools.io.zion2name"><code class="xref py py-obj docutils literal"><span class="pre">zion2name</span></code></a>(z,&nbsp;ion[,&nbsp;dielectronic])</td>
-<td>Convert <code class="xref py py-obj docutils literal"><span class="pre">Z</span></code> and <code class="xref py py-obj docutils literal"><span class="pre">ion</span></code> to generic name, e.g.</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="section" id="module-ChiantiPy.tools.mputil">
-<span id="chiantipy-tools-mputil-module"></span><h2>ChiantiPy.tools.mputil Module<a class="headerlink" href="#module-ChiantiPy.tools.mputil" title="Permalink to this headline">¶</a></h2>
-<p>Functions needed for standard Python multiprocessing module mspectrum</p>
-<div class="section" id="id9">
-<h3>Functions<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="../api/ChiantiPy.tools.mputil.doFbQ.html#ChiantiPy.tools.mputil.doFbQ" title="ChiantiPy.tools.mputil.doFbQ"><code class="xref py py-obj docutils literal"><span class="pre">doFbQ</span></code></a>(inQ,&nbsp;outQ)</td>
-<td>Multiprocessing helper for <a class="reference internal" href="../api/ChiantiPy.core.continuum.html#ChiantiPy.core.continuum.freeBound" title="ChiantiPy.core.continuum.freeBound"><code class="xref py py-obj docutils literal"><span class="pre">ChiantiPy.core.continuum.freeBound</span></code></a></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="../api/ChiantiPy.tools.mputil.doFfQ.html#ChiantiPy.tools.mputil.doFfQ" title="ChiantiPy.tools.mputil.doFfQ"><code class="xref py py-obj docutils literal"><span class="pre">doFfQ</span></code></a>(inQ,&nbsp;outQ)</td>
-<td>Multiprocessing helper for <a class="reference internal" href="../api/ChiantiPy.core.continuum.html#ChiantiPy.core.continuum.freeFree" title="ChiantiPy.core.continuum.freeFree"><code class="xref py py-obj docutils literal"><span class="pre">ChiantiPy.core.continuum.freeFree</span></code></a></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="../api/ChiantiPy.tools.mputil.doIonQ.html#ChiantiPy.tools.mputil.doIonQ" title="ChiantiPy.tools.mputil.doIonQ"><code class="xref py py-obj docutils literal"><span class="pre">doIonQ</span></code></a>(inQueue,&nbsp;outQueue)</td>
-<td>Multiprocessing helper for <a class="reference internal" href="../api/ChiantiPy.core.ion.html#ChiantiPy.core.ion" title="ChiantiPy.core.ion"><code class="xref py py-obj docutils literal"><span class="pre">ChiantiPy.core.ion</span></code></a> and <a class="reference internal" href="../api/ChiantiPy.core.ion.html#ChiantiPy.core.ion.twoPhoton" title="ChiantiPy.core.ion.twoPhoton"><code class="xref py py-obj docutils literal"><span class="pre">ChiantiPy.core.ion.twoPhoton</span></code></a></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="section" id="module-ChiantiPy.tools.sources">
-<span id="chiantipy-tools-sources-module"></span><h2>ChiantiPy.tools.sources Module<a class="headerlink" href="#module-ChiantiPy.tools.sources" title="Permalink to this headline">¶</a></h2>
-<p>Blackbody temperature calculations</p>
-<div class="section" id="id10">
-<h3>Functions<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="../api/ChiantiPy.tools.sources.blackbody.html#ChiantiPy.tools.sources.blackbody" title="ChiantiPy.tools.sources.blackbody"><code class="xref py py-obj docutils literal"><span class="pre">blackbody</span></code></a>(temperature,&nbsp;variable[,&nbsp;hnu])</td>
-<td>Calculate the blackbody photon distribution as a function of energy (<code class="xref py py-obj docutils literal"><span class="pre">hnu</span></code> = 1) or as a function of wavelength (<code class="xref py py-obj docutils literal"><span class="pre">hnu</span></code> = 0) in units of  <span class="math">\(\mathrm{photons}\,\mathrm{cm}^{-2}\,\mathrm{s}^{-1}\,\mathrm{str}^{-1}\,\mathrm{erg}^{-1}\)</span></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="classes">
-<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="../api/ChiantiPy.tools.sources.blackStar.html#ChiantiPy.tools.sources.blackStar" title="ChiantiPy.tools.sources.blackStar"><code class="xref py py-obj docutils literal"><span class="pre">blackStar</span></code></a>(temperature,&nbsp;radius)</td>
-<td>Calculate blackbody radiation</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="section" id="module-ChiantiPy.tools.util">
-<span id="chiantipy-tools-util-module"></span><h2>ChiantiPy.tools.util Module<a class="headerlink" href="#module-ChiantiPy.tools.util" title="Permalink to this headline">¶</a></h2>
-<p>Utility functions</p>
-<div class="section" id="notes">
-<h3>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h3>
-<p>Some of these functions can be replaced by roman numeral and periodic table lookup libraries.
-some functions using os.walk can be replaced by os.path</p>
-</div>
-<div class="section" id="id11">
-<h3>Functions<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="../api/ChiantiPy.tools.util.between.html#ChiantiPy.tools.util.between" title="ChiantiPy.tools.util.between"><code class="xref py py-obj docutils literal"><span class="pre">between</span></code></a>(array,&nbsp;limits)</td>
-<td>Find the indices of <a class="reference external" href="https://docs.python.org/3/library/array.html#module-array" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">array</span></code></a> corresponding to values in the range given by <code class="xref py py-obj docutils literal"><span class="pre">limits</span></code></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="../api/ChiantiPy.tools.util.convertName.html#ChiantiPy.tools.util.convertName" title="ChiantiPy.tools.util.convertName"><code class="xref py py-obj docutils literal"><span class="pre">convertName</span></code></a>(name)</td>
-<td>Convert ion name string (e.g.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="../api/ChiantiPy.tools.util.descale_bt.html#ChiantiPy.tools.util.descale_bt" title="ChiantiPy.tools.util.descale_bt"><code class="xref py py-obj docutils literal"><span class="pre">descale_bt</span></code></a>(bte,&nbsp;btomega,&nbsp;f,&nbsp;ev1)</td>
-<td>Apply excitation descaling of [R189189] to energy and collision strength</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="../api/ChiantiPy.tools.util.descale_bti.html#ChiantiPy.tools.util.descale_bti" title="ChiantiPy.tools.util.descale_bti"><code class="xref py py-obj docutils literal"><span class="pre">descale_bti</span></code></a>(bte,&nbsp;btx,&nbsp;f,&nbsp;ev1)</td>
-<td>Apply ionization descaling of [R191192] to energy and cross-section.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="../api/ChiantiPy.tools.util.dilute.html#ChiantiPy.tools.util.dilute" title="ChiantiPy.tools.util.dilute"><code class="xref py py-obj docutils literal"><span class="pre">dilute</span></code></a>(radius)</td>
-<td>Calculate the dilution factor.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="../api/ChiantiPy.tools.util.el2z.html#ChiantiPy.tools.util.el2z" title="ChiantiPy.tools.util.el2z"><code class="xref py py-obj docutils literal"><span class="pre">el2z</span></code></a>(els)</td>
-<td>Convert elemental symbol to atomic number</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="../api/ChiantiPy.tools.util.ion2filename.html#ChiantiPy.tools.util.ion2filename" title="ChiantiPy.tools.util.ion2filename"><code class="xref py py-obj docutils literal"><span class="pre">ion2filename</span></code></a>(ions)</td>
-<td>Convert ion name string to generic directory-file name.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="../api/ChiantiPy.tools.util.listFiles.html#ChiantiPy.tools.util.listFiles" title="ChiantiPy.tools.util.listFiles"><code class="xref py py-obj docutils literal"><span class="pre">listFiles</span></code></a>(path)</td>
-<td>Walks the path and subdirectories to return a list of files.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="../api/ChiantiPy.tools.util.qrp.html#ChiantiPy.tools.util.qrp" title="ChiantiPy.tools.util.qrp"><code class="xref py py-obj docutils literal"><span class="pre">qrp</span></code></a>(z,&nbsp;u)</td>
-<td>Calculate <span class="math">\(Q_R^{\prime}(Z,u)\)</span>, where <span class="math">\(u=\epsilon/I\)</span> is the impact electron energy in threshold units, from Eq.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="../api/ChiantiPy.tools.util.scale_bt.html#ChiantiPy.tools.util.scale_bt" title="ChiantiPy.tools.util.scale_bt"><code class="xref py py-obj docutils literal"><span class="pre">scale_bt</span></code></a>(evin,&nbsp;omega,&nbsp;f,&nbsp;ev1)</td>
-<td>Apply excitation scaling of [R197197] to energy and collision strength.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="../api/ChiantiPy.tools.util.scale_bt_rate.html#ChiantiPy.tools.util.scale_bt_rate" title="ChiantiPy.tools.util.scale_bt_rate"><code class="xref py py-obj docutils literal"><span class="pre">scale_bt_rate</span></code></a>(inDict,&nbsp;ip[,&nbsp;f])</td>
-<td>Apply ionization descaling of [R199199], a Burgess-Tully type scaling to ionization rates and temperatures.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="../api/ChiantiPy.tools.util.scale_bti.html#ChiantiPy.tools.util.scale_bti" title="ChiantiPy.tools.util.scale_bti"><code class="xref py py-obj docutils literal"><span class="pre">scale_bti</span></code></a>(evin,&nbsp;crossin,&nbsp;f,&nbsp;ev1)</td>
-<td>Apply ionization scaling of [R201202],[R202202]_ to energy and cross-section.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="../api/ChiantiPy.tools.util.scale_classical.html#ChiantiPy.tools.util.scale_classical" title="ChiantiPy.tools.util.scale_classical"><code class="xref py py-obj docutils literal"><span class="pre">scale_classical</span></code></a>(inDict,&nbsp;ip)</td>
-<td>to apply the ‘classical’ scaling to the input data</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="../api/ChiantiPy.tools.util.spectroscopic2name.html#ChiantiPy.tools.util.spectroscopic2name" title="ChiantiPy.tools.util.spectroscopic2name"><code class="xref py py-obj docutils literal"><span class="pre">spectroscopic2name</span></code></a>(el,&nbsp;roman)</td>
-<td>Convert from spectroscopic notation, e.g.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="../api/ChiantiPy.tools.util.splomDescale.html#ChiantiPy.tools.util.splomDescale" title="ChiantiPy.tools.util.splomDescale"><code class="xref py py-obj docutils literal"><span class="pre">splomDescale</span></code></a>(splom,&nbsp;energy)</td>
-<td>Calculate the collision strength for excitation-autoionization as a function of energy.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="../api/ChiantiPy.tools.util.z2element.html#ChiantiPy.tools.util.z2element" title="ChiantiPy.tools.util.z2element"><code class="xref py py-obj docutils literal"><span class="pre">z2element</span></code></a>(z)</td>
-<td>Convert atomic number <code class="xref py py-obj docutils literal"><span class="pre">z</span></code> to its elemental symbol.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="../api/ChiantiPy.tools.util.zion2dir.html#ChiantiPy.tools.util.zion2dir" title="ChiantiPy.tools.util.zion2dir"><code class="xref py py-obj docutils literal"><span class="pre">zion2dir</span></code></a>(z,&nbsp;ion[,&nbsp;dielectronic,&nbsp;xuvtop])</td>
-<td>Convert atomic number and ion number to CHIANTI database directory.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="../api/ChiantiPy.tools.util.zion2filename.html#ChiantiPy.tools.util.zion2filename" title="ChiantiPy.tools.util.zion2filename"><code class="xref py py-obj docutils literal"><span class="pre">zion2filename</span></code></a>(z,&nbsp;ion[,&nbsp;dielectronic,&nbsp;xuvtop])</td>
-<td>Convert atomic number and ion number to CHIANTI database filename.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="../api/ChiantiPy.tools.util.zion2localFilename.html#ChiantiPy.tools.util.zion2localFilename" title="ChiantiPy.tools.util.zion2localFilename"><code class="xref py py-obj docutils literal"><span class="pre">zion2localFilename</span></code></a>(z,&nbsp;ion[,&nbsp;dielectronic])</td>
-<td>Convert atomic number and ion number to generic file name with current directory at top.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="../api/ChiantiPy.tools.util.zion2name.html#ChiantiPy.tools.util.zion2name" title="ChiantiPy.tools.util.zion2name"><code class="xref py py-obj docutils literal"><span class="pre">zion2name</span></code></a>(z,&nbsp;ion[,&nbsp;dielectronic])</td>
-<td>Convert atomic number and ion number to generic name, e.g.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="../api/ChiantiPy.tools.util.zion2spectroscopic.html#ChiantiPy.tools.util.zion2spectroscopic" title="ChiantiPy.tools.util.zion2spectroscopic"><code class="xref py py-obj docutils literal"><span class="pre">zion2spectroscopic</span></code></a>(z,&nbsp;ion[,&nbsp;dielectronic])</td>
-<td>Convert atomic number and ion number to spectroscopic notation string</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-
-
-           </div>
-           <div class="articleComments">
-            
-           </div>
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../api/ChiantiPy.tools.archival.elvlcRead.html" class="btn btn-neutral float-right" title="elvlcRead" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="index.html" class="btn btn-neutral" title="API Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">API Reference</a> &#187;</li> 
+      </ul>
+    </div>
     </div>
   
 
-  <hr/>
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="chiantipy-tools">
+<h1>ChiantiPy Tools<a class="headerlink" href="#chiantipy-tools" title="Permalink to this headline">¶</a></h1>
+</div>
 
-  <div role="contentinfo">
-    <p>
-        &copy; Copyright 2018, Ken Dere.
-      Last updated on 03 Oct 2018.
 
-    </p>
-  </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
-</footer>
-
+          </div>
         </div>
       </div>
-
-    </section>
-
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="index.html"
+                          title="Previous page">&larr; API Reference</a></p>
   </div>
-  
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="chiantipy_base.html"
+                          title="Next page">&rarr; ChiantiPy Base Classes</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/code_ref/chiantipy_tools.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="chiantipy_base.html" title="ChiantiPy Base Classes"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="index.html" title="API Reference"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">ChiantiPy 0.8.0 (alpha) documentation</a> &#187;</li>
 
+          <li class="nav-item nav-item-1"><a href="index.html" >API Reference</a> &#187;</li> 
+      </ul>
+    </div>
+    </div>
 
-  
+<div style="padding: 20px 10px 10px 40px; background-color: #fff8d3; text-align: left;">
+<a href="http://sourceforge.net/projects/chiantipy"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=250481&amp;type=16" width="150" height="40" alt="Get ChiantiPy at SourceForge.net. Fast, secure and Free Open Source software downloads" /></a>
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'0.7.1a',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</div>
+    
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Ken Dere.
+      Last updated on Oct 05, 2018.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
 
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
-      });
-  </script>
-   
-
-</body>
+  </body>
 </html>
