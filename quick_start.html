@@ -1,6 +1,4 @@
 
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,9 +6,8 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Quick Start &#8212; ChiantiPy 0.8.0 (alpha) documentation</title>
-    <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
@@ -25,15 +22,11 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/javascript" src="_static/jquery.cookie.js"></script>
-    <script type="text/javascript" src="_static/cloud.base.js"></script>
-    <script type="text/javascript" src="_static/cloud.js"></script>
     <link rel="shortcut icon" href="_static/chianti2.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Tutorial" href="tutorial.html" />
     <link rel="prev" title="Getting started with ChiantiPy" href="getting_started.html" /> 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
 <div style="padding: 20px 10px 10px 40px; background-color: #fff8d3; text-align: left;">
@@ -43,8 +36,6 @@
 </div>
     
 
-    <div class="relbar-top">
-        
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -53,19 +44,65 @@
              accesskey="I">index</a></li>
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> &nbsp; &nbsp;</li>
+             >modules</a> |</li>
         <li class="right" >
           <a href="tutorial.html" title="Tutorial"
-             accesskey="N">next</a> &nbsp; &nbsp;</li>
+             accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="getting_started.html" title="Getting started with ChiantiPy"
-             accesskey="P">previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">ChiantiPy 0.8.0 (alpha) documentation</a> &#187;</li>
- 
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">ChiantiPy 0.8.0 (alpha) documentation</a> &#187;</li> 
       </ul>
     </div>
-    </div>
-  
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Quick Start</a><ul>
+<li><a class="reference internal" href="#level-populations">Level populations</a></li>
+<li><a class="reference internal" href="#a-chiantipy-convention">A ChiantiPy Convention</a></li>
+<li><a class="reference internal" href="#spectral-line-intensities">Spectral Line Intensities</a></li>
+<li><a class="reference internal" href="#g-n-t-function">G(n,T) function</a></li>
+<li><a class="reference internal" href="#intensity-ratios">Intensity Ratios</a></li>
+<li><a class="reference internal" href="#spectra-of-a-single-ion">Spectra of a single ion</a></li>
+<li><a class="reference internal" href="#free-free-and-free-bound-continuum">Free-free and free-bound continuum</a></li>
+<li><a class="reference internal" href="#the-multi-ion-class-bunch">The multi-ion class Bunch</a></li>
+<li><a class="reference internal" href="#spectra-of-multiple-ions-and-continuum">Spectra of multiple ions and continuum</a><ul>
+<li><a class="reference internal" href="#the-single-processor-spectrum-class">The single processor spectrum class</a></li>
+<li><a class="reference internal" href="#the-multiple-processor-mspectrum-class">The multiple processor mspectrum class</a></li>
+<li><a class="reference internal" href="#the-multiple-processor-ipymspectrum-class">The multiple processor ipymspectrum class</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#radiative-loss-rate">Radiative loss rate</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="getting_started.html"
+                        title="previous chapter">Getting started with ChiantiPy</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="tutorial.html"
+                        title="next chapter">Tutorial</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/quick_start.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
 
     <div class="document">
       <div class="documentwrapper">
@@ -497,81 +534,8 @@ ne_8</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper"><div class="sphinx-toc sphinxlocaltoc">
-    <h3><a href="index.html">Page contents</a></h3>
-    <ul>
-<li><a class="reference internal" href="#">Quick Start</a><ul>
-<li><a class="reference internal" href="#level-populations">Level populations</a></li>
-<li><a class="reference internal" href="#a-chiantipy-convention">A ChiantiPy Convention</a></li>
-<li><a class="reference internal" href="#spectral-line-intensities">Spectral Line Intensities</a></li>
-<li><a class="reference internal" href="#g-n-t-function">G(n,T) function</a></li>
-<li><a class="reference internal" href="#intensity-ratios">Intensity Ratios</a></li>
-<li><a class="reference internal" href="#spectra-of-a-single-ion">Spectra of a single ion</a></li>
-<li><a class="reference internal" href="#free-free-and-free-bound-continuum">Free-free and free-bound continuum</a></li>
-<li><a class="reference internal" href="#the-multi-ion-class-bunch">The multi-ion class Bunch</a></li>
-<li><a class="reference internal" href="#spectra-of-multiple-ions-and-continuum">Spectra of multiple ions and continuum</a><ul>
-<li><a class="reference internal" href="#the-single-processor-spectrum-class">The single processor spectrum class</a></li>
-<li><a class="reference internal" href="#the-multiple-processor-mspectrum-class">The multiple processor mspectrum class</a></li>
-<li><a class="reference internal" href="#the-multiple-processor-ipymspectrum-class">The multiple processor ipymspectrum class</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#radiative-loss-rate">Radiative loss rate</a></li>
-</ul>
-</li>
-</ul>
-
-  </div>
-  <div class="sphinxprev">
-    <h4>Previous page</h4>
-    <p class="topless"><a href="getting_started.html"
-                          title="Previous page">&larr; Getting started with ChiantiPy</a></p>
-  </div>
-  <div class="sphinxnext">
-    <h4>Next page</h4>
-    <p class="topless"><a href="tutorial.html"
-                          title="Next page">&rarr; Tutorial</a></p>
-  </div>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/quick_start.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
-    
-    
-        <div class="sidebar-toggle-group no-js">
-            
-            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
-                 «
-                <span class="show-for-small">hide menu</span>
-                
-            </button>
-            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
-                
-                <span class="show-for-small">menu</span>
-                <span class="hide-for-small">sidebar</span>
-                 »
-            </button>
-        </div>
-    
       <div class="clearer"></div>
     </div>
-    <div class="relbar-bottom">
-        
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -580,19 +544,16 @@ ne_8</p>
              >index</a></li>
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> &nbsp; &nbsp;</li>
+             >modules</a> |</li>
         <li class="right" >
           <a href="tutorial.html" title="Tutorial"
-             >next</a> &nbsp; &nbsp;</li>
+             >next</a> |</li>
         <li class="right" >
           <a href="getting_started.html" title="Getting started with ChiantiPy"
-             >previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">ChiantiPy 0.8.0 (alpha) documentation</a> &#187;</li>
- 
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">ChiantiPy 0.8.0 (alpha) documentation</a> &#187;</li> 
       </ul>
     </div>
-    </div>
-
 <div style="padding: 20px 10px 10px 40px; background-color: #fff8d3; text-align: left;">
 <a href="http://sourceforge.net/projects/chiantipy"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=250481&amp;type=16" width="150" height="40" alt="Get ChiantiPy at SourceForge.net. Fast, secure and Free Open Source software downloads" /></a>
 
@@ -600,10 +561,9 @@ ne_8</p>
     
     <div class="footer" role="contentinfo">
         &#169; Copyright 2018, Ken Dere.
-      Last updated on Oct 05, 2018.
+      Last updated on Oct 06, 2018.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.
     </div>
-    <!-- cloud_sptheme 1.4 -->
 
   </body>
 </html>
