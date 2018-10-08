@@ -1,11 +1,11 @@
-ChiantiPy.Gui.gui\_cl package
-=============================
+ChiantiPy\.Gui\.gui\_cl package
+===============================
 
 Submodules
 ----------
 
-ChiantiPy.Gui.gui\_cl.gui module
---------------------------------
+ChiantiPy\.Gui\.gui\_cl\.gui module
+-----------------------------------
 
 .. automodule:: ChiantiPy.Gui.gui_cl.gui
     :members:

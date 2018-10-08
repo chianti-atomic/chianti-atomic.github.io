@@ -1,27 +1,27 @@
-ChiantiPy.fortranformat package
-===============================
+ChiantiPy\.fortranformat package
+================================
 
 Submodules
 ----------
 
-ChiantiPy.fortranformat.FortranRecordReader module
---------------------------------------------------
+ChiantiPy\.fortranformat\.FortranRecordReader module
+----------------------------------------------------
 
 .. automodule:: ChiantiPy.fortranformat.FortranRecordReader
     :members:
     :undoc-members:
     :show-inheritance:
 
-ChiantiPy.fortranformat.FortranRecordWriter module
---------------------------------------------------
+ChiantiPy\.fortranformat\.FortranRecordWriter module
+----------------------------------------------------
 
 .. automodule:: ChiantiPy.fortranformat.FortranRecordWriter
     :members:
     :undoc-members:
     :show-inheritance:
 
-ChiantiPy.fortranformat.config module
--------------------------------------
+ChiantiPy\.fortranformat\.config module
+---------------------------------------
 
 .. automodule:: ChiantiPy.fortranformat.config
     :members:

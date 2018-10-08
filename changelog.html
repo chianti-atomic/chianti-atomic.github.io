@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Changelog &#8212; ChiantiPy 0.8.0 (alpha) documentation</title>
+    <title>Changelog &#8212; ChiantiPy 0.8.0 documentation</title>
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.8.0 (alpha)',
+        VERSION:     '0.8.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -22,7 +22,6 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="shortcut icon" href="_static/chianti2.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Reporting Bugs" href="bugs.html" />
@@ -51,35 +50,17 @@
         <li class="right" >
           <a href="resources.html" title="Resources for ChiantiPy Users"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">ChiantiPy 0.8.0 (alpha) documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">ChiantiPy 0.8.0 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Changelog</a><ul>
-<li><a class="reference internal" href="#changes-from-0-7-0-to-0-7-1">changes from 0.7.0 to 0.7.1</a></li>
-<li><a class="reference internal" href="#changes-from-0-6-5-to-0-7-0">changes from 0.6.5 to 0.7.0</a></li>
-<li><a class="reference internal" href="#changes-from-0-6-0-to-0-6-5">changes from 0.6.0 to 0.6.5</a></li>
-<li><a class="reference internal" href="#changes-from-0-5-3-to-0-6-0">changes from 0.5.3 to 0.6.0</a></li>
-</ul>
-</li>
-</ul>
-
   <h4>Previous topic</h4>
   <p class="topless"><a href="resources.html"
                         title="previous chapter">Resources for ChiantiPy Users</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="bugs.html"
                         title="next chapter">Reporting Bugs</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/changelog.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
@@ -100,6 +81,11 @@
             
   <div class="section" id="changelog">
 <h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="changes-from-0-7-1-to-0-8-0">
+<h2>changes from 0.7.1 to 0.8.0<a class="headerlink" href="#changes-from-0-7-1-to-0-8-0" title="Permalink to this headline">¶</a></h2>
+<p>ChiantiPy is now only compliant with Python 3.  Development is currently with Python 3.6</p>
+<p>The use of the PyQt4 and WxWidgets packages have been dropped</p>
+</div>
 <div class="section" id="changes-from-0-7-0-to-0-7-1">
 <h2>changes from 0.7.0 to 0.7.1<a class="headerlink" href="#changes-from-0-7-0-to-0-7-1" title="Permalink to this headline">¶</a></h2>
 <p>version 0.7.0 included some changes in the ChiantiPy naming conventions, largely in the continuum class.  These are being reverted to the original ChiantiPy naming conventions.</p>
@@ -115,7 +101,7 @@ the emission when the object is instantiated.</p>
 <div class="section" id="changes-from-0-6-5-to-0-7-0">
 <h2>changes from 0.6.5 to 0.7.0<a class="headerlink" href="#changes-from-0-6-5-to-0-7-0" title="Permalink to this headline">¶</a></h2>
 <p>The primary change is that code developement has been moved to <a class="reference external" href="https://github.com/chianti-atomic/ChiantiPy">Github</a>.</p>
-<p>Also, in order to be more compliant with other astrophysical packages on Github (<a href="#id1"><span class="problematic" id="id2">Astropy_</span></a> and <a class="reference external" href="https://github.com/sunpy/sunpy">SunPy</a>) the directory layout has been changed and renamed.</p>
+<p>Also, in order to be more compliant with other astrophysical packages on Github (<a class="reference external" href="https/github.com/astropy">Astropy</a> and <a class="reference external" href="https://github.com/sunpy/sunpy">SunPy</a>) the directory layout has been changed and renamed.</p>
 <p>The core routines are now imported as</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ChiantiPy.core</span> <span class="k">as</span> <span class="nn">ch</span>
 </pre></div>
@@ -166,17 +152,16 @@ the emission when the object is instantiated.</p>
         <li class="right" >
           <a href="resources.html" title="Resources for ChiantiPy Users"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">ChiantiPy 0.8.0 (alpha) documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">ChiantiPy 0.8.0 documentation</a> &#187;</li> 
       </ul>
     </div>
 <div style="padding: 20px 10px 10px 40px; background-color: #fff8d3; text-align: left;">
-<a href="http://sourceforge.net/projects/chiantipy"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=250481&amp;type=16" width="150" height="40" alt="Get ChiantiPy at SourceForge.net. Fast, secure and Free Open Source software downloads" /></a>
+
 
 </div>
     
     <div class="footer" role="contentinfo">
         &#169; Copyright 2018, Ken Dere.
-      Last updated on Oct 06, 2018.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.
     </div>
 

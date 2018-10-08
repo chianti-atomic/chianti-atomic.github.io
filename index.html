@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>ChiantiPy Documentation &#8212; ChiantiPy 0.8.0 (alpha) documentation</title>
+    <title>ChiantiPy Documentation &#8212; ChiantiPy 0.8.0 documentation</title>
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.8.0 (alpha)',
+        VERSION:     '0.8.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -22,7 +22,6 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="shortcut icon" href="_static/chianti2.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Getting started with ChiantiPy" href="getting_started.html" /> 
@@ -47,7 +46,7 @@
         <li class="right" >
           <a href="getting_started.html" title="Getting started with ChiantiPy"
              accesskey="N">next</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">ChiantiPy 0.8.0 (alpha) documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="#">ChiantiPy 0.8.0 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -55,13 +54,6 @@
   <h4>Next topic</h4>
   <p class="topless"><a href="getting_started.html"
                         title="next chapter">Getting started with ChiantiPy</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/index.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
@@ -83,9 +75,9 @@
   <div class="section" id="chiantipy-documentation">
 <h1>ChiantiPy Documentation<a class="headerlink" href="#chiantipy-documentation" title="Permalink to this headline">¶</a></h1>
 <p>Welcome to the ChiantiPy documentation. ChiantiPy is a pure Python package for performing calculations of astrophysical spectra using the <a class="reference external" href="http://www.chiantidatabase.org/">CHIANTI atomic database</a>.</p>
-<p>The latest version of ChiantiPy is 0.7.0 and is compatible with CHIANTI database version 8.0. It is not compatible with previous versions</p>
+<p>The latest version of ChiantiPy is 0.8.0 and is compatible with CHIANTI database version 8.0. It is not compatible with previous versions</p>
 <p>ChiantiPy v0.7.0 is released under a new license, the OSI approved ISC license. From <a class="reference external" href="https://en.wikipedia.org/w/index.php?title=ISC_license&amp;oldid=664696993">Wikipedia</a>: The ISC license is a permissive free software license written by the Internet Software Consortium (ISC). It is functionally equivalent to the simplified BSD and MIT/Expat licenses, …</p>
-<p><a class="reference external" href="http://www.chiantidatabase.org/">CHIANTI</a> consists of a database of atomic data that can be used to interpret spectral lines and continua emitted from high-temperature, optically-thin astrophysical sources. The CHIANTI project provides a suite of routines written in Interactive Data Language (IDL) to access the database and calculate various quantities of use in interpreting observed spectra or synthesizing spectra.</p>
+<p><a class="reference external" href="http://www.chiantidatabase.org/">CHIANTI</a> consists of a database of atomic data that can be used to interpret spectral lines and continua emitted from high-temperature, optically-thin astrophysical sources.</p>
 <p>CHIANTI is developed and maintained by scientists at George Mason University (USA), the University of Michigan (USA), and the University of Cambridge (UK). The first version of CHIANTI was released in 1997 and version 8.0 in 2016.</p>
 <div class="toctree-wrapper compound">
 <ul>
@@ -106,23 +98,35 @@
 <li class="toctree-l2"><a class="reference internal" href="quick_start.html#spectra-of-a-single-ion">Spectra of a single ion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quick_start.html#free-free-and-free-bound-continuum">Free-free and free-bound continuum</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quick_start.html#the-multi-ion-class-bunch">The multi-ion class Bunch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quick_start.html#spectra-of-multiple-ions-and-continuum">Spectra of multiple ions and continuum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick_start.html#spectra-of-multiple-ions-and-continuum">Spectra of multiple ions and continuum</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="quick_start.html#the-single-processor-spectrum-class">The single processor spectrum class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quick_start.html#the-multiple-processor-mspectrum-class">The multiple processor mspectrum class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quick_start.html#the-multiple-processor-ipymspectrum-class">The multiple processor ipymspectrum class</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="quick_start.html#radiative-loss-rate">Radiative loss rate</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tutorial.html#the-chiantipy-approach">The ChiantiPy Approach</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#the-chiantipy-approach">The ChiantiPy Approach</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#chiantipy-classes">ChiantiPy Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#chiantipy-classes-methods-and-attributes">ChiantiPy Classes, Methods and Attributes</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="tutorial.html#the-ion-class-basic-properties">The ion class, basic properties</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="code_ref/index.html">API Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="code_ref/chiantipy_tools.html">ChiantiPy Tools</a></li>
-<li class="toctree-l2"><a class="reference internal" href="code_ref/chiantipy_base.html">ChiantiPy Base Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="code_ref/chiantipy_core.html">ChiantiPy Core Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="code_ref/chiantipy_gui.html">ChiantiPy GUI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="code_ref/chiantipy_fortran.html">FortranFormat Reader Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">ChiantiPy’s API documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/ChiantiPy.html">ChiantiPy package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/ChiantiPy.html#subpackages">Subpackages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ChiantiPy.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ChiantiPy.html#module-ChiantiPy.version">ChiantiPy.version module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ChiantiPy.html#module-ChiantiPy">Module contents</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html#indices-and-tables">Indices and tables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notes.html">Notes</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="notes.html#setting-default-values">Setting default values</a></li>
 <li class="toctree-l2"><a class="reference internal" href="notes.html#setting-minabund-in-spectrum-calculations">Setting <em>minAbund</em> in spectrum calculations</a></li>
@@ -130,12 +134,11 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="IDL_intro.html">Intro for CHIANTI IDL Users</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Resources for ChiantiPy Users</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="resources.html#mailing-lists">Mailing Lists</a></li>
 <li class="toctree-l2"><a class="reference internal" href="resources.html#forums">Forums</a></li>
-<li class="toctree-l2"><a class="reference internal" href="resources.html#the-wiki">The Wiki</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-from-0-7-1-to-0-8-0">changes from 0.7.1 to 0.8.0</a></li>
 <li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-from-0-7-0-to-0-7-1">changes from 0.7.0 to 0.7.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-from-0-6-5-to-0-7-0">changes from 0.6.5 to 0.7.0</a></li>
 <li class="toctree-l2"><a class="reference internal" href="changelog.html#changes-from-0-6-0-to-0-6-5">changes from 0.6.0 to 0.6.5</a></li>
@@ -143,8 +146,26 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="bugs.html">Reporting Bugs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/modules.html">ChiantiPy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/ChiantiPy.html">ChiantiPy package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/ChiantiPy.html#subpackages">Subpackages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ChiantiPy.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ChiantiPy.html#module-ChiantiPy.version">ChiantiPy.version module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ChiantiPy.html#module-ChiantiPy">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
 </div>
 
 
@@ -165,17 +186,16 @@
         <li class="right" >
           <a href="getting_started.html" title="Getting started with ChiantiPy"
              >next</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">ChiantiPy 0.8.0 (alpha) documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="#">ChiantiPy 0.8.0 documentation</a> &#187;</li> 
       </ul>
     </div>
 <div style="padding: 20px 10px 10px 40px; background-color: #fff8d3; text-align: left;">
-<a href="http://sourceforge.net/projects/chiantipy"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=250481&amp;type=16" width="150" height="40" alt="Get ChiantiPy at SourceForge.net. Fast, secure and Free Open Source software downloads" /></a>
+
 
 </div>
     
     <div class="footer" role="contentinfo">
         &#169; Copyright 2018, Ken Dere.
-      Last updated on Oct 06, 2018.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.
     </div>
 

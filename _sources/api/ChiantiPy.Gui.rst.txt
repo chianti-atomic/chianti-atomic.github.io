@@ -1,5 +1,5 @@
-ChiantiPy.Gui package
-=====================
+ChiantiPy\.Gui package
+======================
 
 Subpackages
 -----------

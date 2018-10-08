@@ -1,11 +1,11 @@
-ChiantiPy.tests package
-=======================
+ChiantiPy\.tests package
+========================
 
 Submodules
 ----------
 
-ChiantiPy.tests.setup\_package module
--------------------------------------
+ChiantiPy\.tests\.setup\_package module
+---------------------------------------
 
 .. automodule:: ChiantiPy.tests.setup_package
     :members:

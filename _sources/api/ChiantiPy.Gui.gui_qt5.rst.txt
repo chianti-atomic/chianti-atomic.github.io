@@ -1,19 +1,19 @@
-ChiantiPy.Gui.gui\_qt5 package
-=============================
+ChiantiPy\.Gui\.gui\_qt5 package
+================================
 
 Submodules
 ----------
 
-ChiantiPy.Gui.gui\_qt5.gui module
---------------------------------
+ChiantiPy\.Gui\.gui\_qt5\.gui module
+------------------------------------
 
 .. automodule:: ChiantiPy.Gui.gui_qt5.gui
     :members:
     :undoc-members:
     :show-inheritance:
 
-ChiantiPy.Gui.gui\_qt5.ui module
--------------------------------
+ChiantiPy\.Gui\.gui\_qt5\.ui module
+-----------------------------------
 
 .. automodule:: ChiantiPy.Gui.gui_qt5.ui
     :members:
