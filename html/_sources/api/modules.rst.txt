@@ -1,0 +1,7 @@
+ChiantiPy
+=========
+
+.. toctree::
+   :maxdepth: 4
+
+   ChiantiPy
