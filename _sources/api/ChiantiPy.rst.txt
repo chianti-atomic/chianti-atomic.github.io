@@ -10,6 +10,7 @@ Subpackages
     ChiantiPy.base
     ChiantiPy.core
     ChiantiPy.fortranformat
+    ChiantiPy.model
     ChiantiPy.tests
     ChiantiPy.tools
 
