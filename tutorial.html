@@ -1,19 +1,16 @@
+<!DOCTYPE html>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" data-content_root="./">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Tutorial &#8212; ChiantiPy 0.8.7 documentation</title>
-    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Tutorial &#8212; ChiantiPy 0.15.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinxdoc.css?v=d11682b4" />
+    <script src="_static/documentation_options.js?v=4befc426"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="ChiantiPy’s API documentation" href="api/index.html" />
@@ -41,56 +38,38 @@
         <li class="right" >
           <a href="quick_start.html" title="Quick Start"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">ChiantiPy 0.8.7 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">ChiantiPy 0.15.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Tutorial</a></li> 
       </ul>
-    </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="quick_start.html"
-                        title="previous chapter">Quick Start</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="api/index.html"
-                        title="next chapter">ChiantiPy’s API documentation</a></p>
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
+    </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="tutorial">
-<h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="the-chiantipy-approach">
-<h2>The ChiantiPy Approach<a class="headerlink" href="#the-chiantipy-approach" title="Permalink to this headline">¶</a></h2>
+  <section id="tutorial">
+<h1>Tutorial<a class="headerlink" href="#tutorial" title="Link to this heading">¶</a></h1>
+<section id="the-chiantipy-approach">
+<h2>The ChiantiPy Approach<a class="headerlink" href="#the-chiantipy-approach" title="Link to this heading">¶</a></h2>
 <p>Python is a modern, object-oriented programming language.  It provides a number of features that are useful to the programmer and the end user, such as, classes with methods (function-like) and attributes (data), and functions, among other things.  ChiantiPy has been constructed so that the primary means to calculate the spectral properties of ions and groups of ions is by way of Python classes.</p>
 <p>More detailed information can be found in the <strong>API</strong> Reference.</p>
-<div class="section" id="chiantipy-classes">
-<h3>ChiantiPy Classes<a class="headerlink" href="#chiantipy-classes" title="Permalink to this headline">¶</a></h3>
+<section id="chiantipy-classes">
+<h3>ChiantiPy Classes<a class="headerlink" href="#chiantipy-classes" title="Link to this heading">¶</a></h3>
 <p>There are 7 basic classes that are provided by ChiantiPy.</p>
 <blockquote>
 <div><p><strong>ion</strong></p>
 <blockquote>
-<div>this class is very useful in itself and is the basic unit employed by all of the other classes</div></blockquote>
+<div><p>this class is very useful in itself and is the basic unit employed by all of the other classes</p>
+</div></blockquote>
 <p><strong>continuum</strong></p>
 <blockquote>
-<div>for calculating the free-free (<em>bremstrahlung</em>), free-bound (radiative recombination) continuum as well as the radiative loss rates due to these processes.</div></blockquote>
+<div><p>for calculating the free-free (<em>bremstrahlung</em>), free-bound (radiative recombination) continuum as well as the radiative loss rates due to these processes.</p>
+</div></blockquote>
 <p><strong>bunch</strong></p>
 <blockquote>
-<div>allows the user to specify a <em>bunch</em> of ions and to calculate the radiative properties of the selected ions in a group.  The ions can be specified by list of individual ions, list of elements, as well as by the minimum elemental abundance.  The properties of each ion are available, as with members of the <strong>ion</strong> class.  Among other things, the ratios of lines of different ions and elements can be calculated and then displayed.</div></blockquote>
+<div><p>allows the user to specify a <em>bunch</em> of ions and to calculate the radiative properties of the selected ions in a group.  The ions can be specified by list of individual ions, list of elements, as well as by the minimum elemental abundance.  The properties of each ion are available, as with members of the <strong>ion</strong> class.  Among other things, the ratios of lines of different ions and elements can be calculated and then displayed.</p>
+</div></blockquote>
 <p><strong>spectrum</strong></p>
 <blockquote>
 <div><p>the <strong>spectrum</strong> class calculates the intensities of the line and continuum and them convolves the complete spectrum with a filter such as a Gaussian of specified width</p>
@@ -98,19 +77,21 @@
 </div></blockquote>
 <p><strong>mspectrum</strong></p>
 <blockquote>
-<div><strong>mspectrum</strong> duplicates the calculations of the <strong>spectrum</strong> class but it employes the Python multiprocessing package in order to use multiple cpu cores to calculate the spectrum.  This class can be used in a basic Python shell, in a Python script, or in an IPython terminal.  It can not be used in either the Jupyter qtconsole or the Jupyter notebook.</div></blockquote>
+<div><p><strong>mspectrum</strong> duplicates the calculations of the <strong>spectrum</strong> class but it employes the Python multiprocessing package in order to use multiple cpu cores to calculate the spectrum.  This class can be used in a basic Python shell, in a Python script, or in an IPython terminal.  It can not be used in either the Jupyter qtconsole or the Jupyter notebook.</p>
+</div></blockquote>
 <p><strong>ipymspectrum</strong></p>
 <blockquote>
-<div>this class employes the IPython ipyparallel module to provide access to multiple cpu cores.  It can only be used in the Jupyter qtconsole and the Jupyter notebook.</div></blockquote>
+<div><p>this class employes the IPython ipyparallel module to provide access to multiple cpu cores.  It can only be used in the Jupyter qtconsole and the Jupyter notebook.</p>
+</div></blockquote>
 <p><strong>ioneq</strong></p>
 <blockquote>
 <div><p>this class allows the user to load and plot the ionization equilibria of a specfic element.  It can read the ionization equililbrium files in the CHIANTI $XUVTOP/ioneq directory.  Different ionization equilibria can be plotted against each other</p>
 <p>it is also possible to calculate the ionization equilibria of an individual element using the ionization and recombination rates in the CHIANTI database.  The results of this calculation can also be plotted agains existing calculations in the CHIANTI $XUVTOP/ioneq directory.</p>
 </div></blockquote>
 </div></blockquote>
-</div>
-<div class="section" id="chiantipy-classes-methods-and-attributes">
-<h3>ChiantiPy Classes, Methods and Attributes<a class="headerlink" href="#chiantipy-classes-methods-and-attributes" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="chiantipy-classes-methods-and-attributes">
+<h3>ChiantiPy Classes, Methods and Attributes<a class="headerlink" href="#chiantipy-classes-methods-and-attributes" title="Link to this heading">¶</a></h3>
 <p>Each of the ChiantiPy classes listed above has a number of methods for calculating various properties.  The results of these calculations are stored as attributes of the class that has been instantiatied (created).  In Python, all objects, which includes everything in Python, have introspection so that all methods and attributes can be discovered and used.  The IPython terminal and the Jupyter qtconsole both provide their own methods of easily displaying the methods and attributes.</p>
 <p>Some methods in each class are more useful to the user than others.  For example, below the populate() method is demonstrated below.  However, it is generally not necessary for the user to use the populate() method.  Methods that need the ion population will make use that the Population attribute is available and, if not, use the populate() method to create it.</p>
 <p>Below, the methods that are most likely of interest to users are listed below.  All of the available methods are presented and documented in the API section, a part of the ChiantiPy documentation.</p>
@@ -119,46 +100,59 @@
 <blockquote>
 <div><p><strong>popPlot()</strong> method</p>
 <blockquote>
-<div>plots the level populations of the <em>top</em> (most highly populated) levels as a function of temperature and/or density.</div></blockquote>
+<div><p>plots the level populations of the <em>top</em> (most highly populated) levels as a function of temperature and/or density.</p>
+</div></blockquote>
 <p><strong>gofnt()</strong> method</p>
 <blockquote>
-<div>an interactive method that plots the most intense lines of an ion in a give wavelength range (<em>wvlRange</em>) and allows the user to select a line or several lines, that will be summed, and then plots the <em>GofT</em> function for the selected lines and saves these values in the <strong>Gofnt</strong> dictionary as an attribute of the ion object.</div></blockquote>
+<div><p>an interactive method that plots the most intense lines of an ion in a give wavelength range (<em>wvlRange</em>) and allows the user to select a line or several lines, that will be summed, and then plots the <em>GofT</em> function for the selected lines and saves these values in the <strong>Gofnt</strong> dictionary as an attribute of the ion object.</p>
+</div></blockquote>
 <p><strong>emiss()</strong> method</p>
 <blockquote>
-<div>calculates the spectral line emissivities of the ion and saves these in the <strong>Emiss</strong> dictionary as an attribute of the ion object.</div></blockquote>
+<div><p>calculates the spectral line emissivities of the ion and saves these in the <strong>Emiss</strong> dictionary as an attribute of the ion object.</p>
+</div></blockquote>
 <p><strong>intensity()</strong> method</p>
 <blockquote>
-<div>calculates the <em>intensity</em> of the specified ion as a function of temperature and density.  These properties are saved in the <strong>Intensity</strong> dictionary, available as an attribute of the ion.</div></blockquote>
+<div><p>calculates the <em>intensity</em> of the specified ion as a function of temperature and density.  These properties are saved in the <strong>Intensity</strong> dictionary, available as an attribute of the ion.</p>
+</div></blockquote>
 <p><strong>intensityList()</strong> method</p>
 <blockquote>
-<div>lists the spectral line intensities in a given wavelength range (<em>wvlRange</em>) in an interactive terminal or notebook</div></blockquote>
+<div><p>lists the spectral line intensities in a given wavelength range (<em>wvlRange</em>) in an interactive terminal or notebook</p>
+</div></blockquote>
 <p><strong>intensityPlot()</strong> method</p>
 <blockquote>
-<div>plots the spectral line intensites in a given wavelength range (<em>wvlRange</em>) for the <em>top</em> most intensity lines.</div></blockquote>
+<div><p>plots the spectral line intensites in a given wavelength range (<em>wvlRange</em>) for the <em>top</em> most intensity lines.</p>
+</div></blockquote>
 <p><strong>intensityRatio()</strong> method</p>
 <blockquote>
-<div>an interactive method that plots the most intense lines of an ion in a give wavelength range (<em>wvlRange</em>) and allows the user to select a pair of lines or a pair of lines to be summed and then plots the intensity ratio as a function of temperature and/or density.  The ratio is saved in the <strong>IntensityRatio</strong> dictionary as an attribute of the ion.</div></blockquote>
+<div><p>an interactive method that plots the most intense lines of an ion in a give wavelength range (<em>wvlRange</em>) and allows the user to select a pair of lines or a pair of lines to be summed and then plots the intensity ratio as a function of temperature and/or density.  The ratio is saved in the <strong>IntensityRatio</strong> dictionary as an attribute of the ion.</p>
+</div></blockquote>
 <p><strong>spectrum()</strong> method</p>
 <blockquote>
-<div>calculates the spectrum of the ion as a function of wavelength.  The spectral line intensities are pass through a selectable filter to simulate the spectrometer line profile.  The spectrum is save in the <strong>Spectrum</strong> dictionary as an attribute of the ion.</div></blockquote>
+<div><p>calculates the spectrum of the ion as a function of wavelength.  The spectral line intensities are pass through a selectable filter to simulate the spectrometer line profile.  The spectrum is save in the <strong>Spectrum</strong> dictionary as an attribute of the ion.</p>
+</div></blockquote>
 <p><strong>ionizRate()</strong> method</p>
 <blockquote>
-<div>calculates the ionization rate coefficient as a function of temperature.  The rate coefficient is save in the <strong>IonizRate</strong> dictionary as an attribute.  Uses the methods <strong>diRate()</strong> and <strong>eaRate()</strong> to first calculate the direct and excitation-ionization (ea) rate coefficients and sums them.</div></blockquote>
+<div><p>calculates the ionization rate coefficient as a function of temperature.  The rate coefficient is save in the <strong>IonizRate</strong> dictionary as an attribute.  Uses the methods <strong>diRate()</strong> and <strong>eaRate()</strong> to first calculate the direct and excitation-ionization (ea) rate coefficients and sums them.</p>
+</div></blockquote>
 <p><strong>recombRate()</strong> method</p>
 <blockquote>
-<div>calculates the recombination rate coefficient as a function of temperature.  The rate coefficient is save in the <strong>RecombRate</strong> dictionary as an attribute.    Uses the methods <strong>rrRate()</strong> and <strong>drRate()</strong> to first calculate the radiative recombination and dielectronic recombination rate coefficients and sums them.</div></blockquote>
+<div><p>calculates the recombination rate coefficient as a function of temperature.  The rate coefficient is save in the <strong>RecombRate</strong> dictionary as an attribute.    Uses the methods <strong>rrRate()</strong> and <strong>drRate()</strong> to first calculate the radiative recombination and dielectronic recombination rate coefficients and sums them.</p>
+</div></blockquote>
 </div></blockquote>
 <p><strong>ioneq</strong></p>
 <blockquote>
 <div><p><strong>load()</strong> method</p>
 <blockquote>
-<div>reads a selected, existing ionization equilibrium calculation for a given element and saves it as a numpy array <strong>Ioneq</strong> as an attribute of the object.</div></blockquote>
+<div><p>reads a selected, existing ionization equilibrium calculation for a given element and saves it as a numpy array <strong>Ioneq</strong> as an attribute of the object.</p>
+</div></blockquote>
 <p><strong>calculate()</strong> method</p>
 <blockquote>
-<div>calculates the ionization equilibrium of a selected element from the CHIANTI ionization and recombination rates for a specified temperature(s) and saves it as a numpy array <strong>Ioneq</strong> as an attribute of the object.</div></blockquote>
+<div><p>calculates the ionization equilibrium of a selected element from the CHIANTI ionization and recombination rates for a specified temperature(s) and saves it as a numpy array <strong>Ioneq</strong> as an attribute of the object.</p>
+</div></blockquote>
 <p><strong>plot()</strong> method</p>
 <blockquote>
-<div>plots the loaded or calculated ionization equilibrium.  Various parameters can be specified to plot only those aspects that are desired.  Can also plot an additional existing ionization equilibrium for comparison</div></blockquote>
+<div><p>plots the loaded or calculated ionization equilibrium.  Various parameters can be specified to plot only those aspects that are desired.  Can also plot an additional existing ionization equilibrium for comparison</p>
+</div></blockquote>
 </div></blockquote>
 <p><strong>bunch</strong></p>
 <blockquote>
@@ -178,28 +172,33 @@
 <p>beyond the init method, the <strong>spectrum</strong> class also inherits the same methods as the <strong>bunch</strong> class including <strong>intensityList()</strong>, <strong>intensityPlot</strong>, and <strong>intensityRatio</strong>.</p>
 <p><strong>convolve()</strong></p>
 <blockquote>
-<div>convolves the line spectrum with specified filter from <strong>ChiantiPy.tools.filters</strong> using a specified width.</div></blockquote>
+<div><p>convolves the line spectrum with specified filter from <strong>ChiantiPy.tools.filters</strong> using a specified width.</p>
+</div></blockquote>
 <p><strong>lineSpectrumPlot()</strong></p>
 <blockquote>
-<div>plots the convolved line spectrum as a function wavelength</div></blockquote>
+<div><p>plots the convolved line spectrum as a function wavelength</p>
+</div></blockquote>
 <p><strong>spectrumPlot()</strong></p>
 <blockquote>
-<div>plots the spectrum calculated by the init method.  The summed (integrated) spectrum can be plotted or the spectrum for a specific temperature can be plotted.</div></blockquote>
+<div><p>plots the spectrum calculated by the init method.  The summed (integrated) spectrum can be plotted or the spectrum for a specific temperature can be plotted.</p>
+</div></blockquote>
 </div></blockquote>
 <p><strong>mspectrum</strong></p>
 <blockquote>
-<div>the mspectrum behaves in the same way as the <strong>spectrum</strong> class except that it invokes the Python multiprocessing module so that the calculations are made using a specified number of cpu cores.  <strong>mspectrum</strong> can not be used in the Jupyter qtconsole or notebook.</div></blockquote>
+<div><p>the mspectrum behaves in the same way as the <strong>spectrum</strong> class except that it invokes the Python multiprocessing module so that the calculations are made using a specified number of cpu cores.  <strong>mspectrum</strong> can not be used in the Jupyter qtconsole or notebook.</p>
+</div></blockquote>
 <p><strong>ipymspectrum</strong></p>
 <blockquote>
-<div>the ipymspectrum behaves in the same way as the <strong>spectrum</strong> class except that it invokes the IPython ipyparallel module so that the calculations are made using a specified number of cpu cores.  <strong>ipymspectrum</strong> can only be used in the IPython terminal or the Jupyter qtconsole or notebook.</div></blockquote>
+<div><p>the ipymspectrum behaves in the same way as the <strong>spectrum</strong> class except that it invokes the IPython ipyparallel module so that the calculations are made using a specified number of cpu cores.  <strong>ipymspectrum</strong> can only be used in the IPython terminal or the Jupyter qtconsole or notebook.</p>
 </div></blockquote>
-</div>
-</div>
-<div class="section" id="the-ion-class-basic-properties">
-<h2>The ion class, basic properties<a class="headerlink" href="#the-ion-class-basic-properties" title="Permalink to this headline">¶</a></h2>
+</div></blockquote>
+</section>
+</section>
+<section id="the-ion-class-basic-properties">
+<h2>The ion class, basic properties<a class="headerlink" href="#the-ion-class-basic-properties" title="Link to this heading">¶</a></h2>
 <p>Bring up a Python session, or better yet, an IPython session</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ChiantiPy.core</span> <span class="k">as</span> <span class="nn">ch</span>
-<span class="n">fe14</span> <span class="o">=</span> <span class="n">ch</span><span class="o">.</span><span class="n">ion</span><span class="p">(</span><span class="s1">&#39;fe_14&#39;</span><span class="p">)</span>
+<span class="n">fe14</span> <span class="o">=</span> <span class="n">ch</span><span class="o">.</span><span class="n">ion</span><span class="p">(</span><span class="s1">&#39;fe_14&#39;</span><span class="p">,</span> <span class="n">setup</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The fe14 object is instantiated with a number of methods and data.  Methods start with lowercase letters and attributes start with uppercase letters.  It is best not to simply import ion as there is a method with the same name in matplotlib.  A few examples:</p>
@@ -238,7 +237,7 @@
   <span class="o">&gt;&gt;</span>  <span class="p">{</span><span class="s1">&#39;abundfile&#39;</span><span class="p">:</span> <span class="s1">&#39;sun_photospheric_1998_grevesse&#39;</span><span class="p">,</span> <span class="s1">&#39;flux&#39;</span><span class="p">:</span> <span class="s1">&#39;energy&#39;</span><span class="p">,</span> <span class="s1">&#39;ioneqfile&#39;</span><span class="p">:</span> <span class="s1">&#39;chianti&#39;</span><span class="p">,</span> <span class="s1">&#39;wavelength&#39;</span><span class="p">:</span> <span class="s1">&#39;angstrom&#39;</span><span class="p">}</span>
 </pre></div>
 </div>
-<p>the defaults can be specified by the user in the ~/.chiantirc/chiantrc file.  One is included in the distribution but it must be placed in ~/.chiantirc for it to be read.  If it is not found, a set of coded default values are used.</p>
+<p>the defaults can be specified by the user in the chiantrc file.  One is included in the distribution but needs to be place in the proper directory to be picked up.  On Linux, it should be placed either in $HOME/.config or $HOME/.chianti.  On Windows, it should be copied to $PROFILEHOME/.config or $PROFILEHOME/.chianti.    If it is not found, a set of coded default values are used.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fe14</span><span class="o">.</span><span class="n">Elvlc</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
 <span class="o">&gt;&gt;</span>  <span class="p">[</span><span class="s1">&#39;ecmth&#39;</span><span class="p">,</span> <span class="s1">&#39;term&#39;</span><span class="p">,</span> <span class="s1">&#39;ref&#39;</span><span class="p">,</span> <span class="s1">&#39;pretty&#39;</span><span class="p">,</span> <span class="s1">&#39;spd&#39;</span><span class="p">,</span> <span class="s1">&#39;ecm&#39;</span><span class="p">,</span> <span class="s1">&#39;j&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;erydth&#39;</span><span class="p">,</span> <span class="s1">&#39;conf&#39;</span><span class="p">,</span> <span class="s1">&#39;lvl&#39;</span><span class="p">,</span> <span class="s1">&#39;spin&#39;</span><span class="p">,</span> <span class="s1">&#39;eryd&#39;</span><span class="p">,</span> <span class="s1">&#39;mult&#39;</span><span class="p">]</span>
 </pre></div>
@@ -263,9 +262,9 @@
 </div>
 <p>If the fe14 <strong>ion</strong> object had be instantiated (created) with a temperature and an electron density, then many more attributes can be calculated.  For example, if the populate() method is used, it creates a dictionary attribute <em>Population</em>.  One thing to remember with Python is that capitalization matters.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="n">t</span> <span class="o">=</span> <span class="mf">10.</span><span class="o">**</span><span class="p">(</span><span class="mf">5.8</span><span class="o">+</span><span class="mf">0.1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">11</span><span class="p">))</span>
+<span class="n">temp</span> <span class="o">=</span> <span class="mf">10.</span><span class="o">**</span><span class="p">(</span><span class="mf">5.8</span><span class="o">+</span><span class="mf">0.1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">11</span><span class="p">))</span>
 <span class="n">dens</span> <span class="o">=</span> <span class="mf">1.e+9</span>
-<span class="n">fe14</span> <span class="o">=</span> <span class="n">ch</span><span class="o">.</span><span class="n">ion</span><span class="p">(</span><span class="s1">&#39;fe_14&#39;</span><span class="p">)</span>
+<span class="n">fe14</span> <span class="o">=</span> <span class="n">ch</span><span class="o">.</span><span class="n">ion</span><span class="p">(</span><span class="s1">&#39;fe_14&#39;</span><span class="p">,</span> <span class="n">temp</span><span class="p">,</span> <span class="n">dens</span><span class="p">)</span>
 <span class="n">fe14</span><span class="o">.</span><span class="n">populate</span><span class="p">()</span>
 <span class="n">fe14</span><span class="o">.</span><span class="n">Population</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
 <span class="o">&gt;&gt;</span><span class="p">[</span><span class="s1">&#39;ci&#39;</span><span class="p">,</span> <span class="s1">&#39;protonDensity&#39;</span><span class="p">,</span> <span class="s1">&#39;popmat&#39;</span><span class="p">,</span> <span class="s1">&#39;eDensity&#39;</span><span class="p">,</span> <span class="s1">&#39;rec&#39;</span><span class="p">,</span> <span class="s1">&#39;population&#39;</span><span class="p">,</span> <span class="s1">&#39;temperature&#39;</span><span class="p">]</span>
@@ -282,11 +281,36 @@
 </div>
 <p>gives the population of the first 5 of 739 levels of Fe XIV at a temperature of 2.00e+6</p>
 <p>to be continued</p>
-</div>
-</div>
+</section>
+</section>
 
 
+            <div class="clearer"></div>
           </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="quick_start.html"
+                          title="previous chapter">Quick Start</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="api/index.html"
+                          title="next chapter">ChiantiPy’s API documentation</a></p>
+  </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -306,7 +330,8 @@
         <li class="right" >
           <a href="quick_start.html" title="Quick Start"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">ChiantiPy 0.8.7 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">ChiantiPy 0.15.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Tutorial</a></li> 
       </ul>
     </div>
 <div style="padding: 20px 10px 10px 40px; background-color: #fff8d3; text-align: left;">
@@ -315,8 +340,8 @@
 </div>
     
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2019, Ken Dere.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.
+    &#169; Copyright 2023, Ken Dere.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
 
   </body>
