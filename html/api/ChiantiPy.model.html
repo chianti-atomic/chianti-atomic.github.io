@@ -1,0 +1,321 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>ChiantiPy.Gui package &#8212; ChiantiPy 0.9.0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ChiantiPy.tests package" href="ChiantiPy.tests.html" />
+    <link rel="prev" title="ChiantiPy.fortranformat package" href="ChiantiPy.fortranformat.html" /> 
+  </head><body>
+<div style="padding: 20px 10px 10px 40px; background-color: #fff8d3; text-align: left;">
+<a href="">
+<img border="0" alt="chiantipy" src="_static/chiantipy_logo.png"/>
+</a>
+</div>
+    
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ChiantiPy.tests.html" title="ChiantiPy.tests package"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ChiantiPy.fortranformat.html" title="ChiantiPy.fortranformat package"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">ChiantiPy 0.9.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >ChiantiPy’s API documentation</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="ChiantiPy.html" accesskey="U">ChiantiPy package</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ChiantiPy.fortranformat.html"
+                        title="previous chapter">ChiantiPy.fortranformat package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ChiantiPy.tests.html"
+                        title="next chapter">ChiantiPy.tests package</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="chiantipy-gui-package">
+<h1>ChiantiPy.Gui package<a class="headerlink" href="#chiantipy-gui-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-ChiantiPy.model.Maker">
+<span id="chiantipy-model-maker-module"></span><h2>ChiantiPy.model.Maker module<a class="headerlink" href="#module-ChiantiPy.model.Maker" title="Permalink to this headline">¶</a></h2>
+<p>classes and methods to analyze observations of astrophysical spectra</p>
+<dl class="function">
+<dt id="ChiantiPy.model.Maker.doDemGofntQ">
+<code class="descclassname">ChiantiPy.model.Maker.</code><code class="descname">doDemGofntQ</code><span class="sig-paren">(</span><em>inQueue</em>, <em>outQueue</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.model.Maker.doDemGofntQ" title="Permalink to this definition">¶</a></dt>
+<dd><p>helper for multiprocessing with maker.mgofnt()</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.model.Maker.makeMatchPkl">
+<code class="descclassname">ChiantiPy.model.Maker.</code><code class="descname">makeMatchPkl</code><span class="sig-paren">(</span><em>specData</em>, <em>temp</em>, <em>dens</em>, <em>wghtFactor=0.25</em>, <em>abundanceName=None</em>, <em>minAbund=1e-06</em>, <em>useMgofnt=1</em>, <em>verbose=0</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.model.Maker.makeMatchPkl" title="Permalink to this definition">¶</a></dt>
+<dd><p>input a data dictionary and instantiate a dem class,
+and run mgofnt and then make a pickle file
+to use multiprocessing, this needs to be run in an ipython console</p>
+<p>Parameters</p>
+<dl class="docutils">
+<dt>specData <span class="classifier-delimiter">:</span> <span class="classifier">dict</span></dt>
+<dd>the observed line intensities, wavelegths …</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="ChiantiPy.model.Maker.maker">
+<em class="property">class </em><code class="descclassname">ChiantiPy.model.Maker.</code><code class="descname">maker</code><span class="sig-paren">(</span><em>specData</em>, <em>wghtFactor=0.0</em>, <em>ionList=False</em>, <em>allLines=True</em>, <em>abundanceName=None</em>, <em>minAbund=1e-06</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.model.Maker.maker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="ChiantiPy.base.html#ChiantiPy.base._IonTrails.ionTrails" title="ChiantiPy.base._IonTrails.ionTrails"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChiantiPy.base._IonTrails.ionTrails</span></code></a></p>
+<p>a class matching observed lines to lines in the CHIANTI database</p>
+<dl class="method">
+<dt id="ChiantiPy.model.Maker.maker.argCheck">
+<code class="descname">argCheck</code><span class="sig-paren">(</span><em>temperature=None</em>, <em>eDensity=None</em>, <em>pDensity='default'</em>, <em>verbose=0</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.model.Maker.maker.argCheck" title="Permalink to this definition">¶</a></dt>
+<dd><p>to check the compatibility of the three arguments
+and put them into numpy arrays of atleast_1d</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.model.Maker.maker.diffPrintChi">
+<code class="descname">diffPrintChi</code><span class="sig-paren">(</span><em>dir='.'</em>, <em>filename='diffPrintChi.txt'</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.model.Maker.maker.diffPrintChi" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculates the weighted and straight differences between observed and predicted
+prints the values saves the as a dictionary self.Diff
+to be used together with a prior brute-force chi-squared minimization approach</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.model.Maker.maker.diffPrintMc">
+<code class="descname">diffPrintMc</code><span class="sig-paren">(</span><em>dir='.'</em>, <em>filename='diffPrintMc.txt'</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.model.Maker.maker.diffPrintMc" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculates the weighted and straight differences between observed and predicted
+prints the values saves to a file from a PyMC run</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.model.Maker.maker.emFitPlot">
+<code class="descname">emFitPlot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.model.Maker.maker.emFitPlot" title="Permalink to this definition">¶</a></dt>
+<dd><p>to plot the emission measures derived from search over temperature</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.model.Maker.maker.emNtSetIndices">
+<code class="descname">emNtSetIndices</code><span class="sig-paren">(</span><em>indices</em>, <em>verbose=0</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.model.Maker.maker.emNtSetIndices" title="Permalink to this definition">¶</a></dt>
+<dd><p>to set the indices of the N temperature EM distribution</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.model.Maker.maker.emPlot">
+<code class="descname">emPlot</code><span class="sig-paren">(</span><em>vs='T'</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.model.Maker.maker.emPlot" title="Permalink to this definition">¶</a></dt>
+<dd><p>to plot line intensities divided by gofnt</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.model.Maker.maker.emSet">
+<code class="descname">emSet</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.model.Maker.maker.emSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets the EM values for a N temperature EM distribution</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.model.Maker.maker.emSetIndices">
+<code class="descname">emSetIndices</code><span class="sig-paren">(</span><em>indices</em>, <em>verbose=0</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.model.Maker.maker.emSetIndices" title="Permalink to this definition">¶</a></dt>
+<dd><p>to set the indices of the N temperature/density EM distribution</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.model.Maker.maker.findMinMaxIndices">
+<code class="descname">findMinMaxIndices</code><span class="sig-paren">(</span><em>verbose=0</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.model.Maker.maker.findMinMaxIndices" title="Permalink to this definition">¶</a></dt>
+<dd><p>to find the minimum and maximum indices where all match[‘intensitySum’] are
+greater than 0</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.model.Maker.maker.fit1t">
+<code class="descname">fit1t</code><span class="sig-paren">(</span><em>initialValue</em>, <em>maxfev=0</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.model.Maker.maker.fit1t" title="Permalink to this definition">¶</a></dt>
+<dd><p>calls leastsq to fit the 1t (single temperature) model</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.model.Maker.maker.fitFunc1t">
+<code class="descname">fitFunc1t</code><span class="sig-paren">(</span><em>em</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.model.Maker.maker.fitFunc1t" title="Permalink to this definition">¶</a></dt>
+<dd><p>the fitting function for the isothermal model to be called by leastsq</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>em</strong> (<em>number</em>) – the log10 value of the emission measure</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>weighted chisquared</strong></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)">float</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.model.Maker.maker.fitFuncNt">
+<code class="descname">fitFuncNt</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.model.Maker.maker.fitFuncNt" title="Permalink to this definition">¶</a></dt>
+<dd><p>the fitting function for the 1  (single temperature) temperature model to be called by leastsq</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.model.Maker.maker.fitNt">
+<code class="descname">fitNt</code><span class="sig-paren">(</span><em>initialValue</em>, <em>maxfev=0</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.model.Maker.maker.fitNt" title="Permalink to this definition">¶</a></dt>
+<dd><p>calls leastsq to fit the 2d model</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.model.Maker.maker.getChisq">
+<code class="descname">getChisq</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.model.Maker.maker.getChisq" title="Permalink to this definition">¶</a></dt>
+<dd><p>return chisq</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.model.Maker.maker.getNormalizedChisq">
+<code class="descname">getNormalizedChisq</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.model.Maker.maker.getNormalizedChisq" title="Permalink to this definition">¶</a></dt>
+<dd><p>return normalized chisq</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.model.Maker.maker.getWeightedDiff">
+<code class="descname">getWeightedDiff</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.model.Maker.maker.getWeightedDiff" title="Permalink to this definition">¶</a></dt>
+<dd><p>to calculated the weighted difference of each of the intensities
+returns a 1D array</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.model.Maker.maker.gofnt">
+<code class="descname">gofnt</code><span class="sig-paren">(</span><em>temperature</em>, <em>density</em>, <em>verbose=1</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.model.Maker.maker.gofnt" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate the gofnt function for each of the matched lines
+do each ion only once</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.model.Maker.maker.mgofnt">
+<code class="descname">mgofnt</code><span class="sig-paren">(</span><em>temperature</em>, <em>density</em>, <em>proc=6</em>, <em>timeout=0.1</em>, <em>verbose=0</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.model.Maker.maker.mgofnt" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate the gofnt function for each of the matched lines
+this is the multiprocessing version
+do each ion only once</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.model.Maker.maker.predict">
+<code class="descname">predict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.model.Maker.maker.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>to predict the intensities of the observed lines from an emission measure
+the emission measure is already specified as self.Em which is an np array</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.model.Maker.maker.predictPrint">
+<code class="descname">predictPrint</code><span class="sig-paren">(</span><em>minContribution=0.1</em>, <em>outfile=0</em>, <em>verbose=0</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.model.Maker.maker.predictPrint" title="Permalink to this definition">¶</a></dt>
+<dd><p>to predict the intensities of the observed lines from an emission measure
+the emission measure is already specified as self.Em which is an np array</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.model.Maker.maker.predictPrint1d">
+<code class="descname">predictPrint1d</code><span class="sig-paren">(</span><em>minContribution=0.1</em>, <em>outfile=0</em>, <em>verbose=0</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.model.Maker.maker.predictPrint1d" title="Permalink to this definition">¶</a></dt>
+<dd><p>to predict the intensities of the observed lines from an emission measure
+the emission measure is already specified as self.Em which is an np array</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.model.Maker.maker.search1dSpace">
+<code class="descname">search1dSpace</code><span class="sig-paren">(</span><em>initialEm</em>, <em>indxlimits=None</em>, <em>verbose=0</em>, <em>log=0</em>, <em>maxfev=0</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.model.Maker.maker.search1dSpace" title="Permalink to this definition">¶</a></dt>
+<dd><p>to conduct a brute force search over electron density for an isothermal-space and find the
+best fit to the em and density
+indxlimits give the range of indices to fit over
+can use self.MinIndex and self.MaxIndex+1
+initialEm = log value of the emission measure to begin the searching</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.model.Maker.maker.search1tEmSpace">
+<code class="descname">search1tEmSpace</code><span class="sig-paren">(</span><em>verbose=0</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.model.Maker.maker.search1tEmSpace" title="Permalink to this definition">¶</a></dt>
+<dd><p>to find the value of chisq as a function of Em with T = best-fit</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ChiantiPy.model">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-ChiantiPy.model" title="Permalink to this headline">¶</a></h2>
+<p>classes and methods for modeling observed spectra.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ChiantiPy.tests.html" title="ChiantiPy.tests package"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ChiantiPy.fortranformat.html" title="ChiantiPy.fortranformat package"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">ChiantiPy 0.9.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >ChiantiPy’s API documentation</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="ChiantiPy.html" >ChiantiPy package</a> &#187;</li> 
+      </ul>
+    </div>
+<div style="padding: 20px 10px 10px 40px; background-color: #fff8d3; text-align: left;">
+
+
+</div>
+    
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Ken Dere.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.
+    </div>
+
+  </body>
+</html>
