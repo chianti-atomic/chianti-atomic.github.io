@@ -1,16 +1,18 @@
+
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-
     <title>ChiantiPy.core package &#8212; ChiantiPy 0.15.1 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinxdoc.css?v=d11682b4" />
-    <script src="../_static/documentation_options.js?v=4befc426"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="ChiantiPy.core.tests package" href="ChiantiPy.core.tests.html" />
@@ -40,96 +42,1307 @@
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">ChiantiPy 0.15.1 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >ChiantiPy’s API documentation</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="ChiantiPy.html" accesskey="U">ChiantiPy package</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">ChiantiPy.core package</a></li> 
+          <li class="nav-item nav-item-2"><a href="ChiantiPy.html" accesskey="U">ChiantiPy package</a> &#187;</li> 
       </ul>
-    </div>  
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ChiantiPy.base.html"
+                        title="previous chapter">ChiantiPy.base package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ChiantiPy.core.tests.html"
+                        title="next chapter">ChiantiPy.core.tests package</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="chiantipy-core-package">
-<h1>ChiantiPy.core package<a class="headerlink" href="#chiantipy-core-package" title="Link to this heading">¶</a></h1>
-<section id="subpackages">
-<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading">¶</a></h2>
+  <div class="section" id="chiantipy-core-package">
+<h1>ChiantiPy.core package<a class="headerlink" href="#chiantipy-core-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="ChiantiPy.core.tests.html">ChiantiPy.core.tests package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="ChiantiPy.core.tests.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ChiantiPy.core.tests.html#chiantipy-core-tests-test-continuum-module">ChiantiPy.core.tests.test_Continuum module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ChiantiPy.core.tests.html#chiantipy-core-tests-test-ion-module">ChiantiPy.core.tests.test_Ion module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ChiantiPy.core.tests.html#chiantipy-core-tests-test-ioneq-module">ChiantiPy.core.tests.test_Ioneq module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ChiantiPy.core.tests.html#chiantipy-core-tests-test-spectrum-module">ChiantiPy.core.tests.test_Spectrum module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ChiantiPy.core.tests.html#module-contents">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ChiantiPy.core.tests.html#module-ChiantiPy.core.tests.test_Continuum">ChiantiPy.core.tests.test_Continuum module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ChiantiPy.core.tests.html#module-ChiantiPy.core.tests.test_Ion">ChiantiPy.core.tests.test_Ion module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ChiantiPy.core.tests.html#module-ChiantiPy.core.tests.test_Ioneq">ChiantiPy.core.tests.test_Ioneq module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ChiantiPy.core.tests.html#module-ChiantiPy.core.tests.test_Spectrum">ChiantiPy.core.tests.test_Spectrum module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ChiantiPy.core.tests.html#module-ChiantiPy.core.tests">Module contents</a></li>
 </ul>
 </li>
 </ul>
 </div>
-</section>
-<section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
-</section>
-<section id="chiantipy-core-continuum-module">
-<h2>ChiantiPy.core.Continuum module<a class="headerlink" href="#chiantipy-core-continuum-module" title="Link to this heading">¶</a></h2>
-</section>
-<section id="chiantipy-core-ion-module">
-<h2>ChiantiPy.core.Ion module<a class="headerlink" href="#chiantipy-core-ion-module" title="Link to this heading">¶</a></h2>
-</section>
-<section id="chiantipy-core-ioneq-module">
-<h2>ChiantiPy.core.Ioneq module<a class="headerlink" href="#chiantipy-core-ioneq-module" title="Link to this heading">¶</a></h2>
-</section>
-<section id="chiantipy-core-ipymspectrum-module">
-<h2>ChiantiPy.core.IpyMspectrum module<a class="headerlink" href="#chiantipy-core-ipymspectrum-module" title="Link to this heading">¶</a></h2>
-</section>
-<section id="chiantipy-core-mspectrum-module">
-<h2>ChiantiPy.core.Mspectrum module<a class="headerlink" href="#chiantipy-core-mspectrum-module" title="Link to this heading">¶</a></h2>
-</section>
-<section id="chiantipy-core-radloss-module">
-<h2>ChiantiPy.core.RadLoss module<a class="headerlink" href="#chiantipy-core-radloss-module" title="Link to this heading">¶</a></h2>
-</section>
-<section id="chiantipy-core-mradloss-module">
-<h2>ChiantiPy.core.MradLoss module<a class="headerlink" href="#chiantipy-core-mradloss-module" title="Link to this heading">¶</a></h2>
-</section>
-<section id="chiantipy-core-bunch-module">
-<h2>ChiantiPy.core.Bunch module<a class="headerlink" href="#chiantipy-core-bunch-module" title="Link to this heading">¶</a></h2>
-</section>
-<section id="chiantipy-core-spectrum-module">
-<h2>ChiantiPy.core.Spectrum module<a class="headerlink" href="#chiantipy-core-spectrum-module" title="Link to this heading">¶</a></h2>
-</section>
-<section id="module-contents">
-<h2>Module contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
-</section>
-</section>
-
-
-            <div class="clearer"></div>
-          </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="ChiantiPy.base.html"
-                          title="previous chapter">ChiantiPy.base package</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="ChiantiPy.core.tests.html"
-                          title="next chapter">ChiantiPy.core.tests package</a></p>
-  </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
 </div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-ChiantiPy.core.Continuum">
+<span id="chiantipy-core-continuum-module"></span><h2>ChiantiPy.core.Continuum module<a class="headerlink" href="#module-ChiantiPy.core.Continuum" title="Permalink to this headline">¶</a></h2>
+<p>Continuum module</p>
+<dl class="class">
+<dt id="ChiantiPy.core.Continuum.continuum">
+<em class="property">class </em><code class="sig-prename descclassname">ChiantiPy.core.Continuum.</code><code class="sig-name descname">continuum</code><span class="sig-paren">(</span><em class="sig-param">ionStr</em>, <em class="sig-param">temperature</em>, <em class="sig-param">abundance=None</em>, <em class="sig-param">em=None</em>, <em class="sig-param">verbose=0</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Continuum.continuum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="ChiantiPy.base.html#ChiantiPy.base._IonTrails.ionTrails" title="ChiantiPy.base._IonTrails.ionTrails"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChiantiPy.base._IonTrails.ionTrails</span></code></a></p>
+<p>The top level class for continuum calculations. Includes methods for the calculation of the
+free-free and free-bound continua.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ionStr</strong> (<cite>str</cite>) – CHIANTI notation for the given ion, e.g. ‘fe_12’ that corresponds to the Fe XII ion.</p></li>
+<li><p><strong>temperature</strong> (<em>array-like</em>) – In units of Kelvin</p></li>
+</ul>
+</dd>
+<dt class="field-even">Keyword Arguments</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>abundance</strong> (<cite>float</cite>, <cite>str</cite>, optional) – Elemental abundance relative to Hydrogen or name of CHIANTI abundance file,
+without the ‘.abund’ suffix, e.g. ‘sun_photospheric_1998_grevesse’.</p></li>
+<li><p><strong>em</strong> (<em>array-like</em><em>, </em><em>optional</em>) – Line-of-sight emission measure (<span class="math notranslate nohighlight">\(\int\mathrm{d}l\,n_en_H\)</span>), in units of
+<span class="math notranslate nohighlight">\(\mathrm{cm}^{-5}\)</span>, or the volumetric emission measure (<span class="math notranslate nohighlight">\(\int\mathrm{d}V\,n_en_H\)</span>)
+in units of <span class="math notranslate nohighlight">\(\mathrm{cm}^{-3}\)</span>.</p></li>
+<li><p><strong>verbose</strong> (<cite>bool</cite>) – if True, prints additional info to the console</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ChiantiPy.core</span> <span class="k">as</span> <span class="nn">ch</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">temperature</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cont</span> <span class="o">=</span> <span class="n">ch</span><span class="o">.</span><span class="n">continuum</span><span class="p">(</span><span class="s1">&#39;fe_15&#39;</span><span class="p">,</span><span class="n">temperature</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wavelength</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cont</span><span class="o">.</span><span class="n">freeFree</span><span class="p">(</span><span class="n">wavelength</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cont</span><span class="o">.</span><span class="n">freeBound</span><span class="p">(</span><span class="n">wavelength</span><span class="p">,</span> <span class="n">include_abundance</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">include_ioneq</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cont</span><span class="o">.</span><span class="n">calculate_free_free_loss</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cont</span><span class="o">.</span><span class="n">calculate_free_bound_loss</span><span class="p">()</span>
+</pre></div>
+</div>
+<p class="rubric">Notes</p>
+<p>The methods for calculating the free-free and free-bound emission and losses return
+their result to an attribute. See the respective docstrings for more information.</p>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id1"><span class="brackets">101</span><span class="fn-backref">(<a href="#id37">1</a>,<a href="#id52">2</a>,<a href="#id53">3</a>)</span></dt>
+<dd><p>Sutherland, R. S., 1998, MNRAS, <a class="reference external" href="http://adsabs.harvard.edu/abs/1998MNRAS.300..321S">300, 321</a></p>
+</dd>
+<dt class="label" id="id3"><span class="brackets">102</span><span class="fn-backref">(<a href="#id54">1</a>,<a href="#id55">2</a>)</span></dt>
+<dd><p>Verner &amp; Yakovlev, 1995, A&amp;AS, <a class="reference external" href="http://adsabs.harvard.edu/abs/1995A%26AS..109..125V">109, 125</a></p>
+</dd>
+<dt class="label" id="id5"><span class="brackets">103</span><span class="fn-backref">(<a href="#id19">1</a>,<a href="#id23">2</a>,<a href="#id24">3</a>,<a href="#id33">4</a>,<a href="#id39">5</a>,<a href="#id40">6</a>,<a href="#id42">7</a>)</span></dt>
+<dd><p>Karzas and Latter, 1961, ApJSS, <a class="reference external" href="http://adsabs.harvard.edu/abs/1961ApJS....6..167K">6, 167</a></p>
+</dd>
+<dt class="label" id="id7"><span class="brackets">104</span><span class="fn-backref">(<a href="#id36">1</a>,<a href="#id44">2</a>,<a href="#id45">3</a>,<a href="#id46">4</a>,<a href="#id47">5</a>)</span></dt>
+<dd><p>Itoh, N. et al., 2000, ApJS, <a class="reference external" href="http://adsabs.harvard.edu/abs/2000ApJS..128..125I">128, 125</a></p>
+</dd>
+<dt class="label" id="id9"><span class="brackets">106</span><span class="fn-backref">(<a href="#id15">1</a>,<a href="#id16">2</a>,<a href="#id17">3</a>,<a href="#id29">4</a>,<a href="#id30">5</a>,<a href="#id31">6</a>,<a href="#id48">7</a>,<a href="#id49">8</a>,<a href="#id50">9</a>,<a href="#id51">10</a>)</span></dt>
+<dd><p>Mewe, R. et al., 1986, A&amp;AS, <a class="reference external" href="http://adsabs.harvard.edu/abs/1986A%26AS...65..511M">65, 511</a></p>
+</dd>
+<dt class="label" id="id11"><span class="brackets">107</span><span class="fn-backref">(<a href="#id35">1</a>,<a href="#id38">2</a>,<a href="#id41">3</a>,<a href="#id43">4</a>)</span></dt>
+<dd><p>Rybicki and Lightman, 1979, Radiative Processes in Astrophysics,
+<a class="reference external" href="http://adsabs.harvard.edu/abs/1986rpa..book.....R">(Wiley-VCH)</a></p>
+</dd>
+<dt class="label" id="id12"><span class="brackets">108</span><span class="fn-backref">(<a href="#id14">1</a>,<a href="#id18">2</a>,<a href="#id28">3</a>,<a href="#id32">4</a>)</span></dt>
+<dd><p>Gronenschild, E.H.B.M. and Mewe, R., 1978, A&amp;AS, <a class="reference external" href="http://adsabs.harvard.edu/abs/1978A%26AS...32..283G">32, 283</a></p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="ChiantiPy.core.Continuum.continuum.calculate_free_bound_loss">
+<code class="sig-name descname">calculate_free_bound_loss</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Continuum.continuum.calculate_free_bound_loss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the free-bound energy loss rate of an ion. The result is returned to the
+<cite>free_bound_loss</cite> attribute.</p>
+<p>The free-bound loss rate can be calculated by integrating the free-bound emission over the wavelength.
+This is difficult using the expression in <cite>calculate_free_bound_emission</cite> so we instead use the
+approach of <a class="footnote-reference brackets" href="#id12" id="id14">108</a> and <a class="footnote-reference brackets" href="#id9" id="id15">106</a>. Eq. 1a of <a class="footnote-reference brackets" href="#id9" id="id16">106</a> can be integrated over wavelength to get the free-bound loss rate,</p>
+<div class="math notranslate nohighlight">
+\[\frac{dW}{dtdV} = C_{ff}\frac{k}{hc}T^{1/2}G_{fb},\]</div>
+<p>in units of erg <span class="math notranslate nohighlight">\(\mathrm{cm}^3\,\mathrm{s}^{-1}\)</span> where <span class="math notranslate nohighlight">\(G_{fb}\)</span> is the free-bound Gaunt factor as
+given by Eq. 15 of <a class="footnote-reference brackets" href="#id9" id="id17">106</a> (see <cite>mewe_gaunt_factor</cite> for more details) and <span class="math notranslate nohighlight">\(C_{ff}\)</span> is the numerical constant
+as given in Eq. 4 of <a class="footnote-reference brackets" href="#id12" id="id18">108</a> and can be written in terms of the fine structure constant <span class="math notranslate nohighlight">\(\alpha\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[C_{ff}\frac{k}{hc} = \frac{8}{3}\left(\frac{\pi}{6}\right)^{1/2}\frac{h^2\alpha^3}{\pi^2}\frac{k_B}{m_e^{3/2}} \approx 1.43\times10^{-27}\]</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Continuum.continuum.freeBound">
+<code class="sig-name descname">freeBound</code><span class="sig-paren">(</span><em class="sig-param">wvl</em>, <em class="sig-param">includeAbund=True</em>, <em class="sig-param">includeIoneq=True</em>, <em class="sig-param">verner=True</em>, <em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Continuum.continuum.freeBound" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the free-bound (radiative recombination) continuum emissivity of an ion.
+Provides emissivity in units of ergs <span class="math notranslate nohighlight">\(\mathrm{cm}^{-2}\)</span> <span class="math notranslate nohighlight">\(\mathrm{s}^{-1}\)</span> <span class="math notranslate nohighlight">\(\mathrm{str}^{-1}\)</span> <span class="math notranslate nohighlight">\(\mathrm{\AA}^{-1}\)</span> for an individual ion.  If includeAbund is set,
+the abundance is included.  If includeIoneq is set, the ionization equililibrium for the given
+ion is included</p>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Uses the Gaunt factors of <a class="footnote-reference brackets" href="#id5" id="id19">103</a> for recombination to the excited levels</p></li>
+<li><p>Uses the photoionization cross sections of <a class="footnote-reference brackets" href="#id21" id="id20">3</a> to develop the free-bound cross section</p></li>
+<li><p>Include the elemental abundance and ionization fraction by default</p></li>
+<li><p>The specified ion is the target ion</p></li>
+<li><p>uses the corrected version of the K-L bf gaunt factors available in CHIANTI V10</p></li>
+<li><p>revised to calculate the bf cross, fb cross section and the maxwell energy distribution</p></li>
+</ul>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id21"><span class="brackets">3</span><span class="fn-backref">(<a href="#id20">1</a>,<a href="#id34">2</a>)</span></dt>
+<dd><p>Verner &amp; Yakovlev, 1995, A&amp;AS, <a class="reference external" href="http://adsabs.harvard.edu/abs/1995A%26AS..109..125V">109, 125</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Continuum.continuum.freeBoundLoss">
+<code class="sig-name descname">freeBoundLoss</code><span class="sig-paren">(</span><em class="sig-param">includeAbund=True</em>, <em class="sig-param">includeIoneq=True</em>, <em class="sig-param">verner=True</em>, <em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Continuum.continuum.freeBoundLoss" title="Permalink to this definition">¶</a></dt>
+<dd><p>to calculate the free-bound (radiative recombination) energy loss rate coefficient of an ion,
+the ion is taken to be the target ion,
+including the elemental abundance and the ionization equilibrium population
+uses the Gaunt factors of <a class="footnote-reference brackets" href="#id5" id="id23">103</a> Karzas, W.J, Latter, R, 1961, ApJS, 6, 167
+provides rate = erg cm^-2 s^-1
+.. rubric:: Notes</p>
+<ul class="simple">
+<li><p>Uses the Gaunt factors of <a class="footnote-reference brackets" href="#id5" id="id24">103</a> for recombination to the ground level</p></li>
+<li><p>Uses the photoionization cross sections of <a class="footnote-reference brackets" href="#id26" id="id25">2</a> to develop the free-bound cross section</p></li>
+<li><p>Does not include the elemental abundance or ionization fraction</p></li>
+<li><p>The specified ion is the target ion</p></li>
+<li><p>uses the corrected version of the K-L bf gaunt factors available in CHIANTI V10</p></li>
+<li><p>revised to calculate the bf cross, fb cross section and the maxwell energy distribution</p></li>
+<li><p>the Verner cross sections are not included for now</p></li>
+<li><p>using the RESTART formulation</p></li>
+</ul>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id26"><span class="brackets"><a class="fn-backref" href="#id25">2</a></span></dt>
+<dd><p>Verner &amp; Yakovlev, 1995, A&amp;AS, <a class="reference external" href="http://adsabs.harvard.edu/abs/1995A%26AS..109..125V">109, 125</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Continuum.continuum.freeBoundLossMao">
+<code class="sig-name descname">freeBoundLossMao</code><span class="sig-paren">(</span><em class="sig-param">includeAbund=False</em>, <em class="sig-param">includeIoneq=False</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Continuum.continuum.freeBoundLossMao" title="Permalink to this definition">¶</a></dt>
+<dd><p>to calculate the radiative loss rate from the parameters of
+Mao J., Kaastra J., Badnell N.R.
+&lt;Astron. Astrophys. 599, A10 (2017)&gt;=2017A&amp;A…599A..10M</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Continuum.continuum.freeBoundLossMewe">
+<code class="sig-name descname">freeBoundLossMewe</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Continuum.continuum.freeBoundLossMewe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the free-bound energy loss rate of an ion. The result is returned to the
+<cite>free_bound_loss</cite> attribute.</p>
+<p>The free-bound loss rate can be calculated by integrating the free-bound emission over the wavelength.
+This is difficult using the expression in <cite>calculate_free_bound_emission</cite> so we instead use the
+approach of <a class="footnote-reference brackets" href="#id12" id="id28">108</a> and <a class="footnote-reference brackets" href="#id9" id="id29">106</a>. Eq. 1a of <a class="footnote-reference brackets" href="#id9" id="id30">106</a> can be integrated over wavelength to get the free-bound loss rate,</p>
+<div class="math notranslate nohighlight">
+\[\frac{dW}{dtdV} = C_{ff}\frac{k}{hc}T^{1/2}G_{fb},\]</div>
+<p>in units of erg <span class="math notranslate nohighlight">\(\mathrm{cm}^3\,\mathrm{s}^{-1}\)</span> where <span class="math notranslate nohighlight">\(G_{fb}\)</span> is the free-bound Gaunt factor as
+given by Eq. 15 of <a class="footnote-reference brackets" href="#id9" id="id31">106</a> (see <cite>mewe_gaunt_factor</cite> for more details) and <span class="math notranslate nohighlight">\(C_{ff}\)</span> is the numerical constant
+as given in Eq. 4 of <a class="footnote-reference brackets" href="#id12" id="id32">108</a> and can be written in terms of the fine structure constant <span class="math notranslate nohighlight">\(\alpha\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[C_{ff}\frac{k}{hc} = \frac{8}{3}\left(\frac{\pi}{6}\right)^{1/2}\frac{h^2\alpha^3}{\pi^2}\frac{k_B}{m_e^{3/2}} \approx 1.43\times10^{-27}\]</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Continuum.continuum.freeBoundRate">
+<code class="sig-name descname">freeBoundRate</code><span class="sig-paren">(</span><em class="sig-param">verner=True</em>, <em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Continuum.continuum.freeBoundRate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the free-bound (radiative recombination) rate of an ion.
+Provides emissivity in units of ergs <span class="math notranslate nohighlight">\(\mathrm{cm}^{-2}\)</span> <span class="math notranslate nohighlight">\(\mathrm{s}^{-1}\)</span> <span class="math notranslate nohighlight">\(\mathrm{str}^{-1}\)</span> <span class="math notranslate nohighlight">\(\mathrm{\AA}^{-1}\)</span> for an individual ion.  If includeAbund is set,
+the abundance is included.  If includeIoneq is set, the ionization equililibrium for the given
+ion is included
+This method is only for the purposes of testing.
+The best rr/FB rates come from the ion class</p>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Uses the Gaunt factors of <a class="footnote-reference brackets" href="#id5" id="id33">103</a> for recombination to the excited levels</p></li>
+<li><p>Uses the photoionization cross sections of <a class="footnote-reference brackets" href="#id21" id="id34">3</a> to develop the free-bound cross section</p></li>
+<li><p>Include the elemental abundance and ionization fraction by default</p></li>
+<li><p>The specified ion is the target ion</p></li>
+<li><p>uses the corrected version of the K-L bf gaunt factors available in CHIANTI V10</p></li>
+<li><p>revised to calculate the bf cross, fb cross section and the maxwell energy distribution</p></li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Continuum.continuum.freeFree">
+<code class="sig-name descname">freeFree</code><span class="sig-paren">(</span><em class="sig-param">wavelength</em>, <em class="sig-param">includeAbund=True</em>, <em class="sig-param">includeIoneq=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Continuum.continuum.freeFree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the free-free emission for a single ion. The result is returned as a dict to
+the <cite>FreeFree</cite> attribute.  The dict has the keywords <cite>intensity</cite>, <cite>wvl</cite>, <cite>temperature</cite>, <cite>em</cite>.</p>
+<p>The free-free emission for the given ion is calculated according Eq. 5.14a of <a class="footnote-reference brackets" href="#id11" id="id35">107</a>,
+substituting <span class="math notranslate nohighlight">\(\nu=c/\lambda\)</span>, dividing by the solid angle, and writing the numerical
+constant in terms of the fine structure constant <span class="math notranslate nohighlight">\(\alpha\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\frac{dW}{dtdVd\lambda} = \frac{c}{3m_e}\left(\frac{\alpha h}{\pi}\right)^3\left(\frac{2\pi}{3m_ek_B}\right)^{1/2}\frac{Z^2}{\lambda^2T^{1/2}}\exp{\left(-\frac{hc}{\lambda k_BT}\right)}\bar{g}_{ff},\]</div>
+<p>where <span class="math notranslate nohighlight">\(Z\)</span> is the nuclear charge, <span class="math notranslate nohighlight">\(T\)</span> is the electron temperature in K, and
+<span class="math notranslate nohighlight">\(\bar{g}_{ff}\)</span> is the velocity-averaged Gaunt factor. The Gaunt factor is estimated
+using the methods of <a class="footnote-reference brackets" href="#id7" id="id36">104</a> and <a class="footnote-reference brackets" href="#id1" id="id37">101</a>, depending on the temperature and energy regime. See
+<cite>itoh_gaunt_factor</cite> and <cite>sutherland_gaunt_factor</cite> for more details.</p>
+<p>The free-free emission is in units of erg
+<span class="math notranslate nohighlight">\(\mathrm{cm}^3\mathrm{s}^{-1}\mathrm{\mathring{A}}^{-1}\mathrm{str}^{-1}\)</span>. If the emission
+measure has been set, the units will be multiplied by <span class="math notranslate nohighlight">\(\mathrm{cm}^{-5}\)</span> or
+<span class="math notranslate nohighlight">\(\mathrm{cm}^{-3}\)</span>, depending on whether it is the line-of-sight or volumetric
+emission measure, respectively.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wavelength</strong> (<em>array-like</em>) – In units of angstroms</p></li>
+<li><p><strong>includeAbund</strong> (<cite>bool</cite>, optional) – If True, include the ion abundance in the final output.</p></li>
+<li><p><strong>includeIoneq</strong> (<cite>bool</cite>, optional) – If True, include the ionization equilibrium in the final output</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Continuum.continuum.freeFreeLoss">
+<code class="sig-name descname">freeFreeLoss</code><span class="sig-paren">(</span><em class="sig-param">includeAbund=True</em>, <em class="sig-param">includeIoneq=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Continuum.continuum.freeFreeLoss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the free-free energy loss rate of an ion. The result is returned to the
+<cite>FreeFreeLoss</cite> attribute.</p>
+<p>The free-free radiative loss rate is given by Eq. 5.15a of <a class="footnote-reference brackets" href="#id11" id="id38">107</a>. Writing the numerical
+constant in terms of the fine structure constant <span class="math notranslate nohighlight">\(\alpha\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\frac{dW}{dtdV} = \frac{4\alpha^3h^2}{3\pi^2m_e}\left(\frac{2\pi k_B}{3m_e}\right)^{1/2}Z^2T^{1/2}\bar{g}_B\]</div>
+<p>where where <span class="math notranslate nohighlight">\(Z\)</span> is the ion charge, <span class="math notranslate nohighlight">\(T\)</span> is the electron temperature, and
+<span class="math notranslate nohighlight">\(\bar{g}_{B}\)</span> is the wavelength-averaged and velocity-averaged Gaunt factor. The
+Gaunt factor is calculated using the methods of <a class="footnote-reference brackets" href="#id5" id="id39">103</a>. Note that this expression for the
+loss rate is just the integral over wavelength of Eq. 5.14a of <a class="footnote-reference brackets" href="#id5" id="id40">103</a>, the free-free emission, and
+is expressed in units of erg <span class="math notranslate nohighlight">\(\mathrm{cm}^3\,\mathrm{s}^{-1}\)</span>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Continuum.continuum.free_free_loss">
+<code class="sig-name descname">free_free_loss</code><span class="sig-paren">(</span><em class="sig-param">includeAbund=True</em>, <em class="sig-param">includeIoneq=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Continuum.continuum.free_free_loss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the free-free energy loss rate of an ion. The result is returned to the
+<cite>free_free_loss</cite> attribute.</p>
+<p>The free-free radiative loss rate is given by Eq. 5.15a of <a class="footnote-reference brackets" href="#id11" id="id41">107</a>. Writing the numerical
+constant in terms of the fine structure constant <span class="math notranslate nohighlight">\(\alpha\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\frac{dW}{dtdV} = \frac{4\alpha^3h^2}{3\pi^2m_e}\left(\frac{2\pi k_B}{3m_e}\right)^{1/2}Z^2T^{1/2}\bar{g}_B\]</div>
+<p>where where <span class="math notranslate nohighlight">\(Z\)</span> is the nuclear charge, <span class="math notranslate nohighlight">\(T\)</span> is the electron temperature, and
+<span class="math notranslate nohighlight">\(\bar{g}_{B}\)</span> is the wavelength-averaged and velocity-averaged Gaunt factor. The
+Gaunt factor is calculated using the methods of <a class="footnote-reference brackets" href="#id5" id="id42">103</a>. Note that this expression for the
+loss rate is just the integral over wavelength of Eq. 5.14a of <a class="footnote-reference brackets" href="#id11" id="id43">107</a>, the free-free emission, and
+is expressed in units of erg <span class="math notranslate nohighlight">\(\mathrm{cm}^3\,\mathrm{s}^{-1}\)</span>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Continuum.continuum.ioneqOne">
+<code class="sig-name descname">ioneqOne</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Continuum.continuum.ioneqOne" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provide the ionization equilibrium for the selected ion as a function of temperature.
+Similar to but not identical to ion.ioneqOne() - the ion class needs to be able to handle
+the ‘dielectronic’ ions
+returned in self.IoneqOne</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Continuum.continuum.ioneq_one">
+<code class="sig-name descname">ioneq_one</code><span class="sig-paren">(</span><em class="sig-param">stage</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Continuum.continuum.ioneq_one" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the equilibrium fractional ionization of the ion as a function of temperature.</p>
+<p>Uses the <cite>ChiantiPy.core.ioneq</cite> module and does a first-order spline interpolation to the data. An
+ionization equilibrium file can be passed as a keyword argument, <cite>ioneqfile</cite>. This can
+be passed through as a keyword argument to any of the functions that uses the
+ionization equilibrium.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>stage</strong> (<em>int</em>) – Ionization stage, e.g. 25 for Fe XXV</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Continuum.continuum.itoh_gaunt_factor">
+<code class="sig-name descname">itoh_gaunt_factor</code><span class="sig-paren">(</span><em class="sig-param">wavelength</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Continuum.continuum.itoh_gaunt_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the free-free gaunt factors of <a class="footnote-reference brackets" href="#id7" id="id44">104</a>.</p>
+<p>An analytic fitting formulae for the relativistic Gaunt factor is given by Eq. 4 of <a class="footnote-reference brackets" href="#id7" id="id45">104</a>,</p>
+<div class="math notranslate nohighlight">
+\[g_{Z} = \sum^{10}_{i,j=0}a_{ij}t^iU^j\]</div>
+<p>where,</p>
+<div class="math notranslate nohighlight">
+\[t = \frac{1}{1.25}(\log_{10}{T} - 7.25),\
+U = \frac{1}{2.5}(\log_{10}{u} + 1.5),\]</div>
+<p><span class="math notranslate nohighlight">\(u=hc/\lambda k_BT\)</span>, and <span class="math notranslate nohighlight">\(a_{ij}\)</span> are the fitting coefficients and are read
+in using <cite>ChiantiPy.tools.io.itohRead</cite> and are given in Table 4 of <a class="footnote-reference brackets" href="#id7" id="id46">104</a>. These values
+are valid for <span class="math notranslate nohighlight">\(6&lt;\log_{10}(T)&lt; 8.5\)</span> and <span class="math notranslate nohighlight">\(-4&lt;\log_{10}(u)&lt;1\)</span>.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="ChiantiPy.tools.html#ChiantiPy.tools.io.itohRead" title="ChiantiPy.tools.io.itohRead"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ChiantiPy.tools.io.itohRead()</span></code></a></dt><dd><p>Read in Gaunt factor coefficients from <a class="footnote-reference brackets" href="#id7" id="id47">104</a></p>
+</dd>
+</dl>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Continuum.continuum.mewe_gaunt_factor">
+<code class="sig-name descname">mewe_gaunt_factor</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Continuum.continuum.mewe_gaunt_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the Gaunt factor according to <a class="footnote-reference brackets" href="#id9" id="id48">106</a> for a single ion <span class="math notranslate nohighlight">\(Z_z\)</span>.</p>
+<p>Using Eq. 9 of <a class="footnote-reference brackets" href="#id9" id="id49">106</a>, the free-bound Gaunt factor for a single ion can be written as,</p>
+<div class="math notranslate nohighlight">
+\[G_{fb}^{Z,z} = \frac{E_H}{k_BT}\mathrm{Ab}(Z)\frac{N(Z,z)}{N(Z)}f(Z,z,n)\]</div>
+<p>where <span class="math notranslate nohighlight">\(E_H\)</span> is the ground-state potential of H, <span class="math notranslate nohighlight">\(\mathrm{Ab}(Z)\)</span> is the
+elemental abundance, <span class="math notranslate nohighlight">\(\frac{N(Z,z)}{N(Z)}\)</span> is the fractional ionization, and
+<span class="math notranslate nohighlight">\(f(Z,z,n)\)</span> is given by Eq. 10 and is approximated by Eq 16 as,</p>
+<div class="math notranslate nohighlight">
+\[f(Z,z,n) \approx f_2(Z,z,n_0) = 0.9\frac{\zeta_0z_0^4}{n_0^5}\exp{\left(\frac{E_Hz_0^2}{n_0^2k_BT}\right)} + 0.42\frac{z^4}{n_0^{3/2}}\exp{\left(\frac{E_Hz^2}{(n_0 + 1)^2k_BT}\right)}\]</div>
+<p>where <span class="math notranslate nohighlight">\(n_0\)</span> is the principal quantum number, <span class="math notranslate nohighlight">\(z_0\)</span> is the effective charge (see Eq. 7 of <a class="footnote-reference brackets" href="#id9" id="id50">106</a>),
+and <span class="math notranslate nohighlight">\(\zeta_0\)</span> is the number of vacancies in the 0th shell and is given in Table 1 of <a class="footnote-reference brackets" href="#id9" id="id51">106</a>.
+Here it is calculated in the same manner as in <a class="reference external" href="http://www.chiantidatabase.org/idl/continuum/fb_rad_loss.pro">fb_rad_loss.pro</a>
+of the CHIANTI IDL library. Note that in the expression for <span class="math notranslate nohighlight">\(G_{fb}\)</span>, we have not included
+the <span class="math notranslate nohighlight">\(N_H/n_e\)</span> factor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.11)"><strong>ValueError</strong></a> – If no .fblvl file is available for this ion</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Continuum.continuum.rrRate">
+<code class="sig-name descname">rrRate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Continuum.continuum.rrRate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provide the radiative recombination rate coefficient as a function of temperature (K).
+a revised copy of the Ion method</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Continuum.continuum.sutherland_gaunt_factor">
+<code class="sig-name descname">sutherland_gaunt_factor</code><span class="sig-paren">(</span><em class="sig-param">wavelength</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Continuum.continuum.sutherland_gaunt_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the free-free gaunt factor calculations of <a class="footnote-reference brackets" href="#id1" id="id52">101</a>.</p>
+<p>The Gaunt factors of <a class="footnote-reference brackets" href="#id1" id="id53">101</a> are read in using <cite>ChiantiPy.tools.io.gffRead</cite>
+as a function of <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(\gamma^2\)</span>. The data are interpolated
+to the appropriate wavelength and temperature values using
+<cite>~scipy.ndimage.map_coordinates</cite>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Continuum.continuum.vernerCross">
+<code class="sig-name descname">vernerCross</code><span class="sig-paren">(</span><em class="sig-param">wvl</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Continuum.continuum.vernerCross" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the photoionization cross-section using data from <a class="footnote-reference brackets" href="#id3" id="id54">102</a> for
+transitions to the ground state.</p>
+<p>The photoionization cross-section can be expressed as <span class="math notranslate nohighlight">\(\sigma_i^{fb}=F(E/E_0)\)</span> where
+<span class="math notranslate nohighlight">\(F\)</span> is an analytic fitting formula given by Eq. 1 of <a class="footnote-reference brackets" href="#id3" id="id55">102</a>,</p>
+<div class="math notranslate nohighlight">
+\[F(y) = ((y-1)^2 + y_w^2)y^{-Q}(1 + \sqrt{y/y_a})^{-P},\]</div>
+<p>where <span class="math notranslate nohighlight">\(E\)</span> is the photon energy, <span class="math notranslate nohighlight">\(n\)</span> is the principal quantum number,
+<span class="math notranslate nohighlight">\(l\)</span> is the orbital quantum number, <span class="math notranslate nohighlight">\(Q = 5.5 + l - 0.5P\)</span>, and
+<span class="math notranslate nohighlight">\(\sigma_0,E_0,y_w,y_a,P\)</span> are fitting paramters. These can be read in using
+<cite>ChiantiPy.tools.io.vernerRead</cite>.</p>
+<p>Parameters:</p>
+<dl>
+<dt>wvl<span class="classifier"><cite>list</cite>, <cite>ndarray</cite></span></dt><dd><p>wavelength in Angstroms</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ChiantiPy.core.Ion">
+<span id="chiantipy-core-ion-module"></span><h2>ChiantiPy.core.Ion module<a class="headerlink" href="#module-ChiantiPy.core.Ion" title="Permalink to this headline">¶</a></h2>
+<p>Ion class</p>
+<dl class="class">
+<dt id="ChiantiPy.core.Ion.ion">
+<em class="property">class </em><code class="sig-prename descclassname">ChiantiPy.core.Ion.</code><code class="sig-name descname">ion</code><span class="sig-paren">(</span><em class="sig-param">ionStr</em>, <em class="sig-param">temperature=None</em>, <em class="sig-param">eDensity=None</em>, <em class="sig-param">pDensity='default'</em>, <em class="sig-param">radTemperature=None</em>, <em class="sig-param">rStar=None</em>, <em class="sig-param">abundance=None</em>, <em class="sig-param">setup=True</em>, <em class="sig-param">em=None</em>, <em class="sig-param">verbose=0</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Ion.ion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ChiantiPy.base._IoneqOne.ioneqOne</span></code>, <a class="reference internal" href="ChiantiPy.base.html#ChiantiPy.base._IonTrails.ionTrails" title="ChiantiPy.base._IonTrails.ionTrails"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChiantiPy.base._IonTrails.ionTrails</span></code></a>, <a class="reference internal" href="ChiantiPy.base.html#ChiantiPy.base._SpecTrails.specTrails" title="ChiantiPy.base._SpecTrails.specTrails"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChiantiPy.base._SpecTrails.specTrails</span></code></a></p>
+<p>The top level class for performing spectral calculations for an ion in the
+CHIANTI database.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ionStr</strong> (<cite>str</cite>) – CHIANTI notation for the given ion, e.g. ‘fe_12’ that corresponds to the <cite>Fe XII</cite> ion.</p></li>
+<li><p><strong>temperature</strong> (<cite>float</cite> , <cite>tuple</cite>, <cite>list</cite>, <cite>~numpy.ndarray</cite>, optional) – Temperature array (Kelvin)</p></li>
+<li><p><strong>eDensity</strong> (<cite>float</cite> , <cite>tuple</cite>, <cite>list</cite>, or <cite>~numpy.ndarray</cite>, optional) – Electron density array (<span class="math notranslate nohighlight">\(\mathrm{cm^{-3}}\)</span> )</p></li>
+<li><p><strong>pDensity</strong> (<cite>float</cite>, <cite>tuple</cite>, <cite>list</cite> or <cite>~numpy.ndarray</cite>, optional) – Proton density (<span class="math notranslate nohighlight">\(\mathrm{cm}^{-3}\)</span> )</p></li>
+<li><p><strong>radTemperature</strong> (<cite>float</cite> or <cite>~numpy.ndarray</cite>, optional) – Radiation black-body temperature (in Kelvin)</p></li>
+<li><p><strong>rStar</strong> (<cite>float</cite> or <cite>~numpy.ndarray</cite>, optional) – Distance from the center of the star (in stellar radii)</p></li>
+<li><p><strong>abundance</strong> (<cite>float</cite> or <cite>str</cite>, optional) – Elemental abundance relative to Hydrogen or name of CHIANTI abundance file
+to use, without the ‘.abund’ suffix, e.g. ‘sun_photospheric_1998_grevesse’.</p></li>
+<li><p><strong>setup</strong> (<cite>bool</cite> or <cite>str</cite>, optional) – If True, run ion setup function. Otherwise, provide a limited number of
+attributes of the selected ion</p></li>
+<li><p><strong>em</strong> (<cite>float</cite> or <cite>~numpy.ndarray</cite>, optional) – Emission Measure, for the line-of-sight emission measure
+(<span class="math notranslate nohighlight">\(\mathrm{\int \, n_e \, n_H \, dl}\)</span>)
+(<span class="math notranslate nohighlight">\(\mathrm{cm}^{-5}\)</span>.), for the volumetric emission measure
+<span class="math notranslate nohighlight">\(\mathrm{\int \, n_e \, n_H \, dV}\)</span> (<span class="math notranslate nohighlight">\(\mathrm{cm^{-3}}\)</span>).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Variables</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>IonStr</strong> (<cite>str</cite>) – Name of element plus ion, e.g. <cite>fe_12</cite> for Fe XII</p></li>
+<li><p><strong>Z</strong> (<cite>int</cite>) – the nuclear charge, 26 for <cite>fe_12</cite>.</p></li>
+<li><p><strong>Ion</strong> (<cite>int</cite>) – the ionization stage, 12 for <cite>fe_12</cite>.</p></li>
+<li><p><strong>Dielectronic</strong> (<cite>bool</cite>) – true if the ion is a ‘dielectronic’ ion where the levels are populated
+by dielectronic recombination.</p></li>
+<li><p><strong>Spectroscopic</strong> (<cite>str</cite>) – the spectroscopic notation for the ion, such as <cite>Fe XII</cite> for <cite>fe_12</cite>.</p></li>
+<li><p><strong>Filename</strong> (<cite>str</cite>) – the complete name of the file <cite>generic</cite> filename in the CHIANTI
+database, such as <cite>$XUVTOP/fe/fe_12/fe_12</cite>.</p></li>
+<li><p><strong>Ip</strong> (<cite>float</cite>) – the ionization potential of the ion</p></li>
+<li><p><strong>FIP</strong> (<cite>float</cite>) – the first ionization potential of the element</p></li>
+<li><p><strong>Defaults</strong> (<cite>dict</cite>) – these are specified by the software unless a <em>chiantirc</em> file is found
+in ‘$HOME/.chianti’:</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The keyword arguments temperature, eDensity, radTemperature, rStar, em must all be either a float or have the same dimension as the rest if specified as lists, tuples or arrays.</p>
+<p>The <cite>Defaults</cite> dict should have the following keys:</p>
+<ul class="simple">
+<li><p><em>abundfile</em>, the elemental abundance file, unless specified in
+<em>chiantirc</em> this defaults to <em>sun_photospheric_1998_grevesse</em>.</p></li>
+<li><p><em>ioneqfile</em>, the ionization equilibrium file name.  Unless specified
+in ‘chiantirc’ this is defaults to <em>chianti</em>.  Other choices are
+availble in $XUVTOP/ioneq</p></li>
+<li><p><em>wavelength</em>, the units of wavelength (Angstroms, nm, or kev), unless
+specified in the ‘chiantirc’ this is defaults to ‘angstrom’.</p></li>
+<li><p><em>flux</em>, specified whether the line intensities are give in energy or
+photon fluxes, unless specified in the ‘chiantirc’ this is defaults to
+<em>energy</em>.</p></li>
+<li><p><em>gui</em>, specifies whether to use gui selection widgets (True) or to
+make selections on the command line (False).  Unless specified in the
+‘chiantirc’ this is defaults to <em>False</em>.</p></li>
+</ul>
+<dl class="method">
+<dt id="ChiantiPy.core.Ion.ion.boundBoundLoss">
+<code class="sig-name descname">boundBoundLoss</code><span class="sig-paren">(</span><em class="sig-param">allLines=1</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Ion.ion.boundBoundLoss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate  the summed radiative loss rate for all spectral lines of the specified ion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>allLines</strong> (<cite>bool</cite>) – If True, include losses from both observed and unobserved lines.
+If False, only include losses from observed lines.</p></li>
+<li><p><strong>includes elemental abundance and ionization fraction.</strong></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul>
+<li><p><em>creates the attribute</em></p></li>
+<li><p><strong>BoundBoundLoss</strong> (<cite>dict</cite> with the keys below.) – <em>rate</em> : the radiative loss rate (<span class="math notranslate nohighlight">\(\mathrm{erg \, cm^{-3}} \, \mathrm{s}^{-1}\)</span>) per unit emission measure.</p>
+<p><em>temperature</em> : (K).</p>
+<p><em>eDensity</em> : electron density (<span class="math notranslate nohighlight">\(\mathrm{cm^{-3}}\)</span>)</p>
+</li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Ion.ion.diCross">
+<code class="sig-name descname">diCross</code><span class="sig-paren">(</span><em class="sig-param">energy=None</em>, <em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Ion.ion.diCross" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the direct ionization cross section (cm$^2) as a function of the
+incident electron energy in eV, puts values into attribute DiCross</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>energy</strong> (<em>array-like</em>) – incident electron energy in eV</p></li>
+<li><p><strong>verbose</strong> (<em>bool, int</em>) – with verbose set to True, printing is enabled</p></li>
+</ul>
+</dd>
+<dt class="field-even">Variables</dt>
+<dd class="field-even"><p><strong>DiCross</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – keys:  energy, cross</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Ion.ion.diRate">
+<code class="sig-name descname">diRate</code><span class="sig-paren">(</span><em class="sig-param">ngl=20</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Ion.ion.diRate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the direct ionization rate coefficient as a function of temperature (K)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Ion.ion.drRate">
+<code class="sig-name descname">drRate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Ion.ion.drRate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provide the dielectronic recombination rate coefficient as a function of temperature (K).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Ion.ion.drRateLvl">
+<code class="sig-name descname">drRateLvl</code><span class="sig-paren">(</span><em class="sig-param">verbose=0</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Ion.ion.drRateLvl" title="Permalink to this definition">¶</a></dt>
+<dd><p>to calculate the level resolved dielectronic rate from the higher ionization stage to
+the ion of interest
+rates are determined from autoionizing A-values
+the dictionary self.DrRateLvl contains
+rate = the dielectronic rate into an autoionizing level
+effRate = the dielectronic rate into an autoionizing level mutilplied by the branching
+ratio for a stabilizing transition
+totalRate = the sum of all the effRates</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Ion.ion.eaCross">
+<code class="sig-name descname">eaCross</code><span class="sig-paren">(</span><em class="sig-param">energy=None</em>, <em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Ion.ion.eaCross" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provide the excitation-autoionization cross section.</p>
+<p>Energy is given in eV.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Ion.ion.eaDescale">
+<code class="sig-name descname">eaDescale</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Ion.ion.eaDescale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the effective collision strengths (upsilon)
+for excitation-autoionization as a function of temperature.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Ion.ion.eaRate">
+<code class="sig-name descname">eaRate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Ion.ion.eaRate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the excitation-autoionization rate coefficient.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Ion.ion.emiss">
+<code class="sig-name descname">emiss</code><span class="sig-paren">(</span><em class="sig-param">allLines=True</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Ion.ion.emiss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the emissivities for lines of the specified ion.</p>
+<p>units:  ergs s^-1 str^-1</p>
+<p>Does not include elemental abundance or ionization fraction</p>
+<p>Wavelengths are sorted</p>
+<p>set allLines = True to include unidentified lines</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Ion.ion.emissList">
+<code class="sig-name descname">emissList</code><span class="sig-paren">(</span><em class="sig-param">index=None</em>, <em class="sig-param">wvlRange=None</em>, <em class="sig-param">wvlRanges=None</em>, <em class="sig-param">top=10</em>, <em class="sig-param">relative=0</em>, <em class="sig-param">outFile=0</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Ion.ion.emissList" title="Permalink to this definition">¶</a></dt>
+<dd><p>List the emissivities.</p>
+<p>wvlRange, a 2 element tuple, list or array determines the wavelength range</p>
+<p>Top specifies to plot only the top strongest lines, default = 10</p>
+<p>normalize = 1 specifies whether to normalize to strongest line, default = 0</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Ion.ion.emissPlot">
+<code class="sig-name descname">emissPlot</code><span class="sig-paren">(</span><em class="sig-param">index=None</em>, <em class="sig-param">wvlRange=None</em>, <em class="sig-param">top=10</em>, <em class="sig-param">linLog='lin'</em>, <em class="sig-param">relative=0</em>, <em class="sig-param">verbose=0</em>, <em class="sig-param">plotFile=0</em>, <em class="sig-param">saveFile=0</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Ion.ion.emissPlot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot the emissivities.</p>
+<p>wvlRange, a 2 element tuple, list or array determines the wavelength range</p>
+<p>Top specifies to plot only the top strongest lines, default = 10</p>
+<p>linLog specifies a linear or log plot, want either lin or log, default = lin</p>
+<p>normalize = 1 specifies whether to normalize to strongest line, default = 0</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Ion.ion.emissRatio">
+<code class="sig-name descname">emissRatio</code><span class="sig-paren">(</span><em class="sig-param">wvlRange=None</em>, <em class="sig-param">wvlRanges=None</em>, <em class="sig-param">top=10</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Ion.ion.emissRatio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot the ratio of 2 lines or sums of lines.
+Shown as a function of density and/or temperature.
+For a single wavelength range, set wvlRange = [wMin, wMax]
+For multiple wavelength ranges, set wvlRanges = [[wMin1,wMax1],[wMin2,wMax2], …]
+A plot of relative emissivities is shown and then a dialog appears for the user to
+choose a set of lines.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Ion.ion.gofnt">
+<code class="sig-name descname">gofnt</code><span class="sig-paren">(</span><em class="sig-param">wvlRange=None</em>, <em class="sig-param">top=10</em>, <em class="sig-param">verbose=False</em>, <em class="sig-param">plot=True</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Ion.ion.gofnt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the ‘so-called’ G(T) function.</p>
+<p>Given as a function of both temperature and eDensity.</p>
+<p>Only the top( set by ‘top’) brightest lines are plotted.
+the G(T) function is returned in a dictionary self.Gofnt</p>
+<dl class="simple">
+<dt>Note:  if the default value for gui is set to False, then it is usually</dt><dd><p>necessary to invoke this method twice to get the desired result.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Keyword Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wvlRange</strong> (<cite>array-like</cite>) – the wavelength range to be considered, a two element array-type</p></li>
+<li><p><strong>top</strong> (<cite>int</cite>) – specifies to plot only the top strongest lines, default = 10</p></li>
+<li><p><strong>verbose</strong> (<cite>bool</cite>) – if True, additional information is printed to the console</p></li>
+<li><p><strong>plot</strong> (<cite>bool</cite>) – if True, the G(T) functionis plotted, default - True</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Ion.ion.intensity">
+<code class="sig-name descname">intensity</code><span class="sig-paren">(</span><em class="sig-param">allLines=1</em>, <em class="sig-param">verbose=0</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Ion.ion.intensity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate  the intensities for lines of the specified ion.</p>
+<p>units:  ergs cm^-3 s^-1 str^-1</p>
+<p>includes elemental abundance and ionization fraction.</p>
+<p>the emission measure ‘em’ is included if specified</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Ion.ion.intensityRatioInterpolate">
+<code class="sig-name descname">intensityRatioInterpolate</code><span class="sig-paren">(</span><em class="sig-param">data</em>, <em class="sig-param">scale='lin'</em>, <em class="sig-param">plot=False</em>, <em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Ion.ion.intensityRatioInterpolate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Take a set of data and interpolate against the IntensityRatio.</p>
+<p>Given a set of intensities ratio data it correlates them to electron density
+values. This is done by interpolating against the curve computed from
+the IntenstyRatio (dict). For the interpolation, the B-spline representation
+is used from scipy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>float or array-like</em>) – The intensities ratio data to be converted into density values.</p></li>
+<li><p><strong>scale</strong> (<em>{‘lin’, ‘loglog’, ‘logx’, ‘logy’}, str, default : ‘lin’</em>) – The scale to be used for the interpolation (default ‘lin’ indicates linear).</p></li>
+<li><p><strong>plot</strong> (<em>bool, default : False</em>) – If True the input data will be plotted on top of the IntensityRatio
+curve.</p></li>
+<li><p><strong>verbose</strong> (<em>bool, default : False</em>) – If True displays a message about the physical quantity that was used
+(i.e. Temperature or Density).
+Additionally, prints the interpolated data in pairs of data,value
+(i.e. input intensities ratio data and corresponding density values).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul>
+<li><p><em>Creates the attribute</em></p></li>
+<li><p><strong>IntensityRatioInterpolated</strong> (<em>dict</em>) – Dictionary that contains the input data and the derived density values,
+with keys</p>
+<p><em>data</em> : input intensities ratio (no units)</p>
+<p><em>value</em> : electron density (<span class="math notranslate nohighlight">\(\mathrm{cm^{-3}}\)</span>)</p>
+</li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">ChiantiPy.core</span> <span class="k">as</span> <span class="nn">ch</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">temp</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mf">5.9</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dens</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span><span class="n">endpoint</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fe12</span> <span class="o">=</span> <span class="n">ch</span><span class="o">.</span><span class="n">ion</span><span class="p">(</span><span class="s1">&#39;fe_12&#39;</span><span class="p">,</span><span class="n">temperature</span><span class="o">=</span><span class="n">temp</span><span class="p">,</span><span class="n">eDensity</span><span class="o">=</span><span class="n">dens</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fe12</span><span class="o">.</span><span class="n">intensityRatio</span><span class="p">(</span><span class="n">wvlRange</span><span class="o">=</span><span class="p">[</span><span class="mf">186.</span><span class="p">,</span><span class="mf">196.</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Select for example lines 186.887 and 195.119 from the GUI</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">int_ratios</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fe12</span><span class="o">.</span><span class="n">intensityRatioInterpolate</span><span class="p">(</span><span class="n">int_ratios</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dens_values</span> <span class="o">=</span> <span class="n">fe12</span><span class="o">.</span><span class="n">IntensityRatioInterpolated</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Same setup but using a 2D array of input data</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">int_ratios_map</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fe12</span><span class="o">.</span><span class="n">intensityRatioInterpolate</span><span class="p">(</span><span class="n">int_ratios_map</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dens_values_map</span> <span class="o">=</span> <span class="n">fe12</span><span class="o">.</span><span class="n">IntensityRatioInterpolated</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Ion.ion.ionizCross">
+<code class="sig-name descname">ionizCross</code><span class="sig-paren">(</span><em class="sig-param">energy=None</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Ion.ion.ionizCross" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides the total ionization cross section.</p>
+<p class="rubric">Notes</p>
+<p>uses <cite>diCross</cite>  and <cite>eaCross</cite>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Ion.ion.ionizRate">
+<code class="sig-name descname">ionizRate</code><span class="sig-paren">(</span><em class="sig-param">ngl=20</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Ion.ion.ionizRate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides the total ionization rate.</p>
+<p>Calls diRate and eaRate.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Ion.ion.p2eRatio">
+<code class="sig-name descname">p2eRatio</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Ion.ion.p2eRatio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the proton density to electron density ratio using Eq. 7 of <a class="footnote-reference brackets" href="#id57" id="id56">1</a>.</p>
+<p class="rubric">Notes</p>
+<p>Uses the abundance and ionization equilibrium.</p>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id57"><span class="brackets"><a class="fn-backref" href="#id56">1</a></span></dt>
+<dd><p>Young, P. R. et al., 2003, ApJS, <a class="reference external" href="http://adsabs.harvard.edu/abs/2003ApJS..144..135Y">144, 135</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Ion.ion.popPlot">
+<code class="sig-name descname">popPlot</code><span class="sig-paren">(</span><em class="sig-param">top=10</em>, <em class="sig-param">levels=[]</em>, <em class="sig-param">scale=0</em>, <em class="sig-param">plotFile=0</em>, <em class="sig-param">outFile=0</em>, <em class="sig-param">pub=0</em>, <em class="sig-param">addTitle=None</em>, <em class="sig-param">addLegend=True</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Ion.ion.popPlot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots populations vs temperature or eDensity.</p>
+<p>top specifies the number of the most highly populated levels to plot (the default)</p>
+<p>or can set levels to an array such as a list to set the desired levels to plot</p>
+<p>if scale is set, then the population, if plotted vs. density, is divided by density -
+only useful if plotting level populations vs density</p>
+<p>if pub is set, the want publication plots (bw, lw=2).</p>
+<p>if addLegend is set, a matplotlib legend is added</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Ion.ion.populate">
+<code class="sig-name descname">populate</code><span class="sig-paren">(</span><em class="sig-param">popCorrect=True</em>, <em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Ion.ion.populate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate level populations for specified ion.
+possible keyword arguments include temperature, eDensity, pDensity, radTemperature and rStar
+populate assumes that all of the population in the higher ionization stages exists only
+in the ground level
+use drPopulate() for cases where the population of various levels in the higher ionization stage
+figure into the calculation</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Ion.ion.recombRate">
+<code class="sig-name descname">recombRate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Ion.ion.recombRate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides the total recombination rate coefficient.</p>
+<p>Calls <cite>drRate</cite> and <cite>rrRate</cite></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Ion.ion.rrRate">
+<code class="sig-name descname">rrRate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Ion.ion.rrRate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provide the radiative recombination rate coefficient as a function of temperature (K).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Ion.ion.rrlvlDescale">
+<code class="sig-name descname">rrlvlDescale</code><span class="sig-paren">(</span><em class="sig-param">verbose=1</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Ion.ion.rrlvlDescale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpolate and extrapolate rrlvl rates.
+Used in level population calculations.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Ion.ion.setup">
+<code class="sig-name descname">setup</code><span class="sig-paren">(</span><em class="sig-param">alternate_dir=None</em>, <em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Ion.ion.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setup various CHIANTI files for the ion including .wgfa, .elvlc, .scups,
+.psplups, .reclvl, .cilvl, and others.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>alternate_dir</strong> (<cite>str</cite>) – directory cotaining the necessary files for a ChiantiPy ion; use to
+setup an ion with files not in the current CHIANTI directory</p></li>
+<li><p><strong>verbose</strong> (<cite>bool</cite>)</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>If ion is initiated with <cite>setup=False</cite>, call this method to do the
+setup at a later point.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Ion.ion.setupIonrec">
+<code class="sig-name descname">setupIonrec</code><span class="sig-paren">(</span><em class="sig-param">alternate_dir=None</em>, <em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Ion.ion.setupIonrec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setup method for ion recombination and ionization rates.</p>
+<p class="rubric">Notes</p>
+<p>Allows a bare-bones ion object to be setup up with just the ionization and recombination
+rates. For ions without a complete set of files - one that is not in the MasterList.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Ion.ion.spectrum">
+<code class="sig-name descname">spectrum</code><span class="sig-paren">(</span><em class="sig-param">wavelength</em>, <em class="sig-param">filter=(&lt;function gaussianR&gt;</em>, <em class="sig-param">1000.0)</em>, <em class="sig-param">label=0</em>, <em class="sig-param">allLines=1</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Ion.ion.spectrum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the line emission spectrum for the specified ion.</p>
+<p>Convolves the results of intensity to make them look like an observed spectrum
+the default filter is the gaussianR filter with a resolving power of 1000.  Other choices
+include chianti.filters.box and chianti.filters.gaussian.  When using the box filter,
+the width should equal the wavelength interval to keep the units of the continuum and line
+spectrum the same.</p>
+<p>includes ionization equilibrium and elemental abundances</p>
+<p>can be called multiple times to use different filters and widths
+uses label to keep the separate applications of spectrum sorted by the label
+for example, do .spectrum( …. label = ‘test1’)
+and do          .spectrum( ….  label = ‘test2’)
+then will get self.Spectrum.keys() = test1, test2 and
+self.Spectrum[‘test1’] = {‘intensity’:aspectrum,  ‘wvl’:wavelength, ‘filter’:useFilter.__name__,</p>
+<blockquote>
+<div><p>‘filterWidth’:useFactor}</p>
+</div></blockquote>
+<p class="rubric">Notes</p>
+<p>scipy.ndimage.filters also includes a range of filters.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Ion.ion.twoPhoton">
+<code class="sig-name descname">twoPhoton</code><span class="sig-paren">(</span><em class="sig-param">wvl</em>, <em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Ion.ion.twoPhoton" title="Permalink to this definition">¶</a></dt>
+<dd><p>to calculate the two-photon continuum - only for hydrogen- and helium-like ions
+includes the elemental abundance and the ionization equilibrium
+includes the emission measure if specified
+discussed in <a class="footnote-reference brackets" href="#id60" id="id59">105</a></p>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id60"><span class="brackets"><a class="fn-backref" href="#id59">105</a></span></dt>
+<dd><p>Young et al., 2003, ApJSS, <a class="reference external" href="http://adsabs.harvard.edu/abs/2003ApJS..144..135Y">144, 135</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Ion.ion.twoPhotonEmiss">
+<code class="sig-name descname">twoPhotonEmiss</code><span class="sig-paren">(</span><em class="sig-param">wvl</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Ion.ion.twoPhotonEmiss" title="Permalink to this definition">¶</a></dt>
+<dd><p>To calculate the two-photon continuum rate coefficient - only for hydrogen- and helium-like ions</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Ion.ion.twoPhotonLoss">
+<code class="sig-name descname">twoPhotonLoss</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Ion.ion.twoPhotonLoss" title="Permalink to this definition">¶</a></dt>
+<dd><p>to calculate the two-photon energy loss rate - only for hydrogen- and helium-like ions
+includes the elemental abundance and the ionization equilibrium
+does not include the emission measure</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Ion.ion.upsilonDescale">
+<code class="sig-name descname">upsilonDescale</code><span class="sig-paren">(</span><em class="sig-param">prot=0</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Ion.ion.upsilonDescale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides the temperatures and effective collision strengths (upsilons)
+set prot for proton rates
+otherwise, ce will be set for electron collision rates
+uses the new format “scups” files</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ChiantiPy.core.Ioneq">
+<span id="chiantipy-core-ioneq-module"></span><h2>ChiantiPy.core.Ioneq module<a class="headerlink" href="#module-ChiantiPy.core.Ioneq" title="Permalink to this headline">¶</a></h2>
+<p>Ionization equilibrium class</p>
+<dl class="class">
+<dt id="ChiantiPy.core.Ioneq.ioneq">
+<em class="property">class </em><code class="sig-prename descclassname">ChiantiPy.core.Ioneq.</code><code class="sig-name descname">ioneq</code><span class="sig-paren">(</span><em class="sig-param">el_or_z</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Ioneq.ioneq" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Calculation ion fractions as a function of temperature assuming
+ionization equilibrium.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>el_or_z</strong> (<cite>int</cite> or <cite>str</cite>) – Atomic number or symbol</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When either loading or calculating a set of ion fractions, the temperature and
+ion fractions are returned to the <cite>Temperature</cite> and <cite>Ioneq</cite> attributes, respectively.</p>
+</div>
+<dl class="method">
+<dt id="ChiantiPy.core.Ioneq.ioneq.calculate">
+<code class="sig-name descname">calculate</code><span class="sig-paren">(</span><em class="sig-param">temperature</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Ioneq.ioneq.calculate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate ion fractions for given temperature array using the total
+ionization and recombination rates.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Ioneq.ioneq.load">
+<code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param">ioneqName=None</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Ioneq.ioneq.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read temperature and ion fractions from a CHIANTI “.ioneq” file.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Ioneq.ioneq.plot">
+<code class="sig-name descname">plot</code><span class="sig-paren">(</span><em class="sig-param">stages=0</em>, <em class="sig-param">tRange=0</em>, <em class="sig-param">yr=0</em>, <em class="sig-param">oplot=False</em>, <em class="sig-param">label=1</em>, <em class="sig-param">title=1</em>, <em class="sig-param">bw=False</em>, <em class="sig-param">semilogx=0</em>, <em class="sig-param">heightAdjust=1.3</em>, <em class="sig-param">verbose=0</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Ioneq.ioneq.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the ionization equilibria.</p>
+<p>self.plot(tRange=None, yr=None, oplot=False)
+stages = sequence of ions to be plotted, neutral == 1, fully stripped == Z+1
+tRange = temperature range, yr = ion fraction range</p>
+<p>for overplotting:
+oplot=”ioneqfilename” such as ‘mazzotta’
+or if oplot=True or oplot=1 and a widget will come up so that a file can be selected.
+bw, if True, the plot is made in black and white</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ChiantiPy.core.Ioneq.ioneq.plotRatio">
+<code class="sig-name descname">plotRatio</code><span class="sig-paren">(</span><em class="sig-param">stageN</em>, <em class="sig-param">stageD</em>, <em class="sig-param">tRange=0</em>, <em class="sig-param">yr=0</em>, <em class="sig-param">label=1</em>, <em class="sig-param">title=1</em>, <em class="sig-param">bw=0</em>, <em class="sig-param">semilogx=1</em>, <em class="sig-param">verbose=0</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Ioneq.ioneq.plotRatio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the ratio of the ionization equilibria of two stages of a given element</p>
+<p>self.plotRatio(stageN, stageD)
+stages = sequence of ions to be plotted, neutral == 1, fully stripped == Z+1
+stageN = numerator
+stageD = denominator
+tRange = temperature range, yr = ion fraction range</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ChiantiPy.core.IpyMspectrum">
+<span id="chiantipy-core-ipymspectrum-module"></span><h2>ChiantiPy.core.IpyMspectrum module<a class="headerlink" href="#module-ChiantiPy.core.IpyMspectrum" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="ChiantiPy.core.IpyMspectrum.doAll">
+<code class="sig-prename descclassname">ChiantiPy.core.IpyMspectrum.</code><code class="sig-name descname">doAll</code><span class="sig-paren">(</span><em class="sig-param">inpt</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.IpyMspectrum.doAll" title="Permalink to this definition">¶</a></dt>
+<dd><p>to process ff, fb and line inputs</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="ChiantiPy.core.IpyMspectrum.ipymspectrum">
+<em class="property">class </em><code class="sig-prename descclassname">ChiantiPy.core.IpyMspectrum.</code><code class="sig-name descname">ipymspectrum</code><span class="sig-paren">(</span><em class="sig-param">temperature</em>, <em class="sig-param">eDensity</em>, <em class="sig-param">wavelength</em>, <em class="sig-param">filter=(&lt;function gaussianR&gt;</em>, <em class="sig-param">1000.0)</em>, <em class="sig-param">label=None</em>, <em class="sig-param">elementList=None</em>, <em class="sig-param">ionList=None</em>, <em class="sig-param">minAbund=None</em>, <em class="sig-param">keepIons=0</em>, <em class="sig-param">doLines=1</em>, <em class="sig-param">doContinuum=1</em>, <em class="sig-param">allLines=1</em>, <em class="sig-param">em=None</em>, <em class="sig-param">abundance=None</em>, <em class="sig-param">verbose=0</em>, <em class="sig-param">timeout=0.1</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.IpyMspectrum.ipymspectrum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="ChiantiPy.base.html#ChiantiPy.base._IonTrails.ionTrails" title="ChiantiPy.base._IonTrails.ionTrails"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChiantiPy.base._IonTrails.ionTrails</span></code></a>, <a class="reference internal" href="ChiantiPy.base.html#ChiantiPy.base._SpecTrails.specTrails" title="ChiantiPy.base._SpecTrails.specTrails"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChiantiPy.base._SpecTrails.specTrails</span></code></a></p>
+<p>this is the multiprocessing version of spectrum for using inside an IPython Qtconsole or notebook.</p>
+<p>be for creating an instance, it is necessary to type something like the following into a console</p>
+<p>&gt; ipcluster start   –n=3</p>
+<p>this is the way to invoke things under the IPython 6 notation</p>
+<p>Calculate the emission spectrum as a function of temperature and density.</p>
+<p>temperature and density can be arrays but, unless the size of either is one (1),
+the two must have the same size</p>
+<p>the returned spectrum will be convolved with a filter of the specified width on the
+specified wavelength array</p>
+<p>the default filter is gaussianR with a resolving power of 100.  Other filters,
+such as gaussian, box and lorentz, are available in ChiantiPy.filters.  When using the box filter,
+the width should equal the wavelength interval to keep the units of the continuum and line
+spectrum the same.</p>
+<p>A selection of elements can be make with elementList a list containing the names of elements
+that are desired to be included, e.g., [‘fe’,’ni’]</p>
+<p>A selection of ions can be make with ionList containing the names of
+the desired lines in Chianti notation, i.e. C VI = c_6</p>
+<p>Both elementList and ionList can not be specified at the same time</p>
+<p>a minimum abundance can be specified so that the calculation can be speeded up by excluding
+elements with a low abundance. With solar photospheric abundances -</p>
+<p>setting minAbund = 1.e-4 will include H, He, C, O, Ne
+setting minAbund = 2.e-5 adds  N, Mg, Si, S, Fe
+setting minAbund = 1.e-6 adds  Na, Al, Ar, Ca, Ni</p>
+<p>Setting em will multiply the spectrum at each temperature by the value of em.</p>
+<p>em [for emission measure], can be a float or an array of the same length as the
+temperature/density.
+allLines = 1 will include lines with either theoretical or observed wavelengths.  allLines=0 will
+include only those lines with observed wavelengths</p>
+<p>timeout - a small but non-zero value seems to be necessary</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-ChiantiPy.core.Mspectrum">
+<span id="chiantipy-core-mspectrum-module"></span><h2>ChiantiPy.core.Mspectrum module<a class="headerlink" href="#module-ChiantiPy.core.Mspectrum" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="ChiantiPy.core.Mspectrum.mspectrum">
+<em class="property">class </em><code class="sig-prename descclassname">ChiantiPy.core.Mspectrum.</code><code class="sig-name descname">mspectrum</code><span class="sig-paren">(</span><em class="sig-param">temperature</em>, <em class="sig-param">eDensity</em>, <em class="sig-param">wavelength</em>, <em class="sig-param">filter=(&lt;function gaussianR&gt;</em>, <em class="sig-param">1000.0)</em>, <em class="sig-param">label=0</em>, <em class="sig-param">elementList=None</em>, <em class="sig-param">ionList=None</em>, <em class="sig-param">minAbund=None</em>, <em class="sig-param">keepIons=0</em>, <em class="sig-param">abundance=None</em>, <em class="sig-param">doLines=1</em>, <em class="sig-param">doContinuum=1</em>, <em class="sig-param">allLines=1</em>, <em class="sig-param">em=None</em>, <em class="sig-param">proc=3</em>, <em class="sig-param">verbose=0</em>, <em class="sig-param">timeout=0.1</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Mspectrum.mspectrum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="ChiantiPy.base.html#ChiantiPy.base._IonTrails.ionTrails" title="ChiantiPy.base._IonTrails.ionTrails"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChiantiPy.base._IonTrails.ionTrails</span></code></a>, <a class="reference internal" href="ChiantiPy.base.html#ChiantiPy.base._SpecTrails.specTrails" title="ChiantiPy.base._SpecTrails.specTrails"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChiantiPy.base._SpecTrails.specTrails</span></code></a></p>
+<p>this is the multiprocessing version of spectrum
+set proc to the desired number of processors, default=3</p>
+<p>Calculate the emission spectrum as a function of temperature and density.</p>
+<p>temperature and density can be arrays but, unless the size of either is one (1),
+the two must have the same size</p>
+<p>the returned spectrum will be convolved with a filter of the specified width on the
+specified wavelength array</p>
+<p>the default filter is gaussianR with a resolving power of 100.  Other filters,
+such as gaussian, box and lorentz, are available in chianti.filters.  When using the box filter,
+the width should equal the wavelength interval to keep the units of the continuum and line
+spectrum the same.</p>
+<p>A selection of elements can be make with elementList a list containing the names of elements
+that are desired to be included, e.g., [‘fe’,’ni’]</p>
+<p>A selection of ions can be make with ionList containing the names of
+the desired lines in Chianti notation, i.e. C VI = c_6</p>
+<p>Both elementList and ionList can not be specified at the same time</p>
+<p>a minimum abundance can be specified so that the calculation can be speeded up by excluding
+elements with a low abundance. With solar photospheric abundances -</p>
+<p>setting minAbund = 1.e-4 will include H, He, C, O, Ne
+setting minAbund = 2.e-5 adds  N, Mg, Si, S, Fe
+setting minAbund = 1.e-6 adds  Na, Al, Ar, Ca, Ni</p>
+<p>Setting em will multiply the spectrum at each temperature by the value of em.</p>
+<p>em [for emission measure], can be a float or an array of the same length as the
+temperature/density.</p>
+<p>allLines = 1 will include lines with either theoretical or observed wavelengths.  allLines=0 will
+include only those lines with observed wavelengths</p>
+<p>proc, the number of processors to use</p>
+<p>timeout,   a small but non-zero value seems to be necessary
+keepIons:  set this to keep the ion instances that have been calculated in a dictionary
+self.IonInstances with the keywords being the CHIANTI-style ion names</p>
+<p>abundance: to select a particular set of abundances, set abundance to the name of a
+CHIANTI abundance file, without the ‘.abund’ suffix, e.g. ‘sun_photospheric_1998_grevesse’</p>
+<p>If set to a blank (‘’), a gui selection menu will popup and allow the selection of an
+set of abundances</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul>
+<li><p><strong>temperature</strong> (<cite>float</cite>, <cite>list</cite>, <cite>ndarray</cite>) – the temperature(s) in K</p></li>
+<li><p><strong>eDensity</strong> (<em>float, ndarray</em>) – eDensity: electron density in <span class="math notranslate nohighlight">\(\mathrm{cm^{-3}}\)</span></p></li>
+<li><p><strong>wavelength</strong> (<cite>list</cite> or <cite>ndarray</cite>) – wavelength:  array of  wavelengths, generally in Angstroms</p></li>
+<li><p><strong>elementList</strong> (<cite>list</cite>) – elementList:  list of elements to include, such as ‘fe’, ‘ne’, ‘s’</p></li>
+<li><p><strong>ionList</strong> (<cite>list</cite>) – ionList:  list of ions to include, such as ‘fe_16’, ‘ne_10’</p></li>
+<li><p><strong>minAbund</strong> (<cite>float</cite>) – minAbund:  minimum abundance (relative to H) to include</p></li>
+<li><p><strong>doLines</strong> (<a href="#id62"><span class="problematic" id="id63">`</span></a>bool1) – doLines: if true, line intensities are calculated</p></li>
+<li><p><strong>doContinuum</strong> (<cite>bool</cite>) – doContinuum:  if true, continuum intensities are calculated only if wavelengths are in angstroms</p></li>
+<li><p><strong>keepIons</strong> (<cite>bool</cite>) –</p>
+<dl class="simple">
+<dt>keepIons:  keep the ion instances used in the calculation</dt><dd><p>should be used with caution otherwise the bunch instance
+can become quite large</p>
+</dd>
+</dl>
+</li>
+<li><p><strong>em</strong> (<cite>float</cite>, <cite>list</cite>, <cite>ndarray</cite>) – em:  the emission measure - the integral of the electron density times the hydrogen density
+along the line of sight</p></li>
+<li><p><strong>abundance</strong> (<cite>str</cite>) –</p>
+<dl class="simple">
+<dt>abuncance:  the file name of the abuncance set to be used</dt><dd><p>must be one in the $XUVTOP/abund directory</p>
+</dd>
+</dl>
+</li>
+<li><p><strong>allLInes</strong> (<cite>bool</cite>) – allLines:  whether or not to include unobserved lines</p></li>
+<li><p><strong>verbose</strong> (<cite>bool</cite>) – verbose:  whether to allow certain print statements</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-ChiantiPy.core.RadLoss">
+<span id="chiantipy-core-radloss-module"></span><h2>ChiantiPy.core.RadLoss module<a class="headerlink" href="#module-ChiantiPy.core.RadLoss" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="ChiantiPy.core.RadLoss.radLoss">
+<em class="property">class </em><code class="sig-prename descclassname">ChiantiPy.core.RadLoss.</code><code class="sig-name descname">radLoss</code><span class="sig-paren">(</span><em class="sig-param">temperature</em>, <em class="sig-param">eDensity</em>, <em class="sig-param">elementList=None</em>, <em class="sig-param">ionList=None</em>, <em class="sig-param">minAbund=None</em>, <em class="sig-param">doContinuum=True</em>, <em class="sig-param">doLines=True</em>, <em class="sig-param">abundance=None</em>, <em class="sig-param">verbose=0</em>, <em class="sig-param">allLines=1</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.RadLoss.radLoss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="ChiantiPy.base.html#ChiantiPy.base._IonTrails.ionTrails" title="ChiantiPy.base._IonTrails.ionTrails"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChiantiPy.base._IonTrails.ionTrails</span></code></a>, <a class="reference internal" href="ChiantiPy.base.html#ChiantiPy.base._SpecTrails.specTrails" title="ChiantiPy.base._SpecTrails.specTrails"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChiantiPy.base._SpecTrails.specTrails</span></code></a></p>
+<p>Calculate the radiative emission loss rate as a function of temperature and density.</p>
+<p>includes elemental abundances or ionization equilibria</p>
+<p>temperature and density can be arrays but, unless the size of either is one (1),
+the two must have the same size</p>
+<p>A selection of ions can be make with ionList containing the names of
+the desired lines in Chianti notation, i.e. C VI = c_6</p>
+<p>a minimum abundance can be specified so that the calculation can be speeded up by excluding
+elements with a low abundance. With solar photospheric abundances -</p>
+<p>setting minAbund = 1.e-4 will include H, He, C, O, Ne
+setting minAbund = 2.e-5 adds  N, Mg, Si, S, Fe
+setting minAbund = 1.e-6 adds  Na, Al, Ar, Ca, Ni</p>
+<p>Setting em will multiply the spectrum at each temperature by the value of em.</p>
+<p>em [for emission measure], can be a float or an array of the same length as the
+temperature/density.</p>
+<dl class="simple">
+<dt>abundance: to select a particular set of abundances, set abundance to the name of a CHIANTI abundance file,</dt><dd><p>without the ‘.abund’ suffix, e.g. ‘sun_photospheric_1998_grevesse’
+If set to a blank (‘’), a gui selection menu will popup and allow the
+selection of an set of abundances</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="ChiantiPy.core.RadLoss.radLoss.radLossPlot">
+<code class="sig-name descname">radLossPlot</code><span class="sig-paren">(</span><em class="sig-param">doTitle=False</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.RadLoss.radLoss.radLossPlot" title="Permalink to this definition">¶</a></dt>
+<dd><p>to plot the radiative losses vs temperature</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>doTitle</strong> (<cite>bool</cite>) – if True, a title is applied to the plot.  The default is for no title</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ChiantiPy.core.MradLoss">
+<span id="chiantipy-core-mradloss-module"></span><h2>ChiantiPy.core.MradLoss module<a class="headerlink" href="#module-ChiantiPy.core.MradLoss" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="ChiantiPy.core.MradLoss.mradLoss">
+<em class="property">class </em><code class="sig-prename descclassname">ChiantiPy.core.MradLoss.</code><code class="sig-name descname">mradLoss</code><span class="sig-paren">(</span><em class="sig-param">temperature</em>, <em class="sig-param">eDensity</em>, <em class="sig-param">elementList=None</em>, <em class="sig-param">ionList=None</em>, <em class="sig-param">minAbund=None</em>, <em class="sig-param">doContinuum=True</em>, <em class="sig-param">doLines=True</em>, <em class="sig-param">abundance=None</em>, <em class="sig-param">verbose=0</em>, <em class="sig-param">allLines=1</em>, <em class="sig-param">proc=4</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.MradLoss.mradLoss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="ChiantiPy.base.html#ChiantiPy.base._IonTrails.ionTrails" title="ChiantiPy.base._IonTrails.ionTrails"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChiantiPy.base._IonTrails.ionTrails</span></code></a>, <a class="reference internal" href="ChiantiPy.base.html#ChiantiPy.base._SpecTrails.specTrails" title="ChiantiPy.base._SpecTrails.specTrails"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChiantiPy.base._SpecTrails.specTrails</span></code></a></p>
+<p>Calculate the radiative emission loss rate as a function of temperature and density.</p>
+<p>this is the multiprocessing version of radloss</p>
+<p>includes elemental abundances or ionization equilibria</p>
+<p>temperature and density can be arrays but, unless the size of either is one (1),
+the two must have the same size</p>
+<p>A selection of ions can be make with ionList containing the names of
+the desired lines in Chianti notation,
+i.e. C VI = c_6</p>
+<p>a minimum abundance can be specified so that the calculation can be speeded up by excluding
+elements with a low abundance. With solar photospheric abundances</p>
+<p>setting minAbund = 1.e-4 will include H, He, C, O, Ne
+setting minAbund = 2.e-5 adds  N, Mg, Si, S, Fe
+setting minAbund = 1.e-6 adds  Na, Al, Ar, Ca, Ni</p>
+<p>Setting em will multiply the spectrum at each temperature by the value of em.</p>
+<p>em [for emission measure], can be a float or an array of the same length as the
+temperature/density.</p>
+<dl class="simple">
+<dt>abundance: to select a particular set of abundances, set abundance to the name of a</dt><dd><p>CHIANTI abundance file, without the ‘.abund’ suffix, e.g. ‘sun_photospheric_1998_grevesse’
+If set to a blank (‘’), a gui selection menu will popup and allow the
+selection of an set of abundances</p>
+</dd>
+</dl>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul>
+<li><p><strong>temperature</strong> (<cite>float</cite>, <cite>list</cite>, <cite>ndarray</cite>) – the temperature(s) in K</p></li>
+<li><p><strong>eDensity</strong> (<em>float, ndarray</em>) – eDensity: electron density in <span class="math notranslate nohighlight">\(\mathrm{cm^{-3}}\)</span></p></li>
+<li><p><strong>elementList</strong> (<cite>list</cite>) – elementList:  list of elements to include, such as ‘fe’, ‘ne’, ‘s’</p></li>
+<li><p><strong>ionList</strong> (<cite>list</cite>) – ionList:  list of ions to include, such as ‘fe_16’, ‘ne_10’</p></li>
+<li><p><strong>minAbund</strong> (<cite>float</cite>) – minAbund:  minimum abundance (relative to H) to include</p></li>
+<li><p><strong>doLines</strong> (<a href="#id64"><span class="problematic" id="id65">`</span></a>bool1) – doLines: if true, line intensities are calculated</p></li>
+<li><p><strong>doContinuum</strong> (<cite>bool</cite>) – doContinuum:  if true, continuum intensities are calculated only if wavelengths are in angstroms</p></li>
+<li><p><strong>abundance</strong> (<cite>str</cite>) –</p>
+<dl class="simple">
+<dt>abuncance:  the file name of the abuncance set to be used</dt><dd><p>must be one in the $XUVTOP/abund directory</p>
+</dd>
+</dl>
+</li>
+<li><p><strong>allLInes</strong> (<cite>bool</cite>) – allLines:  whether or not to include unobserved lines</p></li>
+<li><p><strong>verbose</strong> (<cite>bool</cite>) – verbose:  whether to allow certain print statements</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="ChiantiPy.core.MradLoss.mradLoss.radLossPlot">
+<code class="sig-name descname">radLossPlot</code><span class="sig-paren">(</span><em class="sig-param">title=0</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.MradLoss.mradLoss.radLossPlot" title="Permalink to this definition">¶</a></dt>
+<dd><p>to plot the radiative losses vs temperature</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ChiantiPy.core.Bunch">
+<span id="chiantipy-core-bunch-module"></span><h2>ChiantiPy.core.Bunch module<a class="headerlink" href="#module-ChiantiPy.core.Bunch" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="ChiantiPy.core.Bunch.bunch">
+<em class="property">class </em><code class="sig-prename descclassname">ChiantiPy.core.Bunch.</code><code class="sig-name descname">bunch</code><span class="sig-paren">(</span><em class="sig-param">temperature</em>, <em class="sig-param">eDensity</em>, <em class="sig-param">wvlRange</em>, <em class="sig-param">elementList=None</em>, <em class="sig-param">ionList=None</em>, <em class="sig-param">minAbund=None</em>, <em class="sig-param">keepIons=False</em>, <em class="sig-param">em=None</em>, <em class="sig-param">abundance=None</em>, <em class="sig-param">verbose=False</em>, <em class="sig-param">allLines=True</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Bunch.bunch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="ChiantiPy.base.html#ChiantiPy.base._IonTrails.ionTrails" title="ChiantiPy.base._IonTrails.ionTrails"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChiantiPy.base._IonTrails.ionTrails</span></code></a>, <a class="reference internal" href="ChiantiPy.base.html#ChiantiPy.base._SpecTrails.specTrails" title="ChiantiPy.base._SpecTrails.specTrails"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChiantiPy.base._SpecTrails.specTrails</span></code></a></p>
+<p>Calculate the emission line spectrum as a function of temperature and density.</p>
+<p>‘bunch’ is very similar to ‘spectrum’ except that continuum is not calculated and
+the spectrum is not convolved over a filter.  However, this can be done with the
+inherited convolve method</p>
+<p>one of the convenient things is that all of the instantiated ion classes,
+determined through such keywords as ‘elementList’, ‘ionList’, and ‘minAbund’ are
+kept in a dictionary self.IonInstances where self.IonInstances[‘mg_7’] is the
+class instance of ChiantiPy.core.ion for ‘mg_7’.  All its methods and attributes
+are available.</p>
+<p>includes elemental abundances and ionization equilibria</p>
+<p>the set of abundances, a file in $XUVTOP/abundance, can be set with the keyword
+argument ‘abundanceName’</p>
+<p>temperature and density can be arrays but, unless the size of either is one (1),
+the two must have the same size</p>
+<p>Inherited methods include ‘intensityList’, ‘intensityRatio’ (between lines of different
+ions), and ‘intensityRatioSave’ and ‘convolve’.</p>
+<p>A selection of elements can be make with elementList a list containing the names of elements
+that are desired to be included, e.g., [‘fe’,’ni’]</p>
+<p>A selection of ions can be make with ionList containing the names of
+the desired lines in Chianti notation, i.e. C VI = c_6</p>
+<p>Both elementList and ionList can not be specified at the same time</p>
+<p>a minimum abundance can be specified so that the calculation can be speeded up by excluding
+elements with a low abundance. With solar photospheric abundances -</p>
+<p>setting minAbund = 1.e-4 will include H, He, C, O, Ne
+setting minAbund = 2.e-5 adds  N, Mg, Si, S, Fe
+setting minAbund = 1.e-6 adds  Na, Al, Ar, Ca, Ni</p>
+<p>At least one of elementList, ionList, or minAbund must be set in order for ‘bunch’ to include
+any ions.</p>
+<p>Setting em will multiply the spectrum at each temperature by the value of em.</p>
+<p>em [for emission measure], can be a float or an array of the same length as the
+temperature/density</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul>
+<li><p><strong>temperature</strong> (<cite>float</cite>, <cite>list</cite>, <cite>ndarray</cite>) – the temperature(s) in K</p></li>
+<li><p><strong>eDensity</strong> (<em>float, ndarray</em>) – eDensity: electron density in <span class="math notranslate nohighlight">\(\mathrm{cm^{-3}}\)</span></p></li>
+<li><p><strong>wvlRange</strong> (2 element <cite>list</cite> or <cite>ndarray</cite>) – wvlRange:  range of wavelengths to consider, generally in angstroms</p></li>
+<li><p><strong>elementList</strong> (<cite>list</cite>) – elementList:  list of elements to include, such as ‘fe’, ‘ne’, ‘s’</p></li>
+<li><p><strong>ionList</strong> (<cite>list</cite>) – ionList:  list of ions to include, such as ‘fe_16’, ‘ne_10’</p></li>
+<li><p><strong>minAbund</strong> (<cite>float</cite>) – minAbund:  minimum abundance (relative to H) to include</p></li>
+<li><p><strong>keepIons</strong> (<cite>bool</cite>) –</p>
+<dl class="simple">
+<dt>keepIons:  keep the ion instances used in the calculation</dt><dd><p>should be used with caution otherwise the bunch instance
+can become quite large</p>
+</dd>
+</dl>
+</li>
+<li><p><strong>em</strong> (<cite>float</cite>, <cite>list</cite>, <cite>ndarray</cite>) – em:  the emission measure</p></li>
+<li><p><strong>abundance</strong> (<cite>str</cite>) –</p>
+<dl class="simple">
+<dt>abuncance:  the file name of the abuncance set to be used</dt><dd><p>must be one in the $XUVTOP/abund directory</p>
+</dd>
+</dl>
+</li>
+<li><p><strong>allLInes</strong> (<cite>bool</cite>) – allLines:  whether or not to include unobserved lines</p></li>
+<li><p><strong>verbose</strong> (<cite>bool</cite>) – verbose:  whether to allow certain print statements</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="ChiantiPy.core.Bunch.bunch.convolve">
+<code class="sig-name descname">convolve</code><span class="sig-paren">(</span><em class="sig-param">wavelength=None</em>, <em class="sig-param">filter=(&lt;function gaussianR&gt;</em>, <em class="sig-param">1000.0)</em>, <em class="sig-param">label=None</em>, <em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Bunch.bunch.convolve" title="Permalink to this definition">¶</a></dt>
+<dd><p>the first application of spectrum calculates the line intensities within the specified wavelength
+range and for set of ions specified</p>
+<p>wavelength will not be used if applied to ‘spectrum’ objects</p>
+<p>wavelength IS need for ‘bunch’ objects - in this case, the wavelength should not extend beyond
+the limits of the wvlRange used for the ‘bunch’ calculation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Keyword Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wavelength</strong> (‘int’, <cite>list</cite>) – if an <cite>int</cite>, the attribute ‘Wavelength’ is looked for
+otherwise, wavelength is used</p></li>
+<li><p><strong>filter</strong> (<cite>tuple</cite>) – first elements if one of the ChiantiPy.tools.filters object
+second element is the width appropriate to the filter</p></li>
+<li><p><strong>label</strong> (<cite>str</cite>) – if set, creates a Spectrum[label] attribute</p></li>
+<li><p><strong>verbose</strong> (<cite>bool</cite>) – if True, prints info to the terminal</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ChiantiPy.core.Spectrum">
+<span id="chiantipy-core-spectrum-module"></span><h2>ChiantiPy.core.Spectrum module<a class="headerlink" href="#module-ChiantiPy.core.Spectrum" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="ChiantiPy.core.Spectrum.spectrum">
+<em class="property">class </em><code class="sig-prename descclassname">ChiantiPy.core.Spectrum.</code><code class="sig-name descname">spectrum</code><span class="sig-paren">(</span><em class="sig-param">temperature</em>, <em class="sig-param">eDensity</em>, <em class="sig-param">wavelength</em>, <em class="sig-param">filter=(&lt;function gaussianR&gt;</em>, <em class="sig-param">1000.0)</em>, <em class="sig-param">label=None</em>, <em class="sig-param">elementList=None</em>, <em class="sig-param">ionList=None</em>, <em class="sig-param">minAbund=None</em>, <em class="sig-param">doLines=1</em>, <em class="sig-param">doContinuum=1</em>, <em class="sig-param">em=None</em>, <em class="sig-param">keepIons=0</em>, <em class="sig-param">abundance=None</em>, <em class="sig-param">verbose=0</em>, <em class="sig-param">allLines=1</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.core.Spectrum.spectrum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="ChiantiPy.base.html#ChiantiPy.base._IonTrails.ionTrails" title="ChiantiPy.base._IonTrails.ionTrails"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChiantiPy.base._IonTrails.ionTrails</span></code></a>, <a class="reference internal" href="ChiantiPy.base.html#ChiantiPy.base._SpecTrails.specTrails" title="ChiantiPy.base._SpecTrails.specTrails"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChiantiPy.base._SpecTrails.specTrails</span></code></a></p>
+<p>Calculate the emission spectrum as a function of temperature and density.</p>
+<p>one of the convenient things is that all of the instantiated ion classes, determined
+through such keywords as ‘elementList’, ‘ionList’, and ‘minAbund’ are kept in a
+dictionary self.IonInstances where self.IonInstances[‘mg_7’] is the class instance of
+ChiantiPy.core.ion for ‘mg_7’.  All its methods and attributes are available.</p>
+<p>includes elemental abundances and ionization equilibria</p>
+<p>the set of abundances, a file in $XUVTOP/abundance, can be set with the keyword argument ‘abundanceName’</p>
+<p>temperature and density can be arrays but, unless the size of either is unity (1),
+the two must have the same size</p>
+<p>the returned spectrum will be convolved with a filter of the specified width on the
+specified wavelength array</p>
+<p>the default filter is gaussianR with a resolving power of 1000.  Other filters,
+such as gaussian, box and lorentz, are available in ChiantiPy.tools.filters.  When
+using the box filter, the width should equal the wavelength interval to keep the units
+of the continuum and line spectrum the same.</p>
+<p>Inherited methods include ‘intensityList’, ‘intensityRatio’ (between lines of different ions),
+‘intensityRatioSave’ and ‘convolve’</p>
+<p>A selection of elements can be make with elementList a list containing the names of elements
+that are desired to be included, e.g., [‘fe’,’ni’]</p>
+<p>A selection of ions can be make with ionList containing the names of
+the desired lines in CHIANTI notation, i.e. C VI = c_6</p>
+<p>Both elementList and ionList can not be specified at the same time</p>
+<p>a minimum abundance can be specified so that the calculation can be speeded up
+by excluding elements with a low abundance. The default of minAbund is 1.e-6</p>
+<p>It is necessary to specify at least an elementList, an ionList, or a minAbund to select any ions
+for a spectrum calculation</p>
+<p>With solar photospheric abundances</p>
+<p>setting minAbund = 1.e-4 will include H, He, C, O, Ne</p>
+<p>setting minAbund = 2.e-5 adds  N, Mg, Si, S, Fe</p>
+<p>setting minAbund = 1.e-6 adds  Na, Al, Ar, Ca, Ni</p>
+<p>Setting doLines = 0 will skip the calculation of spectral lines.
+Setting doContinuum =0 will skip the continuum calculation.</p>
+<p>Setting em [for emission measure] will multiply the spectrum at each temperature
+by the value of em.</p>
+<p>em [for emission measure] can be a float or an array of the same length as the
+temperature/density</p>
+<p>keepIons  set this to keep the ion instances that have been calculated in a dictionary
+self.IonInstances with the keywords being the CHIANTI-style ion names</p>
+<p>abundance -  to select a particular set of abundances, set abundance to the name of a
+CHIANTI abundance file, without the ‘.abund’ suffix, e.g. ‘sun_photospheric_1998_grevesse’</p>
+<p>If set to a blank (‘’), a gui selection menu will popup and allow the selection of an
+set of abundances</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul>
+<li><p><strong>temperature</strong> (<cite>float</cite>, <cite>list</cite>, <cite>ndarray</cite>) – the temperature(s) in K</p></li>
+<li><p><strong>eDensity</strong> (<em>float, ndarray</em>) – eDensity: electron density in <span class="math notranslate nohighlight">\(\mathrm{cm^{-3}}\)</span></p></li>
+<li><p><strong>wavelength</strong> (<cite>list</cite> or <cite>ndarray</cite>) – wavelength:  array of  wavelengths, generally in Angstroms</p></li>
+<li><p><strong>elementList</strong> (<cite>list</cite>) – elementList:  list of elements to include, such as ‘fe’, ‘ne’, ‘s’</p></li>
+<li><p><strong>ionList</strong> (<cite>list</cite>) – ionList:  list of ions to include, such as ‘fe_16’, ‘ne_10’</p></li>
+<li><p><strong>minAbund</strong> (<cite>float</cite>) – minAbund:  minimum abundance (relative to H) to include</p></li>
+<li><p><strong>doLines</strong> (<a href="#id66"><span class="problematic" id="id67">`</span></a>bool1) – doLines: if true, line intensities are calculated</p></li>
+<li><p><strong>doContinuum</strong> (<cite>bool</cite>) – doContinuum:  if true, continuum intensities are calculated only if wavelengths are in angstroms</p></li>
+<li><p><strong>keepIons</strong> (<cite>bool</cite>) –</p>
+<dl class="simple">
+<dt>keepIons:  keep the ion instances used in the calculation</dt><dd><p>should be used with caution otherwise the bunch instance
+can become quite large</p>
+</dd>
+</dl>
+</li>
+<li><p><strong>em</strong> (<cite>float</cite>, <cite>list</cite>, <cite>ndarray</cite>) – em:  the emission measure</p></li>
+<li><p><strong>abundance</strong> (<cite>str</cite>) –</p>
+<dl class="simple">
+<dt>abuncance:  the file name of the abuncance set to be used</dt><dd><p>must be one in the $XUVTOP/abund directory</p>
+</dd>
+</dl>
+</li>
+<li><p><strong>allLInes</strong> (<cite>bool</cite>) – allLines:  whether or not to include unobserved lines</p></li>
+<li><p><strong>verbose</strong> (<cite>bool</cite>) – verbose:  whether to allow certain print statements</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-ChiantiPy.core">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-ChiantiPy.core" title="Permalink to this headline">¶</a></h2>
+<p>chianti.core - contains the main classes for ChiantiPy users.</p>
+<p>This software is distributed under the terms of the ISC Software License
+that is found in the LICENSE file</p>
+</div>
+</div>
+
+
+          </div>
         </div>
       </div>
       <div class="clearer"></div>
@@ -151,8 +1364,7 @@
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">ChiantiPy 0.15.1 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >ChiantiPy’s API documentation</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="ChiantiPy.html" >ChiantiPy package</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">ChiantiPy.core package</a></li> 
+          <li class="nav-item nav-item-2"><a href="ChiantiPy.html" >ChiantiPy package</a> &#187;</li> 
       </ul>
     </div>
 <div style="padding: 20px 10px 10px 40px; background-color: #fff8d3; text-align: left;">
@@ -161,8 +1373,8 @@
 </div>
     
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2023, Ken Dere.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+        &#169; Copyright 2023, Ken Dere.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
 
   </body>
