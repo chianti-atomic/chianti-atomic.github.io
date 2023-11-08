@@ -1,19 +1,18 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Changelog &#8212; ChiantiPy 0.9.0 documentation</title>
+    <meta charset="utf-8" />
+    <title>Changelog &#8212; ChiantiPy 0.15.1 documentation</title>
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Reporting Bugs" href="bugs.html" />
@@ -41,7 +40,7 @@
         <li class="right" >
           <a href="resources.html" title="Resources for ChiantiPy Users"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">ChiantiPy 0.9.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">ChiantiPy 0.15.1 documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -53,13 +52,11 @@
   <p class="topless"><a href="bugs.html"
                         title="next chapter">Reporting Bugs</a></p>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -74,6 +71,106 @@
             
   <div class="section" id="changelog">
 <h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="changes-from-0-15-0-to-0-15-1">
+<h2>Changes from 0.15.0 to 0.15.1<a class="headerlink" href="#changes-from-0-15-0-to-0-15-1" title="Permalink to this headline">¶</a></h2>
+<p>The continuum.freeBound method has been corrected so that it can be used under extreme conditions and not fail.</p>
+<p>The io.abundanceRead method has been updated to work with new files in the upcoming CHIANTI 10.1 release</p>
+</div>
+<div class="section" id="changes-from-0-14-1-to-0-15-0">
+<h2>Changes from 0.14.1 to 0.15.0<a class="headerlink" href="#changes-from-0-14-1-to-0-15-0" title="Permalink to this headline">¶</a></h2>
+<p>Significant improvement have been made.  It is now possible to calculate spectral line intensities in wavelength/energy units of angstroms, nm, eV, or keV</p>
+<p>Calculations of the continuum still require that the wavelengths are in angstroms.</p>
+<p>The free-bound continuum now includes the photoionization cross sections of Verner for recombination to the ground level</p>
+<p>The free-free continuum has been correction to use the ion charge, not the nuclear charge previously used</p>
+<p>A new class MradLoss.mradLoss has been created.  It allows multiprocessing calculations of the radiative loss rate</p>
+<p>The chiantirc file can now also be placed in the $HOME/.config directory</p>
+</div>
+<div class="section" id="changes-from-0-14-0-to-0-14-1">
+<h2>Changes from 0.14.0 to 0.14.1<a class="headerlink" href="#changes-from-0-14-0-to-0-14-1" title="Permalink to this headline">¶</a></h2>
+<p>This relatively minor release adds some new features and corrects some glitches</p>
+<p>A function demRead has been to ChiantiPy.tools.io for reading the CHIANTI .dem files in the XUVTOP/dem directory</p>
+<p>The spectrumPlot method has been updated to provide more correct labeling of syntheic spectra</p>
+<p>The QuickStart guide (html and notebook) have been updated to reflect these changes and show how to use the .dem files</p>
+</div>
+<div class="section" id="changes-from-0-13-1-to-0-14-0">
+<h2>Changes from 0.13.1 to 0.14.0<a class="headerlink" href="#changes-from-0-13-1-to-0-14-0" title="Permalink to this headline">¶</a></h2>
+<p>a new class ‘ch.redux’ restores the attributes saved by the saveData methods.  It inherits as number of methods, especially, for plotting.</p>
+<p>the inherited methods ‘intensityPlot’ and ‘spectrumPlot’ have been improved.  These are inherited by the ion, bunch, spectrum, mspectrum, ipymspectrum and redux classes.</p>
+<p>First, these methods will also display the ion name (‘Fe XIV’) and wavelength together with the line intensities or spectral intensity.</p>
+<p>These are more flexible and several keyword arguments have been added:</p>
+<blockquote>
+<div><p>‘doLabel’ governs whether to display the ion name and wavelength
+‘lw’ the linewidth of the marker in matplotlib units (default=1)
+‘doTitle’ governs whether to add a title to the plot</p>
+</div></blockquote>
+<p>The QuickStart (html and notebook) has been updated to demonstrate some of these new features</p>
+<p>Import bug fix:  the indices for calculating the two-photon continue were update to match the new ordering of the energy levels for the h-like and he-like ions.</p>
+<p>The ionization potential array (Ip) has been enlarged to make room for call to zn_31</p>
+</div>
+<div class="section" id="changes-from-0-13-0-to-0-13-1">
+<h2>Changes from 0.13.0 to 0.13.1<a class="headerlink" href="#changes-from-0-13-0-to-0-13-1" title="Permalink to this headline">¶</a></h2>
+<p>This is primarily a bug fix release to correct a bug in ionGate that was not taken care of in the 0.13.0 release.</p>
+</div>
+<div class="section" id="changes-from-0-12-0-to-0-13-0">
+<h2>Changes from 0.12.0 to 0.13.0<a class="headerlink" href="#changes-from-0-12-0-to-0-13-0" title="Permalink to this headline">¶</a></h2>
+<p>it is now possible to incorporate a user created abundance file.  It needs to be of the same structure as one of the .abund files in the XUVTOP/abundance directory.  The file can be located anywhere on the user’s computer.  It will be read if the abundance keyword is set to a fully qualified file name of the new abundance file, such as ‘/home/me/myabundance.abund’, or equally, ‘/home/me/myabundance.txt’</p>
+<p>in the core classes, bunch and spectrum, now have saveData methods to save calculations to a pickle file</p>
+<p>by default, the pyQt widgets are now used a selection tools.  The command line selection tools are still available but the ~/.chianti/chiantirc file needs to select them.</p>
+<p>Problems with the ionGate method have been fixed.  This method help to select which ions will be used in multi-ion calculations</p>
+</div>
+<div class="section" id="changes-from-0-11-0-to-0-12-0">
+<h2>Changes from 0.11.0 to 0.12.0<a class="headerlink" href="#changes-from-0-11-0-to-0-12-0" title="Permalink to this headline">¶</a></h2>
+<p>The model module is more mature</p>
+<p>For Windows users, it is now possible to place the chiantirc file in $PROJECTHOME/.config or $PROJECTHOME/.chianti</p>
+<p>Many improved docstrings for the documentation</p>
+<p>the bunch class has been moved to a new module core.Bunch</p>
+<p>a number of jupyter ipython notebooks have been created/improved to demonstrate the use of the bunch, spectrum and model.Maker classes.  A short README.txt can be found in the same directory provides an introduction to these notebooks</p>
+<p>A bug in the inherited method base._IntensityRatio() was not properly corrected in v0.10.0.  This is fixed here</p>
+</div>
+<div class="section" id="changes-from-0-10-0-to-0-11-0">
+<h2>Changes from 0.10.0 to 0.11.0<a class="headerlink" href="#changes-from-0-10-0-to-0-11-0" title="Permalink to this headline">¶</a></h2>
+<p>Calculations of the free-bound/radiative recombination continuum and radiation losses depend on a file that provides and LS description of the bound and singly excited energy levels.  This file is called c_5.fblvl in the case of C V.  Not all ions have an associated .fblvl files and is was necessary to revise ChiantiPy to ignore the free-bound calculation for these ions.</p>
+<p>In addition, it was found that under extreme conditions, such as very low temperatures for highly ionized species, that bad values would arise (Nans and infinities).  These are now detected and removed.</p>
+</div>
+<div class="section" id="changes-from-0-9-5-to-0-10-0">
+<h2>Changes from 0.9.5 to 0.10.0<a class="headerlink" href="#changes-from-0-9-5-to-0-10-0" title="Permalink to this headline">¶</a></h2>
+<p>The Karzas and Latter (1965) bound-free gaunt factors in the CHIANTI database have been corrected as of CHIANTI version 10.  This effects the calculation of the free-bound continuum.  The continuum.freeBound method has been updated to uses these new data.</p>
+<p>The freeBound and the freeFree methods now have 2 new keyword variables:  <strong>includeAbund</strong> and <strong>includeIoneq</strong>.  Their initial values are True so that elemental abundance and the ionization equilibrium appropriate to the ion is included the the output spectrum.</p>
+<p>The freeBoundEmiss is removed as it has become redundant</p>
+<p>A new continuum method, freeBoundLossMao includes the radiative-recombination (free-bound) loss rate as calculated by Mao et al. (2017)</p>
+<p>a bug in the inherited method base._IntensityRatio() was corrected.</p>
+</div>
+<div class="section" id="changes-from-0-9-4-to-0-9-5">
+<h2>Changes from 0.9.4 to 0.9.5<a class="headerlink" href="#changes-from-0-9-4-to-0-9-5" title="Permalink to this headline">¶</a></h2>
+<p>this is a bug-fix release.</p>
+<p>a bug in the inherited method base._IntensityRatio() had a problem if lines were selected from different ions</p>
+</div>
+<div class="section" id="changes-from-0-9-3-to-0-9-4">
+<h2>Changes from 0.9.3 to 0.9.4<a class="headerlink" href="#changes-from-0-9-3-to-0-9-4" title="Permalink to this headline">¶</a></h2>
+<p>this is a bug-fix release.</p>
+<p>changes in version 0.9.2 continued to give problems with ions that included autoionization rates</p>
+</div>
+<div class="section" id="changes-from-0-9-3-to-0-9-3">
+<h2>Changes from 0.9.3 to 0.9.3<a class="headerlink" href="#changes-from-0-9-3-to-0-9-3" title="Permalink to this headline">¶</a></h2>
+<p>this is a bug-fix release.</p>
+<p>changes in version 0.9.2 gave problems with ions that included autoionization rates</p>
+</div>
+<div class="section" id="changes-from-0-9-2-to-0-9-3">
+<h2>Changes from 0.9.2 to 0.9.3<a class="headerlink" href="#changes-from-0-9-2-to-0-9-3" title="Permalink to this headline">¶</a></h2>
+<p>this is a bug-fix release.</p>
+<p>changes in version 0.9.2 led to an error where ion.recombRate did not work.  This has been fixed</p>
+</div>
+<div class="section" id="changes-from-0-9-1-to-0-9-2">
+<h2>Changes from 0.9.1 to 0.9.2<a class="headerlink" href="#changes-from-0-9-1-to-0-9-2" title="Permalink to this headline">¶</a></h2>
+<p>this is a bug-fix release.</p>
+<p>changes in version 0.9.1 lead to an error where a bare ion has not recombination rate.  This has been fixed</p>
+</div>
+<div class="section" id="changes-from-0-9-0-to-0-9-1">
+<h2>Changes from 0.9.0 to 0.9.1<a class="headerlink" href="#changes-from-0-9-0-to-0-9-1" title="Permalink to this headline">¶</a></h2>
+<p>this is a bug-fix release.</p>
+<p>in cases when it is not possible to calculate the free-bound continuum for some ion, mspectrum did not handle this correctly and crashed</p>
+<p>also, the ion zn_31 (Zn XXXI) is a bare ion and has no ionization potential (IP) and looking it up caused indexing errors.</p>
+</div>
 <div class="section" id="changes-from-0-8-7-to-0-9-0">
 <h2>Changes from 0.8.7 to 0.9.0<a class="headerlink" href="#changes-from-0-8-7-to-0-9-0" title="Permalink to this headline">¶</a></h2>
 <p>a new module model.maker has been added</p>
@@ -141,7 +238,7 @@ the emission when the object is instantiated.</p>
 </div>
 <div class="section" id="changes-from-0-6-5-to-0-7-0">
 <h2>changes from 0.6.5 to 0.7.0<a class="headerlink" href="#changes-from-0-6-5-to-0-7-0" title="Permalink to this headline">¶</a></h2>
-<p>The primary change is that code developement has been moved to <a class="reference external" href="https://github.com/chianti-atomic/ChiantiPy">Github</a>.</p>
+<p>The primary change is that code development has been moved to <a class="reference external" href="https://github.com/chianti-atomic/ChiantiPy">Github</a>.</p>
 <p>Also, in order to be more compliant with other astrophysical packages on Github (<a class="reference external" href="https/github.com/astropy">Astropy</a> and <a class="reference external" href="https://github.com/sunpy/sunpy">SunPy</a>) the directory layout has been changed and renamed.</p>
 <p>The core routines are now imported as</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ChiantiPy.core</span> <span class="k">as</span> <span class="nn">ch</span>
@@ -167,7 +264,7 @@ the emission when the object is instantiated.</p>
 <p>A new method <strong>intensityList</strong> has been developed to allow the user to list the most intense lines within a given wavelength range.  This new methods, together with previously existing <strong>intensityRatio</strong> and <strong>intensityRatioSave</strong> are all now inherited by the <strong>ion</strong> classs and the  multi-ion classes.</p>
 <p>The <strong>ion</strong> and multi-ion classes now accept the keyword argument <strong>abundanceName</strong> that allow the user to specify the set of elemental abundances rather than just the default abundance file.</p>
 <p>Additional we have replaced the FortranFormat module of Scientific Python by Konrad Hinsen with the <strong>fortranformat</strong> module of Brendan Arnold at <a class="reference external" href="http://bitbucket.org/brendanarnold/py-fortranformat">http://bitbucket.org/brendanarnold/py-fortranformat</a>.  I have slightly modified fortranformat to make it Python 3 compliant.</p>
-<p>For the future, I plan to make ChiantiPy compliant with both Python 2.7 and the current version of Python 3 (now 3.4), improve the documentation and move the projec to github, in no particular order.</p>
+<p>For the future, I plan to make ChiantiPy compliant with both Python 2.7 and the current version of Python 3 (now 3.4), improve the documentation and move the project to github, in no particular order.</p>
 <p>ChiantiPy is now released under a new license, the OSI approved ISCL license.  From <a class="reference external" href="https://en.wikipedia.org/w/index.php?title=ISC_license&amp;oldid=664696993">Wikipedia</a> <em>The ISCL license is a permissive free software license written by the Internet Software Consortium (ISC). It is functionally equivalent to the simplified BSD and MIT/Expat licenses, …</em></p>
 </div>
 </div>
@@ -193,7 +290,7 @@ the emission when the object is instantiated.</p>
         <li class="right" >
           <a href="resources.html" title="Resources for ChiantiPy Users"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">ChiantiPy 0.9.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">ChiantiPy 0.15.1 documentation</a> &#187;</li> 
       </ul>
     </div>
 <div style="padding: 20px 10px 10px 40px; background-color: #fff8d3; text-align: left;">
@@ -202,8 +299,8 @@ the emission when the object is instantiated.</p>
 </div>
     
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2019, Ken Dere.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.
+        &#169; Copyright 2023, Ken Dere.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
 
   </body>

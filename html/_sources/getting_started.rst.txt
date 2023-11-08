@@ -5,23 +5,23 @@ Getting started with ChiantiPy
 Prerequisites
 -------------
 
-* CHIANTI_, the atomic database for astrophysical spectroscopy (Version 8)
+* CHIANTI_, the atomic database for astrophysical spectroscopy (Version 10 or later)
 
 .. _CHIANTI: http://www.chiantidatabase.org/
 
-* Python3_ (3.6)
+* Python3_ (3.8 is the current development version)
 
 .. _PYTHON3:  http://www.python.org
 
-* Numpy_ (currently developed with 1.14)
+* Numpy_ (currently developed with 1.20)
 
 .. _Numpy:  http://www.scipy.org/
 
-* Scipy_ (currently developed with 1.00)
+* Scipy_ (currently developed with 1.6)
 
 .. _Scipy:  http://www.scipy.org/
 
-* Matplotlib_ (currently developed with 2.2.2)
+* Matplotlib_ (currently developed with 3.3.4)
 
 .. _Matplotlib:  http://matplotlib.sourceforge.net/
 
@@ -36,7 +36,7 @@ Prerequisites
 
 * ipyparallel (required for multiprocessing with ipymspectrum)
 
-* (not really a prerequisite but **extremely** useful) IPython_ version 6 and Jupyter_
+* (not really a prerequisite but **extremely** useful) IPython_ version 7.21 and Jupyter_
 
 .. _IPython:  http://ipython.org
 
@@ -56,7 +56,7 @@ The gzipped *data* tar ball can be downloaded from the CHIANTI website_
 
 ::
 
-  setenv XUVTOP /data1/xuv/directory.where.the.tarball.was.placed
+  setenv XUVTOP /data1/directory.where.the.tarball.was.placed
 
 
 or on Windows:   To set the environment variable, go to Control Panel -> System -> Advanced System Properties -> Environment Variables.
@@ -91,7 +91,7 @@ All of these packages are free, at least for noncommercial use (I believe) and h
 Install the ChiantiPy package
 -----------------------------
 
-In order to be compatible with the latest version (8.0) of the CHIANTI atomic database, it is necessary to install the latest version (0.6.0) of ChiantiPy
+In order to be compatible with the latest version (10) of the CHIANTI atomic database, it is necessary to install the latest version (0.10.0) of ChiantiPy
 
 ::
 
@@ -135,9 +135,9 @@ Note - ChiantiPy interactions with various GUI backends
 
 First, Matplotlib requires a GUI backend and can be specified by the user in the matplotlibrc file.  Matplotlib expects to find this file in  $HOME/.config/matplotlib, although it might require that you copy it to that directory.
 
-ChiantiPy also uses a set of GUI dialog widget set.  Selections can also be made via the command line.  The user choice is specified in the $HOME/.chianti/chiantirc file if one has been copied there.  Otherwise, the default GUI is to use the command line.  A default chiantirc file is included with the distribution.
+ChiantiPy also uses a GUI dialog widget set.  Selections can also be made via the command line.  The user choice is specified in the chiantirc file.  One is included with the distribution.  On Linux, if it is copied into either the $HOME/.config or $HOME/.chianti directory, it will automatically be picked up.  It is a text file and can be edited.  On Windows, it should be copied to $PROFILEHOME/.config or $PROFILEHOME/.chianti where it will also be picked up.  Otherwise, the default GUI is to use the command line.  A default chiantirc file is included with the distribution.
 
-In order for the ChiantiPy dialog widget to be used, a backend for them must be initiated.  If you choose the same backend for matplotlib PyQt5 is best) as for the ChiantiPy widgets, then running %matplotlib in an IPython or Jupyter session will do the trick.  In an interactive Python session, invoking a matplotlib command first should also do the trick.
+In order for the ChiantiPy dialog widget to be used, a backend for them must be initiated.  If you choose the same backend for matplotlib (PyQt5 is best) as for the ChiantiPy widgets, then running %matplotlib in an IPython or Jupyter session will do the trick.  In an interactive Python session, invoking a matplotlib or matplotlib qt command first should also do the trick.
 
 ::
 

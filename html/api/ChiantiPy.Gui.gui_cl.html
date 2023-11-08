@@ -1,19 +1,18 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>ChiantiPy.Gui.gui_cl package &#8212; ChiantiPy 0.9.0 documentation</title>
+    <meta charset="utf-8" />
+    <title>ChiantiPy.Gui.gui_cl package &#8212; ChiantiPy 0.15.1 documentation</title>
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="ChiantiPy.Gui.gui_qt5 package" href="ChiantiPy.Gui.gui_qt5.html" />
@@ -41,7 +40,7 @@
         <li class="right" >
           <a href="ChiantiPy.Gui.html" title="ChiantiPy.Gui package"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">ChiantiPy 0.9.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">ChiantiPy 0.15.1 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >ChiantiPy’s API documentation</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="ChiantiPy.html" >ChiantiPy package</a> &#187;</li>
           <li class="nav-item nav-item-3"><a href="ChiantiPy.Gui.html" accesskey="U">ChiantiPy.Gui package</a> &#187;</li> 
@@ -56,13 +55,11 @@
   <p class="topless"><a href="ChiantiPy.Gui.gui_qt5.html"
                         title="next chapter">ChiantiPy.Gui.gui_qt5 package</a></p>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -85,8 +82,8 @@
 <p>Command line selection dialogs.</p>
 <dl class="class">
 <dt id="ChiantiPy.Gui.gui_cl.gui.choice2Dialog">
-<em class="property">class </em><code class="descclassname">ChiantiPy.Gui.gui_cl.gui.</code><code class="descname">choice2Dialog</code><span class="sig-paren">(</span><em>items</em>, <em>label=None</em>, <em>parent=None</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.Gui.gui_cl.gui.choice2Dialog" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<em class="property">class </em><code class="sig-prename descclassname">ChiantiPy.Gui.gui_cl.gui.</code><code class="sig-name descname">choice2Dialog</code><span class="sig-paren">(</span><em class="sig-param">items</em>, <em class="sig-param">label=None</em>, <em class="sig-param">parent=None</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.Gui.gui_cl.gui.choice2Dialog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Make a single or multiplee selection from a list of items and another
 single or multiple selection from the same list.</p>
 <p>Useful for picking numerators and denominators.</p>
@@ -96,15 +93,15 @@ the keywords label and parent are there for consistency with real gui dialogs</p
 
 <dl class="function">
 <dt id="ChiantiPy.Gui.gui_cl.gui.chpicker">
-<code class="descclassname">ChiantiPy.Gui.gui_cl.gui.</code><code class="descname">chpicker</code><span class="sig-paren">(</span><em>path</em>, <em>filter='*.*'</em>, <em>label=None</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.Gui.gui_cl.gui.chpicker" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ChiantiPy.Gui.gui_cl.gui.</code><code class="sig-name descname">chpicker</code><span class="sig-paren">(</span><em class="sig-param">path</em>, <em class="sig-param">filter='*.*'</em>, <em class="sig-param">label=None</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.Gui.gui_cl.gui.chpicker" title="Permalink to this definition">¶</a></dt>
 <dd><p>Select a filename from using a command line dialog.</p>
 <p>the label keyword is included for consistency but does nothing</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="ChiantiPy.Gui.gui_cl.gui.selectorDialog">
-<em class="property">class </em><code class="descclassname">ChiantiPy.Gui.gui_cl.gui.</code><code class="descname">selectorDialog</code><span class="sig-paren">(</span><em>items</em>, <em>label=None</em>, <em>parent=None</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.Gui.gui_cl.gui.selectorDialog" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<em class="property">class </em><code class="sig-prename descclassname">ChiantiPy.Gui.gui_cl.gui.</code><code class="sig-name descname">selectorDialog</code><span class="sig-paren">(</span><em class="sig-param">items</em>, <em class="sig-param">label=None</em>, <em class="sig-param">parent=None</em>, <em class="sig-param">multiChoice=False</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.Gui.gui_cl.gui.selectorDialog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Make a single or multiple selection from a list of items.</p>
 <p>expects the input of an array of items, will select one or more
 the label and parent keywords are for consistency with other modules but do nothing</p>
@@ -138,7 +135,7 @@ the label and parent keywords are for consistency with other modules but do noth
         <li class="right" >
           <a href="ChiantiPy.Gui.html" title="ChiantiPy.Gui package"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">ChiantiPy 0.9.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">ChiantiPy 0.15.1 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >ChiantiPy’s API documentation</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="ChiantiPy.html" >ChiantiPy package</a> &#187;</li>
           <li class="nav-item nav-item-3"><a href="ChiantiPy.Gui.html" >ChiantiPy.Gui package</a> &#187;</li> 
@@ -150,8 +147,8 @@ the label and parent keywords are for consistency with other modules but do noth
 </div>
     
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2019, Ken Dere.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.
+        &#169; Copyright 2023, Ken Dere.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
 
   </body>

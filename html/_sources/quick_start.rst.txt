@@ -4,39 +4,125 @@ Quick Start
 
 This short tutorial will demonstrate some of the capabilities of ChiantiPy and the CHIANTI database.  It assumes that you know what the CHIANTI database provides and why you want to use it.  It is useful to begin by exploring the properties of the **ion class**, as much of ChiantiPy is based on it.  An ion such as Fe XIV is specified by the string 'fe_14', in the usual CHIANTI notation.
 
-Perhaps the easiest way is to use a jupyter-notebook or a jupyter3-notebook to load the quick start notebook file QuickStart.ipynb in the directory ipython_notebooks.  Then, just run each cell step by step.  If you are not familiar with notebooks, then you can cut and paste the following code into a Python/IPython session.
+Perhaps the easiest way is to use a jupyter-notebook is to load the quick start notebook file QuickStart.ipynb in the directory jupyter_notebooks.  Then, just run each cell step by step.  If you are not familiar with notebooks, then you can cut and paste the following code into a Python/IPython session.
 
-N.B.:  in the time some of the plots and data were produced, there have been some changes to ChiantiPy and CHIANTI.  It is possible that you might find difference (hopefully small).
+N.B.:  in the time some of the plots and data were produced, there have been some changes to ChiantiPy and CHIANTI.  It is possible that you might find differences (hopefully small).
 
 Bring up a Python session (using > Python -i ), or better yet, an IPython session
 
 ::
 
+  import os
+
+
+the following will show the XUVTOP directory
+
+::
+
+  os.environ['XUVTOP']
+
+
+::
+
+  import ChiantiPy
   import ChiantiPy.core as ch
+  import ChiantiPy.tools.filters as chfilters
+  import ChiantiPy.tools.io as chio
   import numpy as np
   import matplotlib.pyplot as plt
 
-What we will really be interested in are various properties of the Fe XIV emissivities as a function of temperature and density.  So, let's define a numpy array of temperatures
+::
+
+  matplotlib qt
 
 ::
 
-  t = 10.**(5.8 + 0.05*np.arange(21.))
+  autoreload 2
 
-In ChiantiPy, temperatures are currently given in degrees Kelvin and densities as the number electron density per cubic cm.  Then, construct fe14 as would be typically done
+to see the ChiantiPy version
 
 ::
 
-  fe14 = ch.ion('fe_14', temperature=t, eDensity=1.e+9, em=1.e+27)
+  ChiantiPy.__version__
 
-note that eDensity is the new keyword for electron density
+
+to see the Ipython version
+
+::
+
+  import IPython
+  print(' IPython version = %i.%i.%i'%(IPython.version_info[0],IPython.version_info[1],IPython.version_info[2]))
+
+It is useful to open a qtconsole where are the calculations can be easily examined
+
+::
+
+  qtconsole
+
+to see the version of the CHIANTI database
+
+::
+
+  chianti_version = chio.versionRead()
+
+::
+
+  chianti_version
+
+Setting default values
+----------------------
+
+ChiantiPy determines a number of default setting on instantiation.  To use the default values list below, it is not necssary to do anything.
+
+
+==========  ===========================  =====================
+setting     default                      possible values
+==========  ===========================  =====================
+wavelength  angstrom                     angstrom, nm, ev, kev
+flux        energy                       energy, photon
+abundfile   sun_photospheric_2015_scott  any.abund
+ioneqfile   chianti                      any.ioneq
+==========  ===========================  =====================
+
+
+to use any of the other possible values, check out the notes/setting_default_values in the documentation
+
+the defaults can be checked
+
+::
+
+  chdata.Defaults.keys()
+
+
+::
+
+  chdata.Defaults['wavelength']
+
 
 
 Level populations
 -----------------
 
+
+As a start, we will examine the various properties of the Fe XIV emissivities as a function of temperature and density.  So, let's define a numpy array of temperatures
+
 ::
 
-  fe14.popPlot()
+  temp = 10.**(5.8 + 0.05*np.arange(21.))
+
+In ChiantiPy, temperatures are currently given in degrees Kelvin and densities as the number electron density per cubic cm.  Then, construct fe14 as would be typically done
+
+::
+
+  fe14 = ch.ion('fe_14', temperature=temp, eDensity=1.e+9, em=1.e+27)
+
+note that eDensity is the new keyword for electron density
+
+
+
+::
+
+  fe14.popPlot(addLegend=False)
 
 produces a matplotlib plot window were the population of the top 10 (the default) levels are plotted as a function of temperature.
 
@@ -66,20 +152,29 @@ Spectral Line Intensities
 
 ::
 
-  fe14.intensityPlot(wvlRange=[210.,220.],linLog='log')
+  fe14.intensityPlot(wvlRange=[210.,220.])
 
-will plot the intensities for the top (default = 10) lines in the specified wavelength range.  If the **Intensity** attribute has not yet been calculated, it will calculate it.  Since there are 21 temperature involved, a single temperature is selected (21/2 = 10).  Otherwise,
+will plot the intensities for the top (default = 10) lines in the specified wavelength range.  If the **Intensity** attribute has not yet been calculated, it will calculate it.  Since there are 21 temperature involved, a single temperature is selected (21//2 = 10).  Otherwise,
 
-.. image:: _static/fe14_intensity_plot_log.png
+.. image:: _static/fe14_intensity_plot_lin.png
     :align:  center
 
 ::
 
-  fe14.intensityPlot(index=2, wvlRange=[210., 220.], linLog = 'log')
+  fe14.intensityPlot(index=10, wvlRange=[210., 220.], relative=True)
 
-plots the intensities for a temperature = t[2] = 7.9e+5, in this case.  And, by specifying relative = 1, the emissivities will be plotted relative to the strongest line.
+plots the intensities for a temperature = t[10] = 2.e+6, in this case.  And, by specifying relative = True, the emissivities will be plotted relative to the strongest line.
 
-.. image:: _static/fe14_intensity_plot_log_index2.png
+.. image:: _static/fe14_intensity_plot_lin_index10.png
+    :align:  center
+
+::
+
+  fe14.intensityPlot(index=10, wvlRange=[210., 220.], relative=True, doTitle=False, lw=2)
+
+plots the intensities for a temperature = t[10] = 2.e+6, in this case.  And, by specifying relative = True, the emissivities will be plotted relative to the strongest line, doTitle=False, stops the title from appearing and lw sets the line width to 2.
+
+.. image:: _static/fe14_intensity_plot_lin_index10_rel_notitle.png
     :align:  center
 
 ::
@@ -138,8 +233,34 @@ give the following terminal/notebook output
  ------------------------------------------
 
 
+
+
+The effect of electron density on line intensities
+--------------------------------------------------
+
+::
+
+  temp = 2.e+6
+  dens = 10.**(6. + 0.1*np.arange(61))
+  fe14 = ch.ion('fe_14', temp, dens)
+  fe14.popPlot()
+
+
+a plot of the population of the top 10 levels is produced as a function of the electron density
+
+.. image:: _static/fe14_pop_vs_dens.png
+    :align:  center
+
+
+
 G(n,T) function
 ---------------
+
+::
+
+  temp = 10.**(5.8 + 0.05*np.arange(21.))
+  dens = 1.e+9
+  fe14 = ch.ion('fe_14', temp, dens)
 
 ::
 
@@ -157,7 +278,7 @@ quickly followed by a dialog where the line(s) of interest can be specified
 
 and finally a plot of the G(n,T) function for the specified lines(s).
 
-.. image::  _static/fe14.gofnt.png
+.. image::  _static/fe14_gofnt.png
     :align:  center
 
 The G(n,T) calculation is stored in the Gofnt dictionary, with keys = ['gofnt', 'temperature', 'density']
@@ -182,7 +303,7 @@ wvl =    211.317
 
 once the axes are properly scaled, this produces the same values as fe14.Gofnt['gofnt']
 
-.. image:: _static/fe14.gofnt_alternate.png
+.. image:: _static/fe14_gofnt_alternate.png
     :align:  center
 
 
@@ -219,6 +340,17 @@ from this it is clear that Fe XIV (fe_14) is formed at temperatures near :math:`
 
 Intensity Ratios
 ----------------
+
+
+::
+
+  temp = 10.**(5.8 + 0.05*np.arange(21.))
+  dens = 1.e+9
+
+::
+
+  fe14 = ch.ion('fe_14', temperature = temp, eDensity = dens)
+
 
 ::
 
@@ -274,13 +406,31 @@ Spectra of a single ion
 ::
 
   fe14 = ch.ion('fe_14', temperature = 2.e+6, density = 1.e+9)
+
+::
+
   wvl = wvl=200. + 0.125*arange(801)
+
+::
   fe14.spectrum(wvl, em=1.e+27)
-  plot(wvl, fe14.Spectrum['intensity'])
+
+::
+
+  plt.figure()
+  plt.plot(wvl, fe14.Spectrum['intensity'])
+  xy = plt.axis()
+  xy
+
+::
+
+  plt.axis([200., 300., 0., 400.])
+  plt.xlabel(fe14.Spectrum['xlabel'], fontsize=14)
+  plt.ylabel(fe14.Spectrum['ylabel'], fontsize=14)
+  plt.tight_layout()
 
 this will calculate the spectrum of fe_14 over the specified wavelength range and filter it with the default filter which is a gaussian (filters.gaussianR) with a 'resolving power' of 1000 which gives a gaussian width of wvl/1000.
 
-.. image:: _static/fe14.spectrum.png
+.. image:: _static/fe14_spectrum.png
     :align:  center
 
 other filters available in chianti.tools.filters include a boxcar filter and a gaussian filter where the width can be specified directly
@@ -322,11 +472,72 @@ ylabel
   plt.xlabel(fe14.Spectrum['xlabel'])
   plt.ylabel(fe14.Spectrum['ylabel'])
 
-.. image:: _static/fe14.spectrum2.png
+.. image:: _static/fe14_spectrum2.png
     :align:  center
 
+As of **ChiantiPy 0.14.0**, the **ion** class inherits the spectrumPlot method.
 
-New in **ChiantiPy 0.6**, the *label* keyword has been added to the ion.spectrum method, and also to the other various spectral classes. This allows several spectral calculations for different filters to be saved and compared
+::
+
+  wvlRange = [wvl[0], wvl[-1]
+  fe14.spectrumPlot(wvlRange=wvlRange, index=5)
+
+.. image:: _static/fe14_spectrumPlot.png
+    :align:  center
+
+Also in 0.14.0 is the saveData method and the redux class.  Using the **saveData** method, the calculations can be save and the restored later with the **redux** class
+
+::
+
+  saveName = 'fe14_save.pkl'
+  fe14.saveData(saveName, verbose=True)
+
+
+the attributes are used to create a dict and saved as a pickle file.  If verbose is set to True, these attributes are listed
+
+::
+
+    with open(saveName,'rb') as inpt:
+        fe14Dict = pickle.load(inpt)
+
+::
+
+  for akey in fe14Dict:
+    print(' key = %s'%(akey))
+
+::
+
+  for akey in fe14Dict['Spectrum']:
+      print(' key = %s'%(akey))
+
+it is possible to work directly with the saved data
+
+::
+
+  plt.figure()
+  plt.plot(fe14Dict['Spectrum']['wavelength'], fe14Dict['Spectrum']['intensity'])
+
+
+with version 0.14.0, there is a new class, **redux**
+
+with this class, the saved data can be restored and all of the apprpriated inherited methods are available
+
+
+::
+
+  rdx = ch.redux(saveName, verbose=True)
+
+
+The save data are loaded as attributes.  With verbose=True, they are listed
+
+::
+
+  rdx.spectrumPlot(wvlRange=wvlRange, index=5)
+
+
+Returns the previous plot
+
+New in **ChiantiPy 0.6**, the *label* keyword has been added to the ion.spectrum method, and also to the other various spectral classes. This allows several spectral calculations for different filters to be saved and compared.  However, when the *label* keyword is specified, the intensityPlot and spectrumPlot methods do not work, as of version 0.14.0
 
 ::
 
@@ -341,12 +552,75 @@ New in **ChiantiPy 0.6**, the *label* keyword has been added to the ion.spectrum
   plt.plot(wvl,fe14.Spectrum['1.']['intensity'][5],'-r')
   plt.xlabel(fe14.Spectrum['.4']['xlabel'])
   plt.ylabel(fe14.Spectrum['.4']['ylabel'])
-  plt.legen(loc='upper right')
+  plt.legend(loc='upper right')
+  plt.tight_layout()
 
 
-.. image:: _static/fe14.spectrum_label.png
+.. image:: _static/fe14_spectrum_label.png
     :align:  center
 
+Using emission measures (EM)
+----------------------------
+
+the line-of-sight emission measure is given by :math:`\mathrm{\int \, n_e \, n_H \, dl}` (:math:`\mathrm{cm}^{-5}`)
+
+the volumetric emission measure is give by :math:`\mathrm{\int \, n_e \, n_H \, dV}` (:math:`\mathrm{cm^{-3}}`)
+
+where the integrations are performed over the source region
+
+::
+
+  emDir = os.path.join(os.environ['XUVTOP'], 'em')
+  emList = os.listdir(emDir)
+  for idx, emFile in enumerate(emList):
+    print('%i  %s'%(idx, emFile))
+
+the following is printed
+
+
+| 0  quiet_sun_1993_serts_4T.em
+| 1  active_region_1993_serts_4T.em
+
+
+Beginning with CHIANTI version 10, a new directory, em, as been added to contain emission measure files.
+
+At this time, there only 2 files available and we can pick the active region file
+
+::
+
+  arDict = chio.emRead(emList[1])
+  arDict.keys()
+
+dict_keys(['temperature', 'density', 'em', 'ref', 'filename'])
+
+::
+
+  arTemp = arDict['temperature']
+  arDens = arDict['density']
+  arEm = arDict['em']
+
+
+::
+
+  for idx, atemp in enumerate(arTemp):
+      print('%i %10.2e %10.2e %10.2e'%(idx, atemp, arDens[idx], arEm[idx]))
+
+
+| 0   6.17e+05   2.00e+09   4.97e+26
+| 1   1.12e+06   2.00e+09   2.09e+27
+| 2   1.86e+06   2.00e+09   7.89e+27
+| 3   3.16e+06   2.00e+09   1.46e+28
+
+::
+
+  fe14  = ch.ion('fe_14', arTemp, arDens, em=arEm)
+  wvl = np.linspace(200., 300., 10001)
+  fe14.spectrum(wvl, filter=(chfilters.gaussian, .03))
+  fe14.spectrumPlot(wvlRange=[264., 275.], integrated=True, top=5)
+
+
+.. image:: _static/fe14_integrated_spectrum_label.png
+    :align:  center
 
 
 Free-free and free-bound continuum
@@ -354,25 +628,93 @@ Free-free and free-bound continuum
 
 The module continuum provides the ability to calculate the free-free and free-bound spectrum for a large number of  individual ions.  The two-photon continuum is produced only by the hydrogen-like and helium-like ions
 
+
 ::
 
-  temperature = 2.e+7
-  em = 1.e+27
-  c = ch.continuum('fe_25', temperature = temperature, em = em)
-  wvl = 1. + 0.002*arange(4501)
+  myIon = 'fe_25'
+
+
+::
+
+  temperature = [2.e+7, 3.e+7, 6.e+7]
+  density = 1.e+9
+  em = [1.e+27, 1.e+27, 1.e+27]
+  wvl = 0.5 + 0.002*np.arange(4501)
+
+::
+
+  c = ch.continuum(myIon, temperature = temperature, em=em)
   c.freeFree(wvl)
-  plot(wvl, c.FreeFree['intensity'])
   c.freeBound(wvl)
-  plot(wvl, c.FreeBound['intensity'])
-  fe25=ch.ion('fe_25',2.e+7,1.e+9,em=1.e+27)
+  fe25=ch.ion(myIon, temperature, density, em=em)
   fe25.twoPhoton(wvl)
-  plt.plot(wvl,fe25.TwoPhoton['intensity'],label='2 photon')
-  plt.legend(loc='upper right')
+  total = c.FreeFree['intensity'][itemp] + c.FreeBound['intensity'][itemp] + fe25.TwoPhoton['intensity'][itemp]
+
+::
+
+  itemp = 1
+  plt.figure()
+  plt.plot(wvl, c.FreeFree['intensity'][itemp],label='ff')
+  plt.plot(wvl, c.FreeBound['intensity'][itemp],label='fb')
+  plt.plot(wvl,fe25.TwoPhoton['intensity'][itemp],label='2 photon')
+  plt.plot(wvl, total, 'k', label='total')
+  plt.xlabel(c.FreeFree['xlabel'], fontsize=14)
+  plt.ylabel(c.FreeFree['ylabel'], fontsize=14)
+  plt.legend(loc='upper right', fontsize=14)
+  plt.title(' %s  T = %10.2e'%(fe25.IonStr, temperature[itemp]), fontsize=14)
+  plt.ylim(bottom=0.)
+  plt.xlim([0., wvl[-1]])
+  plt.tight_layout
 
 
 produces
 
 .. image:: _static/fe_25_ff_fb_tp_2e7_1_10.png
+    :align:  center
+
+
+
+::
+
+  myIon = 'o_8'
+
+::
+
+  temperature = [3.e+6, 6.e+6]
+  density = 1.e+9
+  em = [2.e+27,1.e+27]
+  wvl = 2. + 0.2*np.arange(701)
+
+
+::
+
+  c = ch.continuum(myIon, temperature = temperature, em=em)
+  c.freeFree(wvl)
+  c.freeBound(wvl)
+  o8 = ch.ion(myIon, temperature, density, em=em)
+  o8.twoPhoton(wvl)
+  total = c.FreeFree['intensity'][itemp] + c.FreeBound['intensity'][itemp] + o8.TwoPhoton['intensity'][itemp]
+
+
+::
+
+  itemp = 1
+  plt.figure()
+  plt.semilogy(wvl, c.FreeFree['intensity'][index],label='ff')
+  plt.semilogy(wvl, c.FreeBound['intensity'][index],label='fb')
+  plt.semilogy(wvl,o8.TwoPhoton['intensity'][index],label='2 photon')
+  plt.plot(wvl, total[itemp], 'k', label='total')
+  plt.ylim(bottom=1.e-4, top=1.)
+  plt.xlabel(c.FreeFree['xlabel'], fontsize=14)
+  plt.ylabel(c.FreeFree['ylabel'], fontsize=14)
+  plt.title(' %s  T = %10.2e'%(o8.IonStr, temperature[itemp]), fontsize=14)
+  plt.legend(loc='upper right', fontsize=14)
+  plt.tight_layout()
+
+
+produces
+
+.. image:: _static/o_8_ff_fb_tp_total_3e6_1_100.png
     :align:  center
 
 In the continuum calculations, the specified ion, Fe XXV in this case, is the target ion for the free-free calculation.  For the free-bound calculation, specified ion is also the target ion.  In this case, the radiative recombination spectrum of Fe XXV recombining to form Fe XXIV is returned.
@@ -384,9 +726,15 @@ The multi-ion class **bunch** [new in v0.6] inherits a number of the same method
 
 ::
 
-  t = 10.**(5.0+0.1*np.arange(11))
-  bnch=ch.bunch(t,1.e+9,wvlRange=[300.,500.],ionList=['ne_6','mg_6'],abundance='unity')
-  bnch.intensityRatio(wvlRange=[395.,405.],top=7)
+  temp = 10.**(5.0+0.1*np.arange(11))
+  dens = 1.e+9
+  wvlRange = [wvl.min(),wvl.max()]
+
+
+::
+
+  bnch=ch.bunch(temp, 1.e+9, wvlRange=wvlRange, ionList=['ne_6','mg_6'], abundance='unity', em=1.e+27)
+  bnch.intensityRatio(wvlRange=[395.,405.], top=7)
 
 produces and initial plot of the selected lines, a selection widget and finally a plot of the ratio
 
@@ -401,20 +749,78 @@ produces and initial plot of the selected lines, a selection widget and finally 
 
 there seems to be a significant temperature dependence to the ratio, even though both are formed near 4.e+5 K.
 
-A new keyword argument **keepIons** has been added in v0.6 to the bunch and the 3 spectrum classes.
+
+The intensityPlot method can also be used with the bunch class
+
+::
+
+  bnch.intensityPlot(index=5, wvlRange=[398., 404.])
+
+results in
+
+.. image:: _static/bunch_intensityPlot.png
+    :align:  center
+
+with version 0.13.0 it is possible to save multi-ion calculations as a pickle file with the saveData method
+
+::
+
+  dataName = 'mybunch.pkl'
+  bnch.saveData(dataName, verbose=True)
+
+the saveData method creates a dict of all of the attributes of the bnch instance.  The pickle file can be loaded an it is possible to work directly with the data.
+
+::
+
+  with open(dataName, 'rb') as inpt:
+      mybnch = pickle.load(inpt)
+
+::
+
+  mybnch.keys()
+
+::
+
+  mybnch['Intensity']['intensity'].shape
+
+
+with version 0.14.1, the redux class is introduced to allow the use of the pickled data inside a class that inherits such methods as intensityPlot and spectrumPlot
+
+::
+
+    rebnch = ch.redux(dataName, verbose=False)
+
+::
+
+    rebnch.intensityPlot(index=5, wvlRange=[398., 404.])
+
+then returns the above plot
+
+A new keyword argument **keepIons** has been added in v0.6 to the bunch and the 3 spectrum classes.  It should be used with some care as it can lead to very large instances in the case of a large number of ions, temperature, or densities.
+
+::
+
+  temp = 10.**(5.0+0.2*np.arange(6))
+  dens = 1.e+9
+
 
 ::
 
   dwvl = 0.01
   nwvl = (406.-394.)/dwvl
   wvl = 394. + dwvl*np.arange(nwvl+1)
-  bnch2=ch.bunch(t, 1.e+9, wvlRange=[wvl.min(),wvl.max()], elementList=['ne','mg'], keepIons=1,em=1.e+27)
+
+::
+
+  bnch2=ch.bunch(temp, 1.e+9, wvlRange=[wvl.min(),wvl.max()], elementList=['ne','mg'], \
+    keepIons=1,em=1.e+27)
+
+::
+
   bnch2.convolve(wvl,filter=(chfilters.gaussian,5.*dwvl))
-  plt.plot(wvl, bnch2.Spectrum['intensity'][6],label='Total')
-  plt.title('Temperature = %10.2e for t[6]'%(t[6]))
+
 
 elapsed seconds =       11.000
-elapsed seconds =    0.000e+00
 
 ::
 
@@ -423,32 +829,47 @@ elapsed seconds =    0.000e+00
 
 yields:
 
-mg_10
-mg_10d
-mg_3
-mg_4
-mg_5
-mg_6
-mg_8
-mg_9
-ne_10
-ne_2
-ne_3
-ne_5
-ne_6
-ne_8
+| mg_10
+| mg_10d
+| mg_3
+| mg_4
+| mg_5
+| mg_6
+| mg_8
+| mg_9
+| ne_10
+| ne_2
+| ne_3
+| ne_5
+| ne_6
+| ne_8
 
-these IonInstances have all the properties of the Ion class for each of these ions
+these IonInstances have all the properties of the Ion class for each of these ions.  However, this should be used with some caution as it can result in a memory-hogging instance.
 
 ::
 
-  plt.plot(wvl,bnch2.IonInstances['mg_6'].Spectrum['intensity'][6],'r',label='mg_6')
-  plt.legend(loc='upper left')
+  bnch2.spectrumPlot(integrated=True, doLabel=False)
+  plt.plot(wvl,bnch2.IonInstances['mg_6'].Spectrum['integrated'],'r',label='mg_6')
+  plt.xlim(left=398., right=404.)
+  plt.legend(loc='upper left', fontsize=14)
+
 
 produces
 
-.. image:: _static/ne6_mg6_spectrum.png
+.. image:: _static/bunch_spectrum_integrated_mg6.png
     :align:  center
+
+
+The spectrumPlot method can also be used with bunch after convolve is run
+
+::
+
+  bnch2.spectrumPlot(top=7)
+
+.. image:: _static/bunch_spectrumPlot.png
+    :align:  center
+
+
 
 
 Spectra of multiple ions and continuum
@@ -462,6 +883,8 @@ The spectrum for a selection of all of the ions in the CHIANTI database can also
 *  **mspectrum** - uses the Python multiprocessing class and cannot be used in a IPython qtconsole or notebook
 *  **ipymspectrum** [new in v0.6] - uses the IPython parallel class and can be used in a IPython qtconsole or notebook
 
+As of version 0.13.0, it is now possible to save the calculations with the **saveData** methods, demonstrated with the bunch class above
+
 The single processor spectrum class
 ===================================
 
@@ -472,7 +895,13 @@ The single processor spectrum class
   density = 1.e+9
   wvl = 200. + 0.05*arange(2001)
   emeasure = [1.e+27 ,1.e+27]
+
+::
+
   s = ch.spectrum(temperature, density, wvl, filter = (chfilters.gaussian,.2), em = emeasure, doContinuum=0, minAbund=1.e-5)
+
+::
+
   subplot(311)
   plot(wvl, s.Spectrum['integrated'])
   subplot(312)
@@ -497,8 +926,37 @@ The integrated spectrum is formed by summing the spectra for all temperatures.
 The filter is not applied to the continuum.
 
 
+Save the calculations
 
+::
 
+  saveName = 'spectrum.pkl'
+  s.saveData(saveName, verbose=True)
+
+The spectrumPlot method is also available
+
+::
+
+  s.spectrumPlot(integrated=True)
+
+yields
+
+.. image:: _static/spectrum_spectrumPlot.png
+    :align:  center
+
+One can return to the saved data at a later date and reload it with the redux class
+
+::
+
+  rdx = ch.redux(saveName)
+
+The inherited spectrumPlot is again available
+
+::
+
+  rdx.spectrumPlot(index=1)
+
+produces a figure like above
 
 
 Calculations with the Spectrum module can be time consuming.  One way to control the length of time the calculations take is to limit the number of ions with the ionList keyword and to avoid the continuum calculations by setting the doContinuum keyword to 0 or False.  Another way to control the length of time the calculations take is with the minAbund keyword.  It sets the minimum elemental abundance that an element can have for its spectra to be calculated.  The default value is set include all elements.  Some usefull values of minAbund are:
@@ -519,9 +977,184 @@ The multiple processor mspectrum class
 
 Another way to speed up calculations is to use the *mspectrum* class which uses multiple cores on your local computer.  It requires the Python *multiprocessing* module which is available with Python versions 2.6 and later. *mspectrum* is called in the same way as *spectrum* but you can specify the number of cores with the *proc* keyword.  The default is 3 but it will not use more cores than are available on your machine.  For example,
 
+
 ::
 
-  s = ch.mspectrum(temperature, density ,wvl, em=emeasure, filter = (chfilters.gaussian,.005), proc=4)
+  temp = [1.e+7, 2.e+7, 3.e+7]
+  dens = 1.e+9
+  wvl = np.linspace(1.5, 4., 10001)
+  emeasure = 1.e+27
+  core=6
+
+::
+
+  dwvl = wvl[1] - wvl[0]
+  ' dwvl:  %8.4f'%(dwvl)
+
+::
+
+  sm = ch.mspectrum(temperature, density ,wvl, em=emeasure, filter = (chfilters.gaussian, 5.*dwvl), proc=core)
+
+::
+
+  sm.spectrumPlot(wvlRange=[1.84, 1.88], index=2)
+
+yields
+
+.. image:: _static/mspectrum_spectrumPlot_fe.png
+    :align:  center
+
+
+another example
+
+Using differential emission measures (DEM)
+------------------------------------------
+
+
+Beginning with CHIANTI version 14.1, the io.demRead function has been added to read dem file in the existing XUVTOP/dem directory
+
+
+::
+
+  demDir = os.path.join(os.environ['XUVTOP'], 'dem')
+  demList = os.listdir(demDir)
+
+::
+
+  for idx, demFile in enumerate(demList):
+      print('%i  %s'%(idx, demFile))
+
+produces
+
+| 0  quiet_sun_eis.dem
+| 1  version_3
+| 2  coronal_hole.dem
+| 3  flare.dem
+| 4  flare_ext.dem
+| 5  AU_Mic.dem
+| 6  quiet_sun.dem
+| 7  active_region.dem
+| 8  prominence.dem
+
+
+select the desired file by index
+
+::
+
+  flDict = chio.demRead(demList[3])
+
+
+::
+
+  flDict.keys()
+
+
+dict_keys(['temperature', 'density', 'dem', 'em', 'dt', 'ref', 'filename'])
+
+
+since we will be looking at X-ray wavelengths, select only the highest temperatures
+
+::
+
+  flTemp = flDict['temperature'][20:]
+  flDens = flDict['density'][20:]
+  flEm = flDict['em'][20:]
+
+
+::
+
+  wvl = 1. + 0.002*np.arange(4501)
+  core = 6
+
+::
+
+  s3 = ch.mspectrum(flTemp, flDens, wvl, filter = (chfilters.gaussian,.015), em=flEm, minAbund=1.e-5, proc=core, verbose=0)
+
+
+save the calculations
+=====================
+
+::
+
+  saveName = 'mspectrum3_dem.pkl'
+  s3.saveData(saveName)
+
+::
+
+  plt.figure()
+  plt.plot(wvl, s3.Spectrum['intensity'].sum(axis=0))
+  plt.xlabel(s3.Spectrum['xlabel'], fontsize=14)
+  plt.ylabel(s3.Spectrum['ylabel'], fontsize=14)
+  plt.ylim(bottom = 0.)
+  plt.xlim([0., wvl[-1]])
+  plt.tight_layout()
+
+
+.. image:: _static/mspectrum_1_10.png
+    :align:  center
+
+The spectrumPlot method can also be used
+
+::
+
+  s3.spectrumPlot(top=6)
+
+
+.. image:: _static/mspectrum_spectrumPlot_1_10.png
+    :align:  center
+
+
+the default value for doContinuum is True, so, the continuum can be plotted separately
+
+::
+
+  plt.figure()
+  plt.plot(wvl, s3.FreeFree['intensity'], label='FF')
+  plt.plot(wvl, s3.FreeBound['intensity'], label='FB')
+  plt.plot(wvl, s3.TwoPhoton['intensity'], label='2 Photon')
+  plt.plot(wvl, s3.Continuum['intensity'].sum(axis=0), 'k', label='Total')
+  plt.xlabel(s3.Spectrum['xlabel'], fontsize=14)
+  plt.ylabel(s3.Spectrum['ylabel'], fontsize=14)
+  plt.ylim(bottom = 0.)
+  plt.xlim([0., wvl[-1]])
+  plt.legend(loc='upper right', fontsize=14)
+  plt.tight_layout()
+
+
+
+produces
+
+.. image:: _static/continuum_flare_dem_1_10.png
+    :align:  center
+
+::
+
+  s3.spectrumPlot(wvlRange=[4., 9.], top=6, integrated=True)
+
+produces
+
+.. image:: _static/mspectrum_spectrumPlot_4_9.png
+    :align:  center
+
+With the redux class, the save calculations can be restored
+===========================================================
+
+::
+
+  s3r = ch.redux(saveName, verbose=True)
+
+
+the redux class inherits the intensityPlot and spectrumPlot methods as well as a few others
+
+::
+
+  s3r.spectrumPlot(wvlRange=[6., 7.], integrated=True, top=5)
+
+
+.. image:: _static/mspectrum_spectrumPlot_6_7.png
+    :align:  center
+
+
 
 The multiple processor ipymspectrum class
 =========================================
@@ -545,9 +1178,23 @@ then in an IPython notebook or qtconsole
   dens = 1.e+9
   wvl = 200. + 0.05*np.arange(2001)
   emeasure = [1.e+27 ,1.e+27]
-  s = ch.ipymspectrum(temp, dens, wvl, filter = (chfilters.gaussian,.2), em = emeasure, doContinuum=1, minAbund=1.e-5, verbose=0)
-  plt.figure
+
+::
+
+  s = ch.ipymspectrum(temp, dens, wvl, filter = (chfilters.gaussian,.2), \
+    em = emeasure, doContinuum=1, minAbund=1.e-5, verbose=True)
+
+::
+
+  plt.figure()
   plt.plot(wvl, s.Spectrum['integrated'])
+  plt.ylim(bottom=0.)
+  plt.xlim([wvl[0], wvl[-1]])
+  plt.title('Integrated')
+  plt.xlabel(s.Xlabel, fontsize=14)
+  plt.ylabel(s.Ylabel, fontsize=14)
+  plt.tight_layout()
+
 
 produces
 
@@ -561,9 +1208,17 @@ spectrum, mspectrum and ipymspectrum can all be instantiated with the same argum
 ::
 
   temperature = 1.e+7
-  wvl = 10. + 0.005*arange(2001)
-  s = ch.ipymspectrum(temperature, density, wvl, filter = (chfilters.gaussian,.015))
-  plot(wvl, s.Spectrum['intensity'])
+  dens = 1.e+9
+  wvl = 10. + 0.005*np.arange(2001)
+
+::
+
+  s = ch.ipymspectrum(temp, dens, wvl, filter = (chfilters.gaussian,.015), \
+    elementList=['fe'])
+
+::
+
+  s.spectrumPlot()
 
 produces
 
@@ -575,55 +1230,43 @@ It is also possible to specify a selection of ions by means of the *ionList* key
 
 ::
 
-  s2 = ch.ipymspectrum(temp, dens, wvl, filter = (chfilters.gaussian,.2), em = emeasure, doContinuum=0, keepIons=1, elementList=['si'], minAbund=1.e-4)
-  plt.subplot(211)
-  plt.plot(wvl,s2.Spectrum['intensity'][0])
-  plt.ylabel(r'erg cm$^{-2}$ s$^{-1}$ sr$^{-1} \AA^{-1}$')
-  plt.subplot(212)
-  plt.plot(wvl,s2.IonInstances['si_9'].Spectrum['intensity'][0])
-  plt.ylabel(r'erg cm$^{-2}$ s$^{-1}$ sr$^{-1} \AA^{-1}$')
-  plt.xlabel(r'Wavelength ($\AA$)')
-  plt.title('Si IX')
+  s2 = ch.ipymspectrum(temp, dens, wvl, filter = (chfilters.gaussian,.2), \
+    em = emeasure, doContinuum=0, keepIons=1, elementList=['si'])
+
+::
+
+
+  fig, [ax1, ax2] = plt.subplots(2,1)
+  ax1.plot(wvl,s2.Spectrum['intensity'][0])
+  ax1.set_ylim(bottom=0.)
+  ax1.set_xlim([wvl[0], wvl[-1]])
+  ax1.set_ylabel(r'erg cm$^{-2}$ s$^{-1}$ sr$^{-1} \AA^{-1}$', fontsize=14)
+  ax2.plot(wvl,s2.IonInstances['si_9'].Spectrum['intensity'][0])
+  ax2.set_ylim(bottom=0.)
+  ax1.set_xlim([wvl[0], wvl[-1]])
+  ax2.set_ylabel(r'erg cm$^{-2}$ s$^{-1}$ sr$^{-1} \AA^{-1}$', fontsize=14)
+  ax2.set_xlabel(r'Wavelength ($\AA$)', fontsize=14)
+  ax2.set_title('Si IX', fontsize=14)
+  fig.tight_layout()
 
 .. image:: _static/spectrum_200_300_w_si_9.png
     :align:  center
 
-Because **keepIons** has been set, the ion instances of all of the ions are maintained in the s2.IonInstances dictionary. It has been possible to compare the spectrum of all of the ions with the spectrum of a single ion.
+Because **keepIons** has been set, the ion instances of all of the ions are maintained in the s2.IonInstances dictionary. It has been possible to compare the spectrum of all of the ions with the spectrum of a single ion.    It should be used with some care as it can lead to very large instances in the case of a large number of ions, temperature, or densities.
 
-::
-
-  temp=2.e+7
-  dens=1.e+9
-  wvl = 1. + 0.002*np.arange(4501)
-  s3 = ch.ipymspectrum(temp, dens, wvl, filter = (chfilters.gaussian,.015),doContinuum=1, em=1.e+27,minAbund=1.e-5,verbose=0)
-  plt.plot(wvl, s3.Spectrum['intensity'])
-
-
-.. image:: _static/spectrum_1_10.png
-    :align:  center
-
-with doContinuum=1, the continuum can be plotted separately
-
-::
-
-  plot(wvl, s3.Spectrum['intensity'])  plot(wvl,s.FreeFree['intensity'])
-  plot(wvl,s.FreeBound['intensity'])
-  plot(wvl,s.FreeBound['intensity']+s.FreeFree['intensity'])
-
-
-
-produces
-
-.. image:: _static/continuum_2e7_1_10.png
-    :align:  center
 
 ::
 
   temperature = 2.e+7
   density = 1.e+9
-  em-1.e+27
+  em = 1.e+27
   wvl = 1.84 + 0.0001*arange(601)
-  s4 = ch.ipymspectrum(temperature, density ,wvl, filter = (chfilters.gaussian,.0003), doContinuum=1, minAbund=1.e-5, em=em, verbose=0)
+  s4 = ch.ipymspectrum(temperature, density ,wvl, filter = (chfilters.gaussian,.0003), \
+    doContinuum=1, minAbund=1.e-5, em=em, verbose=0)
+
+::
+
+  s4.spectrumPlot()
 
 produces
 
@@ -631,20 +1274,64 @@ produces
     :align:  center
 
 
+There are two demo notebooks, spectrum_demo.ipynb and spectrum_demo_2.ipynb in the jupyter_notebooks directory on github.
+
+
 Radiative loss rate
 -------------------
 
-the radiative loss rate can be calculated as a function of temperature and density:
+the radiative loss rate can be calculated as a function of temperature and density.  If all elements are included, the calculation can take some time.  So, for a shorter example:
+
 
 ::
 
-  temp = 10.**(4.+0.05*arange(81))
-  rl = ch.radLoss(temp, 1.e+4, minAbund=2.e-5)
+  temp = 10.**(4.+0.05*np.arange(81))
+  dens = 1.e+9
+  rlhhe = ch.radLoss(temp, dens, elementList=['h', 'he'])
+
+
+::
+
+  plt.figure()
   rl.radLossPlot()
 
-produces, in 446 s:
+produces, in 2s:
 
-.. image:: _static/radloss.png
+.. image:: _static/radloss_hhe.png
+    :align:  center
+
+with version 0.15.0, the class mradLoss is available for doing a multiprocessor calculation
+of the radiation loss
+
+
+::
+
+  temp = 10.**(4.+0.05*np.arange(81))
+  dens = 1.e+9
+
+
+the following will calculate the radiation loss for elements with an abundance greater the 1.e-5 that of the hydrogen abundance.  In this case the default abundance file is for photospheric abundances
+
+
+::
+
+  mrl = ch.mradLoss(temp, dens, minAbund=1.e-5)
+
+
+these calculations can take some time so it is a good idea to save them
+
+::
+
+  mrl.saveData('rl_phot_1m5.pkl')
+
+::
+
+  plt.figure()
+  mrl.radLossPlot()
+
+produces, produces after 250s on a 3.5 GHz 4 core processor:
+
+.. image:: _static/rl_phot_1m5.png
     :align:  center
 
 
@@ -653,3 +1340,164 @@ the radiative losses are kept in the rl.RadLoss dictionary
 the **abundance** keyword argument can be set to the name of an available abundance file in XUVTOP/abund
 
 if abundance='abc', or some name that does not match an abundance name, a dialog will come up so that a abundance file can be selected
+
+or:
+
+::
+
+  abundDir = os.path.join(os.environ['XUVTOP'], 'abundance')
+
+::
+
+  abundList = os.listdir(abundDir)
+
+::
+
+  for idx, aname in enumerate(abundList):
+    print('%5i  %s'%(idx, aname))
+
+to select photospheric abundances
+
+
+::
+
+  myAbund = abundList[4]
+
+::
+
+ myAbund
+
+
+::
+
+  mrl2 = ch.radLoss(temp, dens, minAbund=1.e-5, abundance=myAbund, verbose=1)
+
+::
+
+  saveName = 'rl_coronal_1m5.pkl'
+  mrl2.saveData(saveName)
+
+::
+
+  plt.figure()
+  mrl2.radLossPlot()
+
+produces after 250s on a 3.5 GHz 4 core processor
+
+
+.. image:: _static/rl_coronal_1m5.png
+    :align:  center
+
+
+::
+
+  plt.figure()
+  plt.loglog(temp, mrl2.RadLoss['rate'], 'k', label='Total')
+  plt.loglog(temp, mrl2.BoundBoundLoss, label = 'BB')
+  plt.loglog(temp, mrl2.FreeFreeLoss, label = 'FF')
+  plt.loglog(temp, mrl2.FreeBoundLoss, label = 'FB')
+  plt.loglog(temp, mrl2.TwoPhotonLoss, label = '2P')
+  plt.xlabel(mrl2.RadLoss['xlabel'], fontsize=14)
+  plt.ylabel(mrl2.RadLoss['ylabel'], fontsize=14)
+  plt.legend(loc='lower center', fontsize=14)
+  plt.tight_layout()
+
+::
+
+  produces
+
+.. image:: _static/rl_phot_tot_bb_fb_ff_2ph.png
+    :align:  center
+
+to compare photospheric and coronal radiation losses
+
+::
+
+  rlph = ch.redux(saveNamePhot)
+  rlco = ch.redux(saveNameCoronal)
+
+::
+
+  plt.figure()
+  plt.loglog(temp, rlph.RadLoss['rate'], label='Phot')
+  plt.loglog(temp, rlco.RadLoss['rate'], label='Coronal')
+  plt.ylim(bottom=1.e-23, top=2.e-21)
+  plt.xlabel(rlph.RadLoss['xlabel'], fontsize=14)
+  plt.ylabel(rlph.RadLoss['ylabel'], fontsize=14)
+  plt.legend(loc='lower center', fontsize=14)
+  plt.tight_layout()
+
+
+
+produces
+
+.. image:: _static/rl_phot_coronal_1m5.png
+    :align:  center
+
+
+Jupyter Notebooks
+-----------------
+
+There are 9 jupyter notebooks in the `jupyter_notebooks`_ directory that demonstrate the capabilities of ChiantyPy together with the CHIANTI database.  There is also a README.txt file that provides a short explanation of the notebooks.
+
+
+.. _jupyter_notebooks:  https://github.com/chianti-atomic/ChiantiPy/tree/master/jupyter_notebooks
+
+
+A summary of the notebooks
+==========================
+
+
+This directory contains 9 Jupyter IPython notebooks that demonstrate some of the ways to use ChiantiPy and the CHIANTI database
+
+QuickStart.ipynb - a notebook that generally follows the Quick-Start guide in the docs
+
+A demo of the bunch class is found in:  bunch_demo.ipynb
+
+These notebook show some of the characteristics and capabilities of the bunch class.  Among other things, it shows how to apply labels to plots of line intensities.
+
+Two demos of the spectrum class are found in:  spectrum_demo.ipynb and spectrum_demo_2.ipynb
+
+As with the bunch notebook, these notebook show some of the characteristics and capabilities of the spectrum class.  Among other things, it shows how to apply labels to plots of spectra as a funcition of wavelength.
+
+The directory also contains 5 other notebooks and a json file.  These are demo files for reproducing some of the analyses in the paper "Electron densities and their uncertainties derived from spectral emission line intensities" by Kenneth Dere.  This paper has been published in the Monthly Notices of the Royal Astronomical Society, 2020, 496, 2334.
+
+The notebook file '1_fe_13_demo_make_model.ipynb' constructs the model that is used by 2_fe_13_demo_check_model.ipynb and 3_fe_13_demo_chi2_search.ipynb by reading the 'tab2_1993_qs_fe_13.json' file.  It is easiest if all files are placed in the same directory.  This files contains the Fe XIII line intensities from Brosius et al., 1996, Astrophysical Journal Supplement Series, 106, 143.  This notebook file needs to be run first.
+
+The next notebook to run is:  2_fe_13_demo_check_model.ipynb  -- This notebook load the previously created pickle containing the match attribute.  In this notebook a density and emission measure are guessed from an 'em loci' plot and the predictions compard with the observations.
+
+The next notebook to run is:  3_fe_13_demo_chi2_search.ipynb -- This performs a brute force chi-squared search over the density range and finds the best fit density and emission measure.  These best values are then inserted into the model, a prediction made and compared with the observations.
+
+The next notebook to run is:  4_fe_13_demo_mcmc.ipynb -- This performs a MCMC analysis of the spectra to determine the most likely density and emission measure from an analysis of the trace.  The trace is also save for futher analysis.
+
+The next notebook to run is:  5_fe_13_demo_mcmc_trace_analyze.ipynb -- the load the trace so that it can be re-analyzed
+
+
+QuickStart.ipynb
+================
+
+
+bunch_demo.ipynb
+================
+
+spectrum_demo.ipynb
+===================
+
+spectrum_demo_2.ipynb
+=====================
+
+1_fe_13_demo_make_match.ipynb
+=============================
+
+2_fe_13_demo_check_model.ipynb
+==============================
+
+3_fe_13_demo_chi2_search.ipynb
+==============================
+
+4_fe_13_demo_mcmc.ipynb
+=======================
+
+5_fe_13_demo_mcmc_trace_analyze.ipynb
+=====================================
+
