@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta charset="utf-8" />
     <title>ChiantiPy.tools package &#8212; ChiantiPy 0.15.1 documentation</title>
@@ -474,15 +474,16 @@ derived from splupsRead.</p>
 
 <dl class="function">
 <dt id="ChiantiPy.tools.io.elvlcRead">
-<code class="sig-prename descclassname">ChiantiPy.tools.io.</code><code class="sig-name descname">elvlcRead</code><span class="sig-paren">(</span><em class="sig-param">ions</em>, <em class="sig-param">filename=None</em>, <em class="sig-param">getExtended=False</em>, <em class="sig-param">verbose=False</em>, <em class="sig-param">useTh=True</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.tools.io.elvlcRead" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ChiantiPy.tools.io.</code><code class="sig-name descname">elvlcRead</code><span class="sig-paren">(</span><em class="sig-param">ions</em>, <em class="sig-param">filename=None</em>, <em class="sig-param">getExtended=False</em>, <em class="sig-param">getLatex=False</em>, <em class="sig-param">verbose=False</em>, <em class="sig-param">useTh=True</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.tools.io.elvlcRead" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reads the new format elvlc files.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>ions</strong> (<cite>str</cite>) – Ion, e.g. ‘c_5’ for C V</p></li>
 <li><p><strong>filename</strong> (<cite>str</cite>, optional) – Custom filename, will override that specified by <cite>ions</cite></p></li>
-<li><p><strong>getExtended</strong> (<cite>bool</cite>)</p></li>
-<li><p><strong>verbose</strong> (<cite>bool</cite>)</p></li>
+<li><p><strong>getExtended</strong> (<cite>bool</cite>) – get energy levels in columns beyond the theoretical energy</p></li>
+<li><p><strong>getLatex</strong> (<cite>bool</cite>) – get energy level descriptions in latex markup</p></li>
+<li><p><strong>verbose</strong> (<cite>bool</cite>) – print out the elvlc information</p></li>
 <li><p><strong>useTh</strong> (<cite>bool</cite>) – If True, the theoretical values (ecmth and erydth) are inserted when
 an energy value for ecm or eryd is zero(=unknown)</p></li>
 </ul>
@@ -492,7 +493,7 @@ an energy value for ecm or eryd is zero(=unknown)</p></li>
 
 <dl class="function">
 <dt id="ChiantiPy.tools.io.elvlcWrite">
-<code class="sig-prename descclassname">ChiantiPy.tools.io.</code><code class="sig-name descname">elvlcWrite</code><span class="sig-paren">(</span><em class="sig-param">info</em>, <em class="sig-param">outfile=None</em>, <em class="sig-param">round=0</em>, <em class="sig-param">addLvl=0</em>, <em class="sig-param">includeRyd=False</em>, <em class="sig-param">includeEv=False</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.tools.io.elvlcWrite" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ChiantiPy.tools.io.</code><code class="sig-name descname">elvlcWrite</code><span class="sig-paren">(</span><em class="sig-param">info</em>, <em class="sig-param">outfile=None</em>, <em class="sig-param">round=0</em>, <em class="sig-param">addLvl=0</em>, <em class="sig-param">includeRyd=False</em>, <em class="sig-param">includeEv=False</em>, <em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.tools.io.elvlcWrite" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write Chianti data to .elvlc file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -541,6 +542,21 @@ ref, the references in the literature to the data in the input info</p></li>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><cite>dict</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="ChiantiPy.tools.io.fblfRead">
+<code class="sig-prename descclassname">ChiantiPy.tools.io.</code><code class="sig-name descname">fblfRead</code><span class="sig-paren">(</span><em class="sig-param">ions</em>, <em class="sig-param">filename=None</em>, <em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.tools.io.fblfRead" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the .fbparams file to return the parameters to calculate the
+fb factor of Mao, Kaastra, Badnell Astron. Astrophys. 599, A10 (2017)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ions</strong> (<cite>str</cite>) – Ion, e.g. ‘c_5’ for C V</p></li>
+<li><p><strong>filename</strong> (<cite>str</cite>, optional) – Custom filename, will override that specified by <cite>ions</cite></p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -885,7 +901,7 @@ If the file is not found, one will be created.</p>
 
 <dl class="function">
 <dt id="ChiantiPy.tools.io.wgfaRead">
-<code class="sig-prename descclassname">ChiantiPy.tools.io.</code><code class="sig-name descname">wgfaRead</code><span class="sig-paren">(</span><em class="sig-param">ions</em>, <em class="sig-param">filename=None</em>, <em class="sig-param">elvlcname=0</em>, <em class="sig-param">total=False</em>, <em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.tools.io.wgfaRead" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">ChiantiPy.tools.io.</code><code class="sig-name descname">wgfaRead</code><span class="sig-paren">(</span><em class="sig-param">ions</em>, <em class="sig-param">filename=None</em>, <em class="sig-param">elvlcname=0</em>, <em class="sig-param">total=False</em>, <em class="sig-param">getLatex=False</em>, <em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.tools.io.wgfaRead" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read CHIANTI data from a .wgfa file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -897,6 +913,8 @@ If the file is not found, one will be created.</p>
 <li><p><strong>elvlcname</strong> (<cite>str</cite>) – If specified, the lsj term labels are returned in the ‘pretty1’ and ‘pretty2’
 keys of ‘Wgfa’ dict</p></li>
 <li><p><strong>total</strong> (<cite>bool</cite>) – Return the summed level 2 avalue data in ‘Wgfa’</p></li>
+<li><p><strong>getLatex</strong> (<cite>bool</cite>) – retrieve the level descriptions in latex markup returned in the ‘latex1’ and ‘latex2’
+keys of the <cite>Wgfa</cite> dict</p></li>
 <li><p><strong>verbose</strong> (<cite>bool</cite>) – </p></li>
 </ul>
 </dd>
@@ -1069,7 +1087,7 @@ default = 5</p></li>
 <dl class="class">
 <dt id="ChiantiPy.tools.sources.blackStar">
 <em class="property">class </em><code class="sig-prename descclassname">ChiantiPy.tools.sources.</code><code class="sig-name descname">blackStar</code><span class="sig-paren">(</span><em class="sig-param">temperature</em>, <em class="sig-param">radius</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.tools.sources.blackStar" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Calculate blackbody radiation</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1279,7 +1297,7 @@ temperatures.  The result is to return a temperature array and a ionization rate
 <dd class="field-even"><p><strong>z</strong> – the atomic number or nuclear charge of the element</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
+<dd class="field-odd"><p>int</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1304,7 +1322,7 @@ convertName has probably made this redundant</p>
 assumes a top directory from the environmental variable XUVTOP</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a></p>
+<dd class="field-odd"><p>str</p>
 </dd>
 </dl>
 <div class="admonition-todo admonition" id="id30">
@@ -1326,7 +1344,7 @@ subdirectories are also searched</p>
 <dd class="field-even"><p><strong>listname</strong> – a list of files in dir and  subdirectories</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)">list</a></p>
+<dd class="field-odd"><p>list</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
@@ -1566,7 +1584,7 @@ temperature and rate</p>
 <dd class="field-even"><p><strong>fname</strong> – the CHIANTI directory where the file for the ion specified by z and ion are found</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a></p>
+<dd class="field-odd"><p>str</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1609,7 +1627,7 @@ temperature and rate</p>
 <dd class="field-even"><p><strong>fname</strong> – CHIANTI database filename</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a></p>
+<dd class="field-odd"><p>str</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1645,7 +1663,7 @@ temperature and rate</p>
 <dd class="field-even"><p><strong>thisone</strong> – the CHIANTI style ion name, such as ‘fe_13’</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a></p>
+<dd class="field-odd"><p>str</p>
 </dd>
 </dl>
 </dd></dl>

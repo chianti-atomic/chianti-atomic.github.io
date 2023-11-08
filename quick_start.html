@@ -1,17 +1,18 @@
+
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="./">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-
     <title>Quick Start &#8212; ChiantiPy 0.15.1 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinxdoc.css?v=d11682b4" />
-    <script src="_static/documentation_options.js?v=4befc426"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Tutorial" href="tutorial.html" />
@@ -39,18 +40,37 @@
         <li class="right" >
           <a href="getting_started.html" title="Getting started with ChiantiPy"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">ChiantiPy 0.15.1 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Quick Start</a></li> 
+        <li class="nav-item nav-item-0"><a href="index.html">ChiantiPy 0.15.1 documentation</a> &#187;</li> 
       </ul>
-    </div>  
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="getting_started.html"
+                        title="previous chapter">Getting started with ChiantiPy</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="tutorial.html"
+                        title="next chapter">Tutorial</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="quick-start">
-<h1>Quick Start<a class="headerlink" href="#quick-start" title="Link to this heading">¶</a></h1>
+  <div class="section" id="quick-start">
+<h1>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h1>
 <p>This short tutorial will demonstrate some of the capabilities of ChiantiPy and the CHIANTI database.  It assumes that you know what the CHIANTI database provides and why you want to use it.  It is useful to begin by exploring the properties of the <strong>ion class</strong>, as much of ChiantiPy is based on it.  An ion such as Fe XIV is specified by the string ‘fe_14’, in the usual CHIANTI notation.</p>
 <p>Perhaps the easiest way is to use a jupyter-notebook is to load the quick start notebook file QuickStart.ipynb in the directory jupyter_notebooks.  Then, just run each cell step by step.  If you are not familiar with notebooks, then you can cut and paste the following code into a Python/IPython session.</p>
 <p>N.B.:  in the time some of the plots and data were produced, there have been some changes to ChiantiPy and CHIANTI.  It is possible that you might find differences (hopefully small).</p>
@@ -96,10 +116,15 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chianti_version</span>
 </pre></div>
 </div>
-<section id="setting-default-values">
-<h2>Setting default values<a class="headerlink" href="#setting-default-values" title="Link to this heading">¶</a></h2>
+<div class="section" id="setting-default-values">
+<h2>Setting default values<a class="headerlink" href="#setting-default-values" title="Permalink to this headline">¶</a></h2>
 <p>ChiantiPy determines a number of default setting on instantiation.  To use the default values list below, it is not necssary to do anything.</p>
 <table class="docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 47%" />
+<col style="width: 36%" />
+</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>setting</p></th>
 <th class="head"><p>default</p></th>
@@ -133,9 +158,9 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chdata</span><span class="o">.</span><span class="n">Defaults</span><span class="p">[</span><span class="s1">&#39;wavelength&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
-</section>
-<section id="level-populations">
-<h2>Level populations<a class="headerlink" href="#level-populations" title="Link to this heading">¶</a></h2>
+</div>
+<div class="section" id="level-populations">
+<h2>Level populations<a class="headerlink" href="#level-populations" title="Permalink to this headline">¶</a></h2>
 <p>As a start, we will examine the various properties of the Fe XIV emissivities as a function of temperature and density.  So, let’s define a numpy array of temperatures</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">temp</span> <span class="o">=</span> <span class="mf">10.</span><span class="o">**</span><span class="p">(</span><span class="mf">5.8</span> <span class="o">+</span> <span class="mf">0.05</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">21.</span><span class="p">))</span>
 </pre></div>
@@ -151,9 +176,9 @@
 <p>produces a matplotlib plot window were the population of the top 10 (the default) levels are plotted as a function of temperature.</p>
 <img alt="_images/fe14.popplot.png" class="align-center" src="_images/fe14.popplot.png" />
 <p>If the level populations had not already been calculated, popPlot() would have invoked the populate() method which calculates the level populations and stores them in the Population dictionary, with keys = [‘protonDensity’, ‘population’, ‘temperature’, ‘density’].</p>
-</section>
-<section id="a-chiantipy-convention">
-<h2>A ChiantiPy Convention<a class="headerlink" href="#a-chiantipy-convention" title="Link to this heading">¶</a></h2>
+</div>
+<div class="section" id="a-chiantipy-convention">
+<h2>A ChiantiPy Convention<a class="headerlink" href="#a-chiantipy-convention" title="Permalink to this headline">¶</a></h2>
 <p>Classes and function of ChiantiPy start with lower case letters.  Data/attributes that are attached to the instantiation of a class will start with a capital letter.  For example,</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fe14</span><span class="o">.</span><span class="n">populate</span><span class="p">()</span> <span class="n">creates</span> <span class="n">fe14</span><span class="o">.</span><span class="n">Population</span> <span class="n">containing</span> <span class="n">the</span> <span class="n">level</span> <span class="n">population</span> <span class="n">information</span>
 
@@ -162,9 +187,9 @@
 <span class="n">fe14</span><span class="o">.</span><span class="n">spectrum</span><span class="p">()</span> <span class="n">creates</span> <span class="n">fe14</span><span class="o">.</span><span class="n">Spectrum</span> <span class="n">contain</span> <span class="n">the</span> <span class="n">line</span> <span class="ow">and</span> <span class="n">continuum</span> <span class="n">spectrum</span> <span class="n">information</span>
 </pre></div>
 </div>
-</section>
-<section id="spectral-line-intensities">
-<h2>Spectral Line Intensities<a class="headerlink" href="#spectral-line-intensities" title="Link to this heading">¶</a></h2>
+</div>
+<div class="section" id="spectral-line-intensities">
+<h2>Spectral Line Intensities<a class="headerlink" href="#spectral-line-intensities" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fe14</span><span class="o">.</span><span class="n">intensityPlot</span><span class="p">(</span><span class="n">wvlRange</span><span class="o">=</span><span class="p">[</span><span class="mf">210.</span><span class="p">,</span><span class="mf">220.</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -189,16 +214,16 @@
  <span class="o">------------------------------------------</span>
 
  <span class="n">Ion</span>  <span class="n">lvl1</span>  <span class="n">lvl2</span>                     <span class="n">lower</span> <span class="o">-</span> <span class="n">upper</span>                           <span class="n">Wvl</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>    <span class="n">Intensity</span>      <span class="n">A</span> <span class="n">value</span> <span class="n">Obs</span>
- <span class="n">fe_14</span>     <span class="mi">1</span>    <span class="mi">11</span>              <span class="mi">3</span><span class="n">s2</span><span class="mf">.3</span><span class="n">p</span> <span class="mi">2</span><span class="n">P0</span><span class="mf">.5</span> <span class="o">-</span> <span class="mi">3</span><span class="n">s2</span><span class="mf">.3</span><span class="n">d</span> <span class="mi">2</span><span class="n">D1</span><span class="mf">.5</span>                  <span class="mf">211.3172</span>    <span class="mf">2.336e+02</span>     <span class="mf">3.81e+10</span> <span class="n">Y</span>
- <span class="n">fe_14</span>     <span class="mi">4</span>    <span class="mi">27</span>              <span class="mi">3</span><span class="n">s</span><span class="mf">.3</span><span class="n">p2</span> <span class="mi">4</span><span class="n">P1</span><span class="mf">.5</span> <span class="o">-</span> <span class="mi">3</span><span class="n">s</span><span class="mf">.3</span><span class="n">p</span><span class="p">(</span><span class="mi">3</span><span class="n">P</span><span class="p">)</span><span class="mf">.3</span><span class="n">d</span> <span class="mi">4</span><span class="n">P1</span><span class="mf">.5</span>            <span class="mf">212.1255</span>    <span class="mf">5.355e-01</span>     <span class="mf">2.21e+10</span> <span class="n">Y</span>
- <span class="n">fe_14</span>     <span class="mi">4</span>    <span class="mi">28</span>              <span class="mi">3</span><span class="n">s</span><span class="mf">.3</span><span class="n">p2</span> <span class="mi">4</span><span class="n">P1</span><span class="mf">.5</span> <span class="o">-</span> <span class="mi">3</span><span class="n">s</span><span class="mf">.3</span><span class="n">p</span><span class="p">(</span><span class="mi">3</span><span class="n">P</span><span class="p">)</span><span class="mf">.3</span><span class="n">d</span> <span class="mi">4</span><span class="n">D2</span><span class="mf">.5</span>            <span class="mf">212.1682</span>    <span class="mf">4.039e-01</span>     <span class="mf">1.15e+10</span> <span class="n">Y</span>
- <span class="n">fe_14</span>     <span class="mi">3</span>    <span class="mi">24</span>              <span class="mi">3</span><span class="n">s</span><span class="mf">.3</span><span class="n">p2</span> <span class="mi">4</span><span class="n">P0</span><span class="mf">.5</span> <span class="o">-</span> <span class="mi">3</span><span class="n">s</span><span class="mf">.3</span><span class="n">p</span><span class="p">(</span><span class="mi">3</span><span class="n">P</span><span class="p">)</span><span class="mf">.3</span><span class="n">d</span> <span class="mi">4</span><span class="n">D0</span><span class="mf">.5</span>            <span class="mf">213.1955</span>    <span class="mf">8.073e-01</span>     <span class="mf">4.26e+10</span> <span class="n">Y</span>
- <span class="n">fe_14</span>     <span class="mi">3</span>    <span class="mi">23</span>              <span class="mi">3</span><span class="n">s</span><span class="mf">.3</span><span class="n">p2</span> <span class="mi">4</span><span class="n">P0</span><span class="mf">.5</span> <span class="o">-</span> <span class="mi">3</span><span class="n">s</span><span class="mf">.3</span><span class="n">p</span><span class="p">(</span><span class="mi">3</span><span class="n">P</span><span class="p">)</span><span class="mf">.3</span><span class="n">d</span> <span class="mi">4</span><span class="n">D1</span><span class="mf">.5</span>            <span class="mf">213.8822</span>    <span class="mf">1.393e+00</span>     <span class="mf">2.97e+10</span> <span class="n">Y</span>
- <span class="n">fe_14</span>     <span class="mi">5</span>    <span class="mi">28</span>              <span class="mi">3</span><span class="n">s</span><span class="mf">.3</span><span class="n">p2</span> <span class="mi">4</span><span class="n">P2</span><span class="mf">.5</span> <span class="o">-</span> <span class="mi">3</span><span class="n">s</span><span class="mf">.3</span><span class="n">p</span><span class="p">(</span><span class="mi">3</span><span class="n">P</span><span class="p">)</span><span class="mf">.3</span><span class="n">d</span> <span class="mi">4</span><span class="n">D2</span><span class="mf">.5</span>            <span class="mf">216.5786</span>    <span class="mf">9.736e-01</span>     <span class="mf">2.83e+10</span> <span class="n">Y</span>
- <span class="n">fe_14</span>     <span class="mi">5</span>    <span class="mi">25</span>              <span class="mi">3</span><span class="n">s</span><span class="mf">.3</span><span class="n">p2</span> <span class="mi">4</span><span class="n">P2</span><span class="mf">.5</span> <span class="o">-</span> <span class="mi">3</span><span class="n">s</span><span class="mf">.3</span><span class="n">p</span><span class="p">(</span><span class="mi">3</span><span class="n">P</span><span class="p">)</span><span class="mf">.3</span><span class="n">d</span> <span class="mi">4</span><span class="n">D3</span><span class="mf">.5</span>            <span class="mf">216.9173</span>    <span class="mf">1.730e+00</span>     <span class="mf">4.29e+10</span> <span class="n">Y</span>
- <span class="n">fe_14</span>     <span class="mi">7</span>    <span class="mi">32</span>              <span class="mi">3</span><span class="n">s</span><span class="mf">.3</span><span class="n">p2</span> <span class="mi">2</span><span class="n">D2</span><span class="mf">.5</span> <span class="o">-</span> <span class="mi">3</span><span class="n">s</span><span class="mf">.3</span><span class="n">p</span><span class="p">(</span><span class="mi">3</span><span class="n">P</span><span class="p">)</span><span class="mf">.3</span><span class="n">d</span> <span class="mi">2</span><span class="n">F3</span><span class="mf">.5</span>            <span class="mf">218.1767</span>    <span class="mf">3.734e+00</span>     <span class="mf">1.70e+10</span> <span class="n">Y</span>
- <span class="n">fe_14</span>     <span class="mi">4</span>    <span class="mi">22</span>              <span class="mi">3</span><span class="n">s</span><span class="mf">.3</span><span class="n">p2</span> <span class="mi">4</span><span class="n">P1</span><span class="mf">.5</span> <span class="o">-</span> <span class="mi">3</span><span class="n">s</span><span class="mf">.3</span><span class="n">p</span><span class="p">(</span><span class="mi">3</span><span class="n">P</span><span class="p">)</span><span class="mf">.3</span><span class="n">d</span> <span class="mi">4</span><span class="n">P2</span><span class="mf">.5</span>            <span class="mf">218.5725</span>    <span class="mf">2.391e+00</span>     <span class="mf">2.65e+10</span> <span class="n">Y</span>
- <span class="n">fe_14</span>     <span class="mi">2</span>    <span class="mi">12</span>              <span class="mi">3</span><span class="n">s2</span><span class="mf">.3</span><span class="n">p</span> <span class="mi">2</span><span class="n">P1</span><span class="mf">.5</span> <span class="o">-</span> <span class="mi">3</span><span class="n">s2</span><span class="mf">.3</span><span class="n">d</span> <span class="mi">2</span><span class="n">D2</span><span class="mf">.5</span>                  <span class="mf">219.1305</span>    <span class="mf">5.077e+01</span>     <span class="mf">4.27e+10</span> <span class="n">Y</span>
+ <span class="n">fe_14</span>     <span class="mi">1</span>    <span class="mi">11</span>              <span class="mi">3</span><span class="n">s2</span><span class="o">.</span><span class="mi">3</span><span class="n">p</span> <span class="mi">2</span><span class="n">P0</span><span class="o">.</span><span class="mi">5</span> <span class="o">-</span> <span class="mi">3</span><span class="n">s2</span><span class="o">.</span><span class="mi">3</span><span class="n">d</span> <span class="mi">2</span><span class="n">D1</span><span class="o">.</span><span class="mi">5</span>                  <span class="mf">211.3172</span>    <span class="mf">2.336e+02</span>     <span class="mf">3.81e+10</span> <span class="n">Y</span>
+ <span class="n">fe_14</span>     <span class="mi">4</span>    <span class="mi">27</span>              <span class="mi">3</span><span class="n">s</span><span class="o">.</span><span class="mi">3</span><span class="n">p2</span> <span class="mi">4</span><span class="n">P1</span><span class="o">.</span><span class="mi">5</span> <span class="o">-</span> <span class="mi">3</span><span class="n">s</span><span class="o">.</span><span class="mi">3</span><span class="n">p</span><span class="p">(</span><span class="mi">3</span><span class="n">P</span><span class="p">)</span><span class="o">.</span><span class="mi">3</span><span class="n">d</span> <span class="mi">4</span><span class="n">P1</span><span class="o">.</span><span class="mi">5</span>            <span class="mf">212.1255</span>    <span class="mf">5.355e-01</span>     <span class="mf">2.21e+10</span> <span class="n">Y</span>
+ <span class="n">fe_14</span>     <span class="mi">4</span>    <span class="mi">28</span>              <span class="mi">3</span><span class="n">s</span><span class="o">.</span><span class="mi">3</span><span class="n">p2</span> <span class="mi">4</span><span class="n">P1</span><span class="o">.</span><span class="mi">5</span> <span class="o">-</span> <span class="mi">3</span><span class="n">s</span><span class="o">.</span><span class="mi">3</span><span class="n">p</span><span class="p">(</span><span class="mi">3</span><span class="n">P</span><span class="p">)</span><span class="o">.</span><span class="mi">3</span><span class="n">d</span> <span class="mi">4</span><span class="n">D2</span><span class="o">.</span><span class="mi">5</span>            <span class="mf">212.1682</span>    <span class="mf">4.039e-01</span>     <span class="mf">1.15e+10</span> <span class="n">Y</span>
+ <span class="n">fe_14</span>     <span class="mi">3</span>    <span class="mi">24</span>              <span class="mi">3</span><span class="n">s</span><span class="o">.</span><span class="mi">3</span><span class="n">p2</span> <span class="mi">4</span><span class="n">P0</span><span class="o">.</span><span class="mi">5</span> <span class="o">-</span> <span class="mi">3</span><span class="n">s</span><span class="o">.</span><span class="mi">3</span><span class="n">p</span><span class="p">(</span><span class="mi">3</span><span class="n">P</span><span class="p">)</span><span class="o">.</span><span class="mi">3</span><span class="n">d</span> <span class="mi">4</span><span class="n">D0</span><span class="o">.</span><span class="mi">5</span>            <span class="mf">213.1955</span>    <span class="mf">8.073e-01</span>     <span class="mf">4.26e+10</span> <span class="n">Y</span>
+ <span class="n">fe_14</span>     <span class="mi">3</span>    <span class="mi">23</span>              <span class="mi">3</span><span class="n">s</span><span class="o">.</span><span class="mi">3</span><span class="n">p2</span> <span class="mi">4</span><span class="n">P0</span><span class="o">.</span><span class="mi">5</span> <span class="o">-</span> <span class="mi">3</span><span class="n">s</span><span class="o">.</span><span class="mi">3</span><span class="n">p</span><span class="p">(</span><span class="mi">3</span><span class="n">P</span><span class="p">)</span><span class="o">.</span><span class="mi">3</span><span class="n">d</span> <span class="mi">4</span><span class="n">D1</span><span class="o">.</span><span class="mi">5</span>            <span class="mf">213.8822</span>    <span class="mf">1.393e+00</span>     <span class="mf">2.97e+10</span> <span class="n">Y</span>
+ <span class="n">fe_14</span>     <span class="mi">5</span>    <span class="mi">28</span>              <span class="mi">3</span><span class="n">s</span><span class="o">.</span><span class="mi">3</span><span class="n">p2</span> <span class="mi">4</span><span class="n">P2</span><span class="o">.</span><span class="mi">5</span> <span class="o">-</span> <span class="mi">3</span><span class="n">s</span><span class="o">.</span><span class="mi">3</span><span class="n">p</span><span class="p">(</span><span class="mi">3</span><span class="n">P</span><span class="p">)</span><span class="o">.</span><span class="mi">3</span><span class="n">d</span> <span class="mi">4</span><span class="n">D2</span><span class="o">.</span><span class="mi">5</span>            <span class="mf">216.5786</span>    <span class="mf">9.736e-01</span>     <span class="mf">2.83e+10</span> <span class="n">Y</span>
+ <span class="n">fe_14</span>     <span class="mi">5</span>    <span class="mi">25</span>              <span class="mi">3</span><span class="n">s</span><span class="o">.</span><span class="mi">3</span><span class="n">p2</span> <span class="mi">4</span><span class="n">P2</span><span class="o">.</span><span class="mi">5</span> <span class="o">-</span> <span class="mi">3</span><span class="n">s</span><span class="o">.</span><span class="mi">3</span><span class="n">p</span><span class="p">(</span><span class="mi">3</span><span class="n">P</span><span class="p">)</span><span class="o">.</span><span class="mi">3</span><span class="n">d</span> <span class="mi">4</span><span class="n">D3</span><span class="o">.</span><span class="mi">5</span>            <span class="mf">216.9173</span>    <span class="mf">1.730e+00</span>     <span class="mf">4.29e+10</span> <span class="n">Y</span>
+ <span class="n">fe_14</span>     <span class="mi">7</span>    <span class="mi">32</span>              <span class="mi">3</span><span class="n">s</span><span class="o">.</span><span class="mi">3</span><span class="n">p2</span> <span class="mi">2</span><span class="n">D2</span><span class="o">.</span><span class="mi">5</span> <span class="o">-</span> <span class="mi">3</span><span class="n">s</span><span class="o">.</span><span class="mi">3</span><span class="n">p</span><span class="p">(</span><span class="mi">3</span><span class="n">P</span><span class="p">)</span><span class="o">.</span><span class="mi">3</span><span class="n">d</span> <span class="mi">2</span><span class="n">F3</span><span class="o">.</span><span class="mi">5</span>            <span class="mf">218.1767</span>    <span class="mf">3.734e+00</span>     <span class="mf">1.70e+10</span> <span class="n">Y</span>
+ <span class="n">fe_14</span>     <span class="mi">4</span>    <span class="mi">22</span>              <span class="mi">3</span><span class="n">s</span><span class="o">.</span><span class="mi">3</span><span class="n">p2</span> <span class="mi">4</span><span class="n">P1</span><span class="o">.</span><span class="mi">5</span> <span class="o">-</span> <span class="mi">3</span><span class="n">s</span><span class="o">.</span><span class="mi">3</span><span class="n">p</span><span class="p">(</span><span class="mi">3</span><span class="n">P</span><span class="p">)</span><span class="o">.</span><span class="mi">3</span><span class="n">d</span> <span class="mi">4</span><span class="n">P2</span><span class="o">.</span><span class="mi">5</span>            <span class="mf">218.5725</span>    <span class="mf">2.391e+00</span>     <span class="mf">2.65e+10</span> <span class="n">Y</span>
+ <span class="n">fe_14</span>     <span class="mi">2</span>    <span class="mi">12</span>              <span class="mi">3</span><span class="n">s2</span><span class="o">.</span><span class="mi">3</span><span class="n">p</span> <span class="mi">2</span><span class="n">P1</span><span class="o">.</span><span class="mi">5</span> <span class="o">-</span> <span class="mi">3</span><span class="n">s2</span><span class="o">.</span><span class="mi">3</span><span class="n">d</span> <span class="mi">2</span><span class="n">D2</span><span class="o">.</span><span class="mi">5</span>                  <span class="mf">219.1305</span>    <span class="mf">5.077e+01</span>     <span class="mf">4.27e+10</span> <span class="n">Y</span>
 
 <span class="o">------------------------------------------</span>
 </pre></div>
@@ -213,23 +238,23 @@
  <span class="o">------------------------------------------</span>
 
  <span class="n">Ion</span>  <span class="n">lvl1</span>  <span class="n">lvl2</span>                     <span class="n">lower</span> <span class="o">-</span> <span class="n">upper</span>                           <span class="n">Wvl</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>    <span class="n">Intensity</span>      <span class="n">A</span> <span class="n">value</span> <span class="n">Obs</span>
- <span class="n">fe_14</span>     <span class="mi">1</span>    <span class="mi">11</span>              <span class="mi">3</span><span class="n">s2</span><span class="mf">.3</span><span class="n">p</span> <span class="mi">2</span><span class="n">P0</span><span class="mf">.5</span> <span class="o">-</span> <span class="mi">3</span><span class="n">s2</span><span class="mf">.3</span><span class="n">d</span> <span class="mi">2</span><span class="n">D1</span><span class="mf">.5</span>                  <span class="mf">211.3172</span>    <span class="mf">1.000e+00</span>     <span class="mf">3.81e+10</span> <span class="n">Y</span>
- <span class="n">fe_14</span>     <span class="mi">4</span>    <span class="mi">27</span>              <span class="mi">3</span><span class="n">s</span><span class="mf">.3</span><span class="n">p2</span> <span class="mi">4</span><span class="n">P1</span><span class="mf">.5</span> <span class="o">-</span> <span class="mi">3</span><span class="n">s</span><span class="mf">.3</span><span class="n">p</span><span class="p">(</span><span class="mi">3</span><span class="n">P</span><span class="p">)</span><span class="mf">.3</span><span class="n">d</span> <span class="mi">4</span><span class="n">P1</span><span class="mf">.5</span>            <span class="mf">212.1255</span>    <span class="mf">2.267e-03</span>     <span class="mf">2.21e+10</span> <span class="n">Y</span>
- <span class="n">fe_14</span>     <span class="mi">4</span>    <span class="mi">28</span>              <span class="mi">3</span><span class="n">s</span><span class="mf">.3</span><span class="n">p2</span> <span class="mi">4</span><span class="n">P1</span><span class="mf">.5</span> <span class="o">-</span> <span class="mi">3</span><span class="n">s</span><span class="mf">.3</span><span class="n">p</span><span class="p">(</span><span class="mi">3</span><span class="n">P</span><span class="p">)</span><span class="mf">.3</span><span class="n">d</span> <span class="mi">4</span><span class="n">D2</span><span class="mf">.5</span>            <span class="mf">212.1682</span>    <span class="mf">1.694e-03</span>     <span class="mf">1.15e+10</span> <span class="n">Y</span>
- <span class="n">fe_14</span>     <span class="mi">3</span>    <span class="mi">24</span>              <span class="mi">3</span><span class="n">s</span><span class="mf">.3</span><span class="n">p2</span> <span class="mi">4</span><span class="n">P0</span><span class="mf">.5</span> <span class="o">-</span> <span class="mi">3</span><span class="n">s</span><span class="mf">.3</span><span class="n">p</span><span class="p">(</span><span class="mi">3</span><span class="n">P</span><span class="p">)</span><span class="mf">.3</span><span class="n">d</span> <span class="mi">4</span><span class="n">D0</span><span class="mf">.5</span>            <span class="mf">213.1955</span>    <span class="mf">3.390e-03</span>     <span class="mf">4.26e+10</span> <span class="n">Y</span>
- <span class="n">fe_14</span>     <span class="mi">3</span>    <span class="mi">23</span>              <span class="mi">3</span><span class="n">s</span><span class="mf">.3</span><span class="n">p2</span> <span class="mi">4</span><span class="n">P0</span><span class="mf">.5</span> <span class="o">-</span> <span class="mi">3</span><span class="n">s</span><span class="mf">.3</span><span class="n">p</span><span class="p">(</span><span class="mi">3</span><span class="n">P</span><span class="p">)</span><span class="mf">.3</span><span class="n">d</span> <span class="mi">4</span><span class="n">D1</span><span class="mf">.5</span>            <span class="mf">213.8822</span>    <span class="mf">5.891e-03</span>     <span class="mf">2.97e+10</span> <span class="n">Y</span>
- <span class="n">fe_14</span>     <span class="mi">5</span>    <span class="mi">28</span>              <span class="mi">3</span><span class="n">s</span><span class="mf">.3</span><span class="n">p2</span> <span class="mi">4</span><span class="n">P2</span><span class="mf">.5</span> <span class="o">-</span> <span class="mi">3</span><span class="n">s</span><span class="mf">.3</span><span class="n">p</span><span class="p">(</span><span class="mi">3</span><span class="n">P</span><span class="p">)</span><span class="mf">.3</span><span class="n">d</span> <span class="mi">4</span><span class="n">D2</span><span class="mf">.5</span>            <span class="mf">216.5786</span>    <span class="mf">4.083e-03</span>     <span class="mf">2.83e+10</span> <span class="n">Y</span>
- <span class="n">fe_14</span>     <span class="mi">5</span>    <span class="mi">25</span>              <span class="mi">3</span><span class="n">s</span><span class="mf">.3</span><span class="n">p2</span> <span class="mi">4</span><span class="n">P2</span><span class="mf">.5</span> <span class="o">-</span> <span class="mi">3</span><span class="n">s</span><span class="mf">.3</span><span class="n">p</span><span class="p">(</span><span class="mi">3</span><span class="n">P</span><span class="p">)</span><span class="mf">.3</span><span class="n">d</span> <span class="mi">4</span><span class="n">D3</span><span class="mf">.5</span>            <span class="mf">216.9173</span>    <span class="mf">7.085e-03</span>     <span class="mf">4.29e+10</span> <span class="n">Y</span>
- <span class="n">fe_14</span>     <span class="mi">7</span>    <span class="mi">32</span>              <span class="mi">3</span><span class="n">s</span><span class="mf">.3</span><span class="n">p2</span> <span class="mi">2</span><span class="n">D2</span><span class="mf">.5</span> <span class="o">-</span> <span class="mi">3</span><span class="n">s</span><span class="mf">.3</span><span class="n">p</span><span class="p">(</span><span class="mi">3</span><span class="n">P</span><span class="p">)</span><span class="mf">.3</span><span class="n">d</span> <span class="mi">2</span><span class="n">F3</span><span class="mf">.5</span>            <span class="mf">218.1767</span>    <span class="mf">1.557e-02</span>     <span class="mf">1.70e+10</span> <span class="n">Y</span>
- <span class="n">fe_14</span>     <span class="mi">4</span>    <span class="mi">22</span>              <span class="mi">3</span><span class="n">s</span><span class="mf">.3</span><span class="n">p2</span> <span class="mi">4</span><span class="n">P1</span><span class="mf">.5</span> <span class="o">-</span> <span class="mi">3</span><span class="n">s</span><span class="mf">.3</span><span class="n">p</span><span class="p">(</span><span class="mi">3</span><span class="n">P</span><span class="p">)</span><span class="mf">.3</span><span class="n">d</span> <span class="mi">4</span><span class="n">P2</span><span class="mf">.5</span>            <span class="mf">218.5725</span>    <span class="mf">1.009e-02</span>     <span class="mf">2.65e+10</span> <span class="n">Y</span>
- <span class="n">fe_14</span>     <span class="mi">2</span>    <span class="mi">12</span>              <span class="mi">3</span><span class="n">s2</span><span class="mf">.3</span><span class="n">p</span> <span class="mi">2</span><span class="n">P1</span><span class="mf">.5</span> <span class="o">-</span> <span class="mi">3</span><span class="n">s2</span><span class="mf">.3</span><span class="n">d</span> <span class="mi">2</span><span class="n">D2</span><span class="mf">.5</span>                  <span class="mf">219.1305</span>    <span class="mf">2.096e-01</span>     <span class="mf">4.27e+10</span> <span class="n">Y</span>
+ <span class="n">fe_14</span>     <span class="mi">1</span>    <span class="mi">11</span>              <span class="mi">3</span><span class="n">s2</span><span class="o">.</span><span class="mi">3</span><span class="n">p</span> <span class="mi">2</span><span class="n">P0</span><span class="o">.</span><span class="mi">5</span> <span class="o">-</span> <span class="mi">3</span><span class="n">s2</span><span class="o">.</span><span class="mi">3</span><span class="n">d</span> <span class="mi">2</span><span class="n">D1</span><span class="o">.</span><span class="mi">5</span>                  <span class="mf">211.3172</span>    <span class="mf">1.000e+00</span>     <span class="mf">3.81e+10</span> <span class="n">Y</span>
+ <span class="n">fe_14</span>     <span class="mi">4</span>    <span class="mi">27</span>              <span class="mi">3</span><span class="n">s</span><span class="o">.</span><span class="mi">3</span><span class="n">p2</span> <span class="mi">4</span><span class="n">P1</span><span class="o">.</span><span class="mi">5</span> <span class="o">-</span> <span class="mi">3</span><span class="n">s</span><span class="o">.</span><span class="mi">3</span><span class="n">p</span><span class="p">(</span><span class="mi">3</span><span class="n">P</span><span class="p">)</span><span class="o">.</span><span class="mi">3</span><span class="n">d</span> <span class="mi">4</span><span class="n">P1</span><span class="o">.</span><span class="mi">5</span>            <span class="mf">212.1255</span>    <span class="mf">2.267e-03</span>     <span class="mf">2.21e+10</span> <span class="n">Y</span>
+ <span class="n">fe_14</span>     <span class="mi">4</span>    <span class="mi">28</span>              <span class="mi">3</span><span class="n">s</span><span class="o">.</span><span class="mi">3</span><span class="n">p2</span> <span class="mi">4</span><span class="n">P1</span><span class="o">.</span><span class="mi">5</span> <span class="o">-</span> <span class="mi">3</span><span class="n">s</span><span class="o">.</span><span class="mi">3</span><span class="n">p</span><span class="p">(</span><span class="mi">3</span><span class="n">P</span><span class="p">)</span><span class="o">.</span><span class="mi">3</span><span class="n">d</span> <span class="mi">4</span><span class="n">D2</span><span class="o">.</span><span class="mi">5</span>            <span class="mf">212.1682</span>    <span class="mf">1.694e-03</span>     <span class="mf">1.15e+10</span> <span class="n">Y</span>
+ <span class="n">fe_14</span>     <span class="mi">3</span>    <span class="mi">24</span>              <span class="mi">3</span><span class="n">s</span><span class="o">.</span><span class="mi">3</span><span class="n">p2</span> <span class="mi">4</span><span class="n">P0</span><span class="o">.</span><span class="mi">5</span> <span class="o">-</span> <span class="mi">3</span><span class="n">s</span><span class="o">.</span><span class="mi">3</span><span class="n">p</span><span class="p">(</span><span class="mi">3</span><span class="n">P</span><span class="p">)</span><span class="o">.</span><span class="mi">3</span><span class="n">d</span> <span class="mi">4</span><span class="n">D0</span><span class="o">.</span><span class="mi">5</span>            <span class="mf">213.1955</span>    <span class="mf">3.390e-03</span>     <span class="mf">4.26e+10</span> <span class="n">Y</span>
+ <span class="n">fe_14</span>     <span class="mi">3</span>    <span class="mi">23</span>              <span class="mi">3</span><span class="n">s</span><span class="o">.</span><span class="mi">3</span><span class="n">p2</span> <span class="mi">4</span><span class="n">P0</span><span class="o">.</span><span class="mi">5</span> <span class="o">-</span> <span class="mi">3</span><span class="n">s</span><span class="o">.</span><span class="mi">3</span><span class="n">p</span><span class="p">(</span><span class="mi">3</span><span class="n">P</span><span class="p">)</span><span class="o">.</span><span class="mi">3</span><span class="n">d</span> <span class="mi">4</span><span class="n">D1</span><span class="o">.</span><span class="mi">5</span>            <span class="mf">213.8822</span>    <span class="mf">5.891e-03</span>     <span class="mf">2.97e+10</span> <span class="n">Y</span>
+ <span class="n">fe_14</span>     <span class="mi">5</span>    <span class="mi">28</span>              <span class="mi">3</span><span class="n">s</span><span class="o">.</span><span class="mi">3</span><span class="n">p2</span> <span class="mi">4</span><span class="n">P2</span><span class="o">.</span><span class="mi">5</span> <span class="o">-</span> <span class="mi">3</span><span class="n">s</span><span class="o">.</span><span class="mi">3</span><span class="n">p</span><span class="p">(</span><span class="mi">3</span><span class="n">P</span><span class="p">)</span><span class="o">.</span><span class="mi">3</span><span class="n">d</span> <span class="mi">4</span><span class="n">D2</span><span class="o">.</span><span class="mi">5</span>            <span class="mf">216.5786</span>    <span class="mf">4.083e-03</span>     <span class="mf">2.83e+10</span> <span class="n">Y</span>
+ <span class="n">fe_14</span>     <span class="mi">5</span>    <span class="mi">25</span>              <span class="mi">3</span><span class="n">s</span><span class="o">.</span><span class="mi">3</span><span class="n">p2</span> <span class="mi">4</span><span class="n">P2</span><span class="o">.</span><span class="mi">5</span> <span class="o">-</span> <span class="mi">3</span><span class="n">s</span><span class="o">.</span><span class="mi">3</span><span class="n">p</span><span class="p">(</span><span class="mi">3</span><span class="n">P</span><span class="p">)</span><span class="o">.</span><span class="mi">3</span><span class="n">d</span> <span class="mi">4</span><span class="n">D3</span><span class="o">.</span><span class="mi">5</span>            <span class="mf">216.9173</span>    <span class="mf">7.085e-03</span>     <span class="mf">4.29e+10</span> <span class="n">Y</span>
+ <span class="n">fe_14</span>     <span class="mi">7</span>    <span class="mi">32</span>              <span class="mi">3</span><span class="n">s</span><span class="o">.</span><span class="mi">3</span><span class="n">p2</span> <span class="mi">2</span><span class="n">D2</span><span class="o">.</span><span class="mi">5</span> <span class="o">-</span> <span class="mi">3</span><span class="n">s</span><span class="o">.</span><span class="mi">3</span><span class="n">p</span><span class="p">(</span><span class="mi">3</span><span class="n">P</span><span class="p">)</span><span class="o">.</span><span class="mi">3</span><span class="n">d</span> <span class="mi">2</span><span class="n">F3</span><span class="o">.</span><span class="mi">5</span>            <span class="mf">218.1767</span>    <span class="mf">1.557e-02</span>     <span class="mf">1.70e+10</span> <span class="n">Y</span>
+ <span class="n">fe_14</span>     <span class="mi">4</span>    <span class="mi">22</span>              <span class="mi">3</span><span class="n">s</span><span class="o">.</span><span class="mi">3</span><span class="n">p2</span> <span class="mi">4</span><span class="n">P1</span><span class="o">.</span><span class="mi">5</span> <span class="o">-</span> <span class="mi">3</span><span class="n">s</span><span class="o">.</span><span class="mi">3</span><span class="n">p</span><span class="p">(</span><span class="mi">3</span><span class="n">P</span><span class="p">)</span><span class="o">.</span><span class="mi">3</span><span class="n">d</span> <span class="mi">4</span><span class="n">P2</span><span class="o">.</span><span class="mi">5</span>            <span class="mf">218.5725</span>    <span class="mf">1.009e-02</span>     <span class="mf">2.65e+10</span> <span class="n">Y</span>
+ <span class="n">fe_14</span>     <span class="mi">2</span>    <span class="mi">12</span>              <span class="mi">3</span><span class="n">s2</span><span class="o">.</span><span class="mi">3</span><span class="n">p</span> <span class="mi">2</span><span class="n">P1</span><span class="o">.</span><span class="mi">5</span> <span class="o">-</span> <span class="mi">3</span><span class="n">s2</span><span class="o">.</span><span class="mi">3</span><span class="n">d</span> <span class="mi">2</span><span class="n">D2</span><span class="o">.</span><span class="mi">5</span>                  <span class="mf">219.1305</span>    <span class="mf">2.096e-01</span>     <span class="mf">4.27e+10</span> <span class="n">Y</span>
 
 <span class="o">------------------------------------------</span>
 </pre></div>
 </div>
-</section>
-<section id="the-effect-of-electron-density-on-line-intensities">
-<h2>The effect of electron density on line intensities<a class="headerlink" href="#the-effect-of-electron-density-on-line-intensities" title="Link to this heading">¶</a></h2>
+</div>
+<div class="section" id="the-effect-of-electron-density-on-line-intensities">
+<h2>The effect of electron density on line intensities<a class="headerlink" href="#the-effect-of-electron-density-on-line-intensities" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">temp</span> <span class="o">=</span> <span class="mf">2.e+6</span>
 <span class="n">dens</span> <span class="o">=</span> <span class="mf">10.</span><span class="o">**</span><span class="p">(</span><span class="mf">6.</span> <span class="o">+</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">61</span><span class="p">))</span>
 <span class="n">fe14</span> <span class="o">=</span> <span class="n">ch</span><span class="o">.</span><span class="n">ion</span><span class="p">(</span><span class="s1">&#39;fe_14&#39;</span><span class="p">,</span> <span class="n">temp</span><span class="p">,</span> <span class="n">dens</span><span class="p">)</span>
@@ -238,9 +263,9 @@
 </div>
 <p>a plot of the population of the top 10 levels is produced as a function of the electron density</p>
 <img alt="_images/fe14_pop_vs_dens.png" class="align-center" src="_images/fe14_pop_vs_dens.png" />
-</section>
-<section id="g-n-t-function">
-<h2>G(n,T) function<a class="headerlink" href="#g-n-t-function" title="Link to this heading">¶</a></h2>
+</div>
+<div class="section" id="g-n-t-function">
+<h2>G(n,T) function<a class="headerlink" href="#g-n-t-function" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">temp</span> <span class="o">=</span> <span class="mf">10.</span><span class="o">**</span><span class="p">(</span><span class="mf">5.8</span> <span class="o">+</span> <span class="mf">0.05</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">21.</span><span class="p">))</span>
 <span class="n">dens</span> <span class="o">=</span> <span class="mf">1.e+9</span>
 <span class="n">fe14</span> <span class="o">=</span> <span class="n">ch</span><span class="o">.</span><span class="n">ion</span><span class="p">(</span><span class="s1">&#39;fe_14&#39;</span><span class="p">,</span> <span class="n">temp</span><span class="p">,</span> <span class="n">dens</span><span class="p">)</span>
@@ -270,9 +295,9 @@
 </div>
 <p>once the axes are properly scaled, this produces the same values as fe14.Gofnt[‘gofnt’]</p>
 <img alt="_images/fe14_gofnt_alternate.png" class="align-center" src="_images/fe14_gofnt_alternate.png" />
-</section>
-<section id="ionization-equilibrium">
-<h2>Ionization Equilibrium<a class="headerlink" href="#ionization-equilibrium" title="Link to this heading">¶</a></h2>
+</div>
+<div class="section" id="ionization-equilibrium">
+<h2>Ionization Equilibrium<a class="headerlink" href="#ionization-equilibrium" title="Permalink to this headline">¶</a></h2>
 <p>For the Fe XIV example, the temperature was chosen to center around 2.e+6.  It was not immediately apparent why this was done but in most of the following examples it is necessary to pick an appropriate temperature.  This can be done with the <strong>ioneq</strong> class.  To look at the ionization equilibrium for the iron ions (Z = 26, or ‘fe’)</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fe</span> <span class="o">=</span> <span class="n">ch</span><span class="o">.</span><span class="n">ioneq</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span>
 <span class="n">fe</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
@@ -291,9 +316,9 @@
 <p>produces a plot of the ionization equilibria of Fe XIII, XIV and XV over a limited temperature range (tRange) and vertical range (yr)</p>
 <img alt="_images/fe_13_14_15_ioneq.png" src="_images/fe_13_14_15_ioneq.png" />
 <p>from this it is clear that Fe XIV (fe_14) is formed at temperatures near <span class="math notranslate nohighlight">\(2 \times 10^6\)</span> K</p>
-</section>
-<section id="intensity-ratios">
-<h2>Intensity Ratios<a class="headerlink" href="#intensity-ratios" title="Link to this heading">¶</a></h2>
+</div>
+<div class="section" id="intensity-ratios">
+<h2>Intensity Ratios<a class="headerlink" href="#intensity-ratios" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">temp</span> <span class="o">=</span> <span class="mf">10.</span><span class="o">**</span><span class="p">(</span><span class="mf">5.8</span> <span class="o">+</span> <span class="mf">0.05</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">21.</span><span class="p">))</span>
 <span class="n">dens</span> <span class="o">=</span> <span class="mf">1.e+9</span>
 </pre></div>
@@ -326,9 +351,9 @@
 </pre></div>
 </div>
 <img alt="_images/fe_12_wvlranges_ratio.png" class="align-center" src="_images/fe_12_wvlranges_ratio.png" />
-</section>
-<section id="spectra-of-a-single-ion">
-<h2>Spectra of a single ion<a class="headerlink" href="#spectra-of-a-single-ion" title="Link to this heading">¶</a></h2>
+</div>
+<div class="section" id="spectra-of-a-single-ion">
+<h2>Spectra of a single ion<a class="headerlink" href="#spectra-of-a-single-ion" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fe14</span> <span class="o">=</span> <span class="n">ch</span><span class="o">.</span><span class="n">ion</span><span class="p">(</span><span class="s1">&#39;fe_14&#39;</span><span class="p">,</span> <span class="n">temperature</span> <span class="o">=</span> <span class="mf">2.e+6</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="mf">1.e+9</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -362,7 +387,7 @@
 </div>
 <p>Emission Measure =     1.00e+27</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">chianti.tools.filters</span> <span class="k">as</span> <span class="nn">chfilters</span>
-<span class="n">fe14</span><span class="o">.</span><span class="n">spectrum</span><span class="p">(</span><span class="n">wvl</span><span class="p">,</span><span class="nb">filter</span><span class="o">=</span><span class="p">(</span><span class="n">chfilters</span><span class="o">.</span><span class="n">gaussian</span><span class="p">,</span><span class="mf">.04</span><span class="p">))</span>
+<span class="n">fe14</span><span class="o">.</span><span class="n">spectrum</span><span class="p">(</span><span class="n">wvl</span><span class="p">,</span><span class="nb">filter</span><span class="o">=</span><span class="p">(</span><span class="n">chfilters</span><span class="o">.</span><span class="n">gaussian</span><span class="p">,</span><span class="o">.</span><span class="mi">04</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>calculates the spectrum of fe_14 for a gaussian filter with a width of 0.04 Angstroms.
@@ -430,7 +455,7 @@ ylabel</p>
 <span class="n">fe14</span> <span class="o">=</span> <span class="n">ch</span><span class="o">.</span><span class="n">ion</span><span class="p">(</span><span class="s1">&#39;fe_14&#39;</span><span class="p">,</span> <span class="n">temp</span><span class="p">,</span> <span class="n">dens</span><span class="p">)</span>
 <span class="n">emeas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span><span class="o">*</span><span class="mf">1.e+27</span>
 <span class="n">wvl</span> <span class="o">=</span> <span class="mf">200.</span> <span class="o">+</span> <span class="mf">0.125</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">801</span><span class="p">)</span>
-<span class="n">fe14</span><span class="o">.</span><span class="n">spectrum</span><span class="p">(</span><span class="n">wvl</span><span class="p">,</span><span class="nb">filter</span><span class="o">=</span><span class="p">(</span><span class="n">chfilters</span><span class="o">.</span><span class="n">gaussian</span><span class="p">,</span><span class="mf">.4</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;.4&#39;</span><span class="p">,</span><span class="n">em</span><span class="o">=</span><span class="n">emeas</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;0.4&#39;</span><span class="p">)</span>
+<span class="n">fe14</span><span class="o">.</span><span class="n">spectrum</span><span class="p">(</span><span class="n">wvl</span><span class="p">,</span><span class="nb">filter</span><span class="o">=</span><span class="p">(</span><span class="n">chfilters</span><span class="o">.</span><span class="n">gaussian</span><span class="p">,</span><span class="o">.</span><span class="mi">4</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;.4&#39;</span><span class="p">,</span><span class="n">em</span><span class="o">=</span><span class="n">emeas</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;0.4&#39;</span><span class="p">)</span>
 <span class="n">fe14</span><span class="o">.</span><span class="n">spectrum</span><span class="p">(</span><span class="n">wvl</span><span class="p">,</span><span class="nb">filter</span><span class="o">=</span><span class="p">(</span><span class="n">chfilters</span><span class="o">.</span><span class="n">gaussian</span><span class="p">,</span><span class="mf">1.</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;1.&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">-</span><span class="s1">&#39;1.0&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">wvl</span><span class="p">,</span><span class="n">fe14</span><span class="o">.</span><span class="n">Spectrum</span><span class="p">[</span><span class="s1">&#39;.4&#39;</span><span class="p">][</span><span class="s1">&#39;intensity&#39;</span><span class="p">][</span><span class="mi">5</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">wvl</span><span class="p">,</span><span class="n">fe14</span><span class="o">.</span><span class="n">Spectrum</span><span class="p">[</span><span class="s1">&#39;1.&#39;</span><span class="p">][</span><span class="s1">&#39;intensity&#39;</span><span class="p">][</span><span class="mi">5</span><span class="p">],</span><span class="s1">&#39;-r&#39;</span><span class="p">)</span>
@@ -441,9 +466,9 @@ ylabel</p>
 </pre></div>
 </div>
 <img alt="_images/fe14_spectrum_label.png" class="align-center" src="_images/fe14_spectrum_label.png" />
-</section>
-<section id="using-emission-measures-em">
-<h2>Using emission measures (EM)<a class="headerlink" href="#using-emission-measures-em" title="Link to this heading">¶</a></h2>
+</div>
+<div class="section" id="using-emission-measures-em">
+<h2>Using emission measures (EM)<a class="headerlink" href="#using-emission-measures-em" title="Permalink to this headline">¶</a></h2>
 <p>the line-of-sight emission measure is given by <span class="math notranslate nohighlight">\(\mathrm{\int \, n_e \, n_H \, dl}\)</span> (<span class="math notranslate nohighlight">\(\mathrm{cm}^{-5}\)</span>)</p>
 <p>the volumetric emission measure is give by <span class="math notranslate nohighlight">\(\mathrm{\int \, n_e \, n_H \, dV}\)</span> (<span class="math notranslate nohighlight">\(\mathrm{cm^{-3}}\)</span>)</p>
 <p>where the integrations are performed over the source region</p>
@@ -482,14 +507,14 @@ ylabel</p>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fe14</span>  <span class="o">=</span> <span class="n">ch</span><span class="o">.</span><span class="n">ion</span><span class="p">(</span><span class="s1">&#39;fe_14&#39;</span><span class="p">,</span> <span class="n">arTemp</span><span class="p">,</span> <span class="n">arDens</span><span class="p">,</span> <span class="n">em</span><span class="o">=</span><span class="n">arEm</span><span class="p">)</span>
 <span class="n">wvl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">200.</span><span class="p">,</span> <span class="mf">300.</span><span class="p">,</span> <span class="mi">10001</span><span class="p">)</span>
-<span class="n">fe14</span><span class="o">.</span><span class="n">spectrum</span><span class="p">(</span><span class="n">wvl</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="p">(</span><span class="n">chfilters</span><span class="o">.</span><span class="n">gaussian</span><span class="p">,</span> <span class="mf">.03</span><span class="p">))</span>
+<span class="n">fe14</span><span class="o">.</span><span class="n">spectrum</span><span class="p">(</span><span class="n">wvl</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="p">(</span><span class="n">chfilters</span><span class="o">.</span><span class="n">gaussian</span><span class="p">,</span> <span class="o">.</span><span class="mi">03</span><span class="p">))</span>
 <span class="n">fe14</span><span class="o">.</span><span class="n">spectrumPlot</span><span class="p">(</span><span class="n">wvlRange</span><span class="o">=</span><span class="p">[</span><span class="mf">264.</span><span class="p">,</span> <span class="mf">275.</span><span class="p">],</span> <span class="n">integrated</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 <img alt="_images/fe14_integrated_spectrum_label.png" class="align-center" src="_images/fe14_integrated_spectrum_label.png" />
-</section>
-<section id="free-free-and-free-bound-continuum">
-<h2>Free-free and free-bound continuum<a class="headerlink" href="#free-free-and-free-bound-continuum" title="Link to this heading">¶</a></h2>
+</div>
+<div class="section" id="free-free-and-free-bound-continuum">
+<h2>Free-free and free-bound continuum<a class="headerlink" href="#free-free-and-free-bound-continuum" title="Permalink to this headline">¶</a></h2>
 <p>The module continuum provides the ability to calculate the free-free and free-bound spectrum for a large number of  individual ions.  The two-photon continuum is produced only by the hydrogen-like and helium-like ions</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myIon</span> <span class="o">=</span> <span class="s1">&#39;fe_25&#39;</span>
 </pre></div>
@@ -559,9 +584,9 @@ ylabel</p>
 <p>produces</p>
 <img alt="_images/o_8_ff_fb_tp_total_3e6_1_100.png" class="align-center" src="_images/o_8_ff_fb_tp_total_3e6_1_100.png" />
 <p>In the continuum calculations, the specified ion, Fe XXV in this case, is the target ion for the free-free calculation.  For the free-bound calculation, specified ion is also the target ion.  In this case, the radiative recombination spectrum of Fe XXV recombining to form Fe XXIV is returned.</p>
-</section>
-<section id="the-multi-ion-class-bunch">
-<h2>The multi-ion class Bunch<a class="headerlink" href="#the-multi-ion-class-bunch" title="Link to this heading">¶</a></h2>
+</div>
+<div class="section" id="the-multi-ion-class-bunch">
+<h2>The multi-ion class Bunch<a class="headerlink" href="#the-multi-ion-class-bunch" title="Permalink to this headline">¶</a></h2>
 <p>The multi-ion class <strong>bunch</strong> [new in v0.6] inherits a number of the same methods inherited by the ion class, for example <em>intensityList</em>, <em>intensityRatio</em>, and <em>intensityRatioSave</em>. As a short demonstration of its usefulness, Widing and Feldman (1989, ApJ, 344, 1046) used line ratios of Mg VI and Ne VI as diagnostics of elemental abundance variations in the solar atmosphere. For that to be accurate, it is necessary that the lines of the two ions have the same temperature response.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">temp</span> <span class="o">=</span> <span class="mf">10.</span><span class="o">**</span><span class="p">(</span><span class="mf">5.0</span><span class="o">+</span><span class="mf">0.1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">11</span><span class="p">))</span>
 <span class="n">dens</span> <span class="o">=</span> <span class="mf">1.e+9</span>
@@ -660,9 +685,9 @@ ylabel</p>
 </pre></div>
 </div>
 <img alt="_images/bunch_spectrumPlot.png" class="align-center" src="_images/bunch_spectrumPlot.png" />
-</section>
-<section id="spectra-of-multiple-ions-and-continuum">
-<h2>Spectra of multiple ions and continuum<a class="headerlink" href="#spectra-of-multiple-ions-and-continuum" title="Link to this heading">¶</a></h2>
+</div>
+<div class="section" id="spectra-of-multiple-ions-and-continuum">
+<h2>Spectra of multiple ions and continuum<a class="headerlink" href="#spectra-of-multiple-ions-and-continuum" title="Permalink to this headline">¶</a></h2>
 <p>the spectrum for all ions in the CHIANTI database can also be calculated</p>
 <p>The spectrum for a selection of all of the ions in the CHIANTI database can also be calculated. There are 3 spectral classes.</p>
 <ul class="simple">
@@ -671,15 +696,15 @@ ylabel</p>
 <li><p><strong>ipymspectrum</strong> [new in v0.6] - uses the IPython parallel class and can be used in a IPython qtconsole or notebook</p></li>
 </ul>
 <p>As of version 0.13.0, it is now possible to save the calculations with the <strong>saveData</strong> methods, demonstrated with the bunch class above</p>
-<section id="the-single-processor-spectrum-class">
-<h3>The single processor spectrum class<a class="headerlink" href="#the-single-processor-spectrum-class" title="Link to this heading">¶</a></h3>
+<div class="section" id="the-single-processor-spectrum-class">
+<h3>The single processor spectrum class<a class="headerlink" href="#the-single-processor-spectrum-class" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">temperature</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.e+6</span><span class="p">,</span> <span class="mf">2.e+6</span><span class="p">]</span>
 <span class="n">density</span> <span class="o">=</span> <span class="mf">1.e+9</span>
 <span class="n">wvl</span> <span class="o">=</span> <span class="mf">200.</span> <span class="o">+</span> <span class="mf">0.05</span><span class="o">*</span><span class="n">arange</span><span class="p">(</span><span class="mi">2001</span><span class="p">)</span>
 <span class="n">emeasure</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.e+27</span> <span class="p">,</span><span class="mf">1.e+27</span><span class="p">]</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">ch</span><span class="o">.</span><span class="n">spectrum</span><span class="p">(</span><span class="n">temperature</span><span class="p">,</span> <span class="n">density</span><span class="p">,</span> <span class="n">wvl</span><span class="p">,</span> <span class="nb">filter</span> <span class="o">=</span> <span class="p">(</span><span class="n">chfilters</span><span class="o">.</span><span class="n">gaussian</span><span class="p">,</span><span class="mf">.2</span><span class="p">),</span> <span class="n">em</span> <span class="o">=</span> <span class="n">emeasure</span><span class="p">,</span> <span class="n">doContinuum</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">minAbund</span><span class="o">=</span><span class="mf">1.e-5</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">ch</span><span class="o">.</span><span class="n">spectrum</span><span class="p">(</span><span class="n">temperature</span><span class="p">,</span> <span class="n">density</span><span class="p">,</span> <span class="n">wvl</span><span class="p">,</span> <span class="nb">filter</span> <span class="o">=</span> <span class="p">(</span><span class="n">chfilters</span><span class="o">.</span><span class="n">gaussian</span><span class="p">,</span><span class="o">.</span><span class="mi">2</span><span class="p">),</span> <span class="n">em</span> <span class="o">=</span> <span class="n">emeasure</span><span class="p">,</span> <span class="n">doContinuum</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">minAbund</span><span class="o">=</span><span class="mf">1.e-5</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">subplot</span><span class="p">(</span><span class="mi">311</span><span class="p">)</span>
@@ -728,9 +753,9 @@ ylabel</p>
 <li><p>minAbund = 1.e-6 adds  Na, Al, Ar, Ca, Ni</p></li>
 </ul>
 </div></blockquote>
-</section>
-<section id="the-multiple-processor-mspectrum-class">
-<h3>The multiple processor mspectrum class<a class="headerlink" href="#the-multiple-processor-mspectrum-class" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="the-multiple-processor-mspectrum-class">
+<h3>The multiple processor mspectrum class<a class="headerlink" href="#the-multiple-processor-mspectrum-class" title="Permalink to this headline">¶</a></h3>
 <p>Another way to speed up calculations is to use the <em>mspectrum</em> class which uses multiple cores on your local computer.  It requires the Python <em>multiprocessing</em> module which is available with Python versions 2.6 and later. <em>mspectrum</em> is called in the same way as <em>spectrum</em> but you can specify the number of cores with the <em>proc</em> keyword.  The default is 3 but it will not use more cores than are available on your machine.  For example,</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">temp</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.e+7</span><span class="p">,</span> <span class="mf">2.e+7</span><span class="p">,</span> <span class="mf">3.e+7</span><span class="p">]</span>
 <span class="n">dens</span> <span class="o">=</span> <span class="mf">1.e+9</span>
@@ -752,10 +777,10 @@ ylabel</p>
 <p>yields</p>
 <img alt="_images/mspectrum_spectrumPlot_fe.png" class="align-center" src="_images/mspectrum_spectrumPlot_fe.png" />
 <p>another example</p>
-</section>
-</section>
-<section id="using-differential-emission-measures-dem">
-<h2>Using differential emission measures (DEM)<a class="headerlink" href="#using-differential-emission-measures-dem" title="Link to this heading">¶</a></h2>
+</div>
+</div>
+<div class="section" id="using-differential-emission-measures-dem">
+<h2>Using differential emission measures (DEM)<a class="headerlink" href="#using-differential-emission-measures-dem" title="Permalink to this headline">¶</a></h2>
 <p>Beginning with CHIANTI version 14.1, the io.demRead function has been added to read dem file in the existing XUVTOP/dem directory</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">demDir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;XUVTOP&#39;</span><span class="p">],</span> <span class="s1">&#39;dem&#39;</span><span class="p">)</span>
 <span class="n">demList</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">demDir</span><span class="p">)</span>
@@ -795,11 +820,11 @@ ylabel</p>
 <span class="n">core</span> <span class="o">=</span> <span class="mi">6</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s3</span> <span class="o">=</span> <span class="n">ch</span><span class="o">.</span><span class="n">mspectrum</span><span class="p">(</span><span class="n">flTemp</span><span class="p">,</span> <span class="n">flDens</span><span class="p">,</span> <span class="n">wvl</span><span class="p">,</span> <span class="nb">filter</span> <span class="o">=</span> <span class="p">(</span><span class="n">chfilters</span><span class="o">.</span><span class="n">gaussian</span><span class="p">,</span><span class="mf">.015</span><span class="p">),</span> <span class="n">em</span><span class="o">=</span><span class="n">flEm</span><span class="p">,</span> <span class="n">minAbund</span><span class="o">=</span><span class="mf">1.e-5</span><span class="p">,</span> <span class="n">proc</span><span class="o">=</span><span class="n">core</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s3</span> <span class="o">=</span> <span class="n">ch</span><span class="o">.</span><span class="n">mspectrum</span><span class="p">(</span><span class="n">flTemp</span><span class="p">,</span> <span class="n">flDens</span><span class="p">,</span> <span class="n">wvl</span><span class="p">,</span> <span class="nb">filter</span> <span class="o">=</span> <span class="p">(</span><span class="n">chfilters</span><span class="o">.</span><span class="n">gaussian</span><span class="p">,</span><span class="o">.</span><span class="mi">015</span><span class="p">),</span> <span class="n">em</span><span class="o">=</span><span class="n">flEm</span><span class="p">,</span> <span class="n">minAbund</span><span class="o">=</span><span class="mf">1.e-5</span><span class="p">,</span> <span class="n">proc</span><span class="o">=</span><span class="n">core</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
-<section id="save-the-calculations">
-<h3>save the calculations<a class="headerlink" href="#save-the-calculations" title="Link to this heading">¶</a></h3>
+<div class="section" id="save-the-calculations">
+<h3>save the calculations<a class="headerlink" href="#save-the-calculations" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">saveName</span> <span class="o">=</span> <span class="s1">&#39;mspectrum3_dem.pkl&#39;</span>
 <span class="n">s3</span><span class="o">.</span><span class="n">saveData</span><span class="p">(</span><span class="n">saveName</span><span class="p">)</span>
 </pre></div>
@@ -840,9 +865,9 @@ ylabel</p>
 </div>
 <p>produces</p>
 <img alt="_images/mspectrum_spectrumPlot_4_9.png" class="align-center" src="_images/mspectrum_spectrumPlot_4_9.png" />
-</section>
-<section id="with-the-redux-class-the-save-calculations-can-be-restored">
-<h3>With the redux class, the save calculations can be restored<a class="headerlink" href="#with-the-redux-class-the-save-calculations-can-be-restored" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="with-the-redux-class-the-save-calculations-can-be-restored">
+<h3>With the redux class, the save calculations can be restored<a class="headerlink" href="#with-the-redux-class-the-save-calculations-can-be-restored" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s3r</span> <span class="o">=</span> <span class="n">ch</span><span class="o">.</span><span class="n">redux</span><span class="p">(</span><span class="n">saveName</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -851,9 +876,9 @@ ylabel</p>
 </pre></div>
 </div>
 <img alt="_images/mspectrum_spectrumPlot_6_7.png" class="align-center" src="_images/mspectrum_spectrumPlot_6_7.png" />
-</section>
-<section id="the-multiple-processor-ipymspectrum-class">
-<h3>The multiple processor ipymspectrum class<a class="headerlink" href="#the-multiple-processor-ipymspectrum-class" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="the-multiple-processor-ipymspectrum-class">
+<h3>The multiple processor ipymspectrum class<a class="headerlink" href="#the-multiple-processor-ipymspectrum-class" title="Permalink to this headline">¶</a></h3>
 <p>next, we will use the ipymspectrum class.  First, it is necessary to start up the cluster.  In some shell</p>
 <p>&gt; ipcluster start   –n=4</p>
 <p>or, if you are using Python3</p>
@@ -866,7 +891,7 @@ ylabel</p>
 <span class="n">emeasure</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.e+27</span> <span class="p">,</span><span class="mf">1.e+27</span><span class="p">]</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">ch</span><span class="o">.</span><span class="n">ipymspectrum</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">dens</span><span class="p">,</span> <span class="n">wvl</span><span class="p">,</span> <span class="nb">filter</span> <span class="o">=</span> <span class="p">(</span><span class="n">chfilters</span><span class="o">.</span><span class="n">gaussian</span><span class="p">,</span><span class="mf">.2</span><span class="p">),</span> \
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">ch</span><span class="o">.</span><span class="n">ipymspectrum</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">dens</span><span class="p">,</span> <span class="n">wvl</span><span class="p">,</span> <span class="nb">filter</span> <span class="o">=</span> <span class="p">(</span><span class="n">chfilters</span><span class="o">.</span><span class="n">gaussian</span><span class="p">,</span><span class="o">.</span><span class="mi">2</span><span class="p">),</span> \
   <span class="n">em</span> <span class="o">=</span> <span class="n">emeasure</span><span class="p">,</span> <span class="n">doContinuum</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">minAbund</span><span class="o">=</span><span class="mf">1.e-5</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -888,7 +913,7 @@ ylabel</p>
 <span class="n">wvl</span> <span class="o">=</span> <span class="mf">10.</span> <span class="o">+</span> <span class="mf">0.005</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2001</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">ch</span><span class="o">.</span><span class="n">ipymspectrum</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">dens</span><span class="p">,</span> <span class="n">wvl</span><span class="p">,</span> <span class="nb">filter</span> <span class="o">=</span> <span class="p">(</span><span class="n">chfilters</span><span class="o">.</span><span class="n">gaussian</span><span class="p">,</span><span class="mf">.015</span><span class="p">),</span> \
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">ch</span><span class="o">.</span><span class="n">ipymspectrum</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">dens</span><span class="p">,</span> <span class="n">wvl</span><span class="p">,</span> <span class="nb">filter</span> <span class="o">=</span> <span class="p">(</span><span class="n">chfilters</span><span class="o">.</span><span class="n">gaussian</span><span class="p">,</span><span class="o">.</span><span class="mi">015</span><span class="p">),</span> \
   <span class="n">elementList</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;fe&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -898,7 +923,7 @@ ylabel</p>
 <p>produces</p>
 <img alt="_images/spectrum_10_20.png" class="align-center" src="_images/spectrum_10_20.png" />
 <p>It is also possible to specify a selection of ions by means of the <em>ionList</em> keyword, for example, <em>ionList=[‘fe_11’,’fe_12’,’fe_13’]</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s2</span> <span class="o">=</span> <span class="n">ch</span><span class="o">.</span><span class="n">ipymspectrum</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">dens</span><span class="p">,</span> <span class="n">wvl</span><span class="p">,</span> <span class="nb">filter</span> <span class="o">=</span> <span class="p">(</span><span class="n">chfilters</span><span class="o">.</span><span class="n">gaussian</span><span class="p">,</span><span class="mf">.2</span><span class="p">),</span> \
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s2</span> <span class="o">=</span> <span class="n">ch</span><span class="o">.</span><span class="n">ipymspectrum</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">dens</span><span class="p">,</span> <span class="n">wvl</span><span class="p">,</span> <span class="nb">filter</span> <span class="o">=</span> <span class="p">(</span><span class="n">chfilters</span><span class="o">.</span><span class="n">gaussian</span><span class="p">,</span><span class="o">.</span><span class="mi">2</span><span class="p">),</span> \
   <span class="n">em</span> <span class="o">=</span> <span class="n">emeasure</span><span class="p">,</span> <span class="n">doContinuum</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">keepIons</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">elementList</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;si&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -922,7 +947,7 @@ ylabel</p>
 <span class="n">density</span> <span class="o">=</span> <span class="mf">1.e+9</span>
 <span class="n">em</span> <span class="o">=</span> <span class="mf">1.e+27</span>
 <span class="n">wvl</span> <span class="o">=</span> <span class="mf">1.84</span> <span class="o">+</span> <span class="mf">0.0001</span><span class="o">*</span><span class="n">arange</span><span class="p">(</span><span class="mi">601</span><span class="p">)</span>
-<span class="n">s4</span> <span class="o">=</span> <span class="n">ch</span><span class="o">.</span><span class="n">ipymspectrum</span><span class="p">(</span><span class="n">temperature</span><span class="p">,</span> <span class="n">density</span> <span class="p">,</span><span class="n">wvl</span><span class="p">,</span> <span class="nb">filter</span> <span class="o">=</span> <span class="p">(</span><span class="n">chfilters</span><span class="o">.</span><span class="n">gaussian</span><span class="p">,</span><span class="mf">.0003</span><span class="p">),</span> \
+<span class="n">s4</span> <span class="o">=</span> <span class="n">ch</span><span class="o">.</span><span class="n">ipymspectrum</span><span class="p">(</span><span class="n">temperature</span><span class="p">,</span> <span class="n">density</span> <span class="p">,</span><span class="n">wvl</span><span class="p">,</span> <span class="nb">filter</span> <span class="o">=</span> <span class="p">(</span><span class="n">chfilters</span><span class="o">.</span><span class="n">gaussian</span><span class="p">,</span><span class="o">.</span><span class="mi">0003</span><span class="p">),</span> \
   <span class="n">doContinuum</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">minAbund</span><span class="o">=</span><span class="mf">1.e-5</span><span class="p">,</span> <span class="n">em</span><span class="o">=</span><span class="n">em</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -932,10 +957,10 @@ ylabel</p>
 <p>produces</p>
 <img alt="_images/spectrum_2e7_1.84_1.90.png" class="align-center" src="_images/spectrum_2e7_1.84_1.90.png" />
 <p>There are two demo notebooks, spectrum_demo.ipynb and spectrum_demo_2.ipynb in the jupyter_notebooks directory on github.</p>
-</section>
-</section>
-<section id="radiative-loss-rate">
-<h2>Radiative loss rate<a class="headerlink" href="#radiative-loss-rate" title="Link to this heading">¶</a></h2>
+</div>
+</div>
+<div class="section" id="radiative-loss-rate">
+<h2>Radiative loss rate<a class="headerlink" href="#radiative-loss-rate" title="Permalink to this headline">¶</a></h2>
 <p>the radiative loss rate can be calculated as a function of temperature and density.  If all elements are included, the calculation can take some time.  So, for a shorter example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">temp</span> <span class="o">=</span> <span class="mf">10.</span><span class="o">**</span><span class="p">(</span><span class="mf">4.</span><span class="o">+</span><span class="mf">0.05</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">81</span><span class="p">))</span>
 <span class="n">dens</span> <span class="o">=</span> <span class="mf">1.e+9</span>
@@ -1035,12 +1060,12 @@ of the radiation loss</p>
 </div>
 <p>produces</p>
 <img alt="_images/rl_phot_coronal_1m5.png" class="align-center" src="_images/rl_phot_coronal_1m5.png" />
-</section>
-<section id="jupyter-notebooks">
-<h2>Jupyter Notebooks<a class="headerlink" href="#jupyter-notebooks" title="Link to this heading">¶</a></h2>
+</div>
+<div class="section" id="jupyter-notebooks">
+<h2>Jupyter Notebooks<a class="headerlink" href="#jupyter-notebooks" title="Permalink to this headline">¶</a></h2>
 <p>There are 9 jupyter notebooks in the <a class="reference external" href="https://github.com/chianti-atomic/ChiantiPy/tree/master/jupyter_notebooks">jupyter_notebooks</a> directory that demonstrate the capabilities of ChiantyPy together with the CHIANTI database.  There is also a README.txt file that provides a short explanation of the notebooks.</p>
-<section id="a-summary-of-the-notebooks">
-<h3>A summary of the notebooks<a class="headerlink" href="#a-summary-of-the-notebooks" title="Link to this heading">¶</a></h3>
+<div class="section" id="a-summary-of-the-notebooks">
+<h3>A summary of the notebooks<a class="headerlink" href="#a-summary-of-the-notebooks" title="Permalink to this headline">¶</a></h3>
 <p>This directory contains 9 Jupyter IPython notebooks that demonstrate some of the ways to use ChiantiPy and the CHIANTI database</p>
 <p>QuickStart.ipynb - a notebook that generally follows the Quick-Start guide in the docs</p>
 <p>A demo of the bunch class is found in:  bunch_demo.ipynb</p>
@@ -1053,64 +1078,39 @@ of the radiation loss</p>
 <p>The next notebook to run is:  3_fe_13_demo_chi2_search.ipynb – This performs a brute force chi-squared search over the density range and finds the best fit density and emission measure.  These best values are then inserted into the model, a prediction made and compared with the observations.</p>
 <p>The next notebook to run is:  4_fe_13_demo_mcmc.ipynb – This performs a MCMC analysis of the spectra to determine the most likely density and emission measure from an analysis of the trace.  The trace is also save for futher analysis.</p>
 <p>The next notebook to run is:  5_fe_13_demo_mcmc_trace_analyze.ipynb – the load the trace so that it can be re-analyzed</p>
-</section>
-<section id="quickstart-ipynb">
-<h3>QuickStart.ipynb<a class="headerlink" href="#quickstart-ipynb" title="Link to this heading">¶</a></h3>
-</section>
-<section id="bunch-demo-ipynb">
-<h3>bunch_demo.ipynb<a class="headerlink" href="#bunch-demo-ipynb" title="Link to this heading">¶</a></h3>
-</section>
-<section id="spectrum-demo-ipynb">
-<h3>spectrum_demo.ipynb<a class="headerlink" href="#spectrum-demo-ipynb" title="Link to this heading">¶</a></h3>
-</section>
-<section id="spectrum-demo-2-ipynb">
-<h3>spectrum_demo_2.ipynb<a class="headerlink" href="#spectrum-demo-2-ipynb" title="Link to this heading">¶</a></h3>
-</section>
-<section id="fe-13-demo-make-match-ipynb">
-<h3>1_fe_13_demo_make_match.ipynb<a class="headerlink" href="#fe-13-demo-make-match-ipynb" title="Link to this heading">¶</a></h3>
-</section>
-<section id="fe-13-demo-check-model-ipynb">
-<h3>2_fe_13_demo_check_model.ipynb<a class="headerlink" href="#fe-13-demo-check-model-ipynb" title="Link to this heading">¶</a></h3>
-</section>
-<section id="fe-13-demo-chi2-search-ipynb">
-<h3>3_fe_13_demo_chi2_search.ipynb<a class="headerlink" href="#fe-13-demo-chi2-search-ipynb" title="Link to this heading">¶</a></h3>
-</section>
-<section id="fe-13-demo-mcmc-ipynb">
-<h3>4_fe_13_demo_mcmc.ipynb<a class="headerlink" href="#fe-13-demo-mcmc-ipynb" title="Link to this heading">¶</a></h3>
-</section>
-<section id="fe-13-demo-mcmc-trace-analyze-ipynb">
-<h3>5_fe_13_demo_mcmc_trace_analyze.ipynb<a class="headerlink" href="#fe-13-demo-mcmc-trace-analyze-ipynb" title="Link to this heading">¶</a></h3>
-</section>
-</section>
-</section>
-
-
-            <div class="clearer"></div>
-          </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="getting_started.html"
-                          title="previous chapter">Getting started with ChiantiPy</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="tutorial.html"
-                          title="next chapter">Tutorial</a></p>
-  </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
 </div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+<div class="section" id="quickstart-ipynb">
+<h3>QuickStart.ipynb<a class="headerlink" href="#quickstart-ipynb" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="bunch-demo-ipynb">
+<h3>bunch_demo.ipynb<a class="headerlink" href="#bunch-demo-ipynb" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="spectrum-demo-ipynb">
+<h3>spectrum_demo.ipynb<a class="headerlink" href="#spectrum-demo-ipynb" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="spectrum-demo-2-ipynb">
+<h3>spectrum_demo_2.ipynb<a class="headerlink" href="#spectrum-demo-2-ipynb" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="fe-13-demo-make-match-ipynb">
+<h3>1_fe_13_demo_make_match.ipynb<a class="headerlink" href="#fe-13-demo-make-match-ipynb" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="fe-13-demo-check-model-ipynb">
+<h3>2_fe_13_demo_check_model.ipynb<a class="headerlink" href="#fe-13-demo-check-model-ipynb" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="fe-13-demo-chi2-search-ipynb">
+<h3>3_fe_13_demo_chi2_search.ipynb<a class="headerlink" href="#fe-13-demo-chi2-search-ipynb" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="fe-13-demo-mcmc-ipynb">
+<h3>4_fe_13_demo_mcmc.ipynb<a class="headerlink" href="#fe-13-demo-mcmc-ipynb" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="fe-13-demo-mcmc-trace-analyze-ipynb">
+<h3>5_fe_13_demo_mcmc_trace_analyze.ipynb<a class="headerlink" href="#fe-13-demo-mcmc-trace-analyze-ipynb" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+</div>
+
+
+          </div>
         </div>
       </div>
       <div class="clearer"></div>
@@ -1130,8 +1130,7 @@ of the radiation loss</p>
         <li class="right" >
           <a href="getting_started.html" title="Getting started with ChiantiPy"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">ChiantiPy 0.15.1 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Quick Start</a></li> 
+        <li class="nav-item nav-item-0"><a href="index.html">ChiantiPy 0.15.1 documentation</a> &#187;</li> 
       </ul>
     </div>
 <div style="padding: 20px 10px 10px 40px; background-color: #fff8d3; text-align: left;">
@@ -1140,8 +1139,8 @@ of the radiation loss</p>
 </div>
     
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2023, Ken Dere.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+        &#169; Copyright 2023, Ken Dere.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
 
   </body>

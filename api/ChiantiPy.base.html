@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta charset="utf-8" />
     <title>ChiantiPy.base package &#8212; ChiantiPy 0.15.1 documentation</title>
@@ -83,7 +83,7 @@ classes. Mostly printing, plotting and saving routines.</p>
 <dl class="class">
 <dt id="ChiantiPy.base._IonTrails.ionTrails">
 <em class="property">class </em><code class="sig-prename descclassname">ChiantiPy.base._IonTrails.</code><code class="sig-name descname">ionTrails</code><a class="headerlink" href="#ChiantiPy.base._IonTrails.ionTrails" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Base class for <cite>ChiantiPy.core.ion</cite> and <cite>ChiantiPy.core.spectrum</cite></p>
 <dl class="method">
 <dt id="ChiantiPy.base._IonTrails.ionTrails.argCheck">
@@ -173,11 +173,11 @@ not, calls the <cite>intensity</cite> method.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Keyword Arguments</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>wvlRange</strong> (<em>2 element tuple</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a><em> or </em><em>array determines the wavelength range to plot</em>) – </p></li>
+<li><p><strong>wvlRange</strong> (<em>2 element tuple</em><em>, </em><em>list</em><em> or </em><em>array determines the wavelength range to plot</em>) – </p></li>
 <li><p><strong>index</strong> (<em>integer</em>) – specified which value of the temperature array or eDensity array to use.
 default (index=-1) sets the specified value to the middle of the array</p></li>
 <li><p><strong>top</strong> (<em>integer</em>) – specifies to plot only the top strongest lines, default = 10</p></li>
-<li><p><strong>linLog</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – default(‘lin’) produces a plot where the intensity scale is linear
+<li><p><strong>linLog</strong> (<em>str</em>) – default(‘lin’) produces a plot where the intensity scale is linear
 if set to ‘log’, produces a plot where the intensity scale is logarithmic</p></li>
 <li><p><strong>relative</strong> (<em>= True specifies whether to normalize to strongest line</em>) – default (relative = False) specified that the intensities should be their calculated
 values</p></li>
@@ -240,7 +240,7 @@ str/unicode:  the plot is saved to the file names ‘outFile’</p>
 <dl class="class">
 <dt id="ChiantiPy.base._SpecTrails.specTrails">
 <em class="property">class </em><code class="sig-prename descclassname">ChiantiPy.base._SpecTrails.</code><code class="sig-name descname">specTrails</code><a class="headerlink" href="#ChiantiPy.base._SpecTrails.specTrails" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>a collection of methods for use in spectrum calculations</p>
 <dl class="method">
 <dt id="ChiantiPy.base._SpecTrails.specTrails.ionGate">
@@ -271,7 +271,7 @@ the list is a dictionary self.Todo</p>
 <code class="sig-name descname">restoreData</code><span class="sig-paren">(</span><em class="sig-param">filename</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.base._SpecTrails.specTrails.restoreData" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – filename where the pickle file of the saved data to be loaded</p>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – filename where the pickle file of the saved data to be loaded</p>
 </dd>
 </dl>
 </dd></dl>
@@ -281,7 +281,7 @@ the list is a dictionary self.Todo</p>
 <code class="sig-name descname">saveData</code><span class="sig-paren">(</span><em class="sig-param">filename</em>, <em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#ChiantiPy.base._SpecTrails.specTrails.saveData" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – filename where the pickle file of the saved data will be stored</p>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – filename where the pickle file of the saved data will be stored</p>
 </dd>
 </dl>
 <p>following running a multi-ion calculation (bunch, spectrum, mspectrum, ipymspectrum, radloss,
@@ -295,7 +295,7 @@ save the calculation as a dictionary to a pickle file</p>
 <dl class="field-list simple">
 <dt class="field-odd">Keyword Arguments</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>wvlRange</strong> (<em>2 element tuple</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><em>list</em></a><em> or </em><em>array determines the wavelength range to plot</em>) – </p></li>
+<li><p><strong>wvlRange</strong> (<em>2 element tuple</em><em>, </em><em>list</em><em> or </em><em>array determines the wavelength range to plot</em>) – </p></li>
 <li><p><strong>index</strong> (<cite>int</cite>) – selects the temperature of the calculated spectrum</p></li>
 <li><p><strong>integrated</strong> (<cite>bool</cite>) – if True, plots the integrated/summed spectrum</p></li>
 <li><p><strong>saveFile</strong> (<cite>bool</cite>, <cite>str</cite>) – if set, saves the plot to ‘saveFile’</p></li>

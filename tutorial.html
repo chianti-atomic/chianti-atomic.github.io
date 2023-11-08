@@ -1,16 +1,18 @@
+
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="./">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-
     <title>Tutorial &#8212; ChiantiPy 0.15.1 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinxdoc.css?v=d11682b4" />
-    <script src="_static/documentation_options.js?v=4befc426"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="ChiantiPy’s API documentation" href="api/index.html" />
@@ -38,24 +40,43 @@
         <li class="right" >
           <a href="quick_start.html" title="Quick Start"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">ChiantiPy 0.15.1 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Tutorial</a></li> 
+        <li class="nav-item nav-item-0"><a href="index.html">ChiantiPy 0.15.1 documentation</a> &#187;</li> 
       </ul>
-    </div>  
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="quick_start.html"
+                        title="previous chapter">Quick Start</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="api/index.html"
+                        title="next chapter">ChiantiPy’s API documentation</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="tutorial">
-<h1>Tutorial<a class="headerlink" href="#tutorial" title="Link to this heading">¶</a></h1>
-<section id="the-chiantipy-approach">
-<h2>The ChiantiPy Approach<a class="headerlink" href="#the-chiantipy-approach" title="Link to this heading">¶</a></h2>
+  <div class="section" id="tutorial">
+<h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-chiantipy-approach">
+<h2>The ChiantiPy Approach<a class="headerlink" href="#the-chiantipy-approach" title="Permalink to this headline">¶</a></h2>
 <p>Python is a modern, object-oriented programming language.  It provides a number of features that are useful to the programmer and the end user, such as, classes with methods (function-like) and attributes (data), and functions, among other things.  ChiantiPy has been constructed so that the primary means to calculate the spectral properties of ions and groups of ions is by way of Python classes.</p>
 <p>More detailed information can be found in the <strong>API</strong> Reference.</p>
-<section id="chiantipy-classes">
-<h3>ChiantiPy Classes<a class="headerlink" href="#chiantipy-classes" title="Link to this heading">¶</a></h3>
+<div class="section" id="chiantipy-classes">
+<h3>ChiantiPy Classes<a class="headerlink" href="#chiantipy-classes" title="Permalink to this headline">¶</a></h3>
 <p>There are 7 basic classes that are provided by ChiantiPy.</p>
 <blockquote>
 <div><p><strong>ion</strong></p>
@@ -89,9 +110,9 @@
 <p>it is also possible to calculate the ionization equilibria of an individual element using the ionization and recombination rates in the CHIANTI database.  The results of this calculation can also be plotted agains existing calculations in the CHIANTI $XUVTOP/ioneq directory.</p>
 </div></blockquote>
 </div></blockquote>
-</section>
-<section id="chiantipy-classes-methods-and-attributes">
-<h3>ChiantiPy Classes, Methods and Attributes<a class="headerlink" href="#chiantipy-classes-methods-and-attributes" title="Link to this heading">¶</a></h3>
+</div>
+<div class="section" id="chiantipy-classes-methods-and-attributes">
+<h3>ChiantiPy Classes, Methods and Attributes<a class="headerlink" href="#chiantipy-classes-methods-and-attributes" title="Permalink to this headline">¶</a></h3>
 <p>Each of the ChiantiPy classes listed above has a number of methods for calculating various properties.  The results of these calculations are stored as attributes of the class that has been instantiatied (created).  In Python, all objects, which includes everything in Python, have introspection so that all methods and attributes can be discovered and used.  The IPython terminal and the Jupyter qtconsole both provide their own methods of easily displaying the methods and attributes.</p>
 <p>Some methods in each class are more useful to the user than others.  For example, below the populate() method is demonstrated below.  However, it is generally not necessary for the user to use the populate() method.  Methods that need the ion population will make use that the Population attribute is available and, if not, use the populate() method to create it.</p>
 <p>Below, the methods that are most likely of interest to users are listed below.  All of the available methods are presented and documented in the API section, a part of the ChiantiPy documentation.</p>
@@ -192,10 +213,10 @@
 <div><p>the ipymspectrum behaves in the same way as the <strong>spectrum</strong> class except that it invokes the IPython ipyparallel module so that the calculations are made using a specified number of cpu cores.  <strong>ipymspectrum</strong> can only be used in the IPython terminal or the Jupyter qtconsole or notebook.</p>
 </div></blockquote>
 </div></blockquote>
-</section>
-</section>
-<section id="the-ion-class-basic-properties">
-<h2>The ion class, basic properties<a class="headerlink" href="#the-ion-class-basic-properties" title="Link to this heading">¶</a></h2>
+</div>
+</div>
+<div class="section" id="the-ion-class-basic-properties">
+<h2>The ion class, basic properties<a class="headerlink" href="#the-ion-class-basic-properties" title="Permalink to this headline">¶</a></h2>
 <p>Bring up a Python session, or better yet, an IPython session</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ChiantiPy.core</span> <span class="k">as</span> <span class="nn">ch</span>
 <span class="n">fe14</span> <span class="o">=</span> <span class="n">ch</span><span class="o">.</span><span class="n">ion</span><span class="p">(</span><span class="s1">&#39;fe_14&#39;</span><span class="p">,</span> <span class="n">setup</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -281,36 +302,11 @@
 </div>
 <p>gives the population of the first 5 of 739 levels of Fe XIV at a temperature of 2.00e+6</p>
 <p>to be continued</p>
-</section>
-</section>
-
-
-            <div class="clearer"></div>
-          </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="quick_start.html"
-                          title="previous chapter">Quick Start</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="api/index.html"
-                          title="next chapter">ChiantiPy’s API documentation</a></p>
-  </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
 </div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+</div>
+
+
+          </div>
         </div>
       </div>
       <div class="clearer"></div>
@@ -330,8 +326,7 @@
         <li class="right" >
           <a href="quick_start.html" title="Quick Start"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">ChiantiPy 0.15.1 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Tutorial</a></li> 
+        <li class="nav-item nav-item-0"><a href="index.html">ChiantiPy 0.15.1 documentation</a> &#187;</li> 
       </ul>
     </div>
 <div style="padding: 20px 10px 10px 40px; background-color: #fff8d3; text-align: left;">
@@ -340,8 +335,8 @@
 </div>
     
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2023, Ken Dere.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+        &#169; Copyright 2023, Ken Dere.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
 
   </body>
